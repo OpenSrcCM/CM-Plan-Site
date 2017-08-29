@@ -1,0 +1,109 @@
+#!/bin/bash
+##################################################################################################
+# package-deploy.bsh
+#
+# Written by Andy Wallace 2017/08/28; last updated 2017/08/28
+#
+# This script creates a package for pushing to
+# the apache server html directory on a linux system with apache. 
+#
+# This script is designed to be run from the repo app/bin directory. It requires an
+# existing deploy directory at the top of the Git repo work area.
+#
+# After this script executes, the following package is created:
+#   /deploy/p-CFX-EMM-SYS-Git-M.m.I.gz
+#      Notes:
+#         M - Major release increment/ID
+#         m - Minor release increment/ID
+#         I - GitHub issue number (0 indicates production release)
+#
+#   This package is designed to create and populate the /var/www/html directory
+#   on the linux apache server. It also provide the vagrantfile and bootstrap.sh files
+#   in the [repo]/deploy directory for creating the VM system.
+#
+#   Deployment procedure using Vagrant:
+#
+#    1. Run this script to prepare deployment package in [repo]/deploy directory.
+#         NOTE: The [repo]/deploy directory is where vagrantfile is run from.
+#    2. Untar the deployment package prepared by this script in the [repo]/deploy directory.
+#          $ tar xfz $ThisRepo-$Major.$Minor.$Issue.gz
+#    3. Run "vagrant up" to create website on VM guest system.
+#         NOTE: The bootstrap.sh called by vagrant completes the VM install of this website.
+#
+#  Dependencies:
+#
+#     This script requires a repo work area /deploy directory with full capability to
+#     create and remove files and directories in.
+# 
+##################################################################################################
+
+################################################################################
+# Script configuration variables
+################################################################################
+DeployDir="deploy"
+# TargetTarDir="../../"
+ThisScript="package-deploy.bsh"
+ThisRepo="CM-Plan-Site"
+
+################################################################################
+# Process script arguments
+################################################################################
+if [ "$#" -eq "0" ]; then echo ""
+      echo "Invalid argument set. For help execute " $ThisScript " -h"
+      echo ""
+      echo "ERROR - No argument supplied."
+      exit 1
+fi
+
+if [ "$#" -ge "1" ]; then
+   echo "`date +%c` Validate arguments ..."
+   elif [ "$#" -gt "3" ]; then
+      echo ""
+      echo "Invalid argument set. For help execute " $ThisScript " -h"
+      echo ""
+      echo "ERROR - Too many arguments supplied."
+      exit 1
+   elif [ "$#" -lt "3" ]; then
+      echo ""
+      echo "Invalid argument set. For help execute " $ThisScript " -h"
+      echo ""
+      echo "ERROR - Invalid number of arguments supplied."
+      exit 1
+fi
+
+if [ "$1" == "-h" ]; then
+   echo ""
+   echo "$ThisScript -h|[ Major Minor churn ]" 
+   echo ""
+   echo "   -h          -> Prints this help text."
+   echo ""
+   echo "   Major -> Release Major number for this $ThisRepo repo deployment."
+   echo ""
+   echo "   Minor -> Release Minor number for this $ThisRepo repo deployment."
+   echo ""
+   echo "   Issue -> GitHub issue number for this $ThisRepo repo deployment."
+   echo ""
+   exit 1
+else
+   Major="$1"
+   Minor="$2"
+   Issue="$3"
+fi
+
+# Test -echo arguments
+#echo "Major is " $Major
+#echo "Minor is " $Minor
+#echo "Issue # is " $Issue
+
+################################################################################
+# Create deploy package
+################################################################################
+# cd $TargetTarDir
+# mkdir $DeployDir/temp
+tar cfz $ThisRepo-$Major.$Minor.$Issue.gz *
+mv $ThisRepo-$Major.$Minor.$Issue.gz ../../deploy
+
+echo "`date +%c` Package Created at deploy/$ThisRepo-$Major.$Minor.$Issue.gz"
+
+# testing to here.
+
