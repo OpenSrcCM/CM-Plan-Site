@@ -2,7 +2,7 @@
 ##################################################################################################
 # package-deploy.bsh
 #
-# Written by Andy Wallace 2017/08/28; last updated 2017/08/28
+# Written by Andy Wallace 2017/08/28; last updated 2017/09/02
 #
 # This script creates a package for pushing to
 # the apache server html directory on a linux system with apache. 
@@ -41,7 +41,7 @@
 # Script configuration variables
 ################################################################################
 DeployDir="deploy"
-# TargetTarDir="../../"
+TargetTarDir="../../"
 ThisScript="package-deploy.bsh"
 ThisRepo="CM-Plan-Site"
 
@@ -98,12 +98,36 @@ fi
 ################################################################################
 # Create deploy package
 ################################################################################
-# cd $TargetTarDir
-# mkdir $DeployDir/temp
+# Tar work area
+cd $TargetTarDir
 tar cfz $ThisRepo-$Major.$Minor.$Issue.gz *
-mv $ThisRepo-$Major.$Minor.$Issue.gz ../../deploy
+# Clean tar up for deploy deltas only
+cd app/bin
+mkdir temp
+mv $TargetTarDir/$ThisRepo-$Major.$Minor.$Issue.gz temp/
+cd temp
+tar xfz $ThisRepo-$Major.$Minor.$Issue.gz
+rm -r deploy/
+rm *.gz
+cd app/bin
+rm package-deploy.bsh
+tar cfz html-deploy.gz html/
+rm -r html/
+tar cfz $ThisRepo-$Major.$Minor.$Issue.gz *
+# clean up deploy directory from previous deployment (1st way)
+rm ../../../../../deploy/bootstrap.sh
+rm ../../../../../deploy/vagrantfile
+# Prepare deployment for install
+mv $ThisRepo-$Major.$Minor.$Issue.gz ../../../../../deploy/
+cd ../../../../../deploy
+tar xfz $ThisRepo-$Major.$Minor.$Issue.gz
+tar xfz html-deploy.gz
+rm html-deploy.gz
+# Cleanup deployment work directories
+cd ../app/bin
+rm -r temp
+# testing to here.
 
 echo "`date +%c` Package Created at deploy/$ThisRepo-$Major.$Minor.$Issue.gz"
 
-# testing to here.
 

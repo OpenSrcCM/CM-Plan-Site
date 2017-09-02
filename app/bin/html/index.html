@@ -1,6 +1,6 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd"><html><head>
 <meta http-equiv="content-type" content="text/html; charset=UTF-8">
-		<title>Andy Share Site</title>
+		<title>CM Plan Site 1.0</title>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
     <!-- Bootstrap -->
@@ -14,7 +14,7 @@ body {
   font-weight: 100;
   color: #ccc;
   background: rgba(10, 24, 55, 1);
-  font-size: 16px;
+  font-size: 15px;
 }
 
 h2, h3, h4 {
@@ -71,14 +71,29 @@ h2 {
     <div class="container">
        <div class="row">
 		<div class="col-sm-6">
-    			<h2>About This Site</h2>
-	  		<p class="lead">This website is available on a limited basis for demonstration purposes.</p>
-  			<p>This is a test project not yet setup in gitHub.</p>
+    			<h2>CM Plan Site 1.0.1</h2>
+			<p class="lead">This website Hosts a generic Configuration Management (CM) Plan.</p>
+			<p>The intent is to build and maintain a site where best practices for CM Plan management are stored.</p>
+			<p>Changes to this site are used to demonstrate and experiment with Continuous Integration and Continuous Deployment (CI/CD) best practices.</p>
+			<p>In addition, the repository used to maintain this information can be used to quickly establish an internal website for CM process management and training on a Virtual Machine (VM).</p>
+			<p>Initially this site covers best practices for CI/CD of coding, building, and deployment automation.</p>
 		</div>
   		<div class="col-sm-6">
-			<h2>Tools used</h2>
-		  	<p><a href="http://httpd.apache.org/" target="_blank"><img src="images/apache_pb.gif" alt="[ Powered by Apache ]"></a> <a href="http://www.centos.org/" target="_blank"><img src="images/poweredby.png" alt="[ Powered by CentOS Linux ]" height="31" width="88"></a></p>
-			<p><a href="https://www.vagrantup.com/" target="_blank"><img src="images/vagrant.png" alt="[ Vagrant ]" height="31" width="88"></a> <a href="https://www.virtualbox.org/wiki/VirtualBox" target="_blank"><img src="images/virtualBox.png" alt="[ VirtualBox ]" height="88" width="88"></a></p>
+			<h4>Deployment Procedure:</h4>
+			<p><ul>
+				<li>~/[homepath]/CM-Plan-Site/app/bin/package-deploy.bsh M m i</li>
+				<li>~/[homepath]/CM-Plan-Site/deploy/vagrant up</li>
+			</ul></p>
+			<h4>Patch Deployment Procedure:</h4>
+			<p><ul>
+				<li>Above Deployment Procedure executed at least once
+				<li>~/[homepath]/CM-Plan-Site/app/bin/package-deploy.bsh M m i</li>
+				<li>~/[homepath]/CM-Plan-Site/deploy/vagrant provision</li>
+			</ul></p>
+			<h3>Tools used:</h3>
+		  	<p><a href="http://www.centos.org/" target="_blank"><img src="images/poweredby.png" alt="[ Powered by CentOS Linux ]" height="31" width="88"></a> <a href="http://httpd.apache.org/" target="_blank"><img src="images/apache_pb.gif" alt="[ Powered by Apache ]"></a></p>
+			<p><a href="https://git-scm.com/" target="_blank"><img src="images/git.png" alt="[ git ]" height="51.2" width="100"></a><a href="https://www.vagrantup.com/" target="_blank"><img src="images/vagrant.png" alt="[ Vagrant ]" height="31" width="88"></a> <a href="https://www.virtualbox.org/wiki/VirtualBox" target="_blank"><img src="images/virtualBox.png" alt="[ VirtualBox ]" height="75" width="75"></a><a href="http://www.asciidocfx.com/" target="_blank"><img src="images/asciidocFX.png" alt="[ AsciidocFX ]" height="88" width="88"></a></p>
+			<p><a href="https://github.com/tmux" target="_blank"><img src="images/tmux.png" alt="[ tmux ]" height="84" width="212"></a><a href="https://github.com/" targe="_blank"><img src="images/github.png" alt="[ GitHub ]"></a></p>
   		</div>
        </div>
     </div>
