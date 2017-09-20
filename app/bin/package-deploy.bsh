@@ -2,7 +2,7 @@
 ##################################################################################################
 # package-deploy.bsh
 #
-# Written by Andy Wallace 2017/08/28; last updated 2017/09/02
+# Written by Andy Wallace 2017/08/28; last updated 2017/09/19
 #
 # This script creates a package for pushing to
 # the apache server html directory on a linux system with apache. 
@@ -11,24 +11,32 @@
 # existing deploy directory at the top of the Git repo work area.
 #
 # After this script executes, the following package is created:
-#   /deploy/p-CFX-EMM-SYS-Git-M.m.I.gz
+#   /deploy/$ThisRepo-M.m.I.gz
 #      Notes:
 #         M - Major release increment/ID
 #         m - Minor release increment/ID
 #         I - GitHub issue number (0 indicates production release)
 #
 #   This package is designed to create and populate the /var/www/html directory
-#   on the linux apache server. It also provide the vagrantfile and bootstrap.sh files
+#   on the linux apache server.
+#
+#   It also provides the vagrantfile and bootstrap.sh files
 #   in the [repo]/deploy directory for creating the VM system.
+#
+#   The basis directory in app/bin is a template for an initial html5 website.
+#   It is also deployed for development purposes using vagrant.
 #
 #   Deployment procedure using Vagrant:
 #
 #    1. Run this script to prepare deployment package in [repo]/deploy directory.
 #         NOTE: The [repo]/deploy directory is where vagrantfile is run from.
-#    2. Untar the deployment package prepared by this script in the [repo]/deploy directory.
-#          $ tar xfz $ThisRepo-$Major.$Minor.$Issue.gz
 #    3. Run "vagrant up" to create website on VM guest system.
 #         NOTE: The bootstrap.sh called by vagrant completes the VM install of this website.
+#
+#    Note: If you have multiple gz files from step 1 runs, you can Untar any deployment package
+#      prepared by this script to look at different deployment releases. Execute below:
+#          $ tar xfz $ThisRepo-$Major.$Minor.$Issue.gz
+#          $ vagrant provision
 #
 #  Dependencies:
 #
@@ -40,8 +48,10 @@
 ################################################################################
 # Script configuration variables
 ################################################################################
-DeployDir="deploy"
-TargetTarDir="../../"
+TargetTarDir="server"            # from script run directory
+vagrantDir="../vagrant"          # from #TargetTarDir
+basisDir="../basis"              # from #TargetTarDir
+DeployDir="../../../deploy"      # from #TargetTarDir
 ThisScript="package-deploy.bsh"
 ThisRepo="CM-Plan-Site"
 
@@ -100,32 +110,21 @@ fi
 ################################################################################
 # Tar work area
 cd $TargetTarDir
+cp $vagrantDir/bootstrap.sh .
+cp $vagrantDir/vagrantfile .
+mkdir html/basis
+cp $basisDir/* html/basis/
 tar cfz $ThisRepo-$Major.$Minor.$Issue.gz *
-# Clean tar up for deploy deltas only
-cd app/bin
-mkdir temp
-mv $TargetTarDir/$ThisRepo-$Major.$Minor.$Issue.gz temp/
-cd temp
-tar xfz $ThisRepo-$Major.$Minor.$Issue.gz
-rm -r deploy/
-rm *.gz
-cd app/bin
-rm package-deploy.bsh
-tar cfz html-deploy.gz html/
-rm -r html/
-tar cfz $ThisRepo-$Major.$Minor.$Issue.gz *
-# clean up deploy directory from previous deployment (1st way)
-rm ../../../../../deploy/bootstrap.sh
-rm ../../../../../deploy/vagrantfile
+# clean up $TargetTarDir
+rm -r html/basis
+rm bootstrap.sh
+rm vagrantfile
 # Prepare deployment for install
-mv $ThisRepo-$Major.$Minor.$Issue.gz ../../../../../deploy/
-cd ../../../../../deploy
+mv $ThisRepo-$Major.$Minor.$Issue.gz $DeployDir/ 
+cd $DeployDir
+rm bootstrap.sh
+rm vagrantfile
 tar xfz $ThisRepo-$Major.$Minor.$Issue.gz
-tar xfz html-deploy.gz
-rm html-deploy.gz
-# Cleanup deployment work directories
-cd ../app/bin
-rm -r temp
 # testing to here.
 
 echo "`date +%c` Package Created at deploy/$ThisRepo-$Major.$Minor.$Issue.gz"
