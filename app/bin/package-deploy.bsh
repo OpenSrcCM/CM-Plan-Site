@@ -50,7 +50,6 @@
 ################################################################################
 TargetTarDir="server"            # from script run directory
 vagrantDir="../vagrant"          # from #TargetTarDir
-basisDir="../basis"              # from #TargetTarDir
 DeployDir="../../../deploy"      # from #TargetTarDir
 ThisScript="package-deploy.bsh"
 ThisRepo="CM-Plan-Site"
@@ -112,11 +111,8 @@ fi
 cd $TargetTarDir
 cp $vagrantDir/bootstrap.sh .
 cp $vagrantDir/vagrantfile .
-mkdir html/basis
-cp $basisDir/* html/basis/
 tar cfz $ThisRepo-$Major.$Minor.$Issue.gz *
 # clean up $TargetTarDir
-rm -r html/basis
 rm bootstrap.sh
 rm vagrantfile
 # Prepare deployment for install

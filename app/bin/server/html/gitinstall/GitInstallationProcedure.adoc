@@ -1,0 +1,443 @@
+
+[width="15%", frame="topbot", options="header,footer"]
+|====================
+| :toc: macro  |
+| toc::[left]  |
+|====================
+
+:hardbreaks::
+
+= Git Installation Procedure
+
+== Prerequisites
+
+* Comcast workstation/laptop with Windows 10 or 7 or Mac
+* Comcast NTLogon with admin access on workstation
+* Each EM&M user of Comcast Enterprise GitHub needs to install Git per this procedure.
+
+The intended audience for this overview is any member of the EM&M organization. This document sets the stage for all EM&M Git related processes, procedures, and documentation.
+
+[NOTE]
+====
+. This Git installation is recommended by the http://git-scm.com[Git SCM] site for http://git-scm.com/book/en/Getting-Started-Installing-Git#Installing-on-Windows[Windows Installations]. The http://git-scm.com[Git SCM] site also supports other commonly used Operating Systems. Since the EM&M Analyst primary workstation is Windows 7 or Windows 10, this is the preferred and recommended approach using openSSH.
+. There is also an ssh client you can use in place of putty. It is available from the https://wiki.sys.comcast.net/pages/viewpage.action?pageId=48759751[CM Wiki] under Standards & Policies -> Access, called https://wiki.sys.comcast.net/download/attachments/71944374/SSHSecureShellClient-3.2.9.exe?api=v2[SSHSecureShellClient-3.2.9.exe]. Install it on your workstation with the indicated defaults.
+. Another option is documented at -> http://nathanj.github.io/gitguide/about.html[An Illustrated Guide to Git on Windows]. Both this option and the option in the first note provide the same Git tools. The main difference is the second option uses putty instead of openSSH. In the Putty case, the contents of environment variable `SSH_GIT` is set to use plink.exe. This will not work for the openSSH option. _This option has not been tested by the EM&M CM team on the Windows 10 platform._
+. For none windows systems, follow the Git installation instructions for the appropriate operating system. The remainder of this document can be used for any unix or linux environment.
+. For release notes, reference file:///C:/Program%20Files/Git/ReleaseNotes.html. You'll need to cut and paste this link into your browser address window after you complete the git installation. It is a link to your workstation.
+====
+
+== Installing Git
+
+.  go to link http://git-scm.com/[git]. Depending on your workstation, you will see a section on this page that looks like one of the following image:
+
+
+* On Mac Workstations:
+
+image::images/git-install-doc/mac-git.png[]
+
+* On Windows Workstations:
+
+image::images/git-install-doc/win-git.PNG[]
+
+
+* In either case, click on the *Downloads for "Mac|Windows"* button.
+
+=== If you're on a Mac workstation, here's an example session:
+
+image::images/git-install-doc/Mac1install.png[]
+
+Downloads:
+
+image::images/git-install-doc/Mac2install.png[]
+
+Install - (click on the open button):
+
+image::images/git-install-doc/Mac3install.png[]
+
+Click on Continue button:
+
+image::images/git-install-doc/Mac4install.png[]
+
+image::images/git-install-doc/Mac5install.png[]
+
+image::images/git-install-doc/Mac6install.png[]
+
+=== If you're on a Windows workstation, here's an example session:
+
+image::images/git-install-doc/Welcome.png[]
+
+This will download a file like *_Git-2.5.1-64-bit.exe_* to your downloads directory:
+
+
+* Enter "yes" in "Allow..changes.." window. Click the *Next >* button in the following two window:
+
+image::images/git-install-doc/Welcome.png[]
+
+image::images/git-install-doc/GPL.png[]
+
+* Verify the following settings, then click the *Next >* button in the following window:
+
+image::images/git-install-doc/Select-Components.png[]
+
+* Select the third button as indicated in following window, then click the *Next >* button:
+
+image::images/git-install-doc/Third-Button.png[]
+
+* If a similar window to the following window comes up, the *Use OpenSSH* radio button is recommended. Click the *Next >* button:
+
+image::images/git-install-doc/wingit55.png[]
+
+* Select the First radio button as indicated in the following window. Click the *Next >* button:
+
+image::images/git-install-doc/Windows-style.png[]
+
+image::images/git-install-doc/Use-MinTTY.png[]
+
+image::images/git-install-doc/File-Sys-Cach-2.png[]
+
+* After the Install completes, Click on the *Finish* button as indicated in the second window below:
+
+image::images/git-install-doc/Installing.png[]
+
+image::images/git-install-doc/Finish.png[]
+
+
+== Upgrade Git
+
+Follow the same steps for Installing Git in the previous section. Note the expected version release change after you are done.
+
+== Initial Git Configurations
+
+After you have installed Git successfully, you have full Git functionality on your workstation.
+
+[green]#Be sure to use the Git Bash session you just installed for the following sections.#
+
+Try the following commands in your Git Bash window:
+
+Run '**git help git**' to display the help index in a browser window.
+Run '**git help <command>**' to deploay help for specific commands in a browser window.
+
+image::images/git-bash-session.png[]
+
+.In order to interface with the Comcast Enterprise https://github.comcast.com/[GitHub] system, the following needs to be performed:
+* Identify or Set $HOME variable on your Workstation.
+* Build and Configure SSH key Usage
+* Identify yourself in Git:
+** Name
+** email
+** Setup your default editor
+** Setup the diff tool you will use
+* Add SSH Aliases
+* Verify Git remote "origin"
+
+[NOTE]
+====
+The above bullets are covered in following sections with Links to each maintained in the "Table of Contents".
+====
+
+For details on initial setup, refer to http://git-scm.com/book/en/Getting-Started-First-Time-Git-Setup[First-Time Git setup].
+
+=== Identify the $HOME variable on Your Workstation
+
+.Mac instructions:
+. $HOME should be defined already
+
+
+.Windows 7 specific instructions:
+. Click on Start (Lower Right Windows Bubble)
+. Right Click on *Computer* and select *Properties*
+
+.Windows 10 specific instructions:
+. Right Click Windows pane (lower right) and select "System"
+
+.Common to Window 7 and Windows 10
+. Select *Advanced system settings*
+. Click on the *Environment Variables...* button on the "Advanced" tab of the System Properties window for Windows 7
+. Verify there is a *HOME* variable in the *System variables* list. This variable is referenced by SSH when supporting remote functionality with the http://emm-git1.sys.comcast.net/git/[EM&M Git System].
+.. Should be set to C:\Users\[your NTLogon].
+.. Create (New button) or adjust (edit button) the *HOME* system variable accordingly.
+
+=== Build and Configure SSH key Usage
+
+You can reference http://git-scm.com/book/en/v2/Git-on-the-Server-Generating-Your-SSH-Public-Key[Generating Your SSH Public Key] for more details on the following instructions.
+
+.Execute the following in your new Git Bash window.
+* $ ls -la ~/
+
+.If your do not have a ~/.ssh directory, create it:
+* $ mkdir c:\Users\awalla5075k\.ssh (Substitute your NTlogon for awalla5075k)
+[WARNING]
+====
+*Use the Git Bash window. Windows Explorer will not allow you to create the .ssh directory.*)
+====
+
+
+$ cd ~/.ssh  (c:\Users\awalla5075k\.ssh)
+
+* Set the ~/.ssh permissions to 740 *($ chmod -R 740 ~/.ssh)*
+* Set the file permissions in ~/.ssh to 740 *(Just verify, should be done from previous step.)*
+
+[NOTE]
+====
+Note the "~/" utilizes the workstation system *HOME* variable for your NTLogon.
+====
+
+.Generate ssh key pair using your NTLogon:
+* $ ssh-keygen -t rsa -f [Your NTLogon] (NTLogon is all lower-case, no mixed case.)
+
+[IMPORTANT]
+====
+It is recommended you enter nothing for the pass phrase.
+====
+
+.The following two files will be generated:
+* *[Your NTLogon]* -  Your *[red]#private#* key file
+* *[Your NTLogon].pub* -  Your *[green]#public#* key file
+
+[WARNING]
+====
+*Never send your private key in an email or attach it to a JIRA ticket.*
+====
+
+.Setup your ssh Key on GitHub
+. Logon to Comcast Enterprise https://github.comcast.com/[GitHub]
+. On upper-right of window select pulldown for _**View Profile and more**_
+. Select Settings
+. Under _**Personal settings**_ select _**SSH keys and GPG keys**_
+. Click on the _**New SSH key**_ button and follow instructions.
+
+[WARNING]
+====
+Your interaction with the EM&M managed remote repos will be limited until your ssh key has been setup in GitHub.
+====
+
+For more information about EM&M SSH key pairs, refer to the EM&M https://wiki.sys.comcast.net/display/EMM/SSH+Key+Usage+Policy[SSH Key Usage Policy].
+
+=== Identify Yourself in Git (Use git bash in the ~/git-repos directory)
+
+.Enter your first and last name:
+* $ git config --global user.name "Andy Wallace"
+
+.Enter your Comcast email address:
+* $ git config --global user.email Andrew_Wallace@cable.comcast.com
+
+.Setup your editor:
+* $ git config --global core.editor vim
+
+.Setup you diff tool:
+* $ git config --global merge.tool vimdiff
+
+.You can run the following command to see all of you Git settings:
+* $ git config --list
+
+[TIP]
+====
+.Verify the following values have been configured:
+. user.name
+. user.email
+. core.editor
+. merge.tool
+====
+
+.Verify your git workarea(s) on your windows workstation are on the C Drive.
+[source,asciidoc]
+----
+$ awalla5075k@CO183LCETENG08 /h
+$ cd ~/ (or cd $HOME)
+$ awalla5075k@CO183LCETENG08 ~
+$ pwd
+/c/Users/awalla5075k
+$
+----
+
+=== Add SSH Aliases
+
+To reduce typing and minimize ssh key issues, the following is done to provide ssh aliases for the EMM Git System servers. Add a config file under the \~/.ssh on your workstation for your NTLogon as follows.
+
+Edit (or create) ~/.ssh/config and add the following lines adjusted for your [blue]#NTLogon#:
+
+$ vim ~/.ssh/config
+
+[source,text]
+----
+
+################################################################
+################################################################
+### GitHub SSH Client Config file                            ###
+###                                                          ###
+### This code block required for general EMM GitHub Access.  ###
+###                                                          ###
+### Place this code block in file ~/.ssh/config on your      ###
+### workstation. If ~/.ssh/config already exists, add        ###
+### this code block to file ~/.ssh/config.                   ###
+###                                                          ###
+### DISCLAIMER:                                              ###
+###    This code block not designed to work with wildcard    ###
+###    definition for Host (Host *) in the ~/.ssh/config     ###
+###    file.                                                 ###
+###                                                          ###
+### Host cghi is Comcast GitHub Interface, the alias that    ###
+### will be used for the GitHub remote.                      ###
+###                                                          ###
+### Syntax format                                            ###
+###                                                          ###
+### Host [ssh alias names]                                   ###
+###        User [host user name]                             ###
+###        Hostname [host dns]                               ###
+###        Port 22                                           ###
+###        IdentityFile ~/.ssh/[Your NTLogon]                ###
+################################################################
+#
+# Host ghi GHI
+#         User git
+#         Hostname github.com
+#         Port 22
+#         IdentityFile ~/.ssh/"Your userid"
+#                                                            ###
+################################################################
+
+----
+
+This file allows you to enter commands like this:
+$ git clone ghi:cmguy/CM-Plan-Site
+Rather than this:
+$ git clone ssh://git@github.com/cmguy/CM-Plan-Site
+
+*You should now have three files similar to the following in your ~/.ssh directory:*
+
+[source,asciidoc]
+----
+awalla5075k@CO183LCETENG08 ~/.ssh
+$ ls -la
+total 20
+drwxr-xr-x   15 awalla50 Administ     4096 Dec  2 10:14 .
+drwxr-xr-x    1 awalla50 Administ    12288 Feb 17 12:12 ..
+-rw-r--r--    1 awalla50 Administ     1679 Dec  2 10:12 cmguy
+-rw-r--r--    1 awalla50 Administ      408 Dec  2 10:12 cmguy.pub
+-rw-r--r--    1 awalla50 Administ     1749 Jul 17  2014 config
+
+awalla5075k@CO183LCETENG08 ~/.ssh
+$
+----
+
+[TIP]
+====
+Be sure to read all comments whenever you enter git or ssh commands that interface with the EMM Git System. They usually contain some indication of what you need to enter next.
+====
+
+The first time you use your ssh key to make a connection to github, you will get some verbiage and a prompt asking to establish this connection. You need to enter "yes" at this prompt. Following is an example of this:
+
+[source,asciidoc]
+----
+# mkdir ~/git-repos and get local to it.
+awalla5075k@CO183LCETENG08 ~/git-repos
+$ ssh git@emm-git info
+The authenticity of host 'emm-git1.sys.comcast.net (172.28.98.231)' can't be established.
+RSA key fingerprint is 21:2e:ff:47:0e:36:d2:b1:70:14:13:86:82:a5:da:4b.
+Are you sure you want to continue connecting (yes/no)? yes
+Warning: Permanently added 'emm-git1.sys.comcast.net,172.28.98.231' (RSA) to the list of known
+ hosts.
+WARNING: This system is solely for the use of authorized Comcast employees and contractors.
+----
+
+Sometimes the git configuration on your workstation may be in need of adjustment. There is usually instructions on what you need to enter next. 
+
+
+Be sure to read git generated responses after git commands execute.
+
+
+do the following on your workstation in your new Git Bash Session:
+
+image::images/git-clone.png[]
+
+
+Now you have established a git repo local on your workstation from the Comcast Enterprise Github EMM organization. You can verify the git remote origin in the local copy on your workstation.
+
+The git remote `origin` should be setup for communication between your workstation repo and the Comcast Enterprise GitHub EM&M organization EMM. Reference http://gitref.org/remotes/#remote[git remote] for more details.
+
+image::images/git-remote-val.png[]
+
+If you are unable to mimic the above Git bash sessions on your workstation, review the `Add SSH Aliases` section of this document. If you are still having issues, check with your EM&M Tower leadership.
+
+== Comcast Enterprise GitHub
+
+Logon to https://github.comcast.com[Comcast Enterprise GitHub] with your NTLogon/password.
+
+[NOTE]
+====
+* After you can logged onto Comcast Enterprise https://github.comcast.com[GitHub] successfully, your userid will be available for On-boarding configuration to your EM&M Tower GitHub organization
+* For On-boarding details, reference the _**General Access**_ section in chapter 2 of the http://emm-git1.sys.comcast.net/manual/manual.pdf[CM Manual].
+====
+
+* If you do not have access, create a JIRA Ticket at the following JIRA Project. Click on the Enterprise GitHub button on the http://emm-git1.sys.comcast.net/[CM System] webpage.
+
+image::images/github-button.png[]
+
+
+* You will see a window like the following image. Click on the _**Instructions**_ link to request GitHub access. This should be all you need to do. 
+
+* If you still have any issues you can Click on the _**Ticket link**_ to open a ticket directly.
+
+image::images/github-access.png[]
+
+
+* click on the _**Create**_ button to create a Jira Ticket:
+
+image::images/github-access2.png[]
+
+
+. https://ccp.sys.comcast.net/secure/RapidBoard.jspa?rapidView=2256&projectKey=GHE[GitHub Enterprise (GHE)] JIRA Project. Issue Type is __**Account Request**__.
+... **IMPORTANT** - In order to create the JIRA ticket from the above link, you need to have logged onto the JIRA instance
+https://ccp.sys.comcast.net/ with your NTLogon/password.
+
+. For general Comcast Enterprise GitHub support, use the https://cim.slack.com/messages/C02G349N8[#github-enterprise] slack channel.
+
+
+== EM&M Git Introduction
+
+If you are new to Git, refer to the _**New to Git?**_ section of the http://emm-git1.sys.comcast.net/manual/manual.pdf[CM Manual]. This section contains links to introductory videos.
+
+=== EM&M and Comcast Enterprise GitHub
+
+There are two protected main branches in all EM&M GitHub repos, _**develop**_, and _**master**_. Reference the Branching and Merging section of chapter 2 in the http://emm-git1.sys.comcast.net/manual/manual.pdf[CM Manual] for details.
+
+.To update the _**develop**_ or _**master**_ branch, GitHub pull requests are required and need to be done by devleads. This initiates a colaborative code review session. To do this:
+. git push the branch you wish to merge
+. Do a GitHub pull request. Reference *"Show me how"* at https://services.github.com/on-demand/github-desktop/push-pull-request-github-desktop[Push to Github & Create a Pull Request] for a specific example.
+. Click on pull request and add reviewers
+. Review and address comments from reviewers
+. Merge pull request
+
+
+== Git Conflict Reporting
+
+Reporting on git merge conflicts before actually doing a merge provides a view into additional deltas that need to be considered before doing a merge.
+
+A script tool, *report-conflicts.bsh* has been prepared by EM&M CM for EM&M DevOps personnel to identify all conflicts to all main, and outstanding release branches for a given feature branch.
+[TIP]
+====
+Reference _section 1.7.1_ The EM&M Branching and Merging Workflow of the http://emm-git1.sys.comcast.net/manual/manual.pdf[EM&M CM Manual].
+====
+
+The *report-conflicts.bsh* is designed to be run from any EM&M DevOps contributor's workstation or laptop.
+
+If you are are having any issues, check with your EM&M Tower leadership.
+
+.Installation Instructions
+. Create a "bin" directory under your ~/ directory
+. Add C:\Users\awalla5075k\bin to your workstation or laptop User Variable Path. Substitute your NTLogon for awalla5075k.
+. Get local to your new bin directory and install the report-conflicts.bsh script to it.
+* cd ~/bin
+* cp ~/git-repos/CFX-EMM-SYS-Git/app/bin/report-conflicts.bsh .
+. Setup directories to be used only by the report-conflicts.bsh.
+* mkdir ~/git-repos/conflict-reports
+* mkdir ~/git-repos/conflict-reports/log
+. Open the script report-conflicts.bsh with vim and set the RepoHome variable to "/c/Users/awalla5075k/git-repos/conflict-reports" substituting your NTLogon for awalla5075k.
+. Execute the following for execution instructions:
+* report-conflicts.bsh -h
+
+[NOTE]
+====
+. Reference the *"Identify the $HOME variable on Your Workstation"* to get you to the "Environments Variables" window to update your User Variable *Path*.
+. You can install the report-conflicts.bsh script from GitHub EMM org repo directory CFX-EMM-SYS-Git/app/bin. 
+====
