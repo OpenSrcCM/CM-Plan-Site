@@ -49,6 +49,7 @@
 # Script configuration variables
 ################################################################################
 TargetTarDir="server"            # from script run directory
+basisDir="../basis"              # from #TargetTarDir
 vagrantDir="../vagrant"          # from #TargetTarDir
 DeployDir="../../../deploy"      # from #TargetTarDir
 ThisScript="package-deploy.bsh"
@@ -111,6 +112,9 @@ fi
 cd $TargetTarDir
 cp $vagrantDir/bootstrap.sh .
 cp $vagrantDir/vagrantfile .
+cd html
+cp ../$basisDir/* .
+cd ../
 tar cfz $ThisRepo-$Major.$Minor.$Issue.gz *
 # clean up $TargetTarDir
 rm bootstrap.sh
