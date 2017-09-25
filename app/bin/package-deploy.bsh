@@ -113,12 +113,13 @@ cd $TargetTarDir
 cp $vagrantDir/bootstrap.sh .
 cp $vagrantDir/vagrantfile .
 cd html
-cp ../$basisDir/* .
+cp -R ../$basisDir/* .
 cd ../
 tar cfz $ThisRepo-$Major.$Minor.$Issue.gz *
 # clean up $TargetTarDir
 rm bootstrap.sh
 rm vagrantfile
+rm -r html/images/ html/index.html html/style.css
 # Prepare deployment for install
 mv $ThisRepo-$Major.$Minor.$Issue.gz $DeployDir/ 
 cd $DeployDir

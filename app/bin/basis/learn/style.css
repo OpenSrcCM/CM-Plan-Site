@@ -1,18 +1,24 @@
-h2 {
-  width: 100%;
-  text-align: center;
+p {
+  font-size: 1.21875em;
+  line-height: 1.6;
 }
 body {
  # background-color: grey;
  # border: 2px solid #a1a1a1;
   font-family: verdana,sans-serif;
-  font-size: 0.6em; 
+  font-size: 0.8em; 
 }
 header, footer {
   border: 2px solid #a1a1a1;
   padding: 5px 15px;
-  background-color: #007acc;
+  background-color: #80b3ff;
   border-radius: 15px;
+}
+nav {
+  border: 2px solid #a1a1a1;
+  margin: 0px 10px 0px 10px;
+  background-color: #e6f3ff;
+#  border-radius: 15px;
 }
 nav ul {
   padding: 0;
@@ -23,46 +29,38 @@ nav ul li {
   text-indent: 40px;
 }
 section {
-#  width: 78%;
-  width: 76%;
-#  height: 275px;
-#  height: 550px;
+  width: 500;
   height: 554px;
   overflow-y:scroll;
   border: 2px solid #a1a1a1;
-  margin: 0px 0px 0px 10px;
-  padding: 0px 10px 0px 10px;
+  margin: 0px 10px 0px 10px;
+  padding: 0px 0px 0px 10px;
   text-indent: 5px;
-#  background-color: #80ccff;
-  background-color: #ccccff;
+  background-color: #e6f3ff;
 #  border-radius: 15px;
 }
 article {
  # width: 78%;
   width: 50%;
- # height: 275px;
   height: 150px;
  # overflow-y:scroll;
   float: right;
   border: 2px solid #a1a1a1;
- # margin: 0px 0px 0px 0px;
   margin: 0px 10px 0px 10px;
- # padding: 0px 0px 0px 0px;
   padding: 0px 10px 0px 10px;
   text-indent: 5px;
- # background-color: #80ccff;
-  background-color: #b3b3ff;
+  background-color: #b3daff;
   border-radius: 15px;
 }
 aside {
-  width: 19%;
+#  width: 10;
   height: 554px;
   float: right;
+#  position: fixed;
   border: 2px solid #a1a1a1;
   margin: 0px 10px 0px 0px;
   padding: 0px 0px 0px 0px;
   text-indent: 5px;
-#  background-color: white;
-  background-color: #b3b3ff;
+  background-color: #e6f3ff;
 #  border-radius: 15px;
 }

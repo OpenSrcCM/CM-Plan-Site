@@ -1,34 +1,64 @@
-h2 {
-  width: 100%;
-  text-align: center;
+p {
+  font-size: 1.21875em;
+  line-height: 1.6;
 }
 body {
  # background-color: grey;
  # border: 2px solid #a1a1a1;
   font-family: verdana,sans-serif;
-  font-size: 0.6em; 
+  font-size: 1.21875em;
+  line-height: 1.6;
 }
 header, footer {
   border: 2px solid #a1a1a1;
   padding: 5px 15px;
-  background-color: #007acc;
+  background-color: #80b3ff;
   border-radius: 15px;
 }
+nav {
+  border: 2px solid #a1a1a1;
+  margin: 0px 10px 0px 10px;
+  background-color: #80b3ff;
+#  border-radius: 15px;
+#  font-size: 1.2em; 
+}
 nav ul {
-  padding: 0;
-  text-indent: 40px;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #80b3ff;
 }
-nav ul li {
-  display: inline;
-  text-indent: 40px;
+
+nav li {
+    float: left;
 }
+
+nav li a {
+    display: block;
+    color: black;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+nav li a:hover:not(.active) {
+    color: white;
+    background-color: #0000ff;
+}
+
+nav .active {
+    color: black;
+    background-color: #e6f3ff;
+}
+
 section {
   width: 500;
   height: 554px;
   overflow-y:scroll;
   border: 2px solid #a1a1a1;
-  margin: 0px 0px 0px 10px;
-  padding: 0px 10px 0px 10px;
+  margin: 0px 10px 0px 10px;
+  padding: 0px 0px 0px 10px;
   text-indent: 5px;
   background-color: #e6f3ff;
 #  border-radius: 15px;
@@ -43,17 +73,18 @@ article {
   margin: 0px 10px 0px 10px;
   padding: 0px 10px 0px 10px;
   text-indent: 5px;
-  background-color: #99ceff;
+  background-color: #b3daff;
   border-radius: 15px;
 }
 aside {
-  width: 19%;
+#  width: 10;
   height: 554px;
   float: right;
+#  position: fixed;
   border: 2px solid #a1a1a1;
   margin: 0px 10px 0px 0px;
   padding: 0px 0px 0px 0px;
   text-indent: 5px;
-  background-color: #cce6ff;
+  background-color: #e6f3ff;
 #  border-radius: 15px;
 }
