@@ -119,7 +119,7 @@ tar cfz $ThisRepo-$Major.$Minor.$Issue.gz *
 # clean up $TargetTarDir
 rm bootstrap.sh
 rm vagrantfile
-rm -r html/images/ html/index.html html/style.css
+rm -r html/images/ html/index.html html/style.css html/vendor-style.css
 # Prepare deployment for install
 mv $ThisRepo-$Major.$Minor.$Issue.gz $DeployDir/ 
 cd $DeployDir

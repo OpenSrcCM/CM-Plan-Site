@@ -1,3 +1,6 @@
+h2.cntrtxt {
+  text-align: center;
+}
 p {
   font-size: 1.21875em;
   line-height: 1.6;
@@ -30,36 +33,34 @@ nav ul li {
 }
 section {
   width: 500;
-  height: 554px;
+  height: 654px;
   overflow-y:scroll;
   border: 2px solid #a1a1a1;
   margin: 0px 10px 0px 10px;
-  padding: 0px 0px 0px 10px;
+  padding: 0px 5px 0px 10px;
   text-indent: 5px;
   background-color: #e6f3ff;
 #  border-radius: 15px;
 }
 article {
- # width: 78%;
   width: 50%;
-  height: 150px;
- # overflow-y:scroll;
+  height: 25%;
+  overflow-y:scroll;
   float: right;
   border: 2px solid #a1a1a1;
   margin: 0px 10px 0px 10px;
-  padding: 0px 10px 0px 10px;
+  padding: 0px 10px 5px 10px;
   text-indent: 5px;
   background-color: #b3daff;
   border-radius: 15px;
 }
 aside {
-#  width: 10;
-  height: 554px;
   float: right;
-#  position: fixed;
+  height: 654px;
+  overflow-y:scroll;
   border: 2px solid #a1a1a1;
   margin: 0px 10px 0px 0px;
-  padding: 0px 0px 0px 0px;
+  padding: 0px 5px 0px 5px;
   text-indent: 5px;
   background-color: #e6f3ff;
 #  border-radius: 15px;

@@ -1,118 +1,16 @@
+h2.cntrtxt {
+  text-align: center;
+}
 p {
   font-size: 1.21875em;
   line-height: 1.6;
 }
-/* Begin VC adds */
-html {
-  font-family:sans-serif;
-  -ms-text-size-adjust:100%;
-  -webkit-text-size-adjust:100%;
-}
-table {
-  border-collapse:collapse;
-  border-spacing: 0;
-}
-*,*:before,*:after {
-  -moz-box-sizing:border-box;
-  -webkit-box-sizing:border-box;
-  box-sizing:border-box;
-}
-html,body {
-  font-size:100%;
-}
 body {
-  background:#fff;
-  color:rgba(0,0,0,.8);
-  padding:0;
-  margin:0;
-  font-family:"Noto Serif","DejaVu Serif",serif;
-  font-weight:400;
-  font-style:normal;
-  line-height:1;
-  position:relative;
-  cursor:auto;
+ # background-color: grey;
+ # border: 2px solid #a1a1a1;
+  font-family: verdana,sans-serif;
+  font-size: 0.8em; 
 }
-div,dl,dt,dd,ul,ol,li,h1,h2,h3,#toctitle,.sidebarblock>.content>.title,h4,h5,h6,pre,form,p,blockquote,th,td {
-  margin:0;
-  padding:0;
-  direction:ltr;
-}
-h1,h2,h3,#toctitle,.sidebarblock>.content>.title,h4,h5,h6 {
-  font-family:"Open Sans","DejaVu Sans",sans-serif;font-weight:300;
-  font-style:normal;
-  color:#ba3925;
-  text-rendering:optimizeLegibility;
-  margin-top:1em;
-  margin-bottom:.5em;
-  line-height:1.0125em;
-}
-ul,ol,dl {
-  font-size:1em;
-  line-height:1.6;
-  margin-bottom:1.25em;
-  list-style-position:outside;
-  font-family:inherit;
-}
-ul,ol,ul.no-bullet,ol.no-bullet {
-  margin-left:1.5em
-}
-@media only screen and (min-width:768px){#toctitle{font-size:1.375em}
-h1 {
-  font-size:2.5em;
-}
-.subheader,.admonitionblock td.content>.title,.audioblock>.title,.exampleblock>.title,.imageblock>.title,.listingblock>.title,.literalblock>.title,.stemblock>.title,.openblock>.title,.paragraph>.title,.quoteblock>.title,table.tableblock>.title,.verseblock>.title,.videoblock>.title,.dlist>.title,.olist>.title,.ulist>.title,.qlist>.title,.hdlist>.title {
-  line-height:1.45;
-  color:#7a2518;
-  font-weight:400;
-  margin-top:0;
-  margin-bottom:.25em;
-}
-table tr th,table tr td {
-  padding:.5625em .625em;
-  font-size:inherit;
-  color:rgba(0,0,0,.8);
-}
-#header,#content,#footnotes,#footer {
-  width:100%;margin-left:auto;
-  margin-right:auto;
-  margin-top:0;
-  margin-bottom:0;
-  max-width:62.5em; *zoom:1;
-  position:relative;
-  padding-left:.9375em;
-  padding-right:.9375em
-}
-#header>h1:only-child,body.toc2 #header>h1:nth-last-child(2) {
-  border-bottom:1px solid #ddddd8;
-  padding-bottom:8px;
-}
-#footer {
-  max-width:100%;
-  background-color:rgba(0,0,0,.8);
-  padding:1.25em;
-}
-#footer-text {
-  color:rgba(255,255,255,.8);
-  line-height:1.44;
-}
-#content h1>a.anchor,h2>a.anchor,h3>a.anchor,#toctitle>a.anchor,.sidebarblock>.content>.title>a.anchor,h4>a.anchor,h5>a.anchor,h6>a.anchor {
-  position:absolute;
-  z-index:1001;
-  width:1.5ex;
-  margin-left:-1.5ex;
-  display:block;
-  text-decoration:none!important;
-  visibility:hidden;
-  text-align:center;
-  font-weight:400;
-}
-#content h1>a.anchor:before,h2>a.anchor:before,h3>a.anchor:before,#toctitle>a.anchor:before,.sidebarblock>.content>.title>a.anchor:before,h4>a.anchor:before,h5>a.anchor:before,h6>a.anchor:before {
-  content:"\00A7";
-  font-size:.85em;
-  display:block;
-  padding-top:.1em;
-}
-/* End VC adds */
 header, footer {
   border: 2px solid #a1a1a1;
   padding: 5px 15px;
@@ -158,36 +56,34 @@ nav .active {
 
 section {
   width: 500;
-  height: 754px;
+  height: 654px;
   overflow-y:scroll;
   border: 2px solid #a1a1a1;
   margin: 0px 10px 0px 10px;
-  padding: 0px 0px 0px 10px;
+  padding: 0px 5px 0px 10px;
   text-indent: 5px;
   background-color: #e6f3ff;
 #  border-radius: 15px;
 }
 article {
- # width: 78%;
   width: 50%;
-  height: 150px;
- # overflow-y:scroll;
+  height: 25%;
+  overflow-y:scroll;
   float: right;
   border: 2px solid #a1a1a1;
   margin: 0px 10px 0px 10px;
-  padding: 0px 10px 0px 10px;
+  padding: 0px 10px 5px 10px;
   text-indent: 5px;
   background-color: #b3daff;
   border-radius: 15px;
 }
 aside {
-#  width: 10;
-  height: 754px;
   float: right;
-#  position: fixed;
+  height: 654px;
+  overflow-y:scroll;
   border: 2px solid #a1a1a1;
   margin: 0px 10px 0px 0px;
-  padding: 0px 0px 0px 0px;
+  padding: 0px 5px 0px 5px;
   text-indent: 5px;
   background-color: #e6f3ff;
 #  border-radius: 15px;
