@@ -49,9 +49,11 @@
 # Script configuration variables
 ################################################################################
 TargetTarDir="server"            # from script run directory
-basisDir="../basis"              # from #TargetTarDir
-vagrantDir="../vagrant"          # from #TargetTarDir
-DeployDir="../../../deploy"      # from #TargetTarDir
+basisDir="../basis"              # from $TargetTarDir
+PlanDir="../plan"                # from $TargetTarDir
+vagrantDir="../vagrant"          # from $TargetTarDir
+DeployDir="../../../deploy"      # from $TargetTarDir
+subDir="plan"                    # in $TargetTarDir
 ThisScript="package-deploy.bsh"
 ThisRepo="CM-Plan-Site"
 
@@ -114,12 +116,14 @@ cp $vagrantDir/bootstrap.sh .
 cp $vagrantDir/vagrantfile .
 cd html
 cp -R ../$basisDir/* .
+mkdir $subDir
+cp ../$PlanDir/index.html ./$subDir/index.html
 cd ../
 tar cfz $ThisRepo-$Major.$Minor.$Issue.gz *
 # clean up $TargetTarDir
 rm bootstrap.sh
 rm vagrantfile
-rm -r html/images/ html/index.html html/style.css html/vendor-style.css
+rm -r html/images/ html/index.html html/style.css html/vendor-style.css html/$subDir/
 # Prepare deployment for install
 mv $ThisRepo-$Major.$Minor.$Issue.gz $DeployDir/ 
 cd $DeployDir
