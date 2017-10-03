@@ -1,5 +1,5 @@
-= CM Plan
-Andy wallace
+= Book Name
+Author Name
 :doctype: book
 :encoding: utf-8
 :lang: en
@@ -9,6 +9,7 @@ Andy wallace
 
 
 ////
+Change Book Name, Author's Name and Language for your need.
 
 This is a comment block, you can remove it.
 ////
