@@ -29,7 +29,6 @@ nav ul {
     margin: 0;
     padding: 0;
     overflow: hidden;
-    background-color: #80b3ff;
 }
 
 nav li {
@@ -45,11 +44,14 @@ nav li a {
 }
 
 nav li a:hover:not(.active) {
+    border-radius: 15px 15px 0px 0px;
     color: white;
     background-color: #0000ff;
 }
 
 nav .active {
+    border-radius: 15px 15px 0px 0px;
+    overflow: 0px 0px 5px 0px;
     color: black;
     background-color: #e6f3ff;
 }
@@ -87,4 +89,10 @@ aside {
   text-indent: 5px;
   background-color: #e6f3ff;
 #  border-radius: 15px;
+}
+aside ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
 }
