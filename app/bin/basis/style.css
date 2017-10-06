@@ -1,5 +1,7 @@
-h2.cntrtxt {
+.hdrftrtxt {
   text-align: center;
+  color: #ffffff;
+  text-shadow: 2px 2px #000066;
 }
 p {
   font-size: 1.21875em;
@@ -13,7 +15,7 @@ body {
 }
 header, footer {
   border: 2px solid #a1a1a1;
-  padding: 5px 15px;
+  padding: 0px 0px 10px 0px;
   background-color: #80b3ff;
   border-radius: 15px;
 }
@@ -58,7 +60,7 @@ nav .active {
 
 section {
   width: 500;
-  height: 654px;
+  height: 700px;
   overflow-y:scroll;
   border: 2px solid #a1a1a1;
   margin: 0px 10px 0px 10px;
@@ -81,7 +83,7 @@ article {
 }
 aside {
   float: right;
-  height: 654px;
+  height: 700px;
   overflow-y:scroll;
   border: 2px solid #a1a1a1;
   margin: 0px 10px 0px 0px;

@@ -9,7 +9,7 @@
 # 
 # 2. To install an existing deployment:
 #   - rm vagrantfile bootstrap.sh
-#   - tar xfz CFX-EMM-SYS-Git.gz
+#   - tar xfz CM-Plan-Site-M.m.I.gz
 #   - vagrant provision
 #
 # 3. To install a new deployment:

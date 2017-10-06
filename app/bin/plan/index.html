@@ -9,53 +9,73 @@
 <link rel="stylesheet" href="../style.css">
 <!-- Add WebSite css -->
 <!-- *************** -->
-<!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]-->
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="generator" content="Asciidoctor 1.5.5.dev">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400,700">
-<link rel="stylesheet" href="../vendor-style.css">
+
 <meta charset="UTF-8">
 <!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]-->
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="generator" content="Asciidoctor 1.5.5.dev">
+
+<!-- *********************** -->
+<!-- Adjust for Website name -->
 <title>CM Plan</title>
+<!-- Adjust for Website name -->
+<!-- *********************** -->
+
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400,700">
+
+<!-- ******************************* -->
+<!-- Add Vendor-style.css stylesheet -->
 <link rel="stylesheet" href="../vendor-style.css">
+<!-- Add Vendor-style.css stylesheet -->
+<!-- ******************************* -->
+
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
 </head>
 
+<!-- **************************************** -->
+<!-- Add w3.js script for separate html files -->
+<script src="https://www.w3schools.com/lib/w3.js"></script>
+<!-- Add w3.js script for separate html files -->
+<!-- **************************************** -->
+
+<!-- ******************************** -->
 <!-- Adjust body to website body defn -->
 <!-- <body class="article toc2 toc-left"> -->
 <body>
 <!-- Adjust body to website body defn -->
 <!-- ******************************** -->
 
+<!-- *********************** -->
 <!-- Add website header defn -->
-<header>
-	<h2>&lt;header&gt;</h2>
-</header>
+<div w3-include-html="../header.html"></div>
+<script>w3.includeHTML()</script>
 <!-- Add website header defn -->
 <!-- *********************** -->
 
+<!-- ******************** -->
 <!-- Add website nav defn -->
 <nav>
   <ul>
     <li><a href="../">Home</a></li>
     <li><a class="active" href="">Plan</a></li>
-    <li><a href="tools">Tools Used</a></li>
-    <li style="float:right"><a href="about">About</a></li>
+    <li><a href="../overview">Overview</a></li>
+    <li style="float:right"><a href="../about">About</a></li>
   </ul>
 </nav>
 <!-- Add website nav defn -->
 <!-- ******************** -->
 
+<!-- *********************************************************** -->
 <!-- Replace <div id="toc" class="toc2"> with website aside defn -->
 <aside>
-<!-- <div id="toc" class="toc2"> -->
+<!-- <div id="header"> -->
+<!-- <h1>Configuration Management Plan</h1> -->
+<!--<div id="toc" class="toc2"> -->
 <div id="toctitle">Table of Contents</div>
 <ul class="sectlevel1">
 <li><a href="#trueintroduction">Introduction</a></li>
 <li><a href="#trueroles-and-responsibilities">Roles and Responsibilities</a></li>
+<li><a href="#truegoals-and-concepts">Goals and Concepts</a></li>
 <li><a href="#trueconfiguration-control">Configuration Control</a></li>
 <li><a href="#truecm-database-cmdb">CM Database (CMDB)</a></li>
 <li><a href="#trueconfiguration-status-accounting">Configuration Status Accounting</a></li>
@@ -67,12 +87,17 @@
 <!-- Replace <div id="toc" class="toc2"> with website aside defn -->
 <!-- *********************************************************** -->
 
-<!-- Wrap remainder of page in website section defn -->
+<!-- ******************************************************* -->
+<!-- Wrap remainder of page in website section defn ******** -->
 <section>
 
+<!-- ********************************************** -->
+<!-- Move <div id="header"> donw to here, add title -->
 <div id="header">
 <h1>Configuration Management Plan</h1>
 </div>
+<!-- Move <div id="header"> donw to here, add title -->
+<!-- ********************************************** -->
 
 <div id="content">
 <div id="preamble">
@@ -103,7 +128,7 @@
 </td>
 <td class="content">
 <div class="paragraph">
-<p>Will merge Change Records and Release Management (under Automation) into this plan as time permits.</p>
+<p>This page serves as a "Best Practice" outline. Identifying, documenting, and maintaining the CM Plan for your organization is the intent of this page for this website.</p>
 </div>
 </td>
 </tr>
@@ -118,10 +143,10 @@
 <p>Roles and responsibilities is an important part of any Configuration Management Plan. In order to communicate a clear understanding of expectations, these roles and responsibilities must be clearly defined.</p>
 </div>
 <div class="paragraph">
-<p>Any work that will be performed as part of the plan must be assigned to someone and this section allows us to illustrate who owns these tasks and to communicate them to all project stakeholders.</p>
+<p>Any work that will be performed as part of the plan must be assigned to someone. This section allows us to illustrate who owns these tasks and to communicate them to all project stakeholders.</p>
 </div>
 <div class="olist arabic">
-<div class="title">The following roles and responsibilities pertain to the CM Plan for the EM&amp;M Organization.</div>
+<div class="title">The following roles and responsibilities pertain to the CM Plan for the Organization.</div>
 <ol class="arabic">
 <li>
 <p>Configuration Control Board (CCB)</p>
@@ -218,7 +243,7 @@ Participation in CCB meetings</p>
 </div>
 </li>
 <li>
-<p>Lead Engineers (EM&amp;M Tower DevLeads)</p>
+<p>Lead Engineers</p>
 <div class="ulist">
 <ul>
 <li>
@@ -232,9 +257,7 @@ Participation in CCB meetings</p>
 <p>Ensure all change requests comply with organizational templates and standards prior to the CCB</p>
 </li>
 <li>
-<p>Submitting the change request to the lead engineer for review and presentation at the CCB
-Goals and Concepts
-The primary Goals and Concepts provide direction and improvements to the overall execution of the EM&amp;M Development Lifecycle. Those that pertain to the Configuration Management tasks are listed and maintained in this section.</p>
+<p>Submitting the change request to the lead engineer for review and presentation at the CCB</p>
 </li>
 </ul>
 </div>
@@ -243,6 +266,25 @@ The primary Goals and Concepts provide direction and improvements to the overall
 </div>
 </li>
 </ol>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="truegoals-and-concepts"><a class="anchor" href="#truegoals-and-concepts"></a>Goals and Concepts</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The primary Goals and Concepts provide direction and improvements to the overall execution of the Development Lifecycle. Those that pertain to the Configuration Management tasks are listed and maintained in this section.</p>
+</div>
+<div class="ulist">
+<div class="title">Examples include:</div>
+<ul>
+<li>
+<p>Software Security Assurance <a href="https://en.wikipedia.org/wiki/Software_security_assurance">SSA</a> is considered and addressed from the beginning of the Software Development LifeCycle <a href="https://stackify.com/what-is-sdlc/">SDLC</a> throughout all phases to retirement.</p>
+</li>
+<li>
+<p>Implement Automation with a <a href="https://en.wikipedia.org/wiki/DevOps">DevOps</a> practice focused on Continuous Integration and Continuous Delivery <a href="https://en.wikipedia.org/wiki/Continuous_integration">CI</a> / <a href="https://en.wikipedia.org/wiki/Continuous_delivery">CD</a> concepts.</p>
+</li>
+</ul>
 </div>
 </div>
 </div>
@@ -427,7 +469,7 @@ The primary Goals and Concepts provide direction and improvements to the overall
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2017-10-02 17:58:03 MDT
+Last updated 2017-10-06 08:11:20 MDT
 </div>
 </div>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.9.1/styles/github.min.css">
@@ -435,13 +477,13 @@ Last updated 2017-10-02 17:58:03 MDT
 <script>hljs.initHighlighting()</script>
 
 </section>
-<!-- Wrap remainder of page in website section defn -->
-<!-- ********************************************** -->
+<!-- Wrap remainder of page in website section defn ******** -->
+<!-- ******************************************************* -->
 
+<!-- *********************** -->
 <!-- Add website footer defn -->
-<footer>
-  <h2>&lt;footer&gt;</h2>  
-</footer>
+<div w3-include-html="../subfooter.html"></div>
+<script>w3.includeHTML()</script>
 <!-- Add website footer defn -->
 <!-- *********************** -->
 

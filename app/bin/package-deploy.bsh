@@ -2,7 +2,7 @@
 ##################################################################################################
 # package-deploy.bsh
 #
-# Written by Andy Wallace 2017/08/28; last updated 2017/09/19
+# Written by Andy Wallace 2017/08/28; last updated 2017/10/04
 #
 # This script creates a package for pushing to
 # the apache server html directory on a linux system with apache. 
@@ -18,7 +18,8 @@
 #         I - GitHub issue number (0 indicates production release)
 #
 #   This package is designed to create and populate the /var/www/html directory
-#   on the linux apache server.
+#   on the linux apache server. There are README.txt files located in various [repo]
+#   directories that identify how this repository is used to maintain the CM Plan Website.
 #
 #   It also provides the vagrantfile and bootstrap.sh files
 #   in the [repo]/deploy directory for creating the VM system.
@@ -28,15 +29,20 @@
 #
 #   Deployment procedure using Vagrant:
 #
-#    1. Run this script to prepare deployment package in [repo]/deploy directory.
+#    1. Run this script to prepare deployment package in [repo]/app/bin directory.
 #         NOTE: The [repo]/deploy directory is where vagrantfile is run from.
-#    3. Run "vagrant up" to create website on VM guest system.
-#         NOTE: The bootstrap.sh called by vagrant completes the VM install of this website.
+#    2. Run "vagrant up" to create website on VM guest system.
+#         NOTES:
 #
-#    Note: If you have multiple gz files from step 1 runs, you can Untar any deployment package
-#      prepared by this script to look at different deployment releases. Execute below:
-#          $ tar xfz $ThisRepo-$Major.$Minor.$Issue.gz
-#          $ vagrant provision
+#            1. The bootstrap.sh called by vagrant completes the VM install of this website.
+#            2. See contents of [repo]/deploy/README.txt for more details.
+#            3. If you have multiple gz files from step 1 runs, you can Untar any deployment
+#               package prepared by this script to look at different deployment releases.
+#               Execute below in [repo]/deploy directory:
+#                 $ tar xfz $ThisRepo-$Major.$Minor.$Issue.gz
+#                 $ vagrant provision
+#            4. Note the Script configuration variables section. The subDir array is for
+#               various website pages.
 #
 #  Dependencies:
 #
@@ -50,10 +56,13 @@
 ################################################################################
 TargetTarDir="server"            # from script run directory
 basisDir="../basis"              # from $TargetTarDir
-PlanDir="../plan"                # from $TargetTarDir
 vagrantDir="../vagrant"          # from $TargetTarDir
 DeployDir="../../../deploy"      # from $TargetTarDir
-subDir="plan"                    # in $TargetTarDir
+subDir[0]="plan"                 # in $TargetTarDir
+subDir[1]="overview"             # in $TargetTarDir
+subDir[2]="about"                # in $TargetTarDir
+subDir[3]="learn"                # in $TargetTarDir
+noOfDirs=4                       # Number of subDir values
 ThisScript="package-deploy.bsh"
 ThisRepo="CM-Plan-Site"
 
@@ -116,14 +125,33 @@ cp $vagrantDir/bootstrap.sh .
 cp $vagrantDir/vagrantfile .
 cd html
 cp -R ../$basisDir/* .
-mkdir $subDir
-cp ../$PlanDir/index.html ./$subDir/index.html
+DirCnt=0;
+while [[ "$DirCnt" < "$noOfDirs" ]]; do
+  for dirname in "${subDir[$DirCnt]}"
+  do
+  mkdir $dirname
+  cp ../../$dirname/index.html ./$dirname/index.html
+  if [[ "$dirname" == "learn" ]]; then
+     cp ../../$dirname/style.css ./$dirname/style.css
+  fi
+  if [[ "$DirCnt" < "$noOfDirs" ]]; then
+	  DirCnt=$[$DirCnt +1]
+	  break
+  fi
+  if [[ "$DirCnt" = "$noOfDirs" ]]; then
+	  echo "#####################################################"
+	  echo "ERROR - Number of directories $noOfDirs is incorrect"
+	  echo "#####################################################"
+	  exit
+  fi
+  done
+done
 cd ../
 tar cfz $ThisRepo-$Major.$Minor.$Issue.gz *
 # clean up $TargetTarDir
 rm bootstrap.sh
 rm vagrantfile
-rm -r html/images/ html/index.html html/style.css html/vendor-style.css html/$subDir/
+rm -r html/*
 # Prepare deployment for install
 mv $ThisRepo-$Major.$Minor.$Issue.gz $DeployDir/ 
 cd $DeployDir

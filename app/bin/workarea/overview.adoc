@@ -1,0 +1,92 @@
+=== Overview
+
+A major component of the CM Database is the Version Management System. The best Distributed Version Control System is the http://en.wikipedia.org/wiki/Git_(software)[Git] tool.
+
+Version Management done for this site, _and recommended_, is supported with https://git-scm.com/[Git SCM]. The bare git repository for this site is maintained at GitHub's https://github.com/cmguy[cmguy] / https://github.com/cmguy/CM-Plan-Site[CM-Plan-Site].
+
+[TIP]
+====
+A remote repository is generally a bare repository – a Git repository that has no working directory. Because the repository is only used as a collaboration point, there is no reason to have a snapshot checked out on disk; it’s just the Git data. In the simplest terms, a bare repository is the contents of your project’s .git directory and nothing else.
+====
+
+Git is _Free and Open Source_. Before moving forward in this document, _please_ review http://www.git-scm.com/about[About Git] for an overview of Git and it's features.
+
+Git is a Distributed Version Control System (DVCS). If you have not worked with Git before, it is recommended you review the following:
+
+* http://git-scm.com/book/en/Getting-Started-Git-Basics#The-Three-States[The Three States] for a basic understanding of your local DVCS git working environment.
+* This next reference covers the Git "Porcelain" commands that are build on the Git "Plumbing" commands for general git usage. Review http://git-scm.com/book/en/Git-Internals-Plumbing-and-Porcelain[Git Internals - Plumbing and Porcelain] for details.
+
+* The primary reference for Git Usage is http://git-scm.com/[git-scm.com]. The http://git-scm.com/docs[Git Docs] reference is a more complete command reference.
+
+* The http://gitref.org[Git Reference] provides GitHub oriented training. 
+
+[TIP]
+====
+.Throughout this site, you will see the format git [_command_]. You can enter this on the git bash command line followed by *-h* for more documentation on the git command. For example:
+[source,asciidoc]
+----
+$ git add -h
+----
+====
+
+
+==== Git Approach
+
+Each time files are added to a the GitHub bare repository (repo), it is by the latest commit on a branch.
+
+GitHub adds GitHub fork and pull-request functionality. This compliments the branching and merging approach supported by Git with organized collaboration.
+
+
+.The Git Approach _(Locally on your DVCS Git repo)_
+. Branch a new feature from a known managed branch,
+. Adjust and modify your feature branch for needed changes,
+. Merge all managed branches to your feature branch resolving any conflicts,
+. Test on your feature branch for all resolved conflicts,
+. Final testing will include Build and Deployment automation in the final development environment.
+
+
+[TIP]
+====
+. The `develop` and `master` branches are the _Main Branches_ on the GitHub bare repository.
+. Reference http://git-scm.com/book/en/Getting-Started-Git-Basics#Git-Has-Integrity[Git Has Integrity] for Git SHA-1 hash details.
+. Where did the term Git originate from? Reference the `History` section of http://en.wikipedia.org/wiki/Git_(software)[Git (software)] in Wikipedia.
+====
+
+In essence, everyone has git commit access locally. Moving changes between your local Git DVCS and the GitHub bare repository involves a different set of commands (i.e., clone, push, fetch, and pull). The git commands checkout, commit, merge, branch, etc, are all done on your local DVCS git repo.
+
+[IMPORTANT]
+====
+At this point, it is highly recommended that you review https://git-scm.com/book/en/v2/Git-Basics-Getting-a-Git-Repository[Git Basics] before moving on.
+====
+
+
+=== Git vrs CVS
+
+Since many users are familiar with file-oriented Version Management using CVS or SVN, this section has been drafted to help identify the differences. 
+
+[TIP]
+====
+https://en.wikipedia.org/wiki/Concurrent_Versions_System[CVS] is an acronym for Concurrent Versioning System.
+====
+
+.The primary differences between Git and CVS are:
+. Git's primary component is a snapshot of a structure, for CVS, it's a file.
+. CVS Modules often overlap for shared or common code, Git modules (repos) do not. This will make Git module dependencies clearer.
+. Branching and Merging is the basis of Git supported with pointers. Branching and Merging with CVS requires lots of file copying and space on the shared repository system.
+. Git is a Distributed Version Control System [DVCS]
+. CVS is a Centralized Version Control System [CVCS]
+
+[NOTE]
+====
+* Reference https://www.appfusions.com/display/StashSCMImporter/CVCS+vs.+DVCS+In+a+Nutshell[CVCS vs DVCS in a Nutshell] for details.
+* Using GitHub with tags and maintaining a separate repository addresses all __DVCS Core Disadvantage__s mentioned in the previous reference.
+====
+
+
+As you use Git, these differences will be more apparent. To get started, review http://git-scm.com/book/en/v2/Getting-Started-Git-Basics[Git Basics]. Develop a clear understanding of what a Git snapshot is.
+
+[IMPORTANT]
+====
+Be sure to review http://git-scm.com/book/en/Getting-Started-Git-Basics#The-Three-States[The Three States] your work files reside in. This provides a basic understanding of your local git repo working environment.
+====
+

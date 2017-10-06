@@ -5,7 +5,7 @@
 <!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]-->
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="generator" content="Asciidoctor 1.5.5.dev">
-<title>Configuration Management Plan</title>
+<title>Background</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400,700">
 <style>
 /* Asciidoctor default stylesheet | MIT License | http://asciidoctor.org */
@@ -420,40 +420,79 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </head>
 <body class="article toc2 toc-left">
 <div id="header">
-<h1>Configuration Management Plan</h1>
 <div id="toc" class="toc2">
 <div id="toctitle">Table of Contents</div>
-<ul class="sectlevel1">
-<li><a href="#trueintroduction">Introduction</a></li>
-<li><a href="#trueroles-and-responsibilities">Roles and Responsibilities</a></li>
-<li><a href="#truegoals-and-concepts">Goals and Concepts</a></li>
-<li><a href="#trueconfiguration-control">Configuration Control</a></li>
-<li><a href="#truecm-database-cmdb">CM Database (CMDB)</a></li>
-<li><a href="#trueconfiguration-status-accounting">Configuration Status Accounting</a></li>
-<li><a href="#trueconfiguration-audits">Configuration Audits</a></li>
+<ul class="sectlevel2">
+<li><a href="#truebackground">Background</a></li>
+<li><a href="#truerecommendations">Recommendations</a></li>
+<li><a href="#trueaudience">Audience</a></li>
+<li><a href="#trueconventions">Conventions</a></li>
 </ul>
 </div>
 </div>
 <div id="content">
-<div id="preamble">
-<div class="sectionbody">
-<div style="page-break-after: always;"></div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="trueintroduction"><a class="anchor" href="#trueintroduction"></a>Introduction</h2>
-<div class="sectionbody">
+<div class="sect2">
+<h3 id="truebackground"><a class="anchor" href="#truebackground"></a>Background</h3>
 <div class="paragraph">
-<p>The purpose of the Configuration Management Plan is to describe how <strong>C</strong>onfiguration <strong>M</strong>anagement (CM) will be conducted throughout the project lifecycle.</p>
+<p>This site  provides references and instructions to support Planning, Identification, Control, Status Accounting, Verification &amp; Audit of <a href="https://en.wikipedia.org/wiki/Configuration_item">Configuration Items</a>.</p>
 </div>
 <div class="paragraph">
-<p>This includes documenting how CM is managed, roles and responsibilities, how configuration item (CI) changes are made, and communicating all aspects of CM to project stakeholders.</p>
+<p>This site is maintained and managed from the GitHub repo <a href="https://github.com/cmguy">cmguy</a> / <a href="https://github.com/cmguy/CM-Plan-Site">CM-Plan-Site</a> repository.</p>
 </div>
 <div class="paragraph">
-<p>Without a documented configuration management plan it is likely that CIs may be missed, incomplete, or unnecessary work is done because of a lack or version and document control.</p>
+<p>The relative website links maintain the persistence and integrity of this site. Examples include the <strong>About</strong> link that was used to get to this page along with the other links in the navigation bar above starting with the  <strong>Home</strong> link on the left.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="truerecommendations"><a class="anchor" href="#truerecommendations"></a>Recommendations</h3>
+<div class="paragraph">
+<p>Other links in this site that go to locations apart from this site will re-populate your current browser window with the contents of the link selected. To keep this from happening, mouse-right click on the link and select <strong>open link in new tab</strong>. This will maintain the window with this website presentation.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="trueaudience"><a class="anchor" href="#trueaudience"></a>Audience</h3>
+<div class="paragraph">
+<p>This website is for All roles having a need to manage:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>and share documentation,</p>
+</li>
+<li>
+<p>code for applications and databases,</p>
+</li>
+<li>
+<p>various system configurations,</p>
+</li>
+<li>
+<p>presentation decks,</p>
+</li>
+<li>
+<p>architecture designs.</p>
+</li>
+</ul>
 </div>
 <div class="paragraph">
-<p>While a configuration management plan is important for all projects, this is especially so for software and other information technology (IT) projects.</p>
+<p>The Git system can be used to manage all of these element types.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="trueconventions"><a class="anchor" href="#trueconventions"></a>Conventions</h3>
+<div class="paragraph">
+<p>The following typographic conventions and symbols are used to enhance clarity:</p>
+</div>
+<div class="paragraph">
+<p><em>Italic</em></p>
+</div>
+<div class="paragraph">
+<p>Used to show generic options that should be replaced with user-supplied values.</p>
+</div>
+<div class="paragraph">
+<p>git [<em>command</em>]</p>
+</div>
+<div class="paragraph">
+<p>Can be entered at git bash command line followed by <code>-h</code> for more specific documentation.</p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -463,7 +502,63 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </td>
 <td class="content">
 <div class="paragraph">
-<p>This page serves as a "Best Practice" outline. Identifying, documenting, and maintaining the CM Plan for your organization is the intent of this page for this website.</p>
+<p>Used for <strong>Notes</strong>.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Identification of something <strong>Important</strong>.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Associated with <strong>Tips</strong>.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock caution">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-caution" title="Caution"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Indicator for <strong>Caution</strong>.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-warning" title="Warning"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Specification of a <strong>Warning</strong>.</p>
 </div>
 </td>
 </tr>
@@ -471,340 +566,9 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </div>
 </div>
 </div>
-<div class="sect1">
-<h2 id="trueroles-and-responsibilities"><a class="anchor" href="#trueroles-and-responsibilities"></a>Roles and Responsibilities</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>Roles and responsibilities is an important part of any Configuration Management Plan. In order to communicate a clear understanding of expectations, these roles and responsibilities must be clearly defined.</p>
-</div>
-<div class="paragraph">
-<p>Any work that will be performed as part of the plan must be assigned to someone. This section allows us to illustrate who owns these tasks and to communicate them to all project stakeholders.</p>
-</div>
-<div class="olist arabic">
-<div class="title">The following roles and responsibilities pertain to the CM Plan for the Organization.</div>
-<ol class="arabic">
-<li>
-<p>Configuration Control Board (CCB)</p>
-<div class="ulist">
-<ul>
-<li>
-<p>The CCB is comprised of the organizational change management authority representative, Project Managers, Configuration Managers, and Lead Engineers for the configuration item (CI) under consideration. The CCB is responsible for the following:</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Review and approve/reject configuration change requests
-Ensure all approved changes are added to the configuration management database (CMDB)</p>
-</li>
-<li>
-<p>Seeking clarification on any CIs as required</p>
-</li>
-</ul>
-</div>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p>Project Sponsor</p>
-<div class="ulist">
-<ul>
-<li>
-<p>The Project Sponsor is responsible for:</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Chairing all CCB meetings</p>
-</li>
-<li>
-<p>Providing approval for any issues requiring additional scope, time, or cost</p>
-</li>
-</ul>
-</div>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p>Project Manager</p>
-<div class="ulist">
-<ul>
-<li>
-<p>The Project Manager is responsible for:</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Overall responsibility for all CM activities related to the projects</p>
-</li>
-<li>
-<p>Identification of CIs</p>
-</li>
-<li>
-<p>All communication of CM activities to project stakeholders
-Participation in CCB meetings</p>
-</li>
-<li>
-<p>Re-baselining, if necessary, any items affected by CM changes</p>
-</li>
-</ul>
-</div>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p>Configuration Manager</p>
-<div class="ulist">
-<ul>
-<li>
-<p>The Configuration Manager will be appointed by the Program Management Office (PMO). The Configuration Manager is responsible for:</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Overall management of the CMDB</p>
-</li>
-<li>
-<p>Identification of CIs</p>
-</li>
-<li>
-<p>Providing configuration standards and templates to the project team</p>
-</li>
-<li>
-<p>Providing any required configuration training</p>
-</li>
-</ul>
-</div>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p>Lead Engineers</p>
-<div class="ulist">
-<ul>
-<li>
-<p>All identified CIs will be assigned to a Lead Engineer. The assigned Lead Engineer is responsible for:</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Designating a focus group to develop the change request</p>
-</li>
-<li>
-<p>Ensure all change requests comply with organizational templates and standards prior to the CCB</p>
-</li>
-<li>
-<p>Submitting the change request to the lead engineer for review and presentation at the CCB</p>
-</li>
-</ul>
-</div>
-</li>
-</ul>
-</div>
-</li>
-</ol>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="truegoals-and-concepts"><a class="anchor" href="#truegoals-and-concepts"></a>Goals and Concepts</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>The primary Goals and Concepts provide direction and improvements to the overall execution of the Development Lifecycle. Those that pertain to the Configuration Management tasks are listed and maintained in this section.</p>
-</div>
-<div class="ulist">
-<div class="title">Examples include:</div>
-<ul>
-<li>
-<p>Software Security Assurance <a href="https://en.wikipedia.org/wiki/Software_security_assurance">SSA</a> is considered and addressed from the beginning of the Software Development LifeCycle <a href="https://stackify.com/what-is-sdlc/">SDLC</a> throughout all phases to retirement.</p>
-</li>
-<li>
-<p>Implement Automation with a <a href="https://en.wikipedia.org/wiki/DevOps">DevOps</a> practice focused on Continuous Integration and Continuous Delivery <a href="https://en.wikipedia.org/wiki/Continuous_integration">CI</a> / <a href="https://en.wikipedia.org/wiki/Continuous_delivery">CD</a> concepts.</p>
-</li>
-</ul>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="trueconfiguration-control"><a class="anchor" href="#trueconfiguration-control"></a>Configuration Control</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>Configuration Control is the process of systematically controlling and managing all steps of configuration throughout the project lifecycle.</p>
-</div>
-<div class="paragraph">
-<p>In order to effectively handle project Configuration Management it is important to use a process which ensures only necessary configuration changes are made. Additionally, like any change management efforts, configuration change decisions must be made with the understanding of the impact of the change.</p>
-</div>
-<div class="paragraph">
-<p>Configuration control is an important part of the Configuration Management Plan.</p>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="truecm-database-cmdb"><a class="anchor" href="#truecm-database-cmdb"></a>CM Database (CMDB)</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>A Configuration Management Database (CMDB) is where the organizations configuration information is stored. CMDB is a term which originates from Information Technology Infrastructure Library (ITIL) which provides a framework for best practices in IT services management.</p>
-</div>
-<div class="paragraph">
-<p>The CMDB contains not only the configuration information for assets but also information about the assets such as physical location, ownership, and its relationship to other configurable items (CIs). It is important to address the CMDB in the Configuration Management Plan.</p>
-</div>
-<div class="paragraph">
-<p>A key component to configuration management is having a well defined and followed process for both document and data management.</p>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="trueconfiguration-status-accounting"><a class="anchor" href="#trueconfiguration-status-accounting"></a>Configuration Status Accounting</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>Accounting for the status of the configuration involves the collection, processing, and reporting of the configuration data for all CIs at any given time.</p>
-</div>
-<div class="paragraph">
-<p>This also includes management stored configuration information held in the Configuration Management Database (CMDB).</p>
-</div>
-<div class="paragraph">
-<p>This may include approved configuration documents, software, data, and their current version numbers; build reports; status of any submitted changes; or any discrepancies and status identified through configuration audits.</p>
-</div>
-<div class="paragraph">
-<p>It is important that organizational Change Management authorities, the Project Sponsors and the Project Managers have the ability to review configuration status at any given time.</p>
-</div>
-<div class="paragraph">
-<p>The Project Manager will also submit weekly reports, to include configuration status on a regular basis.</p>
-</div>
-<div class="olist arabic">
-<div class="title">These reports will consist of the following information as part of the configuration status section:</div>
-<ol class="arabic">
-<li>
-<p>Change requests</p>
-<div class="olist loweralpha">
-<ol class="loweralpha" type="a">
-<li>
-<p>Aging - How long change requests have been open</p>
-</li>
-<li>
-<p>Distribution – number of change requests submitted by owner/group</p>
-</li>
-<li>
-<p>Trending – what area(s) are approved changes occurring in</p>
-</li>
-</ol>
-</div>
-</li>
-<li>
-<p>Version Control</p>
-<div class="olist loweralpha">
-<ol class="loweralpha" type="a">
-<li>
-<p>Software</p>
-</li>
-<li>
-<p>Hardware</p>
-</li>
-<li>
-<p>Data</p>
-</li>
-<li>
-<p>Documentation</p>
-</li>
-</ol>
-</div>
-</li>
-<li>
-<p>Build Reporting</p>
-<div class="olist loweralpha">
-<ol class="loweralpha" type="a">
-<li>
-<p>Files</p>
-</li>
-<li>
-<p>CI relationships</p>
-</li>
-<li>
-<p>Incorporated Changes</p>
-</li>
-</ol>
-</div>
-</li>
-<li>
-<p>Audits</p>
-<div class="olist loweralpha">
-<ol class="loweralpha" type="a">
-<li>
-<p>Physical Configuration</p>
-</li>
-<li>
-<p>Functional Configuration</p>
-</li>
-</ol>
-</div>
-</li>
-</ol>
-</div>
-<div class="paragraph">
-<p>Just after any new software releases (deployments to production), the CM will work with development teams to ensure all CIs are updated with latest release versions.</p>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="trueconfiguration-audits"><a class="anchor" href="#trueconfiguration-audits"></a>Configuration Audits</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>Audits are an important part of project and configuration management, so it should be contained in the Configuration Management Plan.</p>
-</div>
-<div class="paragraph">
-<p>The purpose of an audit is to ensure that established processes are being followed as intended and to provide an opportunity to correct any deviations from these processes.</p>
-</div>
-<div class="paragraph">
-<p>Many people hold a negative view of audits; however, when used appropriately, audits are an effective management and quality assurance tool.</p>
-</div>
-<div class="paragraph">
-<p>Configuration audits will be an ongoing part of project lifecycles.</p>
-</div>
-<div class="paragraph">
-<p>The purpose of the configuration audit is to ensure all team members are following the established procedures and processes for configuration management.</p>
-</div>
-<div class="paragraph">
-<p>Project audits will occur prior to any major software release or at the Project Manager or Sponsor’s discretion if they determine the need for one.</p>
-</div>
-<div class="paragraph">
-<p>Throughout the project the CM works closely with development leaders to ensure that all configuration processes and procedures are being followed.</p>
-</div>
-<div class="olist arabic">
-<div class="title">As part of the configuration audit the CM will perform the following tasks:</div>
-<ol class="arabic">
-<li>
-<p>Establish an audit environment in the CMDB</p>
-</li>
-<li>
-<p>Verify all of the latest software, data, and document versions in the audit environment</p>
-</li>
-<li>
-<p>Ensure all versions are correctly numbered and that version control has been performed properly</p>
-</li>
-<li>
-<p>Analyze hisantorical versions and timestamps of all software, data, and documents to ensure all changes/edits were properly recorded and captured</p>
-</li>
-<li>
-<p>Verify latest software versions and conduct software testing to ensure requirements are being met</p>
-</li>
-<li>
-<p>Verify all required artifacts are present and current in the CMDB</p>
-</li>
-<li>
-<p>Ensure all approved CCRs have been incorporated into the project and are recorded in the CMDB</p>
-</li>
-</ol>
-</div>
-<div class="paragraph">
-<p>Once the audit has been performed, the Configuration Manager will compile his/her audit findings. For each finding, the CM must work with the Project Manager/Team to identify the corrective action(s) necessary to resolve the discrepancy and assign responsibility for each corrective action.</p>
-</div>
-<div class="paragraph">
-<p>Upon completion of the project audit and findings, the CM will note all discrepancies and compile a report to be presented to the Project Manager, Sponsor, and VP of Technology.</p>
-</div>
-</div>
-</div>
-</div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2017-10-06 08:11:20 MDT
+Last updated 2017-10-05 10:18:17 MDT
 </div>
 </div>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.9.1/styles/github.min.css">

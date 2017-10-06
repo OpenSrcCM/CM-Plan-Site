@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<!-- *************************** -->
+<!-- Change to "en-US" from "en" -->
+<!-- <html lang="en"> -->
+<html lang="en-US">
+<!-- Change to "en-US" from "en" -->
+<!-- *************************** -->
+<head>
+<!-- *************** -->
+<!-- Add WebSite css -->
+<link rel="stylesheet" href="../style.css">
+<!-- Add WebSite css -->
+<!-- *************** -->
+<meta charset="UTF-8">
+<!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]-->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="Asciidoctor 1.5.5.dev">
+
+<!-- ********************* -->
+<!-- Set to Web Site title -->
+<!--<title>Overview</title> -->
+<!-- <title>Overview</title> -->
+<title>CM Plan</title>
+<!-- Set to Web Site title -->
+<!-- ********************* -->
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400,700">
+
+<!-- ****************************** -->
+<!-- Add vendor-style.css reference -->
+<link rel="stylesheet" href="../vendor-style.css">
+<!-- Add vendor-style.css reference -->
+<!-- ****************************** -->
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
+</head>
+
+<!-- ******************************************* -->
+<!-- Add w3.js so .html sub files can be read in -->
+<script src="https://www.w3schools.com/lib/w3.js"></script>
+<!-- Add w3.js so .html sub files can be read in -->
+<!-- ******************************************* -->
+
+<body class="article">
+
+<!-- *********************** -->
+<!-- Add website header defn -->
+<div w3-include-html="../header.html"></div>
+<script>w3.includeHTML()</script>
+<!-- Add website header defn -->
+<!-- *********************** -->
+
+<!-- ******************** -->
+<!-- Add website nav defn -->
+<nav>
+  <ul>
+    <li><a href="../">Home</a></li>
+    <li><a href="../plan">Plan</a></li>
+    <li><a class="active" href="">Overview</a></li>
+    <li style="float:right"><a href="../about">About</a></li>
+  </ul>
+</nav>
+<!-- Add website nav defn -->
+<!-- ******************** -->
+
+<!-- ******************************************************* -->
+<!-- Wrap remainder of page in website section defn ******** -->
+<section>
+
+<div id="header">
+</div>
+<div id="content">
+<div class="sect2">
+<h3 id="trueoverview"><a class="anchor" href="#trueoverview"></a>Overview</h3>
+<div class="paragraph">
+<p>A major component of the CM Database is the Version Management System. The best Distributed Version Control System is the <a href="http://en.wikipedia.org/wiki/Git_(software)">Git</a> tool.</p>
+</div>
+<div class="paragraph">
+<p>Version Management done for this site, <em>and recommended</em>, is supported with <a href="https://git-scm.com/">Git SCM</a>. The bare git repository for this site is maintained at GitHub&#8217;s <a href="https://github.com/cmguy">cmguy</a> / <a href="https://github.com/cmguy/CM-Plan-Site">CM-Plan-Site</a>.</p>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>A remote repository is generally a bare repository – a Git repository that has no working directory. Because the repository is only used as a collaboration point, there is no reason to have a snapshot checked out on disk; it’s just the Git data. In the simplest terms, a bare repository is the contents of your project’s .git directory and nothing else.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Git is <em>Free and Open Source</em>. Before moving forward in this document, <em>please</em> review <a href="http://www.git-scm.com/about">About Git</a> for an overview of Git and it&#8217;s features.</p>
+</div>
+<div class="paragraph">
+<p>Git is a Distributed Version Control System (DVCS). If you have not worked with Git before, it is recommended you review the following:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="http://git-scm.com/book/en/Getting-Started-Git-Basics#The-Three-States">The Three States</a> for a basic understanding of your local DVCS git working environment.</p>
+</li>
+<li>
+<p>This next reference covers the Git "Porcelain" commands that are build on the Git "Plumbing" commands for general git usage. Review <a href="http://git-scm.com/book/en/Git-Internals-Plumbing-and-Porcelain">Git Internals - Plumbing and Porcelain</a> for details.</p>
+</li>
+<li>
+<p>The primary reference for Git Usage is <a href="http://git-scm.com/">git-scm.com</a>. The <a href="http://git-scm.com/docs">Git Docs</a> reference is a more complete command reference.</p>
+</li>
+<li>
+<p>The <a href="http://gitref.org">Git Reference</a> provides GitHub oriented training.</p>
+</li>
+</ul>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+<div class="listingblock">
+<div class="title">Throughout this site, you will see the format git [<em>command</em>]. You can enter this on the git bash command line followed by <strong>-h</strong> for more documentation on the git command. For example:</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-asciidoc" data-lang="asciidoc">$ git add -h</code></pre>
+</div>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="sect3">
+<h4 id="truegit-approach"><a class="anchor" href="#truegit-approach"></a>Git Approach</h4>
+<div class="paragraph">
+<p>Each time files are added to a the GitHub bare repository (repo), it is by the latest commit on a branch.</p>
+</div>
+<div class="paragraph">
+<p>GitHub adds GitHub fork and pull-request functionality. This compliments the branching and merging approach supported by Git with organized collaboration.</p>
+</div>
+<div class="olist arabic">
+<div class="title">The Git Approach <em>(Locally on your DVCS Git repo)</em></div>
+<ol class="arabic">
+<li>
+<p>Branch a new feature from a known managed branch,</p>
+</li>
+<li>
+<p>Adjust and modify your feature branch for needed changes,</p>
+</li>
+<li>
+<p>Merge all managed branches to your feature branch resolving any conflicts,</p>
+</li>
+<li>
+<p>Test on your feature branch for all resolved conflicts,</p>
+</li>
+<li>
+<p>Final testing will include Build and Deployment automation in the final development environment.</p>
+</li>
+</ol>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>The <code>develop</code> and <code>master</code> branches are the <em>Main Branches</em> on the GitHub bare repository.</p>
+</li>
+<li>
+<p>Reference <a href="http://git-scm.com/book/en/Getting-Started-Git-Basics#Git-Has-Integrity">Git Has Integrity</a> for Git SHA-1 hash details.</p>
+</li>
+<li>
+<p>Where did the term Git originate from? Reference the <code>History</code> section of <a href="http://en.wikipedia.org/wiki/Git_(software)">Git (software)</a> in Wikipedia.</p>
+</li>
+</ol>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>In essence, everyone has git commit access locally. Moving changes between your local Git DVCS and the GitHub bare repository involves a different set of commands (i.e., clone, push, fetch, and pull). The git commands checkout, commit, merge, branch, etc, are all done on your local DVCS git repo.</p>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>At this point, it is highly recommended that you review <a href="https://git-scm.com/book/en/v2/Git-Basics-Getting-a-Git-Repository">Git Basics</a> before moving on.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="truegit-vrs-cvs"><a class="anchor" href="#truegit-vrs-cvs"></a>Git vrs CVS</h3>
+<div class="paragraph">
+<p>Since many users are familiar with file-oriented Version Management using CVS or SVN, this section has been drafted to help identify the differences.</p>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p><a href="https://en.wikipedia.org/wiki/Concurrent_Versions_System">CVS</a> is an acronym for Concurrent Versioning System.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="olist arabic">
+<div class="title">The primary differences between Git and CVS are:</div>
+<ol class="arabic">
+<li>
+<p>Git&#8217;s primary component is a snapshot of a structure, for CVS, it&#8217;s a file.</p>
+</li>
+<li>
+<p>CVS Modules often overlap for shared or common code, Git modules (repos) do not. This will make Git module dependencies clearer.</p>
+</li>
+<li>
+<p>Branching and Merging is the basis of Git supported with pointers. Branching and Merging with CVS requires lots of file copying and space on the shared repository system.</p>
+</li>
+<li>
+<p>Git is a Distributed Version Control System [DVCS]</p>
+</li>
+<li>
+<p>CVS is a Centralized Version Control System [CVCS]</p>
+</li>
+</ol>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Reference <a href="https://www.appfusions.com/display/StashSCMImporter/CVCS+vs.+DVCS+In+a+Nutshell">CVCS vs DVCS in a Nutshell</a> for details.</p>
+</li>
+<li>
+<p>Using GitHub with tags and maintaining a separate repository addresses all <em>DVCS Core Disadvantage</em>s mentioned in the previous reference.</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>As you use Git, these differences will be more apparent. To get started, review <a href="http://git-scm.com/book/en/v2/Getting-Started-Git-Basics">Git Basics</a>. Develop a clear understanding of what a Git snapshot is.</p>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Be sure to review <a href="http://git-scm.com/book/en/Getting-Started-Git-Basics#The-Three-States">The Three States</a> your work files reside in. This provides a basic understanding of your local git repo working environment.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div id="footer">
+<div id="footer-text">
+Last updated 2017-10-06 12:00:00 MDT
+</div>
+</div>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.9.1/styles/github.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.9.1/highlight.min.js"></script>
+<script>hljs.initHighlighting()</script>
+
+</section>
+<!-- Wrap remainder of page in website section defn ******** -->
+<!-- ******************************************************* -->
+
+<!-- *********************** -->
+<!-- Add website footer defn -->
+<div w3-include-html="../subfooter.html"></div>
+<script>w3.includeHTML()</script>
+<!-- Add website footer defn -->
+<!-- *********************** -->
+
+</body>
+</html>
