@@ -59,10 +59,11 @@ basisDir="../basis"              # from $TargetTarDir
 vagrantDir="../vagrant"          # from $TargetTarDir
 DeployDir="../../../deploy"      # from $TargetTarDir
 subDir[0]="plan"                 # in $TargetTarDir
-subDir[1]="overview"             # in $TargetTarDir
-subDir[2]="about"                # in $TargetTarDir
-subDir[3]="learn"                # in $TargetTarDir
-noOfDirs=4                       # Number of subDir values
+subDir[1]="plan-template"        # in $TargetTarDir
+subDir[2]="overview"             # in $TargetTarDir
+subDir[3]="about"                # in $TargetTarDir
+subDir[4]="learn"                # in $TargetTarDir
+noOfDirs=5                       # Number of subDir values
 ThisScript="package-deploy.bsh"
 ThisRepo="CM-Plan-Site"
 

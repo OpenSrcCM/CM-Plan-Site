@@ -1,0 +1,263 @@
+:toc2:
+= CM Plan
+
+== Introduction
+The purpose of the Configuration Management Plan is to describe how configuration management (CM) will be conducted throughout the project lifecycle. This includes documenting how CM is managed, roles and responsibilities, how configuration item (CI) changes are made, and communicating all aspects of CM to project stakeholders. Without a documented configuration management plan it is likely that CIs may be missed, incomplete, or unnecessary work is done because of a lack or version and document control. While a configuration management plan is important for all projects, this is especially true for software and other information technology (IT) projects.
+
+For the this organization, all time related to change tracking is done in the [Change Tracking Tool] for resource reporting purposes. Consistency in time reporting promotes the ability to visualize all IT work and control Work in Progress (WIP). It also supports more accurate "Wait Time" calculations for management of this organizations resource commitments. It is an important metric for the http://www.agilevelocity.com/blog/7-principles-of-lean-software-development/[7 Principles of Lean Software Development].
+
+.Tip
+[TIP]
+====
+*Note:* Wait Time = (% Busy)/(% Idle)  - To graph x= (% Resource Busy), y= (Wait Time) - Wait Time is proxy for Queue length.  In other words, it is not time elapsed, i.e., minutes, hours, or weeks.
+====
+
+In order to visualize ALL IT work and Control WIP, this organization is looking at ways to better manage flow.  For a good overview of this concept, refer to https://leankit.com/learn/kanban/lean-flow-metrics/[7 Lean Metrics to Improve Flow].
+
+When changes are made to any managed applications, Databases, and Infrastructure Systems including access and configuration changes, the *Change Record*, the work is associated with, is referenced in Git Repo branches and commit comments. This makes them referable to the and
+the company as changes are deployed to production and future audit tasks.
+
+The following Best Practices section outlines a procedure for delivering EM&M change or deltas. This outline was produced while reviewing EM&M Organization Concepts and Goals.
+
+== Best Practice for Change Delivery
+Always follow *ALL* following steps *in bold* even if they are automated with a script.  Note that GitHub functionality adds collaboration functionality and procedures on top of the Git tool.
+
+=== Release Management
+The Branching and Merging Steps are followed for every production delivery using [Change Records] assciated with individual repository deliveries.
+This is required for release reporting metrics and future audit tasks.
+
+.IMPORTANT
+[IMPORTANT]
+====
+.Related References:
+*[WorkFlow] documentation for developing deliveries for release packages.
+*Current and future [Release Reports].
+==== 
+
+.Branching and Merging Steps
+. *Establish work Area and Feature branch.*
+.. *Clone from GitHub maintained release/deploy repo to your workstation.*
+.. *Establish release-M.m from [red]#appropriate# branch you are working from ([red]#see step 5 for details#).*
+.. *Create feature branch from established release-M.m branch.*
+. *Develop/Test changes on feature branch.*
+. *Merge and verify changes on all outstanding GitHub maintained branches via merge conflicts and diff reports on your local workstation repo:*
+.. *Perform merge testing on current GitHub maintained release/deploy repo develop, master, and any releases in progress for the new feature branch*
+. *Push tested merged changes in feature branch to appropirate main and release branches.*
+. *Do a GitHub pull request on the release/deploy [red]#repo branch your feature is for.# Identify your DevLead as a reviewer.*
+.. *New development - [red]#feature branch is for develop main branch#.*
+.. *Release fix - [red]#feature branch is for release branch#.*
+.. *Production Correction - [red]#feature is for new hotfix branch#.*
+.. *Hotfix correction - [red]#feature is for a hotfix branch#.*
+.. *If reviewer suggested changes, the developer who started pull request proceeds accordingly.*
+. *Devlead merges to appropriate branches on GitHub maintained release/deploy repo.*
+
+.Tips
+[TIP]
+====
+. Keep in mind that __"Repetition and Practice is the prerequisite to Mastery"__.
+. Not all commits should be pushed to shared repos, only the _"production ready commits"_ after step 3 above.
+. You can squash your commits before pushing into one commit, reference _"git commit -h"_
+These steps separate development from the controlled release or deployment repo updated only by the DevLeads.
+. If developers are working in a dedicated feature branch with small change sets, this should generally result in a fast-forward merge. This is a very easy merge to deal with.
+. The [User Guide], section _"The Branching and Merging Workflow"_ has specific examples of git branching and merging commands for the https://datasift.github.io/gitflow/IntroducingGitFlow.html[Gitflow Workflow] used by this organization.
+. A tool, report-conflicts.bsh, has been created to provide conflicts reports for all outstanding conflicts for a given feature branch. Reference the _"Git Conflict reporting"_ section  in the [Git Installation Procedure].
+. GitHub Forking is available for experimentation of future automation improvements.
+====
+
+=== GitHub Organizations
+.The following Enterprise GitHub organizations are used to manage all of this organizations reposistories:
+
+_Provide links for each Enterprise GitHub organization used_
+
+=== GitHub Access
+. Each team member of this organization needs to secure an Enterprise GitHub account based on their company logon.  This is now a prerequisite for the On-Boarding procedure listed in the General Access section of the [User Guide].
+. EM&M Team member also needs to secure ssh keys in their individual GitHub profiles.  The instructions for this is covered in the [Git Installation Procedure].
+. Users need to be added to the appropriate GitHub organizations for their responsibilities. This is done by the CM team.
+. Devleads assign users to the appropriate GitHub organization team(s).  These organization teams have been configured to GitHub Organization Repos by the CM team per the _"Git Access Management"_ section of the [User Guide].
+. Team members can add collaborators to any [GitHub forked repo] they have created under their GitHub account.  The collaborators must have established an Enterprise GitHub account.
+
+=== GitHub WorkFlows
+The GitHub workflow is based on the https://datasift.github.io/gitflow/IntroducingGitFlow.html[Gitflow Workflow]. This is the same workflow used by this organization. The https://www.atlassian.com/git/tutorials/comparing-workflows#forking-workflow[Forking Workflow] is available to this organizaion via the Enterprise GitHub system.  It requires some GitHub and GoCD configuration changes that can be performed by the CM Team.
+
+.NOTE:
+[NOTE]
+====
+. The Forking Workflow link above is to an Atlassian page.  The Atlassian Git tool is Bitbucket which is based on git. This page also has a section on the GitFlow Workflow.
+. The Enterprise GitHub tool supports both referenced workflows with GitHub pull requests and GitHub forking.
+====
+
+=== Concepts & Goals
+.https://www.atlassian.com/devops[DevOps] - Applying http://whatis.techtarget.com/definition/CALMS[CALMS Conceptual Framework] for DevOps:
+* **C**ulture
+* **A**utomation
+* **L**ean
+* **M**easurement
+* **S**haring
+
+.http://itrevolution.com/the-three-ways-principles-underpinning-devops/[The Three Ways: The principles underpinning DevOps]
+* [blue]#*First Way*# *- Systems Thinking:* All changes are made from Left to Right. From the Left, Planning, Develop, Test, User Acceptance, Production Deploym]#ent to Customer.
+* [blue]#*Second Way*# *- Amplify Feedback Loops:* Anything going from Right to Left (i.e., defects, fixes, production issue, etc) is a challenge that is addressed as soon as possible.
+* [blue]#*Third Way*# *- Culture of Continual Experimentation And Learning:* Creating a culture that fosters the following:
+** Continual Experimentation. Taking risks and learning from success and failures
+** Understanding that *repetition and practice is the prerequisite to mastery*
+** A culture of innovation and risk-taking as opposed to fear or mindless order-taking
+
+==== Work Types
+.The need to visualize all types of work and control Work In Progress. Refer to http://valueflowit.com.au/it-operations-only-does-4-things/[IT Operations Only Does 4 Things] for details. This organization recognizes there are the following four types of work:
+. *Business Projects*
+PM, Product, including business and technical, Owner Tracked
+. *Internal IT Projects*
+.. Environment upgrades
+.. Application Upgrades
+.. Vendor application Upgrades
+.. Testing
+.. Build Automation
+.. Deployment Automation
+.. Security requests and requirements
+.. Legal requests and requirements
+. *Operational Changes* 
+.. These are promoted from the previous two types of work. 
+.. Need to keep track of how much resources are committed to these types of work.
+. *Unplanned work or recovery work*
+.. Operational incidents and problems.
+.. Caused by unaddressed challenges that make it to Production as described in Second Way above
+.. Always come at the expense of other planned work commitments
+
+==== https://en.wikipedia.org/wiki/Continuous_integration[CI] / https://en.wikipedia.org/wiki/Continuous_delivery[CD]
+
+===== https://www.thoughtworks.com/continuous-integration[Continuous Integration]
+.Outputs to Continuous Releases or Deployments.  Each developer has full control of all aspects of Forked repos in addition to feature branches.  The feature branches are modified on local repos.  They can be shared on regular repos and forked repos.
+* Smaller batch sizes and more intervals of work.
+* Add changes/deltas the same way every time.
+* Changes pushed to shared repos always works (First Way), if not, fix it so it does (Second Way).
+* Before pushing code verify changes work with current states of:
+** Latest Production (master branch)
+** Latest Development (develop branch)
+** Any releases in progress ( all current release-M.m and hotfix-M.m-hf# branches)
+
+.tip
+[TIP]
+====
+If the repo is not forked and the developer uses the release or continuous deployment repo to clone from, merges will be required for every push to the develop branch.
+====
+
+==== https://continuousdelivery.com/[Continuous Delivery]
+Delivers to Production are via highly visible Change Records.  This is more controlled and has required checks and balances build into the process. These Change Records supports "end to end" collaboration across the entire company.
+
+==== https://www.podfeet.com/blog/2016/03/nuke-pave/[Nuke & Pave]
+This concept is driving our current deployment approach changes. The title is a link to an article that explains the concept from a workstation point of view. We all know __it's not *if* your laptop will be re-imaged but rather **when**__.
+
+Basically, it's easier to build with a know procedure from the box up rather than trouble-shooting an environment with issues.  
+
+== Roles and Responsibilities
+In order to communicate a clear understanding of expectations, roles and responsibilities must be clearly defined. Any work that will be performed as part of the plan must be assigned to someone and this section allows us to illustrate the roles that own these tasks and to communicate them to all project stakeholders.
+
+.The following roles and responsibilities pertain to the CM Plan for this organization.
+. Configuration Control Board (CCB)
+** The CCB is comprised of the organizational change management authority representative, Project Managers, Configuration Managers, and Lead Engineers for the configuration item (CI) under consideration. The CCB is responsible for the following:
+*** Review and approve/reject configuration change requests
+Ensure all approved changes are added to the configuration management database (CMDB)
+*** Seeking clarification on any CIs as required
+. Project Sponsor
+** The Project Sponsor is responsible for:
+*** Chairing all CCB meetings
+*** Providing approval for any issues requiring additional scope, time, or cost
+. Project Manager
+** The Project Manager is responsible for:
+*** Overall responsibility for all CM activities related to the projects
+*** Identification of CIs
+*** All communication of CM activities to project stakeholders
+Participation in CCB meetings
+*** Re-baselining, if necessary, any items affected by CM changes
+. Configuration Manager
+** The Configuration Manager will be appointed by the Program Management Office (PMO). The Configuration Manager is responsible for:
+*** Overall management of the CMDB
+*** Identification of CIs
+*** Providing configuration standards and templates to the project team
+*** Providing any required configuration training
+. Lead Engineers
+** All identified CIs will be assigned to a Lead Engineer. The assigned Lead Engineer is responsible for:
+*** Designating a focus group to develop the change request
+*** Ensure all change requests comply with organizational templates and standards prior to the CCB
+*** Submitting the change request to the lead engineer for review and presentation at the CCB
+Goals and Concepts
+The primary Goals and Concepts provide direction and improvements to the overall execution of the Development Lifecycle. Those that pertain to the Configuration Management tasks are listed and maintained in this section.
+
+== Configuration Control
+Configuration Control is the process of systematically controlling and managing all steps of configuration throughout the project lifecycle. In order to effectively handle project Configuration Management it is important to use a process which ensures only necessary configuration changes are made. Additionally, like any change management efforts, configuration change decisions must be made with the understanding of the impact of the change. Configuration control is an important part of the Configuration Management Plan.
+
+== CM Database (CMDB)
+A Configuration Management Database (CMDB) is where the organizations configuration information is stored. CMDB is a term which originates from Information Technology Infrastructure Library (ITIL) which provides a framework for best practices in IT services management.
+
+The CMDB contains not only the configuration information for assets but also information about the assets such as physical location, ownership, and its relationship to other configurable items (CIs). It is important to address the CMDB in the Configuration Management Plan.
+
+A key component to configuration management is having a well defined and followed process for both document and data management.
+
+== Configuration Status Accounting
+Accounting for the status of the configuration involves the collection, processing, and reporting of the configuration data for all CIs at any given time.
+
+This also includes management stored configuration information held in the Configuration Management Database (CMDB). 
+
+This may include approved configuration documents, software, data, and their current version numbers; build reports; status of any submitted changes; or any discrepancies and status identified through configuration audits.
+
+It is important that organizational Change Management authorities, the Project Sponsors and the Project Managers have the ability to review configuration status at any given time.
+
+The Project Manager will also submit weekly reports, to include configuration status on a regular basis. 
+
+.These reports will consist of the following information as part of the configuration status section:
+. Change requests
+.. Aging - How long change requests have been open
+.. Distribution – number of change requests submitted by owner/group
+.. Trending – what area(s) are approved changes occurring in
+. Version Control
+.. Software
+.. Hardware
+.. Data
+.. Documentation
+. Build Reporting
+.. Files
+.. CI relationships
+.. Incorporated Changes
+. Audits
+.. Physical Configuration
+.. Functional Configuration
+
+Just after any new software releases (deployments to production), the CM team will work with development teams to ensure all CIs are updated with latest release versions.
+
+== Configuration Audits
+Audits are an important part of project and configuration management, so it should be contained in the Configuration Management Plan.
+
+The purpose of an audit is to ensure that established processes are being followed as intended and to provide an opportunity to correct any deviations from these processes.
+
+Many people hold a negative view of audits; however, when used appropriately, audits are an effective management and quality assurance tool.
+
+Configuration audits will be an ongoing part of project lifecycles.
+
+The purpose of the configuration audit is to ensure all team members are following the established procedures and processes for configuration management.
+
+Project audits will occur prior to any major software release or at the Project Manager or Sponsor’s discretion if they determine the need for one.
+
+Throughout the project lifecycle the CM team works closely with development leaders to ensure that all configuration processes and procedures are being followed. 
+
+.As part of the configuration audit the CM will perform the following tasks:
+. Establish an audit environment in the CMDB
+. Verify all of the latest software, data, and document versions in the audit environment
+. Ensure all versions are correctly numbered and that version control has been performed properly
+. Analyze hisantorical versions and timestamps of all software, data, and documents to ensure all changes/edits were properly recorded and captured
+. Verify latest software versions and conduct software testing to ensure requirements are being met
+. Verify all required artifacts are present and current in the CMDB
+. Ensure all approved CRs have been incorporated into the project and are recorded in the CMDB
+
+Once the audit has been performed, the Configuration Manager will compile his/her audit findings. For each finding, the CM must work with the Project Manager/Team to identify the corrective action(s) necessary to resolve the discrepancy and assign responsibility for each corrective action.
+
+Upon completion of the project audit and findings, the CM will note all discrepancies and compile a report to be presented to the Project Manager, Sponsor, and VP of Technology.
+
+== References
+* http://www.projectmanagementdocs.com/project-planning-templates/configuration-management-plan.html#axzz4ulQeuQy8[CM Plan Template]
+* https://help.github.com/articles/access-permissions-on-github/[Access permissions on GitHub]
+* https://sethrobertson.github.io/GitBestPractices/[Git Best Practices]
+* https://guides.github.com/introduction/flow/[Undertanding the GitHub Flow]
+* https://help.github.com/articles/fork-a-repo/[Fork A Repo]
+* https://coderwall.com/p/tyty4a/best-practice-team-workflow-for-github[Team Workflow for Github]
+* https://www.atlassian.com/git/tutorials/comparing-workflows[Comparing Workflows]
+* http://codeinthehole.com/tips/pull-requests-and-other-good-practices-for-teams-using-github/[Effective pull requests and other good practices for teams using github]
