@@ -1,131 +1,159 @@
-<!doctYPE html>
+<!DOCTYPE html>
+<!-- Change to "en-US" from "en" -->
+<!-- <html lang="en"> -->
 <html lang="en-US">
-<html>
+<!-- Change to "en-US" from "en" -->
+<!-- *************************** -->
 <head>
-  <title>CM Plan Site</title>
-  <link rel="stylesheet" href="style.css">
+<!-- Add WebSite css -->
+<link rel="stylesheet" href="../style.css">
+<!-- Add WebSite css -->
+<!-- *************** -->
+
 <meta charset="UTF-8">
 <!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]-->
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="generator" content="Asciidoctor 1.5.5.dev">
+
+<!-- *********************** -->
+<!-- Adjust for Website name -->
+<title>CM Plan</title>
+<!-- Adjust for Website name -->
+<!-- *********************** -->
+
+<title>Introduction</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400,700">
-  <link rel="stylesheet" href="vendor-style.css">
+
+<!-- ******************************* -->
+<!-- Add Vendor-style.css stylesheet -->
+<link rel="stylesheet" href="../vendor-style.css">
+<!-- Add Vendor-style.css stylesheet -->
+<!-- ******************************* -->
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
 </head>
+
+<!-- **************************************** -->
+<!-- Add w3.js script for separate html files -->
 <script src="https://www.w3schools.com/lib/w3.js"></script>
+<!-- Add w3.js script for separate html files -->
+<!-- **************************************** -->
+
+<!-- ******************************** -->
+<!-- Adjust body to website body defn -->
+<!-- <body class="article toc2 toc-left"> -->
 <body>
+<!-- Adjust body to website body defn -->
+<!-- ******************************** -->
 
-<div w3-include-html="header.html"></div>
+<!-- *********************** -->
+<!-- Add website header defn -->
+<div w3-include-html="../header.html"></div>
 <script>w3.includeHTML()</script>
+<!-- Add website header defn -->
+<!-- *********************** -->
 
+<!-- ******************** -->
+<!-- Add website nav defn -->
 <nav>
   <ul>
     <li><a class="active" href="">Home</a></li>
-    <li><a href="plan">Plan</a></li>
-    <li><a href="overview">Overview</a></li>
-    <li style="float:right"><a href="about">About</a></li>
+    <li><a href="../plan">Plan</a></li>
+    <li><a href="../teamTools">Team Tools</a></li>
+    <li><a href="../overview">Overview</a></li>
+    <li style="float:right"><a href="../about">About</a></li>
   </ul>
 </nav>
+<!-- Add website nav defn -->
+<!-- ******************** -->
 
-<!-- <aside> -->
-<!--   <h2>&lt;aside&gt;</h2> -->
-<!-- </aside> -->
 
+<!-- *********************************************************** -->
+<!-- Replace <div id="toc" class="toc2"> with website aside defn -->
+<aside>
+<!-- <div id="header"> -->
+<!-- <h1>Configuration Management Plan</h1> -->
+<!--<div id="toc" class="toc2"> -->
+<div id="toctitle">Table of Contents</div>
+<ul class="sectlevel2">
+<li><a href="#trueintroduction">Introduction</a></li>
+<li><a href="#trueplan">Plan</a></li>
+<li><a href="#trueteam-tools">Team Tools</a></li>
+<li><a href="#trueoverview">Overview</a></li>
+<li><a href="#trueabout">About</a></li>
+</ul>
+</div>
+<!-- </div> -->
+</aside>
+<!-- Replace <div id="toc" class="toc2"> with website aside defn -->
+<!-- *********************************************************** -->
+
+<!-- ******************************************************* -->
+<!-- Wrap remainder of page in website section defn ******** -->
 <section>
-  <h2>Home</h2>
-  <p>The primary objective of this site is to identify the steps for the <a href="plan/#truebest-practice-for-change-delivery">Best Practice for Change Delivery</a>.
-  <ul>
-	  <li>NOTES:</li>
-	  <ol>
-		  <li>The above link takes you to a section in the <a href="plan">Plan</a> page.</li>
-		  <li>To better understand the purpose of this site, review the <a href="about">About</a> and <a href="overview">Overview</a> page links listed in the above navigation bar.</li>
-	  </ol>
-  </ul></p>
-  
-  <p>As a team member, there are many tools provided by [this company] and this organization to do your job. The tools used on a regular basis are provided below with buttons:</p>
 
-<h3>Company Tools:</h3>
-<br>
-<p class="button-paragraph">
-<a class="button-link" href="https://www.co-website.com" target="_blank">Company Website</a>
-<a class="button-link" href="https://www.co-support.com" target="_blank">Company Support</a>
-<a class="button-link" href="https://www.slack.com/messages" target="_blank">Slack</a>
-<a class="button-link" href="http://www.co-organization.com" target="_blank">Org Chart</a>
-<a class="button-link" href="https://www.co-docs.com/" target="_blank">Co Docs</a>
-<a class="button-link" href="http://www.change-tool.com" target="_blank">Change Recs</a>
-<a class="button-link" href="http://www.time-rpt.com" target="_blank">Time Rpting</a>
-</p>
-<p class="button-paragraph">
-<a class="button-link" href="https://www.desktop-support.com" target="_blank">Desktop Tkts</a>
-<a class="button-link" href="http://www.training.com" target="_blank">Training</a>
-<a class="button-link" href="https://www.Hardware-management.net/" target="_blank">HW Tracking</a>
-<a class="button-link" href="https://www.lab-access.net/" target="_blank">Lab Access</a>
-<a class="button-link" href="https://www.prod-access.net/" target="_blank">Prod Access</a>
-<a class="button-link" href="http://www.problem-tickets.com/" target="_blank">Trouble Tkts</a>
-<a class="button-link" href="https://www.version-mgtmnt.com/" target="_blank">Version Tool</a>
-</p>
-<p class="button-paragraph">
-<a class="red-button-link" href="http://www.hardware-mgt.com" target="_blank">HW Monitor</a>
-<a class="red-button-link" href="https://www.security-training.net" target="_blank">Security Training</a>
-<a class="button-link" href="https://www.goals.com" target="_blank">Goals</a>
-<a class="button-link" href="https://comcast.box.com/s/cprulunp2wk7m96f20nezx1xsi62j6qr" target="_blank">New Org Info</a>
-<a class="button-link" href="https://www.prod-support.net" target="_blank">Prod Support Wiki</a>
-</p>
+<!-- ********************************************** -->
+<!-- Move <div id="header"> donw to here, add title -->
+<div id="header">
+<h1>Home</h1>
+</div>
+<!-- Move <div id="header"> donw to here, add title -->
+<!-- ********************************************** -->
 
-<h3>Group Tools</h3>
-<br>
-<p class="button-paragraph">
-<a class="red-button-link" href="http://www.grp-intake.com" target="_blank">Intake</a>
-<a class="red-button-link" href="http://www.rel-cal.net" target="_blank">Calendar</a>
-<a class="button-link" href="http://www.release-manager.net" target="_blank">Planning</a>
-<a class="red-button-link" href="https://www.quality-rpts.net" target="_blank">Quality Assurance</a>
-<a class="button-link" href="https://wiki.deploy-Workflow" target="_blank">Deployment Workflow</a>
-<a class="button-link" href="https://www.deployment-rpt.net" target="_blank">Deployment Reports</a>
-</p>
-<p class="button-paragraph">
-<a class="red-button-link" href="http://www.old-releases.com" target="_blank">Legacy Releases</a>
-<a class="button-link" href="https://www.last-year-rel.net" target="_blank">2016 Releases</a>
-<a class="button-link" href="https://www.this-year-rel.net" target="_blank">2017 Releases</a>
-<a class="red-button-link" href="http://www.cm-plan-site/manual.pdf" target="_blank">CM Manual</a>
-<a class="red-button-link" href="http://www.chg-tracking.com" target="_blank">Change Tools</a>
-</p>
-<p class="button-paragraph">
-<a class="red-button-link" href="http://www.cm-plan-site/GitInstallationProcedure.adoc.html" target="_blank">Install Git</a>
-<a class="button-link" href="http://www.cm-plan-site.net/mvn-config.html" target="_blank">Maven Config</a>
-<a class="button-link" href="http://www.artifactory.net" target="_blank">Artifactory</a>
-<a class="button-link" href="http://wiki.artifactory-guide.net/" target="_blank">Artifactory Guide</a>
-<a class="button-link" href="http://www.dev-gocd-server.com" target="_blank">Dev GoCD</a>
-<a class="button-link" href="http://www.gocd-server.com" target="_blank">GoCD</a>
-</p>
-<p class="button-paragraph">
-<a class="button-link" href="https://www.cm-tickets.net/" target="_blank">CM Team Ticket</a>
-<a class="button-link" href="https://www.cm-wiki.net" target="_blank">CM Wiki</a>
-<a class="button-link" href="http://www.grp-docs.net" target="_blank">Group Docs</a>
-</p>
-
-<h4>Notes:</h4>
-<ol>
-  <li><i><b>Deployment Table</b> button</i> shows Production Deployment tickets and other CM Team Tickets. Need to go to the deployment tickets for the deployment tables. They are maintained in the Description field of these tickets.</li>
-  <li><i><b>CM Team Ticket</b> button</i> is used to open support requests for the CM Team. Click on the <b>Create</b> button near the top of the resulting page to open a ticket.</li>
-</ol>
-
-<h3>New Emerging GoCD Systems</h3>
-<br>
-<p class="button-paragraph">
-<a class="red-button-link" href="https://team1.sys.net/go/pipelines" target="_blank">Team 1</a>
-<a class="red-button-link" href="https://team2.sys.net/go/pipelines" target="_blank">Team 2</a>
-<a class="red-button-link" href="https://team3.sys.net/go/pipelines" target="_blank">Team 3</a>
-<a class="red-button-link" href="https://team4.sys.net/go/pipelines" target="_blank">Team 4</a>
-<a class="red-button-link" href="https://team5.sys.net/go/pipelines" target="_blank">Team 5</a>
-<a class="red-button-link" href="https://team6.net/go/pipelines" target="_blank">Team 6</a>
-</p>
+<div id="content">
+<div class="sect2">
+<h3 id="trueintroduction"><a class="anchor" href="#trueintroduction"></a>Introduction</h3>
+<div class="paragraph">
+<p>The site is maitained for this Organization. It is based on a Configruation Management Plan designed and maintained for this organization.</p>
+</div>
+<div class="paragraph">
+<p>For the casual user, this home page is used to define the primary components of this site so content can be located quickly.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="trueplan"><a class="anchor" href="#trueplan"></a>Plan</h3>
+<div class="paragraph">
+<p>This page is the Configuration Management Plan (CMP) for this organization. It is based on a CMP template and augmented with adopted workflows, agile concepts, Best Practice for Change Delivery, and other modern enhancements.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="trueteam-tools"><a class="anchor" href="#trueteam-tools"></a>Team Tools</h3>
+<div class="paragraph">
+<p>This page provides links to tools used by this organization. The links are organized to help team members stay focused on their tasks with minimal interruptions. The intent of this page is to provide a dashboard of company and organizational tools required on a regular basis for development and operations.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="trueoverview"><a class="anchor" href="#trueoverview"></a>Overview</h3>
+<div class="paragraph">
+<p>This page contains introductory information and links on the tools used by this organization. Git, and GitHub are introduced. A comparison of Git and CVS is also presented to outline the differences between Centralized version control systems and Distributed version control systems.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="trueabout"><a class="anchor" href="#trueabout"></a>About</h3>
+<div class="paragraph">
+<p>This page contains background information, recommendations, the targeted audience, and conventions used.</p>
+</div>
+</div>
+</div>
+<div id="footer">
+<div id="footer-text">
+Last updated 2017-10-17 11:33:38 MDT
+</div>
+</div>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.9.1/styles/github.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.9.1/highlight.min.js"></script>
+<script>hljs.initHighlighting()</script>
 
 </section>
+<!-- Wrap remainder of page in website section defn ******** -->
+<!-- ******************************************************* -->
 
-
-<div w3-include-html="footer.html"></div>
+<!-- *********************** -->
+<!-- Add website footer defn -->
+<div w3-include-html="../subfooter.html"></div>
 <script>w3.includeHTML()</script>
-
+<!-- Add website footer defn -->
+<!-- *********************** -->
 
 </body>
 </html>
-

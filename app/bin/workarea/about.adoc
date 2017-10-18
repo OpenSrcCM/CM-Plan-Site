@@ -4,8 +4,6 @@
 
 This site  provides references and instructions to support Planning, Identification, Control, Status Accounting, Verification & Audit of https://en.wikipedia.org/wiki/Configuration_item[Configuration Items]. 
 
-This site is maintained and managed from the GitHub repo https://github.com/cmguy[cmguy] / https://github.com/cmguy/CM-Plan-Site[CM-Plan-Site] repository.
-
 The relative website links maintain the persistence and integrity of this site. Examples include the *About* link that was used to get to this page along with the other links in the navigation bar above starting with the  *Home* link on the left.
 
 === Recommendations

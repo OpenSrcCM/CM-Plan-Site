@@ -21,8 +21,10 @@ workarea
 
    This directory is used to build the Site content. The primary tool is
    AsciidocFX. The asciidoc syntax is used to create html5 formated content
-   for the CM Plan Site. The resulting asciidoc html5 files are maintained
-   here and copied into their respective website directories.
+   for the CM Plan Site. The resulting asciidoc and html5 files are maintained
+   here. The html5 files (*.html) are then copied into their respective website
+   directories where they are modified into index.html files for each site
+   directory.
 
 vagrant
 
@@ -42,21 +44,6 @@ basis
    that become sub-directories of the website. These are gathered and tar`d in
    the server directory by the package-deploy.bsh script.
 
-about
-
-   High level description on what this website is about including conventions
-   used.
-
-overview
-
-   Overview of the CM Plan Website.
-
-plan-template
-
-   CM Plan documentation based on cmplan.html. This template is maintained to
-   consider the latest appropriate Configuration Management concepts for the
-   this site.
-
 plan
 
    CM Plan documentation based on plan-example.html. This template is maintained
@@ -68,6 +55,27 @@ plan
       The Phoenix Project:
         A Novel about IT, DevOps, and Helping Your Business Win –
 	January 10, 2013 by Gene Kim, Kevin Behr, and George Spafford
+
+teamTools
+
+   This directory contains links to all tools used by theteam this site is
+   designed to support. The links are arranged by company-wide tools to 
+   organization tools.
+
+overview
+
+   Overview of the CM Plan Website.
+
+about
+
+   High level description on what this website is about including conventions
+   used.
+
+plan-template
+
+   CM Plan documentation based on cmplan.html. This template is maintained to
+   consider the latest appropriate Configuration Management concepts for the
+   this site.
 
 server
 

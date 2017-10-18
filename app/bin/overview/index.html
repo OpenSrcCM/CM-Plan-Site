@@ -11,6 +11,7 @@
 <link rel="stylesheet" href="../style.css">
 <!-- Add WebSite css -->
 <!-- *************** -->
+
 <meta charset="UTF-8">
 <!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]-->
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -18,7 +19,6 @@
 
 <!-- ********************* -->
 <!-- Set to Web Site title -->
-<!--<title>Overview</title> -->
 <!-- <title>Overview</title> -->
 <title>CM Plan</title>
 <!-- Set to Web Site title -->
@@ -41,7 +41,12 @@
 <!-- Add w3.js so .html sub files can be read in -->
 <!-- ******************************************* -->
 
-<body class="article">
+<!-- ******************************** -->
+<!-- Adjust body to website body defn -->
+<!-- <body class="article toc2 toc-left"> -->
+<body>
+<!-- Adjust body to website body defn -->
+<!-- ******************************** -->
 
 <!-- *********************** -->
 <!-- Add website header defn -->
@@ -56,6 +61,7 @@
   <ul>
     <li><a href="../">Home</a></li>
     <li><a href="../plan">Plan</a></li>
+    <li><a href="../teamTools">Team Tools</a></li>
     <li><a class="active" href="">Overview</a></li>
     <li style="float:right"><a href="../about">About</a></li>
   </ul>
@@ -63,12 +69,36 @@
 <!-- Add website nav defn -->
 <!-- ******************** -->
 
+<!-- *********************************************************** -->
+<!-- Replace <div id="toc" class="toc2"> with website aside defn -->
+<aside>
+<!-- <div id="header"> -->
+<!-- <div id="toc" class="toc2"> -->
+<div id="toctitle">Table of Contents</div>
+<ul class="sectlevel2">
+<li><a href="#trueoverview">Overview</a></li>
+<li><a href="#truegit-approach">Git Approach</a></li>
+<li><a href="#truegit-vrs-cvs">Git vrs CVS</a></li>
+</ul>
+</div>
+<!-- </div> -->
+<!-- </div> -->
+</aside>
+<!-- Replace <div id="toc" class="toc2"> with website aside defn -->
+<!-- *********************************************************** -->
+
 <!-- ******************************************************* -->
 <!-- Wrap remainder of page in website section defn ******** -->
 <section>
 
-<div id="header">
-</div>
+<!-- ********************************************** -->
+<!-- Move <div id="header"> down to here, add title -->
+<!-- <div id="header"> -->
+<!-- <h1>Overview</h1> -->
+<!-- </div> -->
+<!-- Move <div id="header"> down to here, add title -->
+<!-- ********************************************** -->
+
 <div id="content">
 <div class="sect2">
 <h3 id="trueoverview"><a class="anchor" href="#trueoverview"></a>Overview</h3>
@@ -131,8 +161,9 @@
 </tr>
 </table>
 </div>
-<div class="sect3">
-<h4 id="truegit-approach"><a class="anchor" href="#truegit-approach"></a>Git Approach</h4>
+</div>
+<div class="sect2">
+<h3 id="truegit-approach"><a class="anchor" href="#truegit-approach"></a>Git Approach</h3>
 <div class="paragraph">
 <p>Each time files are added to a the GitHub bare repository (repo), it is by the latest commit on a branch.</p>
 </div>
@@ -199,7 +230,6 @@
 </td>
 </tr>
 </table>
-</div>
 </div>
 </div>
 <div class="sect2">
@@ -283,7 +313,7 @@
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2017-10-06 12:00:00 MDT
+Last updated 2017-10-17 13:51:05 MDT
 </div>
 </div>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.9.1/styles/github.min.css">

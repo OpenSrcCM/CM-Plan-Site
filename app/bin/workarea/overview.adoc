@@ -1,3 +1,5 @@
+:toc2:
+
 === Overview
 
 A major component of the CM Database is the Version Management System. The best Distributed Version Control System is the http://en.wikipedia.org/wiki/Git_(software)[Git] tool.
@@ -30,7 +32,7 @@ $ git add -h
 ====
 
 
-==== Git Approach
+=== Git Approach
 
 Each time files are added to a the GitHub bare repository (repo), it is by the latest commit on a branch.
 
