@@ -257,6 +257,7 @@ Upon completion of the project audit and findings, the CM will note all discrepa
 * https://help.github.com/articles/access-permissions-on-github/[Access permissions on GitHub]
 * https://sethrobertson.github.io/GitBestPractices/[Git Best Practices]
 * https://guides.github.com/introduction/flow/[Undertanding the GitHub Flow]
+* https://gist.github.com/Chaser324/ce0505fbed06b947d962[GitHub Forking]
 * https://help.github.com/articles/fork-a-repo/[Fork A Repo]
 * https://coderwall.com/p/tyty4a/best-practice-team-workflow-for-github[Team Workflow for Github]
 * https://www.atlassian.com/git/tutorials/comparing-workflows[Comparing Workflows]
