@@ -77,7 +77,7 @@ plan-template
    consider the latest appropriate Configuration Management concepts for the
    this site.
 
-server
+$TargetTarDir  (package-deploy.bsh variable)
 
    This is the directory the where the deployment package is assembled and
    bundled from.

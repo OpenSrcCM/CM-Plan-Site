@@ -2,7 +2,7 @@
 ##################################################################################################
 # package-deploy.bsh
 #
-# Written by Andy Wallace 2017/08/28; last updated 2017/10/04
+# Written by Andy Wallace 2017/08/28; last updated 2017/10/21
 #
 # This script creates a package for pushing to
 # the apache server html directory on a linux system with apache. 
@@ -54,17 +54,18 @@
 ################################################################################
 # Script configuration variables
 ################################################################################
-TargetTarDir="server"            # from script run directory
-basisDir="../basis"              # from $TargetTarDir
-vagrantDir="../vagrant"          # from $TargetTarDir
-DeployDir="../../../deploy"      # from $TargetTarDir
-subDir[0]="plan"                 # in $TargetTarDir
-subDir[1]="teamTools"            # in $TargetTarDir
-subDir[2]="overview"             # in $TargetTarDir
-subDir[3]="about"                # in $TargetTarDir
-subDir[4]="plan-template"        # in $TargetTarDir
-subDir[5]="learn"                # in $TargetTarDir
-noOfDirs=6                       # Number of subDir values
+TargetTarDir="server"              # from script run directory
+basisDir="../basis"                # from $TargetTarDir
+vagrantDir="../vagrant"            # from $TargetTarDir
+DeployDir="../../../deploy"        # from $TargetTarDir
+TargetTarDirpath="../app/bin/"     # from $DeployDir
+subDir[0]="plan"                   # in $TargetTarDir
+subDir[1]="teamTools"              # in $TargetTarDir
+subDir[2]="overview"               # in $TargetTarDir
+subDir[3]="about"                  # in $TargetTarDir
+subDir[4]="plan-template"          # in $TargetTarDir
+subDir[5]="learn"                  # in $TargetTarDir
+noOfDirs=6                         # Number of subDir values
 ThisScript="package-deploy.bsh"
 ThisRepo="CM-Plan-Site"
 
@@ -121,7 +122,9 @@ fi
 ################################################################################
 # Create deploy package
 ################################################################################
-# Tar work area
+# Prepare deployment for install
+mkdir $TargetTarDir
+mkdir $TargetTarDir/html
 cd $TargetTarDir
 cp $vagrantDir/bootstrap.sh .
 cp $vagrantDir/vagrantfile .
@@ -150,16 +153,11 @@ while [[ "$DirCnt" < "$noOfDirs" ]]; do
 done
 cd ../
 tar cfz $ThisRepo-$Major.$Minor.$Issue.gz *
-# clean up $TargetTarDir
-rm bootstrap.sh
-rm vagrantfile
-rm -r html/*
-# Prepare deployment for install
 mv $ThisRepo-$Major.$Minor.$Issue.gz $DeployDir/ 
 cd $DeployDir
-rm bootstrap.sh
-rm vagrantfile
 tar xfz $ThisRepo-$Major.$Minor.$Issue.gz
+# Clean up deployment build area
+rm -r $TargetTarDirpath/$TargetTarDir
 # testing to here.
 
 echo "`date +%c` Package Created at deploy/$ThisRepo-$Major.$Minor.$Issue.gz"
