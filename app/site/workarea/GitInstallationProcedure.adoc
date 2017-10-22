@@ -1,0 +1,398 @@
+
+[width="15%", frame="topbot", options="header,footer"]
+|====================
+| :toc: macro  |
+| toc::[left]  |
+|====================
+
+
+
+:hardbreaks::
+
+= Git Installation Procedure
+
+== Prerequisites
+
+* Workstation/laptop with Windows 10 or 7 or Mac
+* Administrative access on workstation
+
+The intended audience for this overview is any member of the supported organization. This document sets the stage for the organization Configuration Management Plan. It establishes the Distributed Version Control System referenced and used by this CM Plan Site.
+
+[NOTE]
+====
+. This Git installation is recommended by the http://git-scm.com[Git SCM] site for http://git-scm.com/book/en/Getting-Started-Installing-Git#Installing-on-Windows[Windows Installations]. The http://git-scm.com[Git SCM] site also supports other commonly used Operating Systems. This is the preferred and recommended approach using openSSH.
+. There is also an ssh client you can use in place of putty. It is available from the https://wiki.sys.comcast.net/pages/viewpage.action?pageId=48759751[CM Wiki] under Standards & Policies -> Access, called https://wiki.sys.comcast.net/download/attachments/71944374/SSHSecureShellClient-3.2.9.exe?api=v2[SSHSecureShellClient-3.2.9.exe]. Install it on your workstation with the indicated defaults.
+. Another option is documented at -> http://nathanj.github.io/gitguide/about.html[An Illustrated Guide to Git on Windows]. Both this option and the option in the first note provide the same Git tools. The main difference is the second option uses putty instead of openSSH. In the Putty case, the contents of environment variable `SSH_GIT` is set to use plink.exe. This will not work for the openSSH option.
+. For none windows systems, follow the Git installation instructions for the appropriate operating system. The remainder of this document can be used for any unix or linux environment.
+. For release notes, reference file:///C:/Program%20Files/Git/ReleaseNotes.html. You'll need to cut and paste this link into your browser address window after you complete the git installation. It is a link to your workstation.
+====
+
+== Installing Git
+
+.  go to link http://git-scm.com/[git]. Depending on your workstation, you will see a section on this page that looks like one of the following image:
+
+
+* On Mac Workstations:
+
+image::images/git-install-doc/mac-git.png[]
+
+* On Windows Workstations:
+
+image::images/git-install-doc/win-git.PNG[]
+
+
+* In either case, click on the *Downloads for "Mac|Windows"* button.
+
+=== If you're on a Mac workstation, here's an example session:
+
+image::images/git-install-doc/Mac1install.png[]
+
+Downloads:
+
+image::images/git-install-doc/Mac2install.png[]
+
+Install - (click on the open button):
+
+image::images/git-install-doc/Mac3install.png[]
+
+Click on Continue button:
+
+image::images/git-install-doc/Mac4install.png[]
+
+image::images/git-install-doc/Mac5install.png[]
+
+image::images/git-install-doc/Mac6install.png[]
+
+=== If you're on a Windows workstation, here's an example session:
+
+image::images/git-install-doc/Welcome.png[]
+
+This will download a file like *_Git-2.5.1-64-bit.exe_* to your downloads directory:
+
+
+* Enter "yes" in "Allow..changes.." window. Click the *Next >* button in the following two window:
+
+image::images/git-install-doc/Welcome.png[]
+
+image::images/git-install-doc/GPL.png[]
+
+* Verify the following settings, then click the *Next >* button in the following window:
+
+image::images/git-install-doc/Select-Components.png[]
+
+* Select the third button as indicated in following window, then click the *Next >* button:
+
+image::images/git-install-doc/Third-Button.png[]
+
+* If a similar window to the following window comes up, the *Use OpenSSH* radio button is recommended. Click the *Next >* button:
+
+image::images/git-install-doc/wingit55.png[]
+
+* Select the First radio button as indicated in the following window. Click the *Next >* button:
+
+image::images/git-install-doc/Windows-style.png[]
+
+image::images/git-install-doc/Use-MinTTY.png[]
+
+image::images/git-install-doc/File-Sys-Cach-2.png[]
+
+* After the Install completes, Click on the *Finish* button as indicated in the second window below:
+
+image::images/git-install-doc/Installing.png[]
+
+image::images/git-install-doc/Finish.png[]
+
+
+== Upgrade Git
+
+Follow the same steps for Installing Git in the previous section. Note the expected version release change after you are done.
+
+== Initial Git Configurations
+
+After you have installed Git successfully, you have full Git functionality on your workstation.
+
+[green]#Be sure to use the Git Bash session you just installed for the following sections.#
+
+Try the following commands in your Git Bash window:
+
+Run '**git help git**' to display the help index in a browser window.
+Run '**git help <command>**' to deploay help for specific commands in a browser window.
+
+image::images/git-bash-session.png[]
+
+.In order to interface with the https://github.com/[GitHub] system, the following needs to be performed:
+* Identify or Set $HOME variable on your Workstation.
+* Build and Configure SSH key Usage
+* Identify yourself in Git:
+** Name
+** email
+** Setup your default editor
+** Setup the diff tool you will use
+* Add SSH Aliases
+* Verify Git remote "origin"
+
+[NOTE]
+====
+The above bullets are covered in following sections with Links to each maintained in the "Table of Contents".
+====
+
+For details on initial setup, refer to http://git-scm.com/book/en/Getting-Started-First-Time-Git-Setup[First-Time Git setup].
+
+=== Identify the $HOME variable on Your Workstation
+
+.Mac instructions:
+. $HOME should be defined already
+
+.Windows 7 specific instructions:
+. Click on Start (Lower Right Windows Bubble)
+. Right Click on *Computer* and select *Properties*
+
+.Windows 10 specific instructions:
+. Right Click Windows pane (lower right) and select "System"
+
+.Common to Window 7 and Windows 10
+. Select *Advanced system settings*
+. Click on the *Environment Variables...* button on the "Advanced" tab of the System Properties window for Windows 7
+. Verify there is a *HOME* variable in the *System variables* list. This variable is referenced by SSH when supporting remote functionality with the http://emm-git1.sys.comcast.net/git/[EM&M Git System].
+.. Should be set to C:\Users\[your NTLogon].
+.. Create (New button) or adjust (edit button) the *HOME* system variable accordingly.
+
+=== Build and Configure SSH key Usage
+
+You can reference http://git-scm.com/book/en/v2/Git-on-the-Server-Generating-Your-SSH-Public-Key[Generating Your SSH Public Key] for more details on the following instructions.
+
+.Execute the following in your new Git Bash window.
+* $ ls -la ~/
+
+.If your do not have a ~/.ssh directory, create it:
+* $ mkdir c:\Users\userid\.ssh
+[WARNING]
+====
+*Use the Git Bash window. Windows Explorer will not allow you to create the .ssh directory.*)
+====
+
+
+$ cd ~/.ssh  (c:\Users\userid\.ssh)
+
+* Set the ~/.ssh permissions to 740 *($ chmod -R 740 ~/.ssh)*
+* Set the file permissions in ~/.ssh to 740 *(Just verify, should be done from previous step.)*
+
+[NOTE]
+====
+Note the "~/" utilizes the workstation system *HOME* variable for your userid.
+====
+
+.Generate ssh key pair using your userid:
+* $ ssh-keygen -t rsa -f [Your userid] (userid is all lower-case, no mixed case.)
+
+[IMPORTANT]
+====
+It is recommended you enter nothing for the pass phrase.
+====
+
+.The following two files will be generated:
+* *[Your userid]* -  Your *[red]#private#* key file
+* *[Your userid].pub* -  Your *[green]#public#* key file
+
+[WARNING]
+====
+*Never send your private key in an email or attach it to any tickets or slack.*
+====
+
+.Setup your ssh Key on GitHub
+. Logon to https://github.comcast.com/[GitHub]
+. On upper-right of window select pulldown for _**View Profile and more**_
+. Select Settings
+. Under _**Personal settings**_ select _**SSH keys and GPG keys**_
+. Click on the _**New SSH key**_ button and follow instructions.
+
+[WARNING]
+====
+Your interaction with GitHub managed remote repos will be more secure using your ssh key.
+====
+
+For more information about EM&M SSH key pairs, refer to the https://wiki/display/SSH+Key+Usage+Policy[SSH Key Usage Policy].
+
+=== Identify Yourself in Git (Use git bash in the ~/git-repos directory)
+
+.Enter your first and last name:
+* $ git config --global user.name "Andy Wallace"
+
+.Enter your Comcast email address:
+* $ git config --global user.email Andrew_Wallace@somemail.net
+
+.Setup your editor:
+* $ git config --global core.editor vim
+
+.Setup you diff tool:
+* $ git config --global merge.tool vimdiff
+
+.You can run the following command to see all of you Git settings:
+* $ git config --list
+
+[TIP]
+====
+.Verify the following values have been configured:
+. user.name
+. user.email
+. core.editor
+. merge.tool
+====
+
+.Verify your git workarea(s) on your windows workstation are on the C Drive.
+[source,asciidoc]
+----
+$ (current directory)
+$ cd ~/
+$ Andy@Office-PC MINGW64 ~
+$ pwd
+/c/Users/Andy
+$
+----
+
+=== Add SSH Aliases
+
+To reduce typing and minimize ssh key issues, the following is done to provide ssh aliases. Add a config file under the \~/.ssh on your workstation for your userid as follows.
+
+Edit (or create) ~/.ssh/config and add the following lines adjusted for your [blue]#NTLogon#:
+
+$ vim ~/.ssh/config
+
+[source,text]
+----
+
+################################################################
+################################################################
+### GitHub SSH Client Config file                            ###
+###                                                          ###
+### Place this code block in file ~/.ssh/config on your      ###
+### workstation. If ~/.ssh/config already exists, add        ###
+### this code block to file ~/.ssh/config.                   ###
+###                                                          ###
+### DISCLAIMER:                                              ###
+###    This code block not designed to work with wildcard    ###
+###    definition for Host (Host *) in the ~/.ssh/config     ###
+###    file.                                                 ###
+###                                                          ###
+### Host github is for the GitHub Interface, the alias that  ###
+### will be used for the GitHub remote.                      ###
+###                                                          ###
+### Syntax format                                            ###
+###                                                          ###
+### Host [ssh alias names]                                   ###
+###        User [host user name]                             ###
+###        Hostname [host dns]                               ###
+###        Port 22                                           ###
+###        IdentityFile ~/.ssh/[Your userid]                 ###
+################################################################
+#                                                            ###
+Host github
+  User git
+  Hostname github.com
+  Port 22
+  IdentityFile ~/.ssh/userid
+#                                                            ###
+################################################################
+
+----
+
+This file allows you to enter commands like this:
+$ git clone github:CM-Plan-Site
+Rather than this:
+$ git clone ssh://git@github.com/cmguy/CM-Plan-Site
+
+*You should now have three files similar to the following in your ~/.ssh directory:*
+
+[source,asciidoc]
+----
+$ ls -la
+total 30
+drwxr-xr-x 1 Andy 197121    0 Oct 22 05:55 ./
+drwxr-xr-x 1 Andy 197121    0 Oct 22 07:00 ../
+-rw-r--r-- 1 Andy 197121  313 Aug 14 05:57 config
+-rw-r--r-- 1 Andy 197121 1679 Aug 13 11:22 myuserid
+-rw-r--r-- 1 Andy 197121  396 Aug 13 11:22 myuserid.pub
+
+Andy@Office-PC MINGW64 ~/.ssh
+$
+----
+
+[TIP]
+====
+Be sure to read all comments whenever you enter git or ssh commands that interface with the github System. They usually contain some indication of what you need to enter next.
+====
+
+The first time you use your ssh key to make a connection to GitHub, you will get some verbiage and a prompt asking to establish this connection. You need to enter "yes" at this prompt. 
+
+Sometimes the git configuration on your workstation may be in need of adjustment. There is usually instructions on what you need to enter next. 
+
+Be sure to read git generated responses after git commands execute.
+
+do the following on your workstation in your new Git Bash Session:
+
+image::images/git-clone.png[]
+
+
+Now you have established a git repo local on your workstation from the Github system. You can verify the git remote origin in the local copy on your workstation.
+
+The git remote `origin` should be setup for communication between your workstation repo and the GitHub system. Reference http://gitref.org/remotes/#remote[git remote] for more details.
+
+image::images/git-remote-val.png[]
+
+If you are unable to mimic the above Git bash sessions on your workstation, review the `Add SSH Aliases` section of this document. If you are still having issues, check with CM jleadership.
+
+== GitHub
+
+Image of [GitHub] site with logon after entering password.
+
+[NOTE]
+====
+* For On-boarding details, reference the _**General Access**_ of the http://127.0.0.1:3597/[CM Plan Site] [On-boarding] page after you have completed this installation on all other prerequisites.
+====
+
+== Git Introduction
+
+If you are new to Git, refer to the _**New to Git?**_ section of the http://manual.pdf[On-Boarding] page. This section contains links to introductory videos.
+
+=== Branching and Merging
+
+There are two protected main branches that can be established in GitHub repos, _**develop**_, and _**master**_. Reference the Branching and Merging section of the http://127.0.0.1:3597/[CM-Plan-Site] [User Guide]. 
+
+.To update the _**develop**_ or _**master**_ branch, GitHub pull requests are required and need to be done by devleads. This initiates a colaborative code review session. To do this:
+. git push the branch you wish to merge
+. Do a GitHub pull request. Reference *"Show me how"* at https://services.github.com/on-demand/github-desktop/push-pull-request-github-desktop[Push to Github & Create a Pull Request] for a specific example.
+. Click on pull request and add reviewers
+. Review and address comments from reviewers
+. Merge pull request
+
+
+== Git Conflict Reporting
+
+Reporting on git merge conflicts before actually doing a merge provides a view into additional deltas that need to be considered before doing a merge.
+
+A script tool, *report-conflicts.bsh* has been prepared for all devOpt personnel to identify all conflicts to all main, and outstanding release branches for a given feature branch.
+[TIP]
+====
+Reference the Branching and Merging Workflow section of the  http://127.0.0.1:3597/[CM-Plan-Site] [User-Guide].
+====
+
+The *report-conflicts.bsh* is designed to be run from any DevOps contributor's workstation or laptop.
+
+.Installation Instructions
+. Create a "bin" directory under your ~/ directory
+. Add C:\Users\Andy\bin to your workstation or laptop User Variable Path. Substitute your userid for "Andy".
+. Get local to your new bin directory and install the report-conflicts.bsh script to it.
+* cd ~/bin
+* cp ~/git-repos/CM-Plan-Site/app/bin/report-conflicts.bsh .  (I put my git repos under the ~/git-repos directory)
+. Setup directories to be used only by the report-conflicts.bsh.
+* mkdir ~/git-repos/conflict-reports
+* mkdir ~/git-repos/conflict-reports/log
+. Open the script report-conflicts.bsh with vim and set the RepoHome variable to "/c/Users/Andy/git-repos/conflict-reports" substituting your userid for "Andy".
+. Execute the following for execution instructions:
+* report-conflicts.bsh -h
+
+[NOTE]
+====
+. Reference the *"Identify the $HOME variable on Your Workstation"* to get you to the "Environments Variables" window to update your User Variable *Path*.
+. You can install the report-conflicts.bsh script directly from the GitHub cmguy repo in the app/bin directory.
+====

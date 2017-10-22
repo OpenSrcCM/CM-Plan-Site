@@ -1,14 +1,14 @@
 #!/bin/bash
-##################################################################################################
+################################################################################
 # package-deploy.bsh
 #
-# Written by Andy Wallace 2017/08/28; last updated 2017/10/21
+# Written by Andy Wallace 2017/08/28; last updated 2017/10/22
 #
-# This script creates a package for pushing to
-# the apache server html directory on a linux system with apache. 
+# This script creates a package for pushing to the apache server html directory
+# on a linux system with apache. 
 #
-# This script is designed to be run from the repo app/bin directory. It requires an
-# existing deploy directory at the top of the Git repo work area.
+# This script is designed to be run from the repo app/bin directory. It requires
+# an existing deploy directory at the top of the Git repo work area.
 #
 # After this script executes, the following package is created:
 #   /deploy/$ThisRepo-M.m.I.gz
@@ -18,47 +18,52 @@
 #         I - GitHub issue number (0 indicates production release)
 #
 #   This package is designed to create and populate the /var/www/html directory
-#   on the linux apache server. There are README.txt files located in various [repo]
-#   directories that identify how this repository is used to maintain the CM Plan Website.
+#   on the linux apache server. There are README.txt files located in various
+#   [repo] directories that identify how this repository is used to maintain
+#   the CM Plan Website.
 #
-#   It also provides the vagrantfile and bootstrap.sh files
-#   in the [repo]/deploy directory for creating the VM system.
+#   It also provides the vagrantfile and bootstrap.sh files in the
+#   [repo]/deploy directory for creating the VM system.
 #
-#   The basis directory in app/bin is a template for an initial html5 website.
-#   It is also deployed for development purposes using vagrant.
+#   The directory app/site is a template for an initial html5 website.
+#   It is deployed for development purposes using vagrant.
 #
 #   Deployment procedure using Vagrant:
 #
-#    1. Run this script to prepare deployment package in [repo]/app/bin directory.
+#    1. Run this script to prepare deployment package in the [repo]/deploy
+#       directory.
 #         NOTE: The [repo]/deploy directory is where vagrantfile is run from.
 #    2. Run "vagrant up" to create website on VM guest system.
 #         NOTES:
 #
-#            1. The bootstrap.sh called by vagrant completes the VM install of this website.
+#            1. The bootstrap.sh called by vagrant completes the install of
+#               this website on the Vurtual Machinke (VM).
 #            2. See contents of [repo]/deploy/README.txt for more details.
-#            3. If you have multiple gz files from step 1 runs, you can Untar any deployment
-#               package prepared by this script to look at different deployment releases.
-#               Execute below in [repo]/deploy directory:
-#                 $ tar xfz $ThisRepo-$Major.$Minor.$Issue.gz
-#                 $ vagrant provision
-#            4. Note the Script configuration variables section. The subDir array is for
-#               various website pages.
+#            3. If you have multiple gz files from step 1 runs, you can Untar
+#               any deployment package prepared by this script to look at
+#               different deployment releases.
+#               For example:
+#                 Execute below in [repo]/deploy directory:
+#                   $ tar xfz $ThisRepo-$Major.$Minor.$Issue.gz
+#                   $ vagrant provision
+#            4. Note the Script configuration variables section. The subDir
+#               array is for various website pages.
 #
 #  Dependencies:
 #
-#     This script requires a repo work area /deploy directory with full capability to
-#     create and remove files and directories in.
+#     This script requires a repo work area /deploy directory with full
+#     capability to create and remove files and directories by this script.
 # 
-##################################################################################################
+################################################################################
 
 ################################################################################
 # Script configuration variables
 ################################################################################
 TargetTarDir="server"              # from script run directory
 basisDir="../basis"                # from $TargetTarDir
-vagrantDir="../vagrant"            # from $TargetTarDir
+vagrantDir="../../bin/vagrant"     # from $TargetTarDir
 DeployDir="../../../deploy"        # from $TargetTarDir
-TargetTarDirpath="../app/bin/"     # from $DeployDir
+TargetTarDirpath="../app/site/"    # from $DeployDir
 subDir[0]="plan"                   # in $TargetTarDir
 subDir[1]="teamTools"              # in $TargetTarDir
 subDir[2]="overview"               # in $TargetTarDir
@@ -123,6 +128,7 @@ fi
 # Create deploy package
 ################################################################################
 # Prepare deployment for install
+cd ../site
 mkdir $TargetTarDir
 mkdir $TargetTarDir/html
 cd $TargetTarDir
