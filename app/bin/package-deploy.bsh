@@ -37,7 +37,7 @@
 #         NOTES:
 #
 #            1. The bootstrap.sh called by vagrant completes the install of
-#               this website on the Vurtual Machinke (VM).
+#               this website on the Virtual Machine (VM).
 #            2. See contents of [repo]/deploy/README.txt for more details.
 #            3. If you have multiple gz files from step 1 runs, you can Untar
 #               any deployment package prepared by this script to look at
@@ -158,6 +158,7 @@ while [[ "$DirCnt" < "$noOfDirs" ]]; do
   done
 done
 cd ../
+# Prepare deployment for install
 tar cfz $ThisRepo-$Major.$Minor.$Issue.gz *
 mv $ThisRepo-$Major.$Minor.$Issue.gz $DeployDir/ 
 cd $DeployDir
