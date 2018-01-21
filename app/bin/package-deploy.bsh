@@ -2,7 +2,7 @@
 ################################################################################
 # package-deploy.bsh
 #
-# Written by Andy Wallace 2017/08/28; last updated 2017/10/22
+# Written by Andy Wallace 2017/08/28; last updated 2018/01/21
 #
 # This script creates a package for pushing to the apache server html directory
 # on a linux system with apache. 

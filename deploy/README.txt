@@ -19,7 +19,8 @@
 #   - vagrant provision
 # 
 # This directory is used for automated deployments. The only file checked in
-# Should be this README.txt to keep the directory available.
+# Should be this README.txt to keep the directory available. The 
+# ../.gitignore file is used to assist in enforcing this.
 
 # Files vagrantfile and bootstrap.sh are maintained in /app/bin/vagrant
 # for git commit purposes. 

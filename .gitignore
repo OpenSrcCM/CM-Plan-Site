@@ -4,7 +4,9 @@
 # git has its own built in compression methods
 .vagrant
 app/bin/server/html/*
-deploy/*
+deploy/package-deploy.bsh
+deploy/vagrantfile
+deploy/bootstrap.sh
 *.7z
 *.dmg
 *.gz
