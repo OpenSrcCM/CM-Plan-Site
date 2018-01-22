@@ -1,0 +1,38 @@
+#!/bin/bash
+##################################################################################
+# enable-functionality.bsh
+#
+# Written by Andy Wallace 2017/12/21; last updated 2018/01/21
+#
+# In order to promote a fully automated deployment approach deployment 
+# functionality files are removed during deployment runs via the bootstrap.sh
+# script. 
+#
+# This script enables deployment functionality for development activities.
+#
+# This script is designed to be run from the repo deploy directory.  It is 
+# usually run after running the cm-system-service.bsh script or a
+# "vagrant provision" run.
+#
+################################################################################
+
+################################################################################
+# Script configuration variables
+################################################################################
+binPath="../app/bin"
+vagrantDir="$binPath/vagrant"  # from deploy directory
+ThisScript="enable-functionality.bsh"
+ThisRepo="CM-Plan-Site"
+
+################################################################################
+# Process script arguments
+################################################################################
+# None
+
+cp $binPath/package-deploy.bsh .
+cp $vagrantDir/bootstrap.sh .
+cp $vagrantDir/vagrantfile .
+
+echo "`date +%c` Deployment functionality enabled."
+
+

@@ -1,0 +1,104 @@
+#!/bin/bash
+##################################################################################
+# cm-plan-service.bsh
+#
+# Written by Andy Wallace 2017/12/21; last updated 2018/01/21
+#
+# This script creates the CM Plan Site service. It's components are maintained
+# in the CM-Plan-Site repo.
+#
+# This script is designed to be run from the repo deploy directory. It
+# requires an existing deploy directory at the top of the Git repo work area.
+#
+# After this script executes, the following package is created in addition to
+# the installed CM Plan Site on the local system:
+#   /deploy/$ThisRepo-M.m.I.gz
+#      Notes:
+#         M - Major release increment/ID
+#         m - Minor release increment/ID
+#         I - GitHub issue number (0 indicates production release)
+#         This file can be used to install on like OS/apache built systems.
+#
+#   This Deployment script uses Vagrant.
+#
+#  Dependencies:
+#
+#     Vagrant Installation, Installed version: 2.0.1
+#     ORACLE VM VirtualBox Version 5.2.6 r120293 (Qt5.6.2)
+#     Git installation version 2.15.1.windows.2
+#        OR equivalent MAC version.
+# 
+################################################################################
+
+################################################################################
+# Script configuration variables
+################################################################################
+ThisScript="cm-plan-service.bsh"
+ThisRepo="CM-Plan-Site"
+binPath="../app/bin"
+
+################################################################################
+# Process script arguments
+################################################################################
+if [ "$#" -eq "0" ]; then echo ""
+      echo "Invalid argument set. For help execute " $ThisScript " -h"
+      echo ""
+      echo "ERROR - No argument supplied."
+      exit 1
+fi
+
+if [ "$#" -ge "1" ]; then
+   echo "`date +%c` Validate arguments ..."
+   elif [ "$#" -gt "3" ]; then
+      echo ""
+      echo "Invalid argument set. For help execute " $ThisScript " -h"
+      echo ""
+      echo "ERROR - Too many arguments supplied."
+      exit 1
+   elif [ "$#" -lt "3" ]; then
+      echo ""
+      echo "Invalid argument set. For help execute " $ThisScript " -h"
+      echo ""
+      echo "ERROR - Invalid number of arguments supplied."
+      exit 1
+fi
+
+if [ "$1" == "-h" ]; then
+   echo ""
+   echo "$ThisScript -h|[ Major Minor issue ]" 
+   echo ""
+   echo "   -h          -> Prints this help text."
+   echo ""
+   echo "   Major -> Release Major number for this $ThisRepo repo deployment."
+   echo ""
+   echo "   Minor -> Release Minor number for this $ThisRepo repo deployment."
+   echo ""
+   echo "   Issue -> GitHub issue number for this $ThisRepo repo deployment."
+   echo ""
+   exit 1
+else
+   Major="$1"
+   Minor="$2"
+   Issue="$3"
+fi
+
+# Test -echo arguments
+#echo "Major is " $Major
+#echo "Minor is " $Minor
+#echo "Issue # is " $Issue
+
+################################################################################
+# Create deploy package
+################################################################################
+# Copy package script to this deploy location for execution
+cp $binPath/package-deploy.bsh .
+
+# Prepare Deployment directory
+./package-deploy.bsh $Major $Minor $Issue
+
+# Build and load VM
+Vagrant up --provision
+
+echo "`date +%c` EM&M CM System Website Service Enabled."
+
+
