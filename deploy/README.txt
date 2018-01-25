@@ -5,13 +5,13 @@
 #    ./cm-system-service.bsh Major Minor Issue
 #
 #   Notes:
-#     1. When developing and releasing for this repo, all changes made anywhere
+#     A. When developing and releasing for this repo, all changes made anywhere
 #        need to be considered for the following component directories of this
 #        website. Refer to local README.txt files for further details of each:
 #          a. app/bin/vagrant
 #          b. app/site/newstuff
 #          c. app/site/sitemap
-#     3. Current working versions of Prequisite applications:
+#     B. Current working versions of prerequisite applications:
 #          a. Git 2.15.1.windows.2
 #          b. Oracle VM VirtualBox 5.2.6
 #          c. Vagrant 2.0.1
@@ -19,9 +19,10 @@
 #                     vagrant ssh functionality:
 #                     $ VAGRANT_PREFER_SYSTEM_BIN=1
 #          d. AsciidoxFX 1.5.8
-#     4. At this point vagrant is disabled so you will not be able to run 
-#        "vagrant destroy" for example. To enable vagrant and other deployment
-#        tasks reference step 2.
+#     C. For each deployment occurrence vagrant along with other deployment
+#        automation is disabled. So, for example, you will not be able to run 
+#        "vagrant destroy" after a deployment. To enable vagrant and other
+#        deployment tasks reference step 2.
 # 
 # 2. To enable maintenance and deployment functionality:
 #    ./enable-functionality.bsh
@@ -30,13 +31,22 @@
 #   - vagrant destroy
 # 
 # This directory is used for automated deployments. The only committed files
-# are this README.txt file, the cm-system-service.bsh, and
-# enable-functionality.bsh scripts.
+# are:
+#       this README.txt file,
+#       the cm-system-service.bsh, and
+#       enable-functionality.bsh scripts.
+# The purpose of these files is to allow development to occur along with
+# multiple automated builds and deployments. These scripts promote the
+# performance of the entire automated deployment system, not just patches done
+# quickly in a development mode.
 #
-# Files vagrantfile and bootstrap.sh are maintained in /app/bin/vagrant
-# for git commit purposes.
-#
-# The package-deployment.bsh file is maintained in the /app/bin directory.
+# The following files are copied to this directory from the /app/bin of this
+# repo. Along with .gitignore modifications this encourages DevOps principles.
+#    bootstrap.sh
+#    vagrantfile
+#    package-deploy.bsh
+#      Note: Reference the following for details:
+#         http://itrevolution.com/the-three-ways-principles-underpinning-devops/
 #
 ##################################################################################
 #

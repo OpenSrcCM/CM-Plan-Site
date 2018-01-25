@@ -1,0 +1,35 @@
+=== Introduction
+
+The repo is maintained for the Organization. It provides support to the group culture as an important reference and example of "service orientation".
+
+The site produced from this repo can exist as a service on your workstation. It is also maintained for the this Group at http://www.internal-CM.net/[CM System Website]
+
+The http://www.internal-CM.net/teamTools/EMM-CM-ContextDiagram.pdf[Configuration Management Context Diagram] is a primary component providing end to end visibility to the steps, roles, and tools used by this group to create, test, and deliver change. 
+
+=== Installation
+
+This can be installed as a service website to your workstation. After addressing the following prerequisites, you can configure this service website with one command. This will also  provide you with an example of "Automation" that will serve you well in the EM&M organization.
+
+==== Preprequisites
+* Install Git on your system per the [Install Git] procedure.
+* Install https://www.virtualbox.org/[VirtualBox] on your system.
+* Install https://www.vagrantup.com/[Vagrant] on your system.
+
+[NOTE]
+====
+All above Prerequisites can be install on Windows or Mac workstations.
+====
+
+* Using the git commant-line window, clone this repo to your workstation:
+
+image::app/site/basis/images/repo-clone.png[Git Command Line Window]
+
+* Now one command to install this web service on your workstation:
+
+image::app/site/basis/images/install-service.png[Install Web Service]
+
+The above command will take a few minutes. When it is done, using your favorite browwer, enter the follow URL in the address bar:
+
+http://127.0.0.1:4567/
+
+This should render a website running from your workstations memory that looks like the http://www.internal-CM.net/[CM System Website].
