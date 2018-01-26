@@ -9,14 +9,14 @@ The site produced from these instructions will exist as a service on your workst
 It would be wise to maintain this website service on an internal company location also.
 ====
 
-The https://github.com/cmguy/CM-Plan-Site/blob/initial/app/site/teamTools/EMM-CM-ContextDiagram.pdf[Configuration Management Context Diagram] is a primary component providing end to end visibility to the steps, roles, and tools used by this group to create, test, and deliver change. 
+The https://github.com/cmguy/CM-Plan-Site/blob/master/app/site/teamTools/EMM-CM-ContextDiagram.pdf[Configuration Management Context Diagram] is a primary component providing end to end visibility to the steps, roles, and tools used by this group to create, test, and deliver change. 
 
 === Installation
 
 This will be installed as a service website to your workstation. After addressing the following prerequisites, you can configure this service website with one command. This will also provide you with an example of "Automation" that will serve you well in this organization.
 
 ==== Preprequisites
-* Install Git on your system per the https://github.com/cmguy/CM-Plan-Site/blob/initial/app/site/newstuff/GitInstallationProcedure.adoc[Install Git] procedure.
+* Install Git on your system per the https://github.com/cmguy/CM-Plan-Site/blob/master/app/site/newstuff/GitInstallationProcedure.adoc[Install Git] procedure.
 * Install https://www.virtualbox.org/[VirtualBox] on your system.
 * Install https://www.vagrantup.com/[Vagrant] on your system.
 
