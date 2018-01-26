@@ -40,8 +40,6 @@ Try the following commands in your Git Bash window:
 Run '**git help git**' to display the help index in a browser window.
 Run '**git help <command>**' to display help for specific commands in a browser window.
 
-image::images/git-bash-session.png[]
-
 .In order to interface with the https://github.com/[GitHub] system, the following needs to be performed:
 * Identify or Set $HOME variable on your Workstation.
 * Build and Configure SSH key Usage
@@ -86,7 +84,7 @@ The following sections cover required and recommended configurations.
 . merge.tool
 ====
 
-.Verify your git workarea(s) on your windows workstation are on the C Drive in your home directory.
+.For windows, verify your git workarea(s) on your windows workstation are on the C Drive in your home directory.
 [source,asciidoc]
 ----
 $ (current directory)
@@ -123,11 +121,12 @@ You can reference http://git-scm.com/book/en/v2/Git-on-the-Server-Generating-You
 .Execute the following in your new Git Bash window.
 * $ ls -la ~/
 
-.If your do not have a ~/.ssh directory, create it:
+.If you do not have a ~/.ssh directory, create it:
 * $ mkdir c:\Users\userid\.ssh
+
 [WARNING]
 ====
-*Use the Git Bash window. Windows Explorer will not allow you to create the .ssh directory.*)
+*Use the Git Bash window. Windows Explorer will not allow you to create the .ssh directory.*
 ====
 
 
@@ -165,14 +164,14 @@ It is recommended you enter nothing for the pass phrase.
 . Under _**Personal settings**_ select _**SSH keys and GPG keys**_
 . Click on the _**New SSH key**_ button and follow instructions.
 
-[WARNING]
+[TIP]
 ====
 Your interaction with GitHub managed remote repos will be more secure using your ssh key.
 ====
 
 === Add SSH Aliases
 
-To reduce typing and minimize ssh key issues, the following is done to provide ssh aliases. Add a config file under the \~/.ssh on your workstation for your userid as follows.
+To reduce typing and minimize ssh key issues, the following is done to provide ssh aliases. Add a config file under the ~/.ssh on your workstation for your userid as follows.
 
 Edit (or create) ~/.ssh/config and add the following lines adjusted for your [blue]#userid#:
 
@@ -217,7 +216,7 @@ Host github
 ----
 
 This file allows you to enter commands like this:
-$ git clone github:CM-Plan-Site
+$ git clone github:cmguy/CM-Plan-Site
 Rather than this:
 $ git clone ssh://git@github.com/cmguy/CM-Plan-Site
 
@@ -250,13 +249,46 @@ Be sure to read git generated responses after git commands execute.
 
 Do the following on your workstation in your new Git Bash Session:
 
-image::images/git-clone.png[]
+[source, asciidoc]
+----
+userid@hostname mingw64 ~
+$ mkdir repo-workarea
+
+userid@hostname mingw64 ~
+$ cd repo-workarea
+
+userid@hostname mingw64 ~/repo-workarea
+$ git clone github:cmguy/CM-Plan-Site
+----
 
 Now you have established a git repo local on your workstation from the Github system. You can verify the git remote origin in the local copy on your workstation.
 
 The git remote `origin` should be setup for communication between your workstation repo and the GitHub system. Reference http://gitref.org/remotes/#remote[git remote] for more details.
 
-image::images/git-remote-val.png[]
+[source, asciidoc]
+----
+userid@hostname mingw64 ~/repo-workarea
+$ cd CM-Plan-Site
+
+userid@hostname mingw64 ~/repo-workarea/CM-Plan-Site
+$ git remote -v show origin
+* remote origin
+  Fetch URL: github:cmguy/CM-Plan-Site
+  Push  URL: github:cmguy/CM-Plan-Site
+  HEAD branch: master
+  Remote branches:
+    initial tracked
+    master  tracked
+  Local branches configured for 'git pull':
+    initial merges with remote initial
+    master  merges with remote master
+  Local refs configured for 'git push':
+    initial pushes to initial (up to date)
+    master  pushes to master  (up to date)
+
+userid@hostname mingw64 ~/repo-workarea/CM-Plan-Site
+$
+----
 
 If you are unable to mimic the above Git bash sessions on your workstation, review the `Add SSH Aliases` section of this document.
 
@@ -266,13 +298,15 @@ GitHub is built on top of the https://en.wikipedia.org/wiki/Git[Git] tool, maint
 
 == Git Introduction
 
-If you are new to Git, refer to the *GitHub Workflows* section of the Plan page of this site. This section contains links to introductory videos.
+If you are new to Git, checkout the following links:
+* https://git-scm.com/doc
+* https://www.youtube.com/user/github/videos
 
 === Branching and Merging
 
-There are two protected main branches that can be established in GitHub repos, _**develop**_, and _**master**_. Reference the *Branching and Merging* section of the plan page of this site.  
+There are two protected main branches that can be established in GitHub repos, _**develop**_, and _**master**_. Reference the http://nvie.com/posts/a-successful-git-branching-model/[a successful-git-branching-model] for details.
 
-.To update the _**develop**_ or _**master**_ branch, GitHub pull requests are should be done by repo leadership. This initiates a colaborative code review session. To do this:
+.To update the _**develop**_ or _**master**_ branch, GitHub pull requests should be done by repo leadership. To initiate a colaborative code review session:
 . git push the branch you wish to merge
 . Do a GitHub pull request. Reference *"Show me how"* at https://services.github.com/on-demand/github-desktop/push-pull-request-github-desktop[Push to Github & Create a Pull Request] for a specific example.
 . Click on pull request and add reviewers
@@ -283,7 +317,7 @@ There are two protected main branches that can be established in GitHub repos, _
 
 Reporting on git merge conflicts before actually doing a merge provides a view into additional deltas that need to be considered before doing a merge.
 
-A script tool, *report-conflicts.bsh* has been prepared for all devOpt personnel to identify all conflicts to all main, and outstanding release branches for a given feature branch.
+A script tool, *report-conflicts.bsh* has been prepared for all DevOps personnel to identify all conflicts to all main, and outstanding release branches for a given feature branch.
 [TIP]
 ====
 Reference the *Branching and Merging* Workflow section of the plan page of this site.

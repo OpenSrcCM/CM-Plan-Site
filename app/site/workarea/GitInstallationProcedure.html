@@ -534,11 +534,6 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <p>Run '<strong>git help git</strong>' to display the help index in a browser window.<br>
 Run '<strong>git help &lt;command&gt;</strong>' to display help for specific commands in a browser window.</p>
 </div>
-<div class="imageblock">
-<div class="content">
-<img src="images/git-bash-session.png" alt="git bash session.png">
-</div>
-</div>
 <div class="ulist">
 <div class="title">In order to interface with the <a href="https://github.com/">GitHub</a> system, the following needs to be performed:</div>
 <ul>
@@ -663,7 +658,7 @@ Run '<strong>git help &lt;command&gt;</strong>' to display help for specific com
 </table>
 </div>
 <div class="listingblock">
-<div class="title">Verify your git workarea(s) on your windows workstation are on the C Drive in your home directory.</div>
+<div class="title">For windows, verify your git workarea(s) on your windows workstation are on the C Drive in your home directory.</div>
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-asciidoc" data-lang="asciidoc">$ (current directory)
 $ cd ~/
@@ -742,19 +737,26 @@ $</code></pre>
 </ul>
 </div>
 <div class="ulist">
-<div class="title">If your do not have a ~/.ssh directory, create it:</div>
+<div class="title">If you do not have a ~/.ssh directory, create it:</div>
 <ul>
 <li>
 <p>$ mkdir c:\Users\userid\.ssh</p>
 </li>
 </ul>
 </div>
-<div class="exampleblock">
-<div class="content">
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-warning" title="Warning"></i>
+</td>
+<td class="content">
 <div class="paragraph">
-<p><strong>Use the Git Bash window. Windows Explorer will not allow you to create the .ssh directory.</strong>)</p>
+<p><strong>Use the Git Bash window. Windows Explorer will not allow you to create the .ssh directory.</strong></p>
 </div>
-</div>
+</td>
+</tr>
+</table>
 </div>
 <div class="paragraph">
 <p>$ cd ~/.ssh  (c:\Users\userid\.ssh)</p>
@@ -850,11 +852,11 @@ $</code></pre>
 </li>
 </ol>
 </div>
-<div class="admonitionblock warning">
+<div class="admonitionblock tip">
 <table>
 <tr>
 <td class="icon">
-<i class="fa icon-warning" title="Warning"></i>
+<i class="fa icon-tip" title="Tip"></i>
 </td>
 <td class="content">
 <div class="paragraph">
@@ -868,7 +870,7 @@ $</code></pre>
 <div class="sect2">
 <h3 id="trueadd-ssh-aliases"><a class="anchor" href="#trueadd-ssh-aliases"></a>Add SSH Aliases</h3>
 <div class="paragraph">
-<p>To reduce typing and minimize ssh key issues, the following is done to provide ssh aliases. Add a config file under the \~/.ssh on your workstation for your userid as follows.</p>
+<p>To reduce typing and minimize ssh key issues, the following is done to provide ssh aliases. Add a config file under the ~/.ssh on your workstation for your userid as follows.</p>
 </div>
 <div class="paragraph">
 <p>Edit (or create) ~/.ssh/config and add the following lines adjusted for your <span class="blue">userid</span>:</p>
@@ -914,7 +916,7 @@ Host github
 </div>
 <div class="paragraph">
 <p>This file allows you to enter commands like this:<br>
-$ git clone github:CM-Plan-Site<br>
+$ git clone github:cmguy/CM-Plan-Site<br>
 Rather than this:<br>
 $ git clone ssh://git@github.com/cmguy/CM-Plan-Site</p>
 </div>
@@ -962,9 +964,16 @@ $</code></pre>
 <div class="paragraph">
 <p>Do the following on your workstation in your new Git Bash Session:</p>
 </div>
-<div class="imageblock">
+<div class="listingblock">
 <div class="content">
-<img src="images/git-clone.png" alt="git clone.png">
+<pre class="highlightjs highlight"><code class="language-asciidoc" data-lang="asciidoc">userid@hostname mingw64 ~
+$ mkdir repo-workarea
+
+userid@hostname mingw64 ~
+$ cd repo-workarea
+
+userid@hostname mingw64 ~/repo-workarea
+$ git clone github:cmguy/CM-Plan-Site</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -973,9 +982,29 @@ $</code></pre>
 <div class="paragraph">
 <p>The git remote <code>origin</code> should be setup for communication between your workstation repo and the GitHub system. Reference <a href="http://gitref.org/remotes/#remote">git remote</a> for more details.</p>
 </div>
-<div class="imageblock">
+<div class="listingblock">
 <div class="content">
-<img src="images/git-remote-val.png" alt="git remote val.png">
+<pre class="highlightjs highlight"><code class="language-asciidoc" data-lang="asciidoc">userid@hostname mingw64 ~/repo-workarea
+$ cd CM-Plan-Site
+
+userid@hostname mingw64 ~/repo-workarea/CM-Plan-Site
+$ git remote -v show origin
+* remote origin
+  Fetch URL: github:cmguy/CM-Plan-Site
+  Push  URL: github:cmguy/CM-Plan-Site
+  HEAD branch: master
+  Remote branches:
+    initial tracked
+    master  tracked
+  Local branches configured for 'git pull':
+    initial merges with remote initial
+    master  merges with remote master
+  Local refs configured for 'git push':
+    initial pushes to initial (up to date)
+    master  pushes to master  (up to date)
+
+userid@hostname mingw64 ~/repo-workarea/CM-Plan-Site
+$</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -996,15 +1025,17 @@ $</code></pre>
 <h2 id="truegit-introduction"><a class="anchor" href="#truegit-introduction"></a>Git Introduction</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>If you are new to Git, refer to the <strong>GitHub Workflows</strong> section of the Plan page of this site. This section contains links to introductory videos.</p>
+<p>If you are new to Git, checkout the following links:<br>
+* <a href="https://git-scm.com/doc" class="bare">https://git-scm.com/doc</a><br>
+* <a href="https://www.youtube.com/user/github/videos" class="bare">https://www.youtube.com/user/github/videos</a></p>
 </div>
 <div class="sect2">
 <h3 id="truebranching-and-merging"><a class="anchor" href="#truebranching-and-merging"></a>Branching and Merging</h3>
 <div class="paragraph">
-<p>There are two protected main branches that can be established in GitHub repos, <em><strong>develop</strong></em>, and <em><strong>master</strong></em>. Reference the <strong>Branching and Merging</strong> section of the plan page of this site.</p>
+<p>There are two protected main branches that can be established in GitHub repos, <em><strong>develop</strong></em>, and <em><strong>master</strong></em>. Reference the <a href="http://nvie.com/posts/a-successful-git-branching-model/">a successful-git-branching-model</a> for details.</p>
 </div>
 <div class="olist arabic">
-<div class="title">To update the <em><strong>develop</strong></em> or <em><strong>master</strong></em> branch, GitHub pull requests are should be done by repo leadership. This initiates a colaborative code review session. To do this:</div>
+<div class="title">To update the <em><strong>develop</strong></em> or <em><strong>master</strong></em> branch, GitHub pull requests should be done by repo leadership. To initiate a colaborative code review session:</div>
 <ol class="arabic">
 <li>
 <p>git push the branch you wish to merge</p>
@@ -1033,7 +1064,7 @@ $</code></pre>
 <p>Reporting on git merge conflicts before actually doing a merge provides a view into additional deltas that need to be considered before doing a merge.</p>
 </div>
 <div class="paragraph">
-<p>A script tool, <strong>report-conflicts.bsh</strong> has been prepared for all devOpt personnel to identify all conflicts to all main, and outstanding release branches for a given feature branch.</p>
+<p>A script tool, <strong>report-conflicts.bsh</strong> has been prepared for all DevOps personnel to identify all conflicts to all main, and outstanding release branches for a given feature branch.</p>
 </div>
 <div class="admonitionblock tip">
 <table>
@@ -1128,7 +1159,7 @@ $</code></pre>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2018-01-22 15:50:56 MST
+Last updated 2018-01-26 12:08:08 MST
 </div>
 </div>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.9.1/styles/github.min.css">

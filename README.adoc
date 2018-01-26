@@ -2,32 +2,56 @@
 
 The repo is maintained for the Organization. It provides support to the group culture as an important reference and example of "service orientation".
 
-The site produced from this repo can exist as a service on your workstation. It is also maintained for the this Group at http://www.internal-CM.net/[CM System Website]
+The site produced from these instructions will exist as a service on your workstation. It will be a VirtualBox Virtual Machine (VM).
+
+[NOTE]
+====
+It would be wise to maintain this website service on an internal company location also.
+====
 
 The https://github.com/cmguy/CM-Plan-Site/blob/initial/app/site/teamTools/EMM-CM-ContextDiagram.pdf[Configuration Management Context Diagram] is a primary component providing end to end visibility to the steps, roles, and tools used by this group to create, test, and deliver change. 
 
 === Installation
 
-This can be installed as a service website to your workstation. After addressing the following prerequisites, you can configure this service website with one command. This will also provide you with an example of "Automation" that will serve you well in the EM&M organization.
+This will be installed as a service website to your workstation. After addressing the following prerequisites, you can configure this service website with one command. This will also provide you with an example of "Automation" that will serve you well in this organization.
 
 ==== Preprequisites
-* Install Git on your system per the [Install Git] procedure.
+* Install Git on your system per the https://github.com/cmguy/CM-Plan-Site/blob/initial/app/site/newstuff/GitInstallationProcedure.html[Install Git] procedure.
 * Install https://www.virtualbox.org/[VirtualBox] on your system.
 * Install https://www.vagrantup.com/[Vagrant] on your system.
 
 [NOTE]
 ====
 All above Prerequisites can be install on Windows or Mac workstations.
+The following commands assume these prerequisites have been fully executed.
 ====
 
-* Using the git command-line window, clone this repo to your workstation:
-
-image::app/site/basis/images/repo-clone.png[Git Command Line Window]
+* Using the git command-line window, prepare to your workstation with the following commands from your home directory:
 
 
+[source asciidoc]
+----
+userid@hostpc MINGW64 ~
+$ cd repo-workareas/CM-Plan-Site/deploy
 
-The above command will take a few minutes. When it is done, using your favorite browser, enter the follow URL in the address bar:
+userid@hostpc MINGW64 ~/repo-workareas/CM-Plan-Site/deploy
+$
+----
+
+At this point, your system is ready to establish the CM Plan Service on your workstation. Execute the following command in the git command-line window:
+
+[source asciidoc]
+----
+userid@hostpc MINGW64 ~/repo-workareas/CM-Plan-Site/deploy
+$ ./cm-plan-service.bsh 1 0 0
+
+...
+
+----
+
+
+The above command will take a few minutes producing a log of tasks completed. When it is done, using your favorite browser, enter the follow URL in the address bar:
 
 http://127.0.0.1:1234/
 
-This should render a website running from your workstations memory that looks like the http://www.internal-CM.net/[CM System Website].
+This is a website running from your workstations memory. At this point you have a working example of a website running on your workstation with a Virtual Machine (VM). Everything used to create and deploy this website is available to you via the git repo CM-Plan-Site directory.

@@ -2,7 +2,7 @@
 ################################################################################
 # report-conflicts.bsh
 #
-#  Written by Andy Wallace 2016/09/24, Last update 2017/07/26
+#  Written by Andy Wallace 2016/09/24, Last update 2018/01/26
 #
 #  Purpose:
 #
@@ -29,10 +29,11 @@
 #    The git software will need to be installed on the system that uses this
 #    script.  A linux environment is also required supporting bash scripting.
 #
-#    A ~/.ssh directory with a config setup as designed for EM&M.
+#    A ~/.ssh directory with a config setup as described in the Git 
+#    Installation Procudure.
 #
 #    An existing repo for this script to run against on a git bare
-#    repository system that accessable from the system this script runs on.
+#    repository system that is accessable from the system this script runs on.
 #
 #    A feature branch that has been pushed to the above mentioned git bare
 #    repository system.
@@ -88,29 +89,21 @@ RepoHome="/c/Users/awalla5075k/git-repos/conflict-rpting"
 LogDIR="$RepoHome/log"
 
 ##############################################
-# The "cghi" ssh variable used in the
+# The "github" ssh variable used in the
 # sshAliasForGitSystem should be defined in
 # the ~/.ssh/config file.
 #
-# Uncomment the following line that identifies
-# the GitHub organization your repo exists in.
 ##############################################
-#sshAliasForGitSystem="cghi:EMM"
-#sshAliasForGitSystem="cghi:EMM-ClickStream"
-#sshAliasForGitSystem="cghi:EMM-Data"
-#sshAliasForGitSystem="cghi:EMM-Prepaid"
-#sshAliasForGitSystem="cghi:EMM-Video"
-#sshAliasForGitSystem="cghi:EMM-Voice"
+sshAliasForGitSystem="github:cmguy"
 
 ##############################################
 # Used for script messaging/reporting
 ##############################################
 LogFile="Report-Conflicts.log"
 RptFile="Merge-Conflicts"
-GitSystem="EMM Git System"
+GitSystem="GitHub"
 LogFile="Report-Conflicts.log"
 RptFile="Merge-Conflicts"
-GitSystem="Comcast Enterprise GitHub"
 ThisScript="report-conflicts.bsh"
 ScriptFunction="report conflicts"
 ##############################################
