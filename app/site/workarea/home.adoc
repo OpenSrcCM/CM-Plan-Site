@@ -1,0 +1,25 @@
+:toc2:
+
+=== Introduction
+
+The site is maitained for this Organization. It is based on a Configruation Management Plan designed and maintained for this organization.
+
+For the casual user, this home page is used to define the primary components of this site so content can be located quickly.
+
+=== Plan
+
+This page is the Configuration Management Plan (CMP) for this organization. It is based on a CMP template and augmented with adopted workflows, agile concepts, Best Practice for Change Delivery, and other modern enhancements.
+
+
+=== Team Tools
+
+This page provides links to tools used by this organization. The links are organized to help team members stay focused on their tasks with minimal interruptions. The intent of this page is to provide a dashboard of company and organizational tools required on a regular basis for development and operations.
+
+
+=== Overview
+
+This page contains introductory information and links on the tools used by this organization. Git, and GitHub are introduced. A comparison of Git and CVS is also presented to outline the differences between Centralized version control systems and Distributed version control systems.
+
+=== About
+
+This page contains background information, recommendations, the targeted audience, and conventions used.

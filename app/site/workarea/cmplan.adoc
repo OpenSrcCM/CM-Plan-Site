@@ -1,0 +1,132 @@
+:toc2:
+= Configuration Management Plan
+
+<<<
+
+== Introduction
+The purpose of the Configuration Management Plan is to describe how **C**onfiguration **M**anagement (CM) will be conducted throughout the project lifecycle.
+
+This includes documenting how CM is managed, roles and responsibilities, how configuration item (CI) changes are made, and communicating all aspects of CM to project stakeholders.
+
+Without a documented configuration management plan it is likely that CIs may be missed, incomplete, or unnecessary work is done because of a lack or version and document control.
+
+While a configuration management plan is important for all projects, this is especially so for software and other information technology (IT) projects.
+
+[NOTE]
+====
+This page serves as a "Best Practice" outline. Identifying, documenting, and maintaining the CM Plan for your organization is the intent of this page for this website.
+====
+
+== Roles and Responsibilities
+Roles and responsibilities is an important part of any Configuration Management Plan. In order to communicate a clear understanding of expectations, these roles and responsibilities must be clearly defined.
+
+Any work that will be performed as part of the plan must be assigned to someone. This section allows us to illustrate who owns these tasks and to communicate them to all project stakeholders.
+
+.The following roles and responsibilities pertain to the CM Plan for the Organization.
+. Configuration Control Board (CCB)
+** The CCB is comprised of the organizational change management authority representative, Project Managers, Configuration Managers, and Lead Engineers for the configuration item (CI) under consideration. The CCB is responsible for the following:
+*** Review and approve/reject configuration change requests
+Ensure all approved changes are added to the configuration management database (CMDB)
+*** Seeking clarification on any CIs as required
+. Project Sponsor
+** The Project Sponsor is responsible for:
+*** Chairing all CCB meetings
+*** Providing approval for any issues requiring additional scope, time, or cost
+. Project Manager
+** The Project Manager is responsible for:
+*** Overall responsibility for all CM activities related to the projects
+*** Identification of CIs
+*** All communication of CM activities to project stakeholders
+Participation in CCB meetings
+*** Re-baselining, if necessary, any items affected by CM changes
+. Configuration Manager
+** The Configuration Manager will be appointed by the Program Management Office (PMO). The Configuration Manager is responsible for:
+*** Overall management of the CMDB
+*** Identification of CIs
+*** Providing configuration standards and templates to the project team
+*** Providing any required configuration training
+. Lead Engineers
+** All identified CIs will be assigned to a Lead Engineer. The assigned Lead Engineer is responsible for:
+*** Designating a focus group to develop the change request
+*** Ensure all change requests comply with organizational templates and standards prior to the CCB
+*** Submitting the change request to the lead engineer for review and presentation at the CCB
+
+== Goals and Concepts
+The primary Goals and Concepts provide direction and improvements to the overall execution of the Development Lifecycle. Those that pertain to the Configuration Management tasks are listed and maintained in this section.
+
+.Examples include:
+* Software Security Assurance https://en.wikipedia.org/wiki/Software_security_assurance[SSA] is considered and addressed from the beginning of the Software Development LifeCycle https://stackify.com/what-is-sdlc/[SDLC] throughout all phases to retirement.
+* Implement Automation with a https://en.wikipedia.org/wiki/DevOps[DevOps] practice focused on Continuous Integration and Continuous Delivery https://en.wikipedia.org/wiki/Continuous_integration[CI] / https://en.wikipedia.org/wiki/Continuous_delivery[CD] concepts.
+
+== Configuration Control
+Configuration Control is the process of systematically controlling and managing all steps of configuration throughout the project lifecycle.
+
+In order to effectively handle project Configuration Management it is important to use a process which ensures only necessary configuration changes are made. Additionally, like any change management efforts, configuration change decisions must be made with the understanding of the impact of the change.
+
+Configuration control is an important part of the Configuration Management Plan.
+
+== CM Database (CMDB)
+A Configuration Management Database (CMDB) is where the organizations configuration information is stored. CMDB is a term which originates from Information Technology Infrastructure Library (ITIL) which provides a framework for best practices in IT services management.
+
+The CMDB contains not only the configuration information for assets but also information about the assets such as physical location, ownership, and its relationship to other configurable items (CIs). It is important to address the CMDB in the Configuration Management Plan.
+
+A key component to configuration management is having a well defined and followed process for both document and data management.
+
+== Configuration Status Accounting
+Accounting for the status of the configuration involves the collection, processing, and reporting of the configuration data for all CIs at any given time.
+
+This also includes management stored configuration information held in the Configuration Management Database (CMDB). 
+
+This may include approved configuration documents, software, data, and their current version numbers; build reports; status of any submitted changes; or any discrepancies and status identified through configuration audits.
+
+It is important that organizational Change Management authorities, the Project Sponsors and the Project Managers have the ability to review configuration status at any given time.
+
+The Project Manager will also submit weekly reports, to include configuration status on a regular basis. 
+
+.These reports will consist of the following information as part of the configuration status section:
+. Change requests
+.. Aging - How long change requests have been open
+.. Distribution – number of change requests submitted by owner/group
+.. Trending – what area(s) are approved changes occurring in
+. Version Control
+.. Software
+.. Hardware
+.. Data
+.. Documentation
+. Build Reporting
+.. Files
+.. CI relationships
+.. Incorporated Changes
+. Audits
+.. Physical Configuration
+.. Functional Configuration
+
+Just after any new software releases (deployments to production), the CM will work with development teams to ensure all CIs are updated with latest release versions.
+
+== Configuration Audits
+Audits are an important part of project and configuration management, so it should be contained in the Configuration Management Plan.
+
+The purpose of an audit is to ensure that established processes are being followed as intended and to provide an opportunity to correct any deviations from these processes.
+
+Many people hold a negative view of audits; however, when used appropriately, audits are an effective management and quality assurance tool.
+
+Configuration audits will be an ongoing part of project lifecycles.
+
+The purpose of the configuration audit is to ensure all team members are following the established procedures and processes for configuration management.
+
+Project audits will occur prior to any major software release or at the Project Manager or Sponsor’s discretion if they determine the need for one.
+
+Throughout the project the CM works closely with development leaders to ensure that all configuration processes and procedures are being followed. 
+
+.As part of the configuration audit the CM will perform the following tasks:
+. Establish an audit environment in the CMDB
+. Verify all of the latest software, data, and document versions in the audit environment
+. Ensure all versions are correctly numbered and that version control has been performed properly
+. Analyze hisantorical versions and timestamps of all software, data, and documents to ensure all changes/edits were properly recorded and captured
+. Verify latest software versions and conduct software testing to ensure requirements are being met
+. Verify all required artifacts are present and current in the CMDB
+. Ensure all approved CCRs have been incorporated into the project and are recorded in the CMDB
+
+Once the audit has been performed, the Configuration Manager will compile his/her audit findings. For each finding, the CM must work with the Project Manager/Team to identify the corrective action(s) necessary to resolve the discrepancy and assign responsibility for each corrective action.
+
+Upon completion of the project audit and findings, the CM will note all discrepancies and compile a report to be presented to the Project Manager, Sponsor, and VP of Technology.

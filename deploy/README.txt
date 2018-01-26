@@ -1,0 +1,64 @@
+##################################################################################
+# This deploy directory is where the deployment is managed from. 
+#
+# 1. To enable the CM Plan Website Service:
+#    ./cm-system-service.bsh Major Minor Issue
+#
+#   Notes:
+#     A. When developing and releasing for this repo, all changes made anywhere
+#        need to be considered for the following component directories of this
+#        website. Refer to local README.txt files for further details of each:
+#          a. app/bin/vagrant
+#          b. app/site/newstuff
+#          c. app/site/sitemap
+#     B. Current working versions of prerequisite applications:
+#          a. Git 2.15.1.windows.2
+#          b. Oracle VM VirtualBox 5.2.6
+#          c. Vagrant 2.0.1
+#               NOTE: Need to add the following to ~/.bash_profile for the
+#                     vagrant ssh functionality:
+#                     $ VAGRANT_PREFER_SYSTEM_BIN=1
+#          d. AsciidoxFX 1.5.8
+#     C. For each deployment occurrence vagrant along with other deployment
+#        automation is disabled. So, for example, you will not be able to run 
+#        "vagrant destroy" after a deployment. To enable vagrant and other
+#        deployment tasks reference step 2.
+# 
+# 2. To enable maintenance and deployment functionality:
+#    ./enable-functionality.bsh
+#
+# 3. To remove the CM&M CM System Website Service:
+#   - vagrant destroy
+# 
+# This directory is used for automated deployments. The only committed files
+# are:
+#       this README.txt file,
+#       the cm-system-service.bsh, and
+#       enable-functionality.bsh scripts.
+# The purpose of these files is to allow development to occur along with
+# multiple automated builds and deployments. These scripts promote the
+# performance of the entire automated deployment system, not just patches done
+# quickly in a development mode.
+#
+# The following files are copied to this directory from the /app/bin of this
+# repo. Along with .gitignore modifications this encourages DevOps principles.
+#    bootstrap.sh
+#    vagrantfile
+#    package-deploy.bsh
+#      Note: Reference the following for details:
+#         http://itrevolution.com/the-three-ways-principles-underpinning-devops/
+#
+##################################################################################
+#
+# HTML5 References:
+#
+# https://www.w3.org/TR/html51/
+# https://www.w3.org/TR/html5/
+# https://www.smashingmagazine.com/2009/08/designing-a-html-5-layout-from-scratch/
+#
+#   Training:
+#
+# https://www.w3schools.com/html/html5_intro.asp
+# http://www.htmlgoodies.com/html5/client/learn-html5-in-5-minutes-.html
+#
+##################################################################################

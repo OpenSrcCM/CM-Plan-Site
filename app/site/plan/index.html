@@ -1,0 +1,888 @@
+<!DOCTYPE html>
+<!-- Change to "en-US" from "en" -->
+<!-- <html lang="en"> -->
+<html lang="en-US">
+<!-- Change to "en-US" from "en" -->
+<!-- *************************** -->
+<head>
+<!-- Add WebSite css -->
+<link rel="stylesheet" href="../style.css">
+<!-- Add WebSite css -->
+<!-- *************** -->
+
+<meta charset="UTF-8">
+<!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]-->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="Asciidoctor 1.5.5.dev">
+
+<!-- *********************** -->
+<!-- Adjust for Website name -->
+<title>CM Plan</title>
+<!-- Adjust for Website name -->
+<!-- *********************** -->
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400,700">
+
+<!-- ******************************* -->
+<!-- Add Vendor-style.css stylesheet -->
+<link rel="stylesheet" href="../vendor-style.css">
+<!-- Add Vendor-style.css stylesheet -->
+<!-- ******************************* -->
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
+</head>
+
+<!-- **************************************** -->
+<!-- Add w3.js script for separate html files -->
+<script src="https://www.w3schools.com/lib/w3.js"></script>
+<!-- Add w3.js script for separate html files -->
+<!-- **************************************** -->
+
+<!-- ******************************** -->
+<!-- Adjust body to website body defn -->
+<!-- <body class="article toc2 toc-left"> -->
+<body>
+<!-- Adjust body to website body defn -->
+<!-- ******************************** -->
+
+<!-- *********************** -->
+<!-- Add website header defn -->
+<div w3-include-html="../header.html"></div>
+<script>w3.includeHTML()</script>
+<!-- Add website header defn -->
+<!-- *********************** -->
+
+<!-- ******************** -->
+<!-- Add website nav defn -->
+<nav>
+  <ul>
+    <li><a href="../">Home</a></li>
+    <li><a class="active" href="">Plan</a></li>
+    <li><a href="../teamTools">Team Tools</a></li>
+    <li><a href="../overview">Overview</a></li>
+    <li style="float:right"><a href="../about">About</a></li>
+  </ul>
+</nav>
+<!-- Add website nav defn -->
+<!-- ******************** -->
+
+<!-- *********************************************************** -->
+<!-- Replace <div id="toc" class="toc2"> with website aside defn -->
+<aside>
+<!-- <div id="header"> -->
+<!-- <h1>Configuration Management Plan</h1> -->
+<!--<div id="toc" class="toc2"> -->
+<div id="toctitle">Table of Contents</div>
+<ul class="sectlevel1">
+<li><a href="#trueintroduction">Introduction</a></li>
+<li><a href="#truebest-practice-for-change-delivery">Best Practice for Change Delivery</a>
+<ul class="sectlevel2">
+<li><a href="#truerelease-management">Release Management</a></li>
+<li><a href="#truegithub-organizations">GitHub Organizations</a></li>
+<li><a href="#truegithub-access">GitHub Access</a></li>
+<li><a href="#truegithub-workflows">GitHub WorkFlows</a></li>
+<li><a href="#trueconcepts-goals">Concepts &amp; Goals</a></li>
+</ul>
+</li>
+<li><a href="#trueroles-and-responsibilities">Roles and Responsibilities</a></li>
+<li><a href="#trueconfiguration-control">Configuration Control</a></li>
+<li><a href="#truecm-database-cmdb">CM Database (CMDB)</a></li>
+<li><a href="#trueconfiguration-status-accounting">Configuration Status Accounting</a></li>
+<li><a href="#trueconfiguration-audits">Configuration Audits</a></li>
+<li><a href="#truereferences">References</a></li>
+</ul>
+</div>
+<!-- </div> -->
+</aside>
+<!-- Replace <div id="toc" class="toc2"> with website aside defn -->
+<!-- *********************************************************** -->
+
+<!-- ******************************************************* -->
+<!-- Wrap remainder of page in website section defn ******** -->
+<section>
+
+<!-- ********************************************** -->
+<!-- Move <div id="header"> donw to here, add title -->
+<div id="header">
+<h2>Configuration Management Plan</h2>
+</div>
+<!-- Move <div id="header"> donw to here, add title -->
+<!-- ********************************************** -->
+
+<div id="content">
+<div class="sect1">
+<h2 id="trueintroduction"><a class="anchor" href="#trueintroduction"></a>Introduction</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The purpose of the Configuration Management Plan is to describe how configuration management (CM) will be conducted throughout the project lifecycle. This includes documenting how CM is managed, roles and responsibilities, how configuration item (CI) changes are made, and communicating all aspects of CM to project stakeholders. Without a documented configuration management plan it is likely that CIs may be missed, incomplete, or unnecessary work is done because of a lack or version and document control. While a configuration management plan is important for all projects, this is especially true for software and other information technology (IT) projects.</p>
+</div>
+<div class="paragraph">
+<p>For the this organization, all time related to change tracking is done in the [Change Tracking Tool] for resource reporting purposes. Consistency in time reporting promotes the ability to visualize all IT work and control Work in Progress (WIP). It also supports more accurate "Wait Time" calculations for management of this organizations resource commitments. It is an important metric for the <a href="http://www.agilevelocity.com/blog/7-principles-of-lean-software-development/">7 Principles of Lean Software Development</a>.</p>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+<div class="title">Tip</div>
+<div class="paragraph">
+<p><strong>Note:</strong> Wait Time = (% Busy)/(% Idle)  - To graph x= (% Resource Busy), y= (Wait Time) - Wait Time is proxy for Queue length.  In other words, it is not time elapsed, i.e., minutes, hours, or weeks.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>In order to visualize ALL IT work and Control WIP, this organization is looking at ways to better manage flow.  For a good overview of this concept, refer to <a href="https://leankit.com/learn/kanban/lean-flow-metrics/">7 Lean Metrics to Improve Flow</a>.</p>
+</div>
+<div class="paragraph">
+<p>When changes are made to any managed applications, Databases, and Infrastructure Systems including access and configuration changes, the <strong>Change Record</strong>, the work is associated with, is referenced in Git Repo branches and commit comments. This makes them referable to the and
+the company as changes are deployed to production and future audit tasks.</p>
+</div>
+<div class="paragraph">
+<p>The following Best Practices section outlines a procedure for delivering EM&amp;M change or deltas. This outline was produced while reviewing EM&amp;M Organization Concepts and Goals.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="truebest-practice-for-change-delivery"><a class="anchor" href="#truebest-practice-for-change-delivery"></a>Best Practice for Change Delivery</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Always follow <strong>ALL</strong> following steps <strong>in bold</strong> even if they are automated with a script.  Note that GitHub functionality adds collaboration functionality and procedures on top of the Git tool.</p>
+</div>
+<div class="sect2">
+<h3 id="truerelease-management"><a class="anchor" href="#truerelease-management"></a>Release Management</h3>
+<div class="paragraph">
+<p>The Branching and Merging Steps are followed for every production delivery using [Change Records] assciated with individual repository deliveries.
+This is required for release reporting metrics and future audit tasks.</p>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="title">IMPORTANT</div>
+<div class="paragraph">
+<div class="title">Related References:</div>
+<p>*[WorkFlow] documentation for developing deliveries for release packages.
+*Current and future [Release Reports].</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="olist arabic">
+<div class="title">Branching and Merging Steps</div>
+<ol class="arabic">
+<li>
+<p><strong>Establish work Area and Feature branch.</strong></p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p><strong>Clone from GitHub maintained release/deploy repo to your workstation.</strong></p>
+</li>
+<li>
+<p><strong>Establish release-M.m from <span class="red">appropriate</span> branch you are working from (<span class="red">see step 5 for details</span>).</strong></p>
+</li>
+<li>
+<p><strong>Create feature branch from established release-M.m branch.</strong></p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p><strong>Develop/Test changes on feature branch.</strong></p>
+</li>
+<li>
+<p><strong>Merge and verify changes on all outstanding GitHub maintained branches via merge conflicts and diff reports on your local workstation repo:</strong></p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p><strong>Perform merge testing on current GitHub maintained release/deploy repo develop, master, and any releases in progress for the new feature branch</strong></p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p><strong>Push tested merged changes in feature branch to appropirate main and release branches.</strong></p>
+</li>
+<li>
+<p><strong>Do a GitHub pull request on the release/deploy <span class="red">repo branch your feature is for.</span> Identify your DevLead as a reviewer.</strong></p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p><strong>New development - <span class="red">feature branch is for develop main branch</span>.</strong></p>
+</li>
+<li>
+<p><strong>Release fix - <span class="red">feature branch is for release branch</span>.</strong></p>
+</li>
+<li>
+<p><strong>Production Correction - <span class="red">feature is for new hotfix branch</span>.</strong></p>
+</li>
+<li>
+<p><strong>Hotfix correction - <span class="red">feature is for a hotfix branch</span>.</strong></p>
+</li>
+<li>
+<p><strong>If reviewer suggested changes, the developer who started pull request proceeds accordingly.</strong></p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p><strong>Devlead merges to appropriate branches on GitHub maintained release/deploy repo.</strong></p>
+</li>
+</ol>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+<div class="title">Tips</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Keep in mind that <em>"Repetition and Practice is the prerequisite to Mastery"</em>.</p>
+</li>
+<li>
+<p>Not all commits should be pushed to shared repos, only the <em>"production ready commits"</em> after step 3 above.</p>
+</li>
+<li>
+<p>You can squash your commits before pushing into one commit, reference <em>"git commit -h"</em>
+These steps separate development from the controlled release or deployment repo updated only by the DevLeads.</p>
+</li>
+<li>
+<p>If developers are working in a dedicated feature branch with small change sets, this should generally result in a fast-forward merge. This is a very easy merge to deal with.</p>
+</li>
+<li>
+<p>The [User Guide], section <em>"The Branching and Merging Workflow"</em> has specific examples of git branching and merging commands for the <a href="https://datasift.github.io/gitflow/IntroducingGitFlow.html">Gitflow Workflow</a> used by this organization.</p>
+</li>
+<li>
+<p>A tool, report-conflicts.bsh, has been created to provide conflicts reports for all outstanding conflicts for a given feature branch. Reference the <em>"Git Conflict reporting"</em> section  in the [Git Installation Procedure].</p>
+</li>
+<li>
+<p>GitHub Forking is available for experimentation of future automation improvements.</p>
+</li>
+</ol>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="truegithub-organizations"><a class="anchor" href="#truegithub-organizations"></a>GitHub Organizations</h3>
+<div class="paragraph">
+<div class="title">The following Enterprise GitHub organizations are used to manage all of this organizations reposistories:</div>
+<p><em>Provide links for each Enterprise GitHub organization used</em></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="truegithub-access"><a class="anchor" href="#truegithub-access"></a>GitHub Access</h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Each team member of this organization needs to secure an Enterprise GitHub account based on their company logon.  This is now a prerequisite for the On-Boarding procedure listed in the General Access section of the [User Guide].</p>
+</li>
+<li>
+<p>EM&amp;M Team member also needs to secure ssh keys in their individual GitHub profiles.  The instructions for this is covered in the [Git Installation Procedure].</p>
+</li>
+<li>
+<p>Users need to be added to the appropriate GitHub organizations for their responsibilities. This is done by the CM team.</p>
+</li>
+<li>
+<p>Devleads assign users to the appropriate GitHub organization team(s).  These organization teams have been configured to GitHub Organization Repos by the CM team per the <em>"Git Access Management"</em> section of the [User Guide].</p>
+</li>
+<li>
+<p>Team members can add collaborators to any [GitHub forked repo] they have created under their GitHub account.  The collaborators must have established an Enterprise GitHub account.</p>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="truegithub-workflows"><a class="anchor" href="#truegithub-workflows"></a>GitHub WorkFlows</h3>
+<div class="paragraph">
+<p>The GitHub workflow is based on the <a href="https://datasift.github.io/gitflow/IntroducingGitFlow.html">Gitflow Workflow</a>. This is the same workflow used by this organization. The <a href="https://www.atlassian.com/git/tutorials/comparing-workflows#forking-workflow">Forking Workflow</a> is available to this organizaion via the Enterprise GitHub system.  It requires some GitHub and GoCD configuration changes that can be performed by the CM Team.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="title">NOTE:</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>The Forking Workflow link above is to an Atlassian page.  The Atlassian Git tool is Bitbucket which is based on git. This page also has a section on the GitFlow Workflow.</p>
+</li>
+<li>
+<p>The Enterprise GitHub tool supports both referenced workflows with GitHub pull requests and GitHub forking.</p>
+</li>
+</ol>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="trueconcepts-goals"><a class="anchor" href="#trueconcepts-goals"></a>Concepts &amp; Goals</h3>
+<div class="ulist">
+<div class="title"><a href="https://www.atlassian.com/devops">DevOps</a> - Applying <a href="http://whatis.techtarget.com/definition/CALMS">CALMS Conceptual Framework</a> for DevOps:</div>
+<ul>
+<li>
+<p><strong>C</strong>ulture</p>
+</li>
+<li>
+<p><strong>A</strong>utomation</p>
+</li>
+<li>
+<p><strong>L</strong>ean</p>
+</li>
+<li>
+<p><strong>M</strong>easurement</p>
+</li>
+<li>
+<p><strong>S</strong>haring</p>
+</li>
+</ul>
+</div>
+<div class="ulist">
+<div class="title"><a href="http://itrevolution.com/the-three-ways-principles-underpinning-devops/">The Three Ways: The principles underpinning DevOps</a></div>
+<ul>
+<li>
+<p><span class="blue"><strong>First Way</strong></span> <strong>- Systems Thinking:</strong> All changes are made from Left to Right. From the Left, Planning, Develop, Test, User Acceptance, Production Deploym]#ent to Customer.</p>
+</li>
+<li>
+<p><span class="blue"><strong>Second Way</strong></span> <strong>- Amplify Feedback Loops:</strong> Anything going from Right to Left (i.e., defects, fixes, production issue, etc) is a challenge that is addressed as soon as possible.</p>
+</li>
+<li>
+<p><span class="blue"><strong>Third Way</strong></span> <strong>- Culture of Continual Experimentation And Learning:</strong> Creating a culture that fosters the following:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Continual Experimentation. Taking risks and learning from success and failures</p>
+</li>
+<li>
+<p>Understanding that <strong>repetition and practice is the prerequisite to mastery</strong></p>
+</li>
+<li>
+<p>A culture of innovation and risk-taking as opposed to fear or mindless order-taking</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="sect3">
+<h4 id="truework-types"><a class="anchor" href="#truework-types"></a>Work Types</h4>
+<div class="olist arabic">
+<div class="title">The need to visualize all types of work and control Work In Progress. Refer to <a href="http://valueflowit.com.au/it-operations-only-does-4-things/">IT Operations Only Does 4 Things</a> for details. This organization recognizes there are the following four types of work:</div>
+<ol class="arabic">
+<li>
+<p><strong>Business Projects</strong>
+PM, Product, including business and technical, Owner Tracked</p>
+</li>
+<li>
+<p><strong>Internal IT Projects</strong></p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Environment upgrades</p>
+</li>
+<li>
+<p>Application Upgrades</p>
+</li>
+<li>
+<p>Vendor application Upgrades</p>
+</li>
+<li>
+<p>Testing</p>
+</li>
+<li>
+<p>Build Automation</p>
+</li>
+<li>
+<p>Deployment Automation</p>
+</li>
+<li>
+<p>Security requests and requirements</p>
+</li>
+<li>
+<p>Legal requests and requirements</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p><strong>Operational Changes</strong></p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>These are promoted from the previous two types of work.</p>
+</li>
+<li>
+<p>Need to keep track of how much resources are committed to these types of work.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p><strong>Unplanned work or recovery work</strong></p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Operational incidents and problems.</p>
+</li>
+<li>
+<p>Caused by unaddressed challenges that make it to Production as described in Second Way above</p>
+</li>
+<li>
+<p>Always come at the expense of other planned work commitments</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect3">
+<h4 id="true-a-href-https-en-wikipedia-org-wiki-continuous_integration-ci-a-a-href-https-en-wikipedia-org-wiki-continuous_delivery-cd-a"><a class="anchor" href="#true-a-href-https-en-wikipedia-org-wiki-continuous_integration-ci-a-a-href-https-en-wikipedia-org-wiki-continuous_delivery-cd-a"></a><a href="https://en.wikipedia.org/wiki/Continuous_integration">CI</a> / <a href="https://en.wikipedia.org/wiki/Continuous_delivery">CD</a></h4>
+<div class="sect4">
+<h5 id="true-a-href-https-www-thoughtworks-com-continuous-integration-continuous-integration-a"><a class="anchor" href="#true-a-href-https-www-thoughtworks-com-continuous-integration-continuous-integration-a"></a><a href="https://www.thoughtworks.com/continuous-integration">Continuous Integration</a></h5>
+<div class="ulist">
+<div class="title">Outputs to Continuous Releases or Deployments.  Each developer has full control of all aspects of Forked repos in addition to feature branches.  The feature branches are modified on local repos.  They can be shared on regular repos and forked repos.</div>
+<ul>
+<li>
+<p>Smaller batch sizes and more intervals of work.</p>
+</li>
+<li>
+<p>Add changes/deltas the same way every time.</p>
+</li>
+<li>
+<p>Changes pushed to shared repos always works (First Way), if not, fix it so it does (Second Way).</p>
+</li>
+<li>
+<p>Before pushing code verify changes work with current states of:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Latest Production (master branch)</p>
+</li>
+<li>
+<p>Latest Development (develop branch)</p>
+</li>
+<li>
+<p>Any releases in progress ( all current release-M.m and hotfix-M.m-hf# branches)</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+<div class="title">tip</div>
+<div class="paragraph">
+<p>If the repo is not forked and the developer uses the release or continuous deployment repo to clone from, merges will be required for every push to the develop branch.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="true-a-href-https-continuousdelivery-com-continuous-delivery-a"><a class="anchor" href="#true-a-href-https-continuousdelivery-com-continuous-delivery-a"></a><a href="https://continuousdelivery.com/">Continuous Delivery</a></h4>
+<div class="paragraph">
+<p>Delivers to Production are via highly visible Change Records.  This is more controlled and has required checks and balances build into the process. These Change Records supports "end to end" collaboration across the entire company.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="true-a-href-https-www-podfeet-com-blog-2016-03-nuke-pave-nuke-pave-a"><a class="anchor" href="#true-a-href-https-www-podfeet-com-blog-2016-03-nuke-pave-nuke-pave-a"></a><a href="https://www.podfeet.com/blog/2016/03/nuke-pave/">Nuke &amp; Pave</a></h4>
+<div class="paragraph">
+<p>This concept is driving our current deployment approach changes. The title is a link to an article that explains the concept from a workstation point of view. We all know <em>it&#8217;s not <strong>if</strong> your laptop will be re-imaged but rather <strong>when</strong></em>.</p>
+</div>
+<div class="paragraph">
+<p>Basically, it&#8217;s easier to build with a know procedure from the box up rather than trouble-shooting an environment with issues.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="trueroles-and-responsibilities"><a class="anchor" href="#trueroles-and-responsibilities"></a>Roles and Responsibilities</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>In order to communicate a clear understanding of expectations, roles and responsibilities must be clearly defined. Any work that will be performed as part of the plan must be assigned to someone and this section allows us to illustrate the roles that own these tasks and to communicate them to all project stakeholders.</p>
+</div>
+<div class="olist arabic">
+<div class="title">The following roles and responsibilities pertain to the CM Plan for this organization.</div>
+<ol class="arabic">
+<li>
+<p>Configuration Control Board (CCB)</p>
+<div class="ulist">
+<ul>
+<li>
+<p>The CCB is comprised of the organizational change management authority representative, Project Managers, Configuration Managers, and Lead Engineers for the configuration item (CI) under consideration. The CCB is responsible for the following:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Review and approve/reject configuration change requests
+Ensure all approved changes are added to the configuration management database (CMDB)</p>
+</li>
+<li>
+<p>Seeking clarification on any CIs as required</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Project Sponsor</p>
+<div class="ulist">
+<ul>
+<li>
+<p>The Project Sponsor is responsible for:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Chairing all CCB meetings</p>
+</li>
+<li>
+<p>Providing approval for any issues requiring additional scope, time, or cost</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Project Manager</p>
+<div class="ulist">
+<ul>
+<li>
+<p>The Project Manager is responsible for:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Overall responsibility for all CM activities related to the projects</p>
+</li>
+<li>
+<p>Identification of CIs</p>
+</li>
+<li>
+<p>All communication of CM activities to project stakeholders
+Participation in CCB meetings</p>
+</li>
+<li>
+<p>Re-baselining, if necessary, any items affected by CM changes</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Configuration Manager</p>
+<div class="ulist">
+<ul>
+<li>
+<p>The Configuration Manager will be appointed by the Program Management Office (PMO). The Configuration Manager is responsible for:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Overall management of the CMDB</p>
+</li>
+<li>
+<p>Identification of CIs</p>
+</li>
+<li>
+<p>Providing configuration standards and templates to the project team</p>
+</li>
+<li>
+<p>Providing any required configuration training</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Lead Engineers</p>
+<div class="ulist">
+<ul>
+<li>
+<p>All identified CIs will be assigned to a Lead Engineer. The assigned Lead Engineer is responsible for:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Designating a focus group to develop the change request</p>
+</li>
+<li>
+<p>Ensure all change requests comply with organizational templates and standards prior to the CCB</p>
+</li>
+<li>
+<p>Submitting the change request to the lead engineer for review and presentation at the CCB
+Goals and Concepts
+The primary Goals and Concepts provide direction and improvements to the overall execution of the Development Lifecycle. Those that pertain to the Configuration Management tasks are listed and maintained in this section.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="trueconfiguration-control"><a class="anchor" href="#trueconfiguration-control"></a>Configuration Control</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Configuration Control is the process of systematically controlling and managing all steps of configuration throughout the project lifecycle. In order to effectively handle project Configuration Management it is important to use a process which ensures only necessary configuration changes are made. Additionally, like any change management efforts, configuration change decisions must be made with the understanding of the impact of the change. Configuration control is an important part of the Configuration Management Plan.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="truecm-database-cmdb"><a class="anchor" href="#truecm-database-cmdb"></a>CM Database (CMDB)</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>A Configuration Management Database (CMDB) is where the organizations configuration information is stored. CMDB is a term which originates from Information Technology Infrastructure Library (ITIL) which provides a framework for best practices in IT services management.</p>
+</div>
+<div class="paragraph">
+<p>The CMDB contains not only the configuration information for assets but also information about the assets such as physical location, ownership, and its relationship to other configurable items (CIs). It is important to address the CMDB in the Configuration Management Plan.</p>
+</div>
+<div class="paragraph">
+<p>A key component to configuration management is having a well defined and followed process for both document and data management.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="trueconfiguration-status-accounting"><a class="anchor" href="#trueconfiguration-status-accounting"></a>Configuration Status Accounting</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Accounting for the status of the configuration involves the collection, processing, and reporting of the configuration data for all CIs at any given time.</p>
+</div>
+<div class="paragraph">
+<p>This also includes management stored configuration information held in the Configuration Management Database (CMDB).</p>
+</div>
+<div class="paragraph">
+<p>This may include approved configuration documents, software, data, and their current version numbers; build reports; status of any submitted changes; or any discrepancies and status identified through configuration audits.</p>
+</div>
+<div class="paragraph">
+<p>It is important that organizational Change Management authorities, the Project Sponsors and the Project Managers have the ability to review configuration status at any given time.</p>
+</div>
+<div class="paragraph">
+<p>The Project Manager will also submit weekly reports, to include configuration status on a regular basis.</p>
+</div>
+<div class="olist arabic">
+<div class="title">These reports will consist of the following information as part of the configuration status section:</div>
+<ol class="arabic">
+<li>
+<p>Change requests</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Aging - How long change requests have been open</p>
+</li>
+<li>
+<p>Distribution – number of change requests submitted by owner/group</p>
+</li>
+<li>
+<p>Trending – what area(s) are approved changes occurring in</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Version Control</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Software</p>
+</li>
+<li>
+<p>Hardware</p>
+</li>
+<li>
+<p>Data</p>
+</li>
+<li>
+<p>Documentation</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Build Reporting</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Files</p>
+</li>
+<li>
+<p>CI relationships</p>
+</li>
+<li>
+<p>Incorporated Changes</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Audits</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Physical Configuration</p>
+</li>
+<li>
+<p>Functional Configuration</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>Just after any new software releases (deployments to production), the CM team will work with development teams to ensure all CIs are updated with latest release versions.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="trueconfiguration-audits"><a class="anchor" href="#trueconfiguration-audits"></a>Configuration Audits</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Audits are an important part of project and configuration management, so it should be contained in the Configuration Management Plan.</p>
+</div>
+<div class="paragraph">
+<p>The purpose of an audit is to ensure that established processes are being followed as intended and to provide an opportunity to correct any deviations from these processes.</p>
+</div>
+<div class="paragraph">
+<p>Many people hold a negative view of audits; however, when used appropriately, audits are an effective management and quality assurance tool.</p>
+</div>
+<div class="paragraph">
+<p>Configuration audits will be an ongoing part of project lifecycles.</p>
+</div>
+<div class="paragraph">
+<p>The purpose of the configuration audit is to ensure all team members are following the established procedures and processes for configuration management.</p>
+</div>
+<div class="paragraph">
+<p>Project audits will occur prior to any major software release or at the Project Manager or Sponsor’s discretion if they determine the need for one.</p>
+</div>
+<div class="paragraph">
+<p>Throughout the project lifecycle the CM team works closely with development leaders to ensure that all configuration processes and procedures are being followed.</p>
+</div>
+<div class="olist arabic">
+<div class="title">As part of the configuration audit the CM will perform the following tasks:</div>
+<ol class="arabic">
+<li>
+<p>Establish an audit environment in the CMDB</p>
+</li>
+<li>
+<p>Verify all of the latest software, data, and document versions in the audit environment</p>
+</li>
+<li>
+<p>Ensure all versions are correctly numbered and that version control has been performed properly</p>
+</li>
+<li>
+<p>Analyze hisantorical versions and timestamps of all software, data, and documents to ensure all changes/edits were properly recorded and captured</p>
+</li>
+<li>
+<p>Verify latest software versions and conduct software testing to ensure requirements are being met</p>
+</li>
+<li>
+<p>Verify all required artifacts are present and current in the CMDB</p>
+</li>
+<li>
+<p>Ensure all approved CRs have been incorporated into the project and are recorded in the CMDB</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>Once the audit has been performed, the Configuration Manager will compile his/her audit findings. For each finding, the CM must work with the Project Manager/Team to identify the corrective action(s) necessary to resolve the discrepancy and assign responsibility for each corrective action.</p>
+</div>
+<div class="paragraph">
+<p>Upon completion of the project audit and findings, the CM will note all discrepancies and compile a report to be presented to the Project Manager, Sponsor, and VP of Technology.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="truereferences"><a class="anchor" href="#truereferences"></a>References</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p><a href="http://www.projectmanagementdocs.com/project-planning-templates/configuration-management-plan.html#axzz4ulQeuQy8">CM Plan Template</a></p>
+</li>
+<li>
+<p><a href="https://help.github.com/articles/access-permissions-on-github/">Access permissions on GitHub</a></p>
+</li>
+<li>
+<p><a href="https://sethrobertson.github.io/GitBestPractices/">Git Best Practices</a></p>
+</li>
+<li>
+<p><a href="https://guides.github.com/introduction/flow/">Undertanding the GitHub Flow</a></p>
+</li>
+<li>
+<p><a href="https://gist.github.com/Chaser324/ce0505fbed06b947d962">GitHub Forking</a></p>
+</li>
+<li>
+<p><a href="https://help.github.com/articles/fork-a-repo/">Fork A Repo</a></p>
+</li>
+<li>
+<p><a href="https://coderwall.com/p/tyty4a/best-practice-team-workflow-for-github">Team Workflow for Github</a></p>
+</li>
+<li>
+<p><a href="https://www.atlassian.com/git/tutorials/comparing-workflows">Comparing Workflows</a></p>
+</li>
+<li>
+<p><a href="http://codeinthehole.com/tips/pull-requests-and-other-good-practices-for-teams-using-github/">Effective pull requests and other good practices for teams using github</a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div id="footer">
+<div id="footer-text">
+Last updated 2017-10-19 08:40:54 MDT
+</div>
+</div>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.9.1/styles/github.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.9.1/highlight.min.js"></script>
+<script>hljs.initHighlighting()</script>
+
+</section>
+<!-- Wrap remainder of page in website section defn ******** -->
+<!-- ******************************************************* -->
+
+<!-- *********************** -->
+<!-- Add website footer defn -->
+<div w3-include-html="../subfooter.html"></div>
+<script>w3.includeHTML()</script>
+<!-- Add website footer defn -->
+<!-- *********************** -->
+
+</body>
+</html>

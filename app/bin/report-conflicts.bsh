@@ -1,0 +1,352 @@
+#!/bin/bash
+################################################################################
+# report-conflicts.bsh
+#
+#  Written by Andy Wallace 2016/09/24, Last update 2018/01/26
+#
+#  Purpose:
+#
+#    To support conflict reporting for Git branch merging. This script produces
+#    a report of all merging results for a given feature branch to all current
+#    main and release branches.
+#
+#    The intent is to provide development and Configuration Management (CM) 
+#    with a tool to identify all merging and resulting conflicts prior to
+#    starting a merge session. An outline of related development efforts
+#    required at the time this tool is used can be envisioned and addressed.
+#
+#
+#  Design:
+#
+#    Run a git clone session to identify and report on all conflicts using
+#    git merge functionality.  The results will be two files, the merge conflict
+#    report and a file containing a run log of the session.  The names of these
+#    files will contain date/time information in the name for relating and
+#    uniqueness. 
+#
+#  Dependencies:
+#
+#    The git software will need to be installed on the system that uses this
+#    script.  A linux environment is also required supporting bash scripting.
+#
+#    A ~/.ssh directory with a config setup as described in the Git 
+#    Installation Procudure.
+#
+#    An existing repo for this script to run against on a git bare
+#    repository system that is accessable from the system this script runs on.
+#
+#    A feature branch that has been pushed to the above mentioned git bare
+#    repository system.
+# 
+#
+#  1. Configure logging as follows:
+#
+#  2. Unix utilities
+#
+#  Usage and Monitoring:
+#
+#    Argument Variables:
+#
+#       RepoName - 1st required argument for this script
+#         (alternate is "-h" for help printout to command line)
+#
+#       FeatureBranch - 2nd required argument for this script unlesss -h is the
+#                       1st argument.
+#
+#       -v            - Optional verbose flag for more details in the merge
+#                       conflict report.
+#
+#
+#    Files created and used:
+#
+#      $LogDIR/.running-$LogFile - Created and maintained during script run.
+#                                  Used to create log file with starting Date/time.
+#
+#      $RepoHome/YYYY-MM-DD-HH:MM:SS-Merge-Conflicts-Run.log
+#                                - Created for tracking purposes. Moved from
+#                                  $LogDIR/.running-$LogFile at end of script run
+#                                  added ending Date/time stamp. Delete at
+#                                  some future date.
+#
+#      $RepoHome/YYYY-MM-DD-HH:MM:SS-Merge-Conflicts.rpt
+#                                - This file is the purpose of this script. Reports
+#                                  by main and release branches merges and conflicts.
+#
+#
+#
+################################################################################
+
+#########################################################################
+# Script configuration variables
+#########################################################################
+##############################################
+# User preference configuration fields
+##############################################
+#   * The directories need to exist with
+#     appropriate access.
+##############################################
+RepoHome="/c/Users/awalla5075k/git-repos/conflict-rpting"
+LogDIR="$RepoHome/log"
+
+##############################################
+# The "github" ssh variable used in the
+# sshAliasForGitSystem should be defined in
+# the ~/.ssh/config file.
+#
+##############################################
+sshAliasForGitSystem="github:cmguy"
+
+##############################################
+# Used for script messaging/reporting
+##############################################
+LogFile="Report-Conflicts.log"
+RptFile="Merge-Conflicts"
+GitSystem="GitHub"
+LogFile="Report-Conflicts.log"
+RptFile="Merge-Conflicts"
+ThisScript="report-conflicts.bsh"
+ScriptFunction="report conflicts"
+##############################################
+# Specific to team branching and merging
+# policy.
+##############################################
+branchstr[0]="develop"
+branchstr[1]="release"
+branchstr[2]="hotfix"
+
+# Regular expression - not working on git bash on windows
+#reponamestd="^\b(CFX|VIDEO|VOICE|DATA)\b\-+[A-Za-z0-9]+\-?[A-Za-z0-9]+\-*[A-Za-z0-9]*$"
+
+############################################################
+# Functions
+############################################################
+#################################################
+# If after clone, this function required to end
+#################################################
+function cleanup {
+   echo "need to run cleanup since git repo has been cloned" >> $LogDIR/.running-$LogFile 2>&1
+   cd ../
+   rm -fr $RepoName
+}
+
+function normal-end {
+   echo "`date +%c` $GitSystem $ScriptFunction on $RepoName repo run complete." >> $LogDIR/.running-$LogFile 2>&1
+   mv $LogDIR/.running-$LogFile $RepoHome/`date +%F`_`date +%R`-`date +%S`-Merge-Conflicts-Run.log
+   exit 1
+}
+
+function error-end {
+   echo "`date +%c` $GitSystem $ScriptFunction on $RepoName repo run failed." >> $LogDIR/.running-$LogFile 2>&1
+   mv $LogDIR/.running-$LogFile $RepoHome/`date +%F`_`date +%R`-`date +%S`-Merge-Conflicts-Run.log
+   exit 1
+}
+
+#########################################################################
+# Process script arguments
+#########################################################################
+if [ "$#" -le "3" ]; then
+   echo "`date +%c` Merge Conflict report on $GitSystem run start." > $LogDIR/.running-$LogFile 2>&1
+else
+   echo ""
+   echo "Invalid argument set. For help execute -> $" $ThisScript " -h"
+   echo ""
+   echo "ERROR - Too many arguments supplied."
+   echo "ERROR - Too many arguments supplied." > $LogDIR/.running-$LogFile 2>&1
+   error-end
+fi
+
+if [ "$#" -lt "1" ]; then
+   echo ""
+   echo "Invalid argument set. For help execute -> $" $ThisScript " -h"
+   echo ""
+   echo "ERROR - No arguments supplied."
+   echo "ERROR - No arguments supplied." >> $LogDIR/.running-$LogFile 2>&1
+   error-end
+fi
+
+if [ "$1" == "-h" ]; then
+   echo ""
+   echo "$ThisScript [-h]|ModuleName MergeCheckBranch [-v]"
+   echo ""
+   echo "   -h               -> Prints this help text."
+   echo ""
+   echo "   ModuleName       -> Name of the repo/module from the $GitSystem"
+   echo ""
+   echo "   MergeCheckBranch -> Featue Branch to be merged with main and release branches in the repo"
+   echo ""
+   echo "   -v               -> Optional verbose flag for more details in the merge conflict report"
+   echo "Status - Print help text." >> $LogDIR/.running-$LogFile 2>&1
+   normal-end
+fi
+
+
+verboseflag="off"
+if [ "$#" == "3" ]; then
+   if [ "$3" != "-v" ]; then
+      echo ""
+      echo "Invalid argument. For help execute -> $" $ThisScript " -h"
+      echo ""
+      echo "ERROR - Optional verbose flag should be '-v'."
+      echo "ERROR - Optional verbose flag should be '-v'." >> $LogDIR/.running-$LogFile 2>&1
+      error-end
+   else
+      verboseflag="$3"
+   fi
+fi
+
+RepoName="$1"
+MergeCheckBranch="$2"
+
+###############################################################
+# Following for testing arguments only - comment out otherwise
+###############################################################
+# Test - echo arguments
+#echo "RepoName is " $RepoName
+#echo "MergeCheckBranch is " $MergeCheckBranch
+#echo "verboseflag is " $verboseflag
+
+# echo "Test - Testing argument options." >> $LogDIR/.running-$LogFile 2>&1
+# normal-end
+
+#########################################################################
+# Verify $RepoName follows $GitSystem naming standards.
+#########################################################################
+charcount="${RepoName//[^-]}"
+if [ "${#charcount}" -gt "3" ]; then 
+   echo ""
+   echo "ERROR - Fails module/repo Naming Standard, more than 3 - characters."
+   echo "Fails module/repo Naming Standard, more than 3 - characters." >> $LogDIR/.running-$LogFile 2>&1
+   error-end
+fi
+
+#echo $RepoName
+#echo $reponamestd
+
+####################################################
+# Working at https://regex101.com/ but not here
+# Commented out for now probably need PCRE
+####################################################
+#if [[ $RepoName =~ $reponamestd ]]; then
+#   echo "Follows Standard." >> $LogDIR/.running-$LogFile 2>&1
+#else
+#   echo "" 
+#   echo "ERROR - Fails module/repo Naming Standard."
+#   echo "ERROR - Fails module/repo Naming Standard." >> $LogDIR/.running-$LogFile 2>&1
+#   error-end
+#fi
+
+#########################################################################
+# Verify $MergeCheckBranch is not a main or release branch.
+#########################################################################
+
+for v in "${branchstr[@]}"
+do
+   if echo "$MergeCheckBranch" | egrep -q "$v"; then
+      echo "The MergeCheckBranch $MergeCheckBranch cannot be a main or release branch." 
+      echo "ERROR - Invalid argument $MergeCheckBranch. Cannot be a main or release branch. Exiting this run." >> $LogDIR/.running-$LogFile 2>&1
+      error-end
+   fi
+done      
+echo "Verified $MergeCheckBranch is not a main or release branch." >> $LogDIR/.running-$LogFile 2>&1
+
+#########################################################################
+#  Create local Git repo to be used exclusively for this script run
+#########################################################################
+
+echo "cd $RepoHome"
+echo "cd $RepoHome" >> $LogDIR/.running-$LogFile 2>&1
+cd $RepoHome >> $LogDIR/.running-$LogFile 2>&1
+##############################################
+# If directory for $RepoName exists, stop run
+##############################################
+CheckforRepo=( ` ls -l ` )
+for checkDIR in "${CheckforRepo[@]}"
+do
+   if echo "$checkDIR" | egrep -q "$RepoName"; then
+      echo "ERROR - destination path $RepoName already exists in some form or"
+      echo "        RepoHome value \"$RepoHome\" in configuration section is invalid . - stopping run."
+      echo "ERROR - destination path $RepoName already exists in some form or $RepoHome invalid. Exiting this run." >> $LogDIR/.running-$LogFile 2>&1
+      error-end
+   fi
+done
+##############################################
+echo "git clone $sshAliasForGitSystem/$RepoName ..."
+git clone $sshAliasForGitSystem/$RepoName >> $LogDIR/.running-$LogFile 2>&1
+echo "cd $RepoName" >> $LogDIR/.running-$LogFile 2>&1
+cd $RepoName >> $LogDIR/.running-$LogFile 2>&1
+
+
+#########################################################################
+# Verify and "git checkout" $MergeCheckBranch
+# Identify and "git checkout" all main and release branches for $RepoName
+#########################################################################
+
+MergeToBranches=("${MergeToBranches[@]}" "master")
+MergeBranches=( ` git ls-remote --heads origin ` )
+for FindBranch in "${MergeBranches[@]}"
+do
+   if echo "$FindBranch" | egrep -q "$MergeCheckBranch"; then
+      git checkout $MergeCheckBranch >> $LogDIR/.running-$LogFile 2>&1
+      validcheckbranch=true
+   fi 
+   for t in "${branchstr[@]}"
+   do
+      if echo "$FindBranch" | egrep -q "$t"; then
+        branch=${FindBranch:11:(${#FindBranch}-11)}
+	git checkout $branch >> $LogDIR/.running-$LogFile 2>&1
+        MergeToBranches=("${MergeToBranches[@]}" "$branch")
+      fi
+   done      
+done
+if [ "$validcheckbranch" ]; then
+   echo "Branch $MergeCheckBranch is valid for repo/module $RepoName and has been checked out."
+else
+   echo ""
+   echo "ERROR - Invalid branch $MergeCheckBranch. Exiting this run" >> $LogDIR/.running-$LogFile 2>&1
+   echo "ERROR - Invalid branch, $MergeCheckBranch does not exist in this repo/module - Run failed"
+   echo "ERROR - Invalid branch, $MergeCheckBranch does not exist in this repo/module" >> $LogDIR/.running-$LogFile 2>&1
+   cleanup
+   error-end
+fi 
+
+#########################################################################
+#  Create Merge Conflict Report
+#########################################################################
+
+echo "############################################################" >> $LogDIR/.running-$LogFile 2>&1
+echo "Start $RptFile report ..." >> $LogDIR/.running-$LogFile 2>&1
+echo "Start $RptFile report ..."
+echo "`date +%c` Start Merge/Conflict report on $GitSystem for repo $RepoName branch $MergeCheckBranch." > $RepoHome/$RptFile 2>&1
+for m in "${MergeToBranches[@]}"
+do
+   echo "#######################################################" >> $LogDIR/.running-$LogFile 2>&1
+   echo "######################################################################################" >> $RepoHome/$RptFile 2>&1
+   echo "######################################################################################" >> $RepoHome/$RptFile 2>&1
+   git checkout $m >> $LogDIR/.running-$LogFile 2>&1
+   git branch >> $RepoHome/$RptFile 2>&1
+   echo " "
+   echo "   Test merge of $MergeCheckBranch branch to $m branch"
+   if [ "$verboseflag" == "-v" ]; then
+      echo " "
+      git merge --no-ff $MergeCheckBranch >> $RepoHome/$RptFile 2>&1
+   else  # $verboseflag is off
+      echo " "
+      git merge --no-ff --no-commit $MergeCheckBranch >> $RepoHome/$RptFile 2>&1
+   fi
+   git merge --abort >> $LogDIR/.running-$LogFile 2>&1
+
+done
+echo "######################################################################################" >> $RepoHome/$RptFile 2>&1
+echo "######################################################################################" >> $RepoHome/$RptFile 2>&1
+echo "############################################################" >> $LogDIR/.running-$LogFile 2>&1
+mv $RepoHome/$RptFile $RepoHome/`date +%F`_`date +%R`-`date +%S`-$RptFile.rpt
+echo "Complete $RptFile report,"
+echo "   reference file $RepoHome/`date +%F`_`date +%R`-`date +%S`-$RptFile.rpt."
+echo "Complete $RptFile report." >> $LogDIR/.running-$LogFile 2>&1
+echo "############################################################" >> $LogDIR/.running-$LogFile 2>&1
+
+#########################################################################
+# End script run
+#########################################################################
+cleanup
+normal-end

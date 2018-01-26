@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<html>
+<head>
+  <title>Page Title</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+  <h2 class="cntrtxt">&lt;header&gt;</h2>
+</header>
+
+<nav>
+  <h2 class="cntrtxt">&lt;nav&gt;</h2>
+</nav>
+
+<aside>
+  <h2 class="cntrtxt">&lt;aside&gt;</h2>
+  <p>The content in this block,</p>
+  <p>determines it width.</p>
+  <p>So plan how wide you make</p>
+  <p>it's content.</p>
+</aside>
+
+<section>
+  <h2 class="cntrtxt">&lt;section&gt;</h2>
+<p>The purpose of this site is to identify and demonstrate html5 using the the primary html5 semantic elements. These currently include &lt;header&gt;, &lt;footer&gt;, &lt;section&gt;, &lt;article&gt;, and &lt;aside&gt;.</p>
+<p>The first goal was to make this sample website "fixed" in size. Meaning, no matter how the user resizes the browser view of this site horizontally or vertically, the semantic elements should stay "intack" and viewable. Reference the index.html and style.css files for tested absolute configurations.</p>
+<p>Generally speaking, the height of this site is defined with fixed height values for the &lt;section&gt; and &lt;aside&gt; elements. Content within the &lt;header&gt; and &lt;footer&gt; elements can contribute. The width of this site is set with a fixed definition for the &lt;section&gt; block with the &lt;aside&gt; floating to the right. A strict goal of separating "content" from "configuration" is important to understanding how html5 works. The content can and should, at determined times, influence "configuration" to a planned degree.</p>
+<p>Notice the placement of &lt;article&gt; sections with &lt;p&gt; sections in this &lt;section&gt; block. It is strait text with no updates to the style.css file. So far the &lt;article&gt; section just keeps moving down the page as content is added. Let's try a new paragraph.</p>
+<article>
+  <h2 class="cntrtxt">&lt;article&gt;</h2>
+  <p>This article block's height and width is defined with % values adjusted for text content. These % values are based on the fixed height and width of the fixed section block this article block is contained in.</p>
+</article>
+<p>Here is a new paragraph. Adjusted the left margin of the paragraph text so there is some space between the text and the edge of this &lt;section&gt; block. This was done with the padding settings in the section block. Note the setting are top-right-bottom-left.</p>
+
+<p>Also note that moving the &lt;article&gt; section in-between the previous paragraph and this one produced the desired affect of placing this text to the left of and/or under the &lt;article&gt; section depending on the web users horizontal and vertical settings.</p>
+
+<p>Since this paragraph is now positioned fully above the second &lt;article&gt; section, the next paragraph will be placed after the second &lt;article&gt; section. This should put it next to the following &lt;article&gt; section.</p>
+
+<article>
+  <h2>&lt;article&gt;</h2>
+  <p title="I'm a tooltip">
+     Mouse over this paragraph, to display the title attribute as a tooltip.
+  </p>
+  <p>Notice the article title in this block is not centered. Did not use &lt;h2&gt; class "cntrtxt" defined in style.css file.</p>
+</article>
+
+<p>The position of this paragraph is to the left of the section &lt;article&gt; section as expected. Also note that it needs to be "before" the ending &lt;/section&gt; tag.</p>
+
+<p>Notice the use of the "overflow-y:scroll;" in the &lt;article&gt; element. It keeps the content of the &lt;article&gt; element within the element as the web user adjusts for height and width. Try commenting it out to see what happens to the &lt;article&gt; content. When website height and width is adjusted with the browser.</p>
+
+<p>In addition to adding the "border-radius: 15px;" setting for rounded corners on the &lt;article&gt; section definition in the style.css file, the following was also done:</p>
+<ul>
+  <li>margin: 0px 0px 0px 0px; -> margin: 0px 10px 0px 10px;</li>
+  <li>padding: 0px 0px 0px 0px; -> margin: 0px 10px 0px 10px;</li>
+</ul>
+
+<p>Take note that the &lt;article&gt; section block is defined once in the style.css file and used twice in this &lt;section&gt; block.</p>
+
+<p>Note that most adjustments made to this experimental html5 website template during experimentation are mentioned in this &lt;section&gt; block. In addition, the "#" was used to comment out any configuration changes that where made to the style.css file while experimenting. If commented out lines are left in the style.css, it was done so for future experimenting.</p>
+
+<p>After &lt;nav&gt; section button formats are designed and added to this "basis" website template, It can be used as a general "basis" starting point for future website development.</p>
+
+<p>Note that we have added enough text to test the the "overflow-y:scroll;" configuration setting for this &lt;section&gt; block. It is working as expected :).</p>
+</section>
+
+
+<footer>
+  <h2 class="cntrtxt">&lt;footer&gt;</h2>
+</footer>
+
+
+</body>
+</html>
+

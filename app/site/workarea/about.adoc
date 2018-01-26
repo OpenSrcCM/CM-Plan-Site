@@ -1,0 +1,62 @@
+:toc2:
+
+=== Background
+
+This site  provides references and instructions to support Planning, Identification, Control, Status Accounting, Verification & Audit of https://en.wikipedia.org/wiki/Configuration_item[Configuration Items]. 
+
+The relative website links maintain the persistence and integrity of this site. Examples include the *About* link that was used to get to this page along with the other links in the navigation bar above starting with the  *Home* link on the left.
+
+=== Recommendations
+
+Other links in this site that go to locations apart from this site will re-populate your current browser window with the contents of the link selected. To keep this from happening, mouse-right click on the link and select *open link in new tab*. This will maintain the window with this website presentation.
+
+=== Audience
+
+This website is for All roles having a need to manage:
+
+* and share documentation,
+* code for applications and databases,
+* various system configurations,
+* presentation decks,
+* architecture designs.
+
+The Git system can be used to manage all of these element types.
+
+
+=== Conventions
+
+The following typographic conventions and symbols are used to enhance clarity:
+
+_Italic_ 
+
+Used to show generic options that should be replaced with user-supplied values. 
+
+git [_command_]
+
+Can be entered at git bash command line followed by `-h` for more specific documentation.
+
+
+[NOTE]
+====
+Used for *Notes*.
+====
+
+[IMPORTANT]
+====
+Identification of something *Important*.
+====
+
+[TIP]
+====
+Associated with *Tips*.
+====
+
+[CAUTION]
+====
+Indicator for *Caution*.
+====
+
+[WARNING]
+====
+Specification of a *Warning*.
+====

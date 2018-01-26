@@ -1,0 +1,172 @@
+#!/bin/bash
+################################################################################
+# package-deploy.bsh
+#
+# Written by Andy Wallace 2017/08/28; last updated 2018/01/21
+#
+# This script creates a package for pushing to the apache server html directory
+# on a linux system with apache. 
+#
+# This script is designed to be run from the repo deploy directory. It requires
+# an existing deploy directory at the top of the Git repo work area.
+#
+# After this script executes, the following package is created:
+#   /deploy/$ThisRepo-M.m.I.gz
+#      Notes:
+#         M - Major release increment/ID
+#         m - Minor release increment/ID
+#         I - GitHub issue number (0 indicates production release)
+#
+#   This package is designed to create and populate the /var/www/html directory
+#   on the linux apache server. There are README.txt files located in various
+#   [repo] directories that identify how this repository is used to maintain
+#   the CM Plan Website.
+#
+#   It also provides the vagrantfile and bootstrap.sh files in the
+#   [repo]/deploy directory for creating the VM system.
+#
+#   The directory app/site is a template for an initial html5 website.
+#   It is deployed for development purposes using vagrant.
+#
+#   Deployment procedure using Vagrant:
+#
+#    1. This script is run by the Vagrant bootstrap.sh script to prepare and
+#       deliver a deployment package from the [repo]/deploy directory.
+#         NOTE: The [repo]/deploy directory is where vagrantfile is run from.
+#    2. Run "vagrant up" in [repo]/deploy to create website on VM guest system.
+#         NOTES:
+#
+#            1. Changed made prior to executing this procedure have been
+#               completed following instructions in README.txt files that are
+#               placed inmany of the directories in this repo.
+#            2. The bootstrap.sh called by vagrant completes the install of
+#               this website on the Virtual Machine (VM).
+#            3. See contents of [repo]/deploy/README.txt for more details.
+#            3. If you have multiple gz files from step 1 runs, you can Untar
+#               any deployment package prepared by this script to look at
+#               different deployment releases.
+#               For example, assuming previously successful "vagrant up" or
+#               "Vagrant provision":
+#                 Execute below in [repo]/deploy directory:
+#                   $ tar xfz $ThisRepo-$Major.$Minor.$Issue.gz
+#                   $ cp -R /vagrant/html/* /var/www/html/
+#                   $ rm -r /vagrant/html/
+#                       Note: See apache config specifics in bootstrap.sh
+#                             that are assumed from previous vagrant runs.
+#            4. Note the Script configuration variables section. The subDir
+#               array is for various website pages.
+#
+#  Dependencies:
+#
+#     This script requires a repo work area /deploy directory with full
+#     capability to create and remove files and directories by this script.
+# 
+################################################################################
+
+################################################################################
+# Script configuration variables
+################################################################################
+TargetTarDir="server"              # site create directory
+basisDir="../basis"                # from $TargetTarDir
+vagrantDir="../../bin/vagrant"     # from $TargetTarDir
+DeployDir="../../../deploy"        # from $TargetTarDir
+TargetTarDirpath="../app/site/"    # from $DeployDir
+subDir[0]="plan"                   # in $TargetTarDir
+subDir[1]="teamTools"              # in $TargetTarDir
+subDir[2]="overview"               # in $TargetTarDir
+subDir[3]="about"                  # in $TargetTarDir
+subDir[4]="plan-template"          # in $TargetTarDir
+subDir[5]="learn"                  # in $TargetTarDir
+subDir[6]="newstuff"               # in $TargetTarDir
+#subDir[7]="sitemap"                # in $TargetTarDir
+#subDir[8]="announcements"          # in $TargetTarDir
+ThisScript="package-deploy.bsh"
+ThisRepo="CM-Plan-Site"
+
+################################################################################
+# Process script arguments
+################################################################################
+if [ "$#" -eq "0" ]; then echo ""
+      echo "Invalid argument set. For help execute " $ThisScript " -h"
+      echo ""
+      echo "ERROR - No argument supplied."
+      exit 1
+fi
+
+if [ "$#" -ge "1" ]; then
+   echo "`date +%c` Validate arguments ..."
+   elif [ "$#" -gt "3" ]; then
+      echo ""
+      echo "Invalid argument set. For help execute " $ThisScript " -h"
+      echo ""
+      echo "ERROR - Too many arguments supplied."
+      exit 1
+   elif [ "$#" -lt "3" ]; then
+      echo ""
+      echo "Invalid argument set. For help execute " $ThisScript " -h"
+      echo ""
+      echo "ERROR - Invalid number of arguments supplied."
+      exit 1
+fi
+
+if [ "$1" == "-h" ]; then
+   echo ""
+   echo "$ThisScript -h|[ Major Minor churn ]" 
+   echo ""
+   echo "   -h          -> Prints this help text."
+   echo ""
+   echo "   Major -> Release Major number for this $ThisRepo repo deployment."
+   echo ""
+   echo "   Minor -> Release Minor number for this $ThisRepo repo deployment."
+   echo ""
+   echo "   Issue -> GitHub issue number for this $ThisRepo repo deployment."
+   echo ""
+   exit 1
+else
+   Major="$1"
+   Minor="$2"
+   Issue="$3"
+fi
+
+# Test -echo arguments
+#echo "Major is " $Major
+#echo "Minor is " $Minor
+#echo "Issue # is " $Issue
+
+################################################################################
+# Create deploy package
+################################################################################
+# Prepare deployment for install
+cd ../app/site
+mkdir $TargetTarDir
+mkdir $TargetTarDir/html
+cd $TargetTarDir
+cp $vagrantDir/bootstrap.sh .
+cp $vagrantDir/vagrantfile .
+cd html
+cp -R ../$basisDir/* .
+for dirname in "${subDir[@]}"
+do
+  mkdir $dirname
+  if [ "$dirname" == "announcements" ] || [ "$dirname" == "newstuff" ]; then
+     cp -R ../../$dirname/* ./$dirname/
+  else
+     cp ../../$dirname/index.html ./$dirname/index.html
+     if [ "$dirname" == "learn" ]; then
+        cp ../../$dirname/style.css ./$dirname/style.css
+     fi
+  fi
+done
+cd ../
+# Prepare deployment for install
+tar cfz $ThisRepo-$Major.$Minor.$Issue.gz *
+mv $ThisRepo-$Major.$Minor.$Issue.gz $DeployDir/ 
+cd $DeployDir
+tar xfz $ThisRepo-$Major.$Minor.$Issue.gz
+# Clean up deployment build area
+rm -r $TargetTarDirpath/$TargetTarDir
+# testing to here.
+
+echo "`date +%c` Package Created at deploy/$ThisRepo-$Major.$Minor.$Issue.gz"
+
+

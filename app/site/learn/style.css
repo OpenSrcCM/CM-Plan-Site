@@ -1,0 +1,67 @@
+h2.cntrtxt {
+  text-align: center;
+}
+p {
+  font-size: 1.21875em;
+  line-height: 1.6;
+}
+body {
+ # background-color: grey;
+ # border: 2px solid #a1a1a1;
+  font-family: verdana,sans-serif;
+  font-size: 0.8em; 
+}
+header, footer {
+  border: 2px solid #a1a1a1;
+  padding: 5px 15px;
+  background-color: #80b3ff;
+  border-radius: 15px;
+}
+nav {
+  border: 2px solid #a1a1a1;
+  margin: 0px 10px 0px 10px;
+  background-color: #e6f3ff;
+#  border-radius: 15px;
+}
+nav ul {
+  padding: 0;
+  text-indent: 40px;
+}
+nav ul li {
+  display: inline;
+  text-indent: 40px;
+}
+section {
+  width: 500;
+  height: 654px;
+  overflow-y:scroll;
+  border: 2px solid #a1a1a1;
+  margin: 0px 10px 0px 10px;
+  padding: 0px 5px 0px 10px;
+  text-indent: 5px;
+  background-color: #e6f3ff;
+#  border-radius: 15px;
+}
+article {
+  width: 50%;
+  height: 25%;
+  overflow-y:scroll;
+  float: right;
+  border: 2px solid #a1a1a1;
+  margin: 0px 10px 0px 10px;
+  padding: 0px 10px 5px 10px;
+  text-indent: 5px;
+  background-color: #b3daff;
+  border-radius: 15px;
+}
+aside {
+  float: right;
+  height: 654px;
+  overflow-y:scroll;
+  border: 2px solid #a1a1a1;
+  margin: 0px 10px 0px 0px;
+  padding: 0px 5px 0px 5px;
+  text-indent: 5px;
+  background-color: #e6f3ff;
+#  border-radius: 15px;
+}
