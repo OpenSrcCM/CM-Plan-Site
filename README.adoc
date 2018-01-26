@@ -4,7 +4,7 @@ The repo is maintained for the Organization. It provides support to the group cu
 
 The site produced from this repo can exist as a service on your workstation. It is also maintained for the this Group at http://www.internal-CM.net/[CM System Website]
 
-The https://gothub.com/cmguy/CM-Plan-Site/teamTools/EMM-CM-ContextDiagram.pdf[Configuration Management Context Diagram] is a primary component providing end to end visibility to the steps, roles, and tools used by this group to create, test, and deliver change. 
+The https://github.com/cmguy/CM-Plan-Site/blob/initial/app/site/teamTools/EMM-CM-ContextDiagram.pdf[Configuration Management Context Diagram] is a primary component providing end to end visibility to the steps, roles, and tools used by this group to create, test, and deliver change. 
 
 === Installation
 
