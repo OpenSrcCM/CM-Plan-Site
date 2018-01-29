@@ -25,9 +25,31 @@ The intended audience for this overview is any member of the supported organizat
 
 .  go to link http://git-scm.com/[git-scm]. Depending on your workstation, you will see a download specific to your environment. Follow instructions accordingly for your workstation.
 
+[TIP]
+====
+* For mac install:
+** You may need to hold down the control key when clicking on pkg script.
+** Run git command line in the native xterm under "Other" apps.
+* For Windows install:
+** All defaults with following considerations:
+*** The Vim editor is the default editor. Nano, Notepad++ and VisualStudioCode are other options.
+*** "Use Git and optional Unix tools from the Windows Command Prompt" is recommended
+*** "Use the OpenSSL library" is recommended
+*** "Checkout Windows-style, commit Unix-style line endings" is recommended
+*** "Use MinTTY (the default terminal of MSYS2)" is recommended
+*** Following is recommended:
+**** "Enable file system caching"
+**** "Enable Git Credential Manger"
+*** Following is *NOT* recommended:
+**** Enable symbolic links
+
+====
+
 == Upgrade Git
 
 Follow the same steps for Installing Git. It is designed to install over an existing installation. Note the expected version release change after you are done.
+
+
 
 == Initial Git Configurations
 
