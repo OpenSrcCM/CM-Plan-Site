@@ -12,13 +12,22 @@
 #          b. app/site/newstuff
 #          c. app/site/sitemap
 #     B. Current working versions of prerequisite applications:
-#          a. Git 2.15.1.windows.2
-#          b. Oracle VM VirtualBox 5.2.6
-#          c. Vagrant 2.0.1
+#          Window 10:
+#             a. Git 2.16.1.windows.1
+#             b. Oracle VM VirtualBox 5.2.6
+#             c. Vagrant 2.0.1
 #               NOTE: Need to add the following to ~/.bash_profile for the
 #                     vagrant ssh functionality:
 #                     $ VAGRANT_PREFER_SYSTEM_BIN=1
-#          d. AsciidoxFX 1.5.8
+#             d. AsciidoxFX 1.5.8
+#          MacOS High Sierra version 10.13.2
+#             a. Git 2.15.1 intel-universal-mavericks.pkg
+#             b. Oracle VM VirtualBox 5.2.6
+#             c. Vagrant 2.0.1
+#               NOTE: Need to add the following to ~/.bash_profile for the
+#                     vagrant ssh functionality:
+#                     $ VAGRANT_PREFER_SYSTEM_BIN=1
+#             d. AsciidoxFX 1.5.8
 #     C. For each deployment occurrence vagrant along with other deployment
 #        automation is disabled. So, for example, you will not be able to run 
 #        "vagrant destroy" after a deployment. To enable vagrant and other
