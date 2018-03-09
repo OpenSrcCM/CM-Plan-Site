@@ -20,6 +20,7 @@
 # Script configuration variables
 ################################################################################
 binPath="../app/bin"
+mongodir="../app/bin/mongo"
 vagrantDir="$binPath/vagrant"  # from deploy directory
 ThisScript="enable-functionality.bsh"
 ThisRepo="CM-Plan-Site"
@@ -30,6 +31,7 @@ ThisRepo="CM-Plan-Site"
 # None
 
 cp $binPath/package-deploy.bsh .
+cp $mongodir/mongodb-org-3.6.repo .
 cp $vagrantDir/bootstrap.sh .
 cp $vagrantDir/vagrantfile .
 

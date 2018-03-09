@@ -13,5 +13,6 @@ apachectl start
 rm -r /vagrant/html/
 # Remove Deployment tools
 rm -r /vagrant/package-deploy.bsh
+rm -r /vagrant/mongodb-org-3.6.repo
 rm -r /vagrant/bootstrap.sh
 rm -r /vagrant/vagrantfile

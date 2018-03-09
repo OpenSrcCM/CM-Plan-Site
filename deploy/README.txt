@@ -13,13 +13,13 @@
 #          c. app/site/sitemap
 #     B. Current working versions of prerequisite applications:
 #          Window 10:
-#             a. Git 2.16.1.windows.1
-#             b. Oracle VM VirtualBox 5.2.6
+#             a. Git 2.16.2.windows.1
+#             b. Oracle VM VirtualBox 5.2.8
 #             c. Vagrant 2.0.1
 #               NOTE: Need to add the following to ~/.bash_profile for the
 #                     vagrant ssh functionality:
 #                     $ VAGRANT_PREFER_SYSTEM_BIN=1
-#             d. AsciidoxFX 1.5.8
+#             d. AsciidoxFX 1.5.9
 #          MacOS High Sierra version 10.13.2
 #             a. Git 2.15.1 intel-universal-mavericks.pkg
 #             b. Oracle VM VirtualBox 5.2.6
@@ -53,6 +53,7 @@
 # repo. Along with .gitignore modifications this encourages DevOps principles.
 #    bootstrap.sh
 #    vagrantfile
+#    mongodb-org-3.6.repo
 #    package-deploy.bsh
 #      Note: Reference the following for details:
 #         http://itrevolution.com/the-three-ways-principles-underpinning-devops/

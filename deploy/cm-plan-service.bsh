@@ -94,11 +94,11 @@ fi
 cp $binPath/package-deploy.bsh .
 
 # Prepare Deployment directory
-./package-deploy.bsh $Major $Minor $Issue
+(./package-deploy.bsh $Major $Minor $Issue 2>&1) | tee VMlog.txt
 
 # Build and load VM
-Vagrant up --provision
+(Vagrant up --provision 2>&1) | tee -a VMlog.txt
 
-echo "`date +%c` EM&M CM System Website Service Enabled."
+(echo "`date +%c` EM&M CM System Website Service Enabled." 2>&1) | tee -a VMLog.txt
 
 

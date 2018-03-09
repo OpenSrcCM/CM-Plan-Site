@@ -1,0 +1,170 @@
+###############################################
+# Finding large files on a mount/directory:
+###############################################
+
+# List mounts:
+df -kP
+
+ find <path> -mtime +20 -exec ls -ls {} \; | sort -n -r | head -100 | awk '{print $10}'
+
+   or
+
+ du <path> | sort -n -r | head -n 100
+
+   or
+
+ du -hscP *
+
+###############################################
+# Useful for startup:
+###############################################
+
+   stty erase <backspace>
+   set -o vi 
+
+
+###############################################
+# vi command for removing ^M (<cntrl V><cntrl M>)
+###############################################
+
+  :%s/<Ctrl-V><Ctrl-M>/\r/g
+
+###############################################
+# Setting up userid that will never use 
+# a password.  "Sudo to" only userid.
+# These commands done as root
+###############################################
+
+useradd [userid]
+
+chage -l  [userid]
+   (Lists current setting)
+chage -I -1 -m 0 -M 99999 -E 1 [userid]
+   (Adjust settings)
+chage -l [userid]
+
+Example output:
+
+[root@cmputl-po-14p ~]# chage -l git
+Last password change                                    : Dec 12, 2016
+Password expires                                        : never
+Password inactive                                       : never
+Account expires                                         : Jan 02, 1970
+Minimum number of days between password change          : 0
+Maximum number of days between password change          : 99999
+Number of days of warning before password expires       : 7
+[root@cmputl-po-14p ~]#
+
+recursive search do:
+###########################
+grep -R yourstring /path/to/dir
+if grep -R is not available, use
+find /path/to/dir -type f -print -exec grep yourstring {} \;
+
+###########################
+SELinux - see file permissions:
+###########################
+ls -alZ
+
+###########################
+SELinux - change selinux permission - Use chcon utility
+###################
+
+###################################
+
+instead of cat some_file.txt | sha256sum
+
+Alternate:
+sha256sum test.sh | gawk '{print$1}'
+
+###########################
+
+######################################
+# Password aging issue Bruce worked on.
+########################################
+
+I found this RedHat page explaining password aging:
+
+https://access.redhat.com/site/documentation/en-US/Red_Hat_Enterprise_Linux/4/html/Security_Guide/s3-wstation-pass-org-age.html
+
+Here is the command to check the password duration:
+
+[root@cmputl-ch2-3p ~]# grep cmadmin /etc/shadow | cut -d: -f5
+120
+
+I changed to 99999 on ch2-3p, got no password prompt when I kicked off the scp script. I?m going to try it with cron next 
+
+#########################################
+# Check if port is open on a system
+#########################################
+nc -z -w5 adapps.cable.comcast.com 3268; echo $?
+1 mean failure, 0 mean success
+
+
+#########################################
+# Web-enabled doc ref from Steve Taylor
+#########################################
+https://maven.apache.org/doxia/references/index.html
+
+###############################################
+# Installing git on linux
+# Using sudo root on centos 6.7
+# installing from source per instructions on
+# https://git-scm.com/book/en/v2/Getting-Started-Installing-Git
+###############################################
+
+# Install dependencies
+sudo yum install curl-devel expat-devel gettext-devel openssl-devel perl-devel zlib-devel
+sudo yum install epel-release
+sudo yum install asciidoc xmlto docbook2X
+sudo ln -s /usr/bin/db2x_docbook2texi /usr/bin/docbook2x-texi
+
+# Acquired git-2.11.0.tar.gz from https://github.com/git/git/releases and put to
+# cmputl-po-14p.sys/comcast/net:/app/install/.  Then ran the following to compile:
+
+$ tar -zxf git-2.0.0.tar.gz
+$ cd git-2.0.0
+$ make configure
+$ ./configure --prefix=/usr
+$ make all doc info
+
+## errors encountered on cmputl-po-14p:
+    XMLTO gitworkflows.7
+    make[1]: Leaving directory `/app/install/git-2.11.0/Documentation'
+    make -C Documentation info
+    make[1]: Entering directory `/app/install/git-2.11.0/Documentation'
+        GEN doc.dep
+	make[2]: Entering directory `/app/install/git-2.11.0'
+	make[2]: `GIT-VERSION-FILE' is up to date.
+	make[2]: Leaving directory `/app/install/git-2.11.0'
+	make[1]: Leaving directory `/app/install/git-2.11.0/Documentation'
+	make[1]: Entering directory `/app/install/git-2.11.0/Documentation'
+	make[2]: Entering directory `/app/install/git-2.11.0'
+	make[2]: `GIT-VERSION-FILE' is up to date.
+	make[2]: Leaving directory `/app/install/git-2.11.0'
+	    DB2TEXI user-manual.texi
+	    Can't locate XML/SAX/ParserFactory.pm in @INC (@INC contains: /usr/local/lib64/perl5 /usr/local/share/perl5 /usr/lib64/perl5/vendor_perl /usr/share/perl5/vendor_perl /usr/lib64/perl5 /usr/share/perl5 .) at /usr/bin/db2x_texixml line 2147.
+	    BEGIN failed--compilation aborted at /usr/bin/db2x_texixml line 2147.
+	    docbook2texi:/article: no description for directory entry
+	    make[1]: *** [user-manual.texi] Error 2
+	    make[1]: Leaving directory `/app/install/git-2.11.0/Documentation'
+	    make: *** [info] Error 2
+	    [root@cmputl-po-14p git-2.11.0]#
+
+$ sudo make install install-doc install-html install-info
+## errors encountered on cmputl-po-14:
+# install docbook-xsl.css /usr/share/doc/git/docbook-xsl.css
+make[1]: Leaving directory `/app/install/git-2.11.0/Documentation'
+make -C Documentation install-info
+make[1]: Entering directory `/app/install/git-2.11.0/Documentation'
+make[2]: Entering directory `/app/install/git-2.11.0'
+make[2]: `GIT-VERSION-FILE' is up to date.
+make[2]: Leaving directory `/app/install/git-2.11.0'
+    DB2TEXI user-manual.texi
+    Can't locate XML/SAX/ParserFactory.pm in @INC (@INC contains: /usr/local/lib64/perl5 /usr/local/share/perl5 /usr/lib64/perl5/vendor_perl /usr/share/perl5/vendor_perl /usr/lib64/perl5 /usr/share/perl5 .) at /usr/bin/db2x_texixml line 2147.
+    BEGIN failed--compilation aborted at /usr/bin/db2x_texixml line 2147.
+    docbook2texi:/article: no description for directory entry
+    make[1]: *** [user-manual.texi] Error 2
+    make[1]: Leaving directory `/app/install/git-2.11.0/Documentation'
+    make: *** [install-info] Error 2
+    [root@cmputl-po-14p git-2.11.0]#

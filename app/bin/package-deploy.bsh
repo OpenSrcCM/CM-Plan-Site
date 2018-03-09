@@ -2,7 +2,7 @@
 ################################################################################
 # package-deploy.bsh
 #
-# Written by Andy Wallace 2017/08/28; last updated 2018/01/21
+# Written by Andy Wallace 2017/08/28; last updated 2018/03/09
 #
 # This script creates a package for pushing to the apache server html directory
 # on a linux system with apache. 
@@ -17,10 +17,12 @@
 #         m - Minor release increment/ID
 #         I - GitHub issue number (0 indicates production release)
 #
-#   This package is designed to create and populate the /var/www/html directory
-#   on the linux apache server. There are README.txt files located in various
-#   [repo] directories that identify how this repository is used to maintain
-#   the CM Plan Website.
+#   This package supports the following tasks on a CentOS Linux system:
+#     1. Install mongodb
+#     2. create and populate the /var/www/html directory for the apache server.
+#
+#   There are README.txt files located in various [repo] directories that
+#   identify how this repository is used to maintain the CM Plan Website.
 #
 #   It also provides the vagrantfile and bootstrap.sh files in the
 #   [repo]/deploy directory for creating the VM system.
@@ -30,19 +32,18 @@
 #
 #   Deployment procedure using Vagrant:
 #
-#    1. This script is run by the Vagrant bootstrap.sh script to prepare and
-#       deliver a deployment package from the [repo]/deploy directory.
-#         NOTE: The [repo]/deploy directory is where vagrantfile is run from.
-#    2. Run "vagrant up" in [repo]/deploy to create website on VM guest system.
+#     This script is run by the deploy/cm-plan-service.bsh script in
+#     conjuction with "Vagrant up" and a bootstrap.sh script to prepare and
+#     deliver a deployment package from the [repo]/deploy directory.
 #         NOTES:
-#
-#            1. Changed made prior to executing this procedure have been
+#            1. The [repo]/deploy directory is where vagrantfile is run from.
+#            2. Changed made prior to executing this procedure have been
 #               completed following instructions in README.txt files that are
-#               placed inmany of the directories in this repo.
-#            2. The bootstrap.sh called by vagrant completes the install of
+#               placed in many of the directories in this repo.
+#            3. The bootstrap.sh called by vagrant completes the install of
 #               this website on the Virtual Machine (VM).
-#            3. See contents of [repo]/deploy/README.txt for more details.
-#            3. If you have multiple gz files from step 1 runs, you can Untar
+#            4. See contents of [repo]/deploy/README.txt for more details.
+#            5. If you have multiple gz files from step 1 runs, you can Untar
 #               any deployment package prepared by this script to look at
 #               different deployment releases.
 #               For example, assuming previously successful "vagrant up" or
@@ -53,7 +54,7 @@
 #                   $ rm -r /vagrant/html/
 #                       Note: See apache config specifics in bootstrap.sh
 #                             that are assumed from previous vagrant runs.
-#            4. Note the Script configuration variables section. The subDir
+#            6. Note the Script configuration variables section. The subDir
 #               array is for various website pages.
 #
 #  Dependencies:
@@ -68,6 +69,7 @@
 ################################################################################
 TargetTarDir="server"              # site create directory
 basisDir="../basis"                # from $TargetTarDir
+mongoDir="../../bin/mongo"         # from $TargetTarDir
 vagrantDir="../../bin/vagrant"     # from $TargetTarDir
 DeployDir="../../../deploy"        # from $TargetTarDir
 TargetTarDirpath="../app/site/"    # from $DeployDir
@@ -141,6 +143,7 @@ cd ../app/site
 mkdir $TargetTarDir
 mkdir $TargetTarDir/html
 cd $TargetTarDir
+cp $mongoDir/mongodb-org-3.6.repo .
 cp $vagrantDir/bootstrap.sh .
 cp $vagrantDir/vagrantfile .
 cd html
