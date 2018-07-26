@@ -2,7 +2,7 @@
 ##################################################################################
 # cm-plan-service.bsh
 #
-# Written by Andy Wallace 2017/12/21; last updated 2018/01/21
+# Written by Andy Wallace 2017/12/21; last updated 2018/07/20
 #
 # This script creates the CM Plan Site service. It's components are maintained
 # in the CM-Plan-Site repo.
@@ -19,14 +19,16 @@
 #         I - GitHub issue number (0 indicates production release)
 #         This file can be used to install on like OS/apache built systems.
 #
+#         "." - This is an invalid argument character. Uses spaces to separate
+#               M, m, and I.
+#
+#         This file can be used to install on like OS/apache built systems.
+#
 #   This Deployment script uses Vagrant.
 #
 #  Dependencies:
 #
-#     Vagrant Installation, Installed version: 2.0.1
-#     ORACLE VM VirtualBox Version 5.2.6 r120293 (Qt5.6.2)
-#     Git installation version 2.15.1.windows.2
-#        OR equivalent MAC version.
+#     Refer to the README.txt file in this deploy directory for details.
 # 
 ################################################################################
 
@@ -35,12 +37,12 @@
 ################################################################################
 ThisScript="cm-plan-service.bsh"
 ThisRepo="CM-Plan-Site"
-binPath="../app/bin"
 
 ################################################################################
 # Process script arguments
 ################################################################################
-if [ "$#" -eq "0" ]; then echo ""
+if [ "$#" -eq "0" ]; then
+      echo ""
       echo "Invalid argument set. For help execute " $ThisScript " -h"
       echo ""
       echo "ERROR - No argument supplied."
@@ -48,7 +50,7 @@ if [ "$#" -eq "0" ]; then echo ""
 fi
 
 if [ "$#" -ge "1" ]; then
-   echo "`date +%c` Validate arguments ..."
+   echo "`date +%c` Validate $ThisScript arguments ..."
    elif [ "$#" -gt "3" ]; then
       echo ""
       echo "Invalid argument set. For help execute " $ThisScript " -h"
@@ -75,12 +77,27 @@ if [ "$1" == "-h" ]; then
    echo ""
    echo "   Issue -> GitHub issue number for this $ThisRepo repo deployment."
    echo ""
+   echo "Note that '.' is not a valid argument character."
+   echo "Use spaces to separate Major, Minor, and Issue values."
    exit 1
-else
-   Major="$1"
-   Minor="$2"
-   Issue="$3"
 fi
+
+for i in "$@";
+do
+   if [[ $i =~ "." ]]; then
+      echo ""
+      echo "Invalid argument value. For help execute " $ThisScript " -h"
+      echo ""
+      echo "ERROR - Invalid argument(s) supplied."
+      echo ""
+      echo "'.' is not a valid argument character."
+      exit 1
+   fi
+done
+
+Major="$1"
+Minor="$2"
+Issue="$3"
 
 # Test -echo arguments
 #echo "Major is " $Major
@@ -91,14 +108,14 @@ fi
 # Create deploy package
 ################################################################################
 # Copy package script to this deploy location for execution
-cp $binPath/package-deploy.bsh .
+./enable-functionality.bsh
 
 # Prepare Deployment directory
 ./package-deploy.bsh $Major $Minor $Issue
 
 # Build and load VM
-Vagrant up --provision
+Vagrant up --provision 2>&1 | tee -a VMLog.txt
 
-echo "`date +%c` EM&M CM System Website Service Enabled."
+echo "`date +%c` $ThisRepo Website Service Enabled." 2>&1 | tee -a VMLog.txt
 
 
