@@ -1,0 +1,106 @@
+#!/bin/bash
+##################################################################################
+# package-deploy.bsh
+#
+# Written by Andy Wallace 2018/07/18; last updated 2018/07/18
+#
+# This script automatically sets up a VM enhanced development environment 
+# for the targeted repository.
+#
+# Dependencies:
+#  - GitHub system with $TargetOrg
+#  - $TargetRepo/deploy directory
+#  - $TargetRepo/deploy/cm-system-service.bsh script
+#  - $TargetRepo/develop branch
+#
+# Note:
+#  1. This script should not be run if there is an active VM Enhanced workarea.
+#     Be sure to run 'vagrant destroy' and remove the associated workarea
+#     before running this script again.
+#  2. Need to add a check to automatially verify repo not in TargetDir.
+#  3. Consider adding argument set to fully shutdown the VM Enhanced workarea.
+##################################################################################
+
+################################################################################
+# Script configuration variables
+################################################################################
+ThisScript="NE-startup.bsh"      # Used in log and response messaging
+TargetDir="negit-repos"          # repo workarea directory
+sshConfigref="cmguy"             # defined in ~/.ssh/config
+TargetOrg="cmguy"                # Non-GHE organization 
+TargetRepo="CM-Plan-Site"        # organization repo
+
+################################################################################
+# Process script arguments
+################################################################################
+if [ "$#" -eq "0" ]; then echo ""
+      echo "Invalid argument set. For help execute " $ThisScript " -h"
+      echo ""
+      echo "ERROR - No argument supplied."
+      exit 1
+fi
+
+if [ "$#" -ge "1" ]; then
+   echo "`date +%c` Validate $ThisScript arguments ..."
+   elif [ "$#" -gt "3" ]; then
+      echo ""
+      echo "Invalid argument set. For help execute " $ThisScript " -h"
+      echo ""
+      echo "ERROR - Too many arguments supplied."
+      exit 1
+   elif [ "$#" -lt "3" ]; then
+      echo ""
+      echo "Invalid argument set. For help execute " $ThisScript " -h"
+      echo ""
+      echo "ERROR - Invalid number of arguments supplied."
+      exit 1
+fi
+
+if [ "$1" == "-h" ]; then
+   echo ""
+   echo "$ThisScript -h|[ Major minor Issue ]"
+   echo ""
+   echo "   -h          -> Prints this help text."
+   echo ""
+   echo "   Major -> Release Major number for this $ThisRepo repo deployment."
+   echo ""
+   echo "   Minor -> Release Minor number for this $ThisRepo repo deployment."
+   echo ""
+   echo "   Issue -> GitHub, or CR, issue number for this $ThisRepo repo deployment."
+   echo ""
+   echo "Note that '.' is not a valid argument character."
+   echo "Use spaces to separate Major, Minor, and Issue values."
+   exit 1
+fi
+
+for i in "$@"; do
+   if [[ $i =~ "." ]]; then
+      echo ""
+      echo "Invalid argument value. For help execute " $ThisScript " -h"
+      echo ""
+      echo "ERROR - Invalid argument(s) supplied."
+      echo ""
+      echo "'.' is not a valid argument character."
+      exit 1
+   else
+      Major="$1"
+      minor="$2"
+      Issue="$3"
+   fi
+done
+# Test -echo arguments
+#echo "Major is " $Major
+#echo "Minor is " $Minor
+#echo "Issue # is " $Issue
+
+################################################################################
+# Create VM enhanced development environment
+################################################################################
+cd ~/$TargetDir
+git clone $sshConfigref:$TargetOrg/$TargetRepo
+cd $TargetRepo/deploy
+git checkout develop
+./cm-plan-service.bsh $Major $minor $Issue
+
+echo "`date +%c` VM Enhanced workarea created."
+echo "execute 'vagrant destroy' and remove workarea before running this script again."
