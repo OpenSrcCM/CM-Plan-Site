@@ -35,7 +35,7 @@ userid@host MINGW64 ~
 $ cd repo-workareas/CM-Plan-Site/deploy
 
 userid@host MINGW64 ~/repo-workareas/CM-Plan-Site/deploy
-$
+$ ./enable-functionality.bsh
 ----
 
 At this point, your system is ready to establish the CM Plan Service on your workstation. Execute the following command in the git command-line window:
