@@ -33,7 +33,7 @@ The intended audience for this overview is any member of the supported organizat
 * For Windows install:
 ** All defaults with following considerations:
 *** The Vim editor is the default editor. Nano, Notepad++ and VisualStudioCode are other options.
-*** "Use Git and optional Unix tools from the Windows Command Prompt" is recommended
+*** "Use Git from Git Bash only" is recommended
 *** "Use the OpenSSL library" is recommended
 *** "Checkout Windows-style, commit Unix-style line endings" is recommended
 *** "Use MinTTY (the default terminal of MSYS2)" is recommended
@@ -144,7 +144,7 @@ You can reference http://git-scm.com/book/en/v2/Git-on-the-Server-Generating-You
 * $ ls -la ~/
 
 .If you do not have a ~/.ssh directory, create it:
-* $ mkdir c:\Users\userid\.ssh
+* $ mkdir c:/Users/userid/.ssh
 
 [WARNING]
 ====
@@ -181,10 +181,10 @@ It is recommended you enter nothing for the pass phrase.
 
 .Setup your ssh Key on GitHub
 . Logon to https://github.com/[GitHub]
-. On upper-right of window select pulldown for _**View Profile and more**_
-. Select Settings
-. Under _**Personal settings**_ select _**SSH keys and GPG keys**_
-. Click on the _**New SSH key**_ button and follow instructions.
+. On upper-right of window of your profile pulldown:
+.. Select Settings
+.. Under _**Personal settings**_ select _**SSH keys and GPG keys**_
+.. Click on the _**New SSH key**_ button and follow instructions.
 
 [TIP]
 ====
