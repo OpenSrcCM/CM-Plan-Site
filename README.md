@@ -37,27 +37,12 @@ This will be installed as a service website to your workstation. After addressin
 
 * Using the git command-line window, prepare to your workstation with the following commands from your home directory:
 
+![Prepare Workstation](/images/prepare-ws.png)
 
-[source asciidoc]
-----
-userid@host MINGW64 ~
-$ cd repo-workareas/CM-Plan-Site/deploy
+At this point, your system is ready to establish the CM Plan Website on your workstation. Execute the following command in the git command-line window:
 
-userid@host MINGW64 ~/repo-workareas/CM-Plan-Site/deploy
-$
-----
 
-At this point, your system is ready to establish the CM Plan Service on your workstation. Execute the following command in the git command-line window:
-
-[source asciidoc]
-----
-userid@host MINGW64 ~/repo-workareas/CM-Plan-Site/deploy
-$ ./cm-plan-service.bsh 1 0 0
-
-...
-
-----
-
+![Build WS Website](/images/build-ws-website-vm.png)
 
 The above command will take a few minutes producing a log of tasks completed. When it is done, using your favorite browser, enter the follow URL in the address bar:
 
