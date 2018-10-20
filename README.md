@@ -55,7 +55,7 @@ This is a website running from your workstations memory. At this point you have 
 
 To build automation from the initial GitHub clone:
 1. Verify you have a ~/bin directory on your workstation. 
-1. Copy ~/repo-workareas/CM-Plan-Site/app/bin/NE-startup.bsh ~/bin
+2. Copy ~/repo-workareas/CM-Plan-Site/app/bin/NE-startup.bsh ~/bin
 3. vim ~/bin/NE-startup.bsh
  - Edit **Script Confgiuration variables** section for your workstation environment and save
 4. cd to ~/repo-workareas/CM-Plan-Site/deploy
@@ -72,78 +72,13 @@ At this point you can execute the following command to, clone from GitHub and bu
 
 - Execute the entire cycle from previous execution of **NE-startup.bsh** to **vangrant destroy** on a daily basis.
 
-To go into development mode:
+:notebook: ***NOTE***:
 
-[source asciidoc]
-----
-userid@host MINGW64 ~/repo-workareas/CM-Plan-Site/deploy
-$ ./enable-functionality.bsh
-
-userid@host MINGW64 ~/repo-workareas/CM-Plan-Site/deploy
-$
-----
+- The enable-functionality.bsh script was drafted to support development integration cycles.
+  
+### Managing Virtual Machine(s)
 
 Everytime you fully excerise "build - package - deploy", you will need to run the enable-functionality.bsh script. Be sure to checkout your Vagrant options:
 
-
-[source asciidoc]
-----
 userid@host MINGW64 ~/repo-workareas/CM-Plan-Site/deploy
 $ vagrant -h
-Usage: vagrant [options] <command> [<args>]
-
-    -v, --version                    Print the version and exit.
-    -h, --help                       Print this help.
-
-Common commands:
-     box             manages boxes: installation, removal, etc.
-     connect         connect to a remotely shared Vagrant environment
-     destroy         stops and deletes all traces of the vagrant machine
-     global-status   outputs status Vagrant environments for this user
-     halt            stops the vagrant machine
-     help            shows the help for a subcommand
-     init            initializes a new Vagrant environment by creating a Vagrantfile
-     login           log in to HashiCorp's Vagrant Cloud
-     package         packages a running vagrant environment into a box
-     plugin          manages plugins: install, uninstall, update, etc.
-     port            displays information about guest port mappings
-     powershell      connects to machine via powershell remoting
-     provision       provisions the vagrant machine
-     push            deploys code in this environment to a configured destination
-     rdp             connects to machine via RDP
-     reload          restarts vagrant machine, loads new Vagrantfile configuration
-     resume          resume a suspended vagrant machine
-     share           share your Vagrant environment with anyone in the world
-     snapshot        manages snapshots: saving, restoring, etc.
-     ssh             connects to machine via SSH
-     ssh-config      outputs OpenSSH valid configuration to connect to the machine
-     status          outputs status of the vagrant machine
-     suspend         suspends the machine
-     up              starts and provisions the vagrant environment
-     validate        validates the Vagrantfile
-     version         prints current and latest Vagrant version
-
-For help on any individual command run `vagrant COMMAND -h`
-
-Additional subcommands are available, but are either more advanced
-or not commonly used. To see all subcommands, run the command
-`vagrant list-commands`.
-
-userid@host MINGW64 ~/repo-workareas/CM-Plan-Site/deploy
-$
-----
-
-When you are ready to shutdown your cm-plan-service VM, use the vagrant destroy option:
-
-[source asciidoc]
-----
-userid@host MINGW64 ~/repo-workareas/CM-Plan-Site/deploy
-$ vagrant destroy
-    default: Are you sure you want to destroy the 'default' VM? [y/N] y
-==> default: Forcing shutdown of VM...
-==> default: Destroying VM and associated drives...
-
-userid@host MINGW64 ~/repo-workareas/CM-Plan-Site/deploy
-$
-----
-
