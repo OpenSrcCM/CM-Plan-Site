@@ -22,11 +22,11 @@ The [Context Diagram](/app/site/teamTools/EMM-CM-ContextDiagram.pdf) provides en
 
 ### Installation
 
-This will be installed as a service website to your workstation. After addressing the following prerequisites, you can configure this service website with one command. This will also provide you with an example of "Automation" that will serve you well in this organization.
+This will be installed as a service website to your workstation. After addressing the following prerequisites, you have an executable example of _**Deployment Automation**_.
 
 #### Prerequisites
 
-* Install Git on your system per the https://github.com/cmguy/CM-Plan-Site/blob/master/app/site/newstuff/GitInstallationProcedure.adoc[Install Git] procedure.
+* Install Git on your system per the [Install Git](/app/site/newstuff/GitInstallationProcedure.adoc) procedure.
 * Install https://www.virtualbox.org/[VirtualBox] on your system.
 * Install https://www.vagrantup.com/[Vagrant] on your system.
 
