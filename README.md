@@ -33,7 +33,7 @@ This will be installed as a service website to your workstation. After addressin
 :notebook: ***NOTES***:
   
 1. All above Prerequisites can be installed on Windows or Mac workstations.
-2. The following commands assume these prerequisites have been fully executed.
+2. The following commands assume these prerequisites have been installed on your workstation as prescribed.
 
 * Using the git command-line window, prepare to your workstation with the following commands from your home directory:
 
