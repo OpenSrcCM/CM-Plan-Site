@@ -10,8 +10,8 @@
 #
 # This script enables deployment functionality for development activities.
 #
-# This script is designed to be run from the repo deploy directory.  It is 
-# usually run after running the cm-system-service.bsh script or a
+# This script is designed to be run from the repo deploy directory.  It called 
+# by the cm-system-service.bsh script. It ussually needs to be run after a
 # "vagrant provision" run.
 #
 ################################################################################

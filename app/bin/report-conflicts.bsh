@@ -2,7 +2,7 @@
 ################################################################################
 # report-conflicts.bsh
 #
-#  Written by Andy Wallace 2016/09/24, Last update 2018/01/26
+#  Written by Andy Wallace 2016/09/24, Last update 2018/09/23
 #
 #  Purpose:
 #
@@ -85,7 +85,7 @@
 #   * The directories need to exist with
 #     appropriate access.
 ##############################################
-RepoHome="/c/Users/awalla5075k/git-repos/conflict-rpting"
+RepoHome="/c/Users/Andy/git-repos/conflict-rpting"
 LogDIR="$RepoHome/log"
 
 ##############################################

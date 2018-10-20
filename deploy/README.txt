@@ -1,42 +1,60 @@
 ##################################################################################
-# This deploy directory is where the deployment is managed from. 
+# This deploy directory is where and how the deployment is managed. 
 #
-# 1. To enable the CM Plan Website Service:
-#    ./cm-system-service.bsh Major Minor Issue
+# 1. To setup the EM&M CM Plan Website development environment:
+#    ./enable-functionality.bsh
+#    ./cm-plan-site.bsh Major Minor Issue
+#      The ~/bin/NE-startup.bsh installed script can also be used to include 
+#      starting from the "git clone". This script should only be run when
+#      the CM-Plan-Site has not been checked out.
 #
 #   Notes:
-#     A. When developing and releasing for this repo, all changes made anywhere
-#        need to be considered for the following component directories of this
+#     A. The arguments for Major, Minor, Issue are up to the current user. The
+#        current values can be used to identify a tested or production release.
+# 
+#        Version 1.0.0 represents updates developed and tested and deployable
+#        from the master branch.
+#
+#        Version 1.1.0 is the beginning of using ADRs. The first one is
+#        documented in /doc/arch/adr-0001.md. The app/site/newstuff contents
+#        have also been migrated to areas of app/site removing the need
+#        for app/site/newstuff.
+#
+#        The version is maintained in the following directory files:
+#         - app/site/basis/footer.html
+#         - app/site/basis/subfooter.html
+#         - app/site/sitemap/site-map.adoc (2nd line - use AsciidocFX)
+#         - app/site/sitemap/site-map.pdf (AsciidocFX on site-map.adoc)
+#     B. When developing and releasing for this repo, all changes made anywhere
+#        require a final review of the following component directories of this
 #        website. Refer to local README.txt files for further details of each:
-#          a. app/bin/vagrant
-#          b. app/site/newstuff
-#          c. app/site/sitemap
-#     B. Current working versions of prerequisite applications:
-#          Window 10:
-#             a. Git 2.16.1.windows.1
-#             b. Oracle VM VirtualBox 5.2.6
-#             c. Vagrant 2.0.1
-#               NOTE: Need to add the following to ~/.bash_profile for the
-#                     vagrant ssh functionality:
-#                     $ VAGRANT_PREFER_SYSTEM_BIN=1
-#             d. AsciidoxFX 1.5.8
-#          MacOS High Sierra version 10.13.2
-#             a. Git 2.15.1 intel-universal-mavericks.pkg
-#             b. Oracle VM VirtualBox 5.2.6
-#             c. Vagrant 2.0.1
-#               NOTE: Need to add the following to ~/.bash_profile for the
-#                     vagrant ssh functionality:
-#                     $ VAGRANT_PREFER_SYSTEM_BIN=1
-#             d. AsciidoxFX 1.5.8
-#     C. For each deployment occurrence vagrant along with other deployment
+#          a. app/bin
+#          b. app/bin/vagrant
+#                The vagrantfile is now using centos-7.5. 
+#          c. app/site/basis
+#          e. app/site/sitemap
+#     C. Verify working versions of prerequisite applications each release:
+#          a. Git version 2.18.0.windows.1 
+#          b. Oracle VirtualBox-5.2.16-123759-Win.exe
+#          c. vagrant_2.1.1_x86_64.msi
+#               NOTES:
+#                  1. For vagrant ssh, .bash_profile setting:
+#                     $ VAGRANT_PREFER_SYSTEM_BIN=1 vagrant ssh
+#                        export VAGRANT_PREFER_SYSTEM_BIN=1
+#                  2. Also added following to .bash_profile so python can
+#                     be run from git bash window:
+#                        alias python='winpty c:Python27/python.exe'
+#                  3. Maintain copy of .bash_profile in /app/bin for backup.
+#          d. AsciidoxFX 1.6.0
+#     D. For each deployment occurrence vagrant along with other deployment
 #        automation is disabled. So, for example, you will not be able to run 
 #        "vagrant destroy" after a deployment. To enable vagrant and other
 #        deployment tasks reference step 2.
 # 
-# 2. To enable maintenance and deployment functionality:
+# 2. To enable development maintenance and deployment functionality:
 #    ./enable-functionality.bsh
 #
-# 3. To remove the CM&M CM System Website Service:
+# 3. To remove the CM Plan Website Service:
 #   - vagrant destroy
 # 
 # This directory is used for automated deployments. The only committed files
@@ -48,6 +66,10 @@
 # multiple automated builds and deployments. These scripts promote the
 # performance of the entire automated deployment system, not just patches done
 # quickly in a development mode.
+# 
+#    NOTE: When executing cm-system-service.bsh, if it fails, review log
+#          and run again. Failures in the past have been related to new
+#          versions of build components used for this build process.
 #
 # The following files are copied to this directory from the /app/bin of this
 # repo. Along with .gitignore modifications this encourages DevOps principles.
@@ -56,6 +78,7 @@
 #    package-deploy.bsh
 #      Note: Reference the following for details:
 #         http://itrevolution.com/the-three-ways-principles-underpinning-devops/
+#
 #
 ##################################################################################
 #
