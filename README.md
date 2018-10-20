@@ -20,20 +20,20 @@ Encourage a DevOps culture in a team with team trusted Subject Matter Experts (S
 
 The https://github.com/cmguy/CM-Plan-Site/blob/master/app/site/teamTools/EMM-CM-ContextDiagram.pdf[Configuration Management Context Diagram] is a primary component providing end to end visibility to the steps, roles, and tools used by this group to create, test, and deliver change. 
 
-=== Installation
+### Installation
 
 This will be installed as a service website to your workstation. After addressing the following prerequisites, you can configure this service website with one command. This will also provide you with an example of "Automation" that will serve you well in this organization.
 
-==== Prerequisites
+#### Prerequisites
+
 * Install Git on your system per the https://github.com/cmguy/CM-Plan-Site/blob/master/app/site/newstuff/GitInstallationProcedure.adoc[Install Git] procedure.
 * Install https://www.virtualbox.org/[VirtualBox] on your system.
 * Install https://www.vagrantup.com/[Vagrant] on your system.
 
-[NOTE]
-====
-All above Prerequisites can be install on Windows or Mac workstations.
-The following commands assume these prerequisites have been fully executed.
-====
+:notebook: ***NOTES***:
+  
+1. All above Prerequisites can be install on Windows or Mac workstations.
+2. The following commands assume these prerequisites have been fully executed.
 
 * Using the git command-line window, prepare to your workstation with the following commands from your home directory:
 
