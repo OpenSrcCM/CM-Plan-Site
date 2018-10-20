@@ -1,6 +1,19 @@
-=== Introduction
+### Introduction
 
-The repo is maintained for the Organization. It provides support to the group culture as an important reference and example of "service orientation".
+The repo is maintained to support Modern Development Process environment approaches and ideas. Experimenting with available Open Source tools, the following concepts are explored and developed:
+
+- Security
+- Virtual Machines
+- Branching and Merging
+- Repository Forking
+- Continuous Integration Continuous Deployment CI/CD
+ 
+  
+ 
+### Purpose
+  
+
+Encourage a DevOps culture in a team with trusted SMEs.
 
 The site produced from these instructions will exist as a service on your workstation. It will be a VirtualBox Virtual Machine (VM).
 
@@ -35,7 +48,7 @@ userid@host MINGW64 ~
 $ cd repo-workareas/CM-Plan-Site/deploy
 
 userid@host MINGW64 ~/repo-workareas/CM-Plan-Site/deploy
-$ ./enable-functionality.bsh
+$
 ----
 
 At this point, your system is ready to establish the CM Plan Service on your workstation. Execute the following command in the git command-line window:
