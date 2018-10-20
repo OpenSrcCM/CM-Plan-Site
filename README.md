@@ -59,8 +59,8 @@ To build automation from the initial GitHub clone:
 3. vim ~/bin/NE-startup.bsh
  - Edit **Script Confgiuration variables** section for your workstation environment and save
 4. cd to ~/repo-workareas/CM-Plan-Site/deploy
-5. execute ./enable-functionality.bsh
-6. execute vagrant destroy
+5. execute ***./enable-functionality.bsh***
+6. execute ***vagrant destroy***
 7. remove (or rename) ~/repo-workarea/CM-Plan-Site
 8. Get local to ~/repo-workareas directory
 
@@ -78,7 +78,8 @@ At this point you can execute the following command to, clone from GitHub and bu
   
 ### Managing Virtual Machine(s)
 
-Everytime you fully excerise "build - package - deploy", you will need to run the enable-functionality.bsh script. Be sure to checkout your Vagrant options:
+Everytime you fully excerise "build - package - deploy", you will need to run the enable-functionality.bsh script. The vagrant commands for the VM build with this system are usually run from the **deploy** directory. Be sure to checkout your Vagrant options:
 
-userid@host MINGW64 ~/repo-workareas/CM-Plan-Site/deploy
+userid@host MINGW64 ~/repo-workareas/CM-Plan-Site/deploy $
+
 $ vagrant -h
