@@ -18,7 +18,7 @@ Encourage a DevOps culture in a team with team trusted Subject Matter Experts (S
   
    - The production environment of this website could be installed to an internal company system.
 
-The https://github.com/cmguy/CM-Plan-Site/blob/master/app/site/teamTools/EMM-CM-ContextDiagram.pdf[Configuration Management Context Diagram] is a primary component providing end to end visibility to the steps, roles, and tools used by this group to create, test, and deliver change. 
+The [Context Diagram](/app/site/teamTools/EMM-CM-ContextDiagram.pdf) provides end to end visibility to the steps, roles, and tools used by a DevOps team to create, test, and deliver change. ***(Insert NDP image here)***
 
 ### Installation
 
@@ -32,7 +32,7 @@ This will be installed as a service website to your workstation. After addressin
 
 :notebook: ***NOTES***:
   
-1. All above Prerequisites can be install on Windows or Mac workstations.
+1. All above Prerequisites can be installed on Windows or Mac workstations.
 2. The following commands assume these prerequisites have been fully executed.
 
 * Using the git command-line window, prepare to your workstation with the following commands from your home directory:
