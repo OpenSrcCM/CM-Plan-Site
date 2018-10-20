@@ -14,9 +14,9 @@ Following the instructions in this file will result in a running Virtural Machin
 
 Encourage a DevOps culture in a team with team trusted Subject Matter Experts (SMEs).
 
-[NOTE]
-
- - The production environment of this website could be installed to an internal company system.
+  :notebook: ***NOTE***:
+  
+    * The production environment of this website could be installed to an internal company system.
 
 The https://github.com/cmguy/CM-Plan-Site/blob/master/app/site/teamTools/EMM-CM-ContextDiagram.pdf[Configuration Management Context Diagram] is a primary component providing end to end visibility to the steps, roles, and tools used by this group to create, test, and deliver change. 
 
