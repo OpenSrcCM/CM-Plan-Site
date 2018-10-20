@@ -7,17 +7,16 @@ The repo is maintained to support **Modern Development Process** environment app
 - Branching and Merging
 - Repository Forking
 - Continuous Integration Continuous Deployment CI/CD
+
+Following the instructions in this file will result in a running Virtural Machine hosting the website developed and maintained in this repository.
  
 ### Purpose
-  
-Encourage a DevOps culture in a team with trusted SMEs.
 
-The site produced from these instructions will exist as a service on your workstation. It will be a VirtualBox Virtual Machine (VM).
+Encourage a DevOps culture in a team with team trusted Subject Matter Experts (SMEs).
 
 [NOTE]
-====
-It would be wise to maintain this website service on an internal company location also.
-====
+
+ - The production environment of this website could be installed to an internal company system.
 
 The https://github.com/cmguy/CM-Plan-Site/blob/master/app/site/teamTools/EMM-CM-ContextDiagram.pdf[Configuration Management Context Diagram] is a primary component providing end to end visibility to the steps, roles, and tools used by this group to create, test, and deliver change. 
 
