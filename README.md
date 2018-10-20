@@ -1,6 +1,6 @@
 ### Introduction
 
-The repo is maintained to support Modern Development Process environment approaches and ideas. Experimenting with available Open Source tools, the following concepts are explored and developed:
+The repo is maintained to support **Modern Development Process** environment approaches and ideas. Experimenting with available Open Source tools, the following concepts are explored and developed:
 
 - Security
 - Virtual Machines
@@ -8,11 +8,8 @@ The repo is maintained to support Modern Development Process environment approac
 - Repository Forking
 - Continuous Integration Continuous Deployment CI/CD
  
-  
- 
 ### Purpose
   
-
 Encourage a DevOps culture in a team with trusted SMEs.
 
 The site produced from these instructions will exist as a service on your workstation. It will be a VirtualBox Virtual Machine (VM).
