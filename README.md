@@ -39,16 +39,38 @@ This will be installed as a service website to your workstation. After addressin
 
 ![Prepare Workstation](/images/prepare-ws.png)
 
-At this point, your system is ready to establish the CM Plan Website on your workstation. Execute the following command in the git command-line window:
+### Initial VM Website
 
+At this point, your system is ready to establish the CM Plan Website on your workstation. Execute the following command in the git command-line window:
 
 ![Build WS Website](/images/build-ws-website-vm.png)
 
-The above command will take a few minutes producing a log of tasks completed. When it is done, using your favorite browser, enter the follow URL in the address bar:
+The above command will take a few minutes producing a log of tasks completed. When it is done, using your favorite browser, enter the following URL in the address bar:
 
 http://127.0.0.1:1234/
 
-This is a website running from your workstations memory. At this point you have a working example of a website running on your workstation with a Virtual Machine (VM). Everything used to create and deploy this website is available to you via the git repo CM-Plan-Site directory.
+This is a website running from your workstations memory. At this point you have a working example of a website running on your workstation in a Virtual Machine (VM). Everything used to create and deploy this website is available to you via the git repo CM-Plan-Site directory.
+
+### Automate From the Beginning
+
+To build automation from the initial GitHub clone:
+1. Verify you have a ~/bin directory on your workstation. 
+1. Copy ~/repo-workareas/CM-Plan-Site/app/bin/NE-startup.bsh ~/bin
+3. vim ~/bin/NE-startup.bsh
+ - Edit Script Confgiuration variables for your workstation environment and save
+4. cd to ~/repo-workareas/CM-Plan-Site/deploy
+5. execute ./enable-functionality.bsh
+6. execute vagrant destroy
+7. remove (or rename) ~/repo-workarea/CM-Plan-Site
+8. Get local to ~/repo-workareas directory
+
+At this point you can execute the following command to, clone from GitHub and build the VM Website in your workstation memory.
+
+9. execute ~/bin/NE-startup.bsh 0 0 0
+
+:point_right: ***Recommendation***:
+
+- Execute the entire cycle from previous execution of **NE-startup.bsh** to **vangrant destroy** on a daily basis.
 
 To go into development mode:
 
