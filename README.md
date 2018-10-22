@@ -2,6 +2,7 @@
 
 The repo is maintained to support **Modern Development Process** (MDP) environment approaches and ideas. Experimenting with available Open Source tools, the following concepts are explored and developed:
 
+- Configuration Management
 - Security
 - Virtual Machines
 - Branching and Merging
