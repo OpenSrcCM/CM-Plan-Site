@@ -9,6 +9,11 @@ The repo is maintained to support **Modern Development Process** (MDP) environme
 - Repository Forking
 - Continuous Integration Continuous Deployment CI/CD
 
+:notebook: ***NOTES***:
+
+  > 1. Since GitHub is the repository system for this repo, the [GitHub help](https://help.github.com/) page is a primary reference.
+  > 2. A in-depth understanding of Git via [SCM-Git](https://git-scm.com/) opens many opportunities for you in the MDP.
+
 Following the instructions in this file will result in a running Virtural Machine, in your workstation memory, hosting the website developed and maintained in this repository.
  
 ### Purpose
