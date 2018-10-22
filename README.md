@@ -22,7 +22,7 @@ Encourage a DevOps culture in a team with team trusted Subject Matter Experts (S
 
   :notebook: ***NOTE***:
   
-   - The production environment of this website could be installed to an internal company system.
+   > - The production environment of this website could be installed to an internal company system.
 
 The [Context Diagram](/app/site/teamTools/EMM-CM-ContextDiagram.pdf) provides end to end visibility to the steps, roles, and tools used by a DevOps team to create, test, and deliver change. ***(Insert NDP image here)***
 
@@ -38,9 +38,9 @@ This will be installed as a service website to your workstation. After addressin
 
 :notebook: ***NOTES***:
 
-1. Having sufficient memory in your workstation is assumed.
-2. All above Prerequisites can be installed on Windows or Mac workstations.
-3. The following commands assume these prerequisites have been installed on your workstation as prescribed.
+ > 1. Having sufficient memory in your workstation is assumed.
+ > 2. All above Prerequisites can be installed on Windows or Mac workstations.
+ > 3. The following commands assume these prerequisites have been installed on your workstation as prescribed.
 
 * Using the git command-line window, prepare to your workstation with the following commands from your home directory:
 
@@ -55,6 +55,11 @@ At this point, your system is ready to establish the CM Plan Website on your wor
 The above command will take a few minutes producing a log of tasks completed. When it is done, using your favorite browser, enter the following URL in the address bar:
 
 http://127.0.0.1:1234/
+
+:notebook: ***NOTES***:
+
+> 1. The arguments to ./cm-plan-service.bsh correspond to release values Major, minor, and patch respectively. refer to [semantic versioning](http://semver.org/) for details.
+> 2. It is recommended you use the latest Major minor patch values per the CM-Plan-Site [releases](https://github.com/cmguy/CM-Plan-Site/releases) page for initial `git clone` executions.
 
 This is a website running from your workstations memory. At this point you have a working example of a website running on your workstation in a Virtual Machine (VM). Everything used to create and deploy this website is available to you via the git repo CM-Plan-Site directory.
 
@@ -80,15 +85,15 @@ At this point you can execute the following command to, clone from GitHub and bu
 
 :point_right: ***Recommendation***:
 
-- Execute the entire cycle from previous execution of **NE-startup.bsh** to **vangrant destroy** on a daily basis.
+ > - Execute the entire cycle from previous execution of **NE-startup.bsh** to **vangrant destroy** on a daily basis.
 
 :notebook: ***NOTES***:
 
-1. The enable-functionality.bsh script was drafted to support development integration cycles.
-2. This environment has vagrant VM creating running from CM-Plan-Site/deploy
+ > 1. The enable-functionality.bsh script was drafted to support development integration cycles.
+ > 2. This environment has vagrant VM creating running from CM-Plan-Site/deploy
   
 ### Managing Virtual Machine(s)
 
 Everytime you fully excerise "build - package - deploy", you will need to run the enable-functionality.bsh script. The vagrant commands for the VM build with this system are usually run from the **deploy** directory. Be sure to checkout your Vagrant options:
 
-$ vagrant -h
+ > $ vagrant -h
