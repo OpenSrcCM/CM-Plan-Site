@@ -82,6 +82,7 @@ Using the git command-line window, build automation from the initial GitHub clon
 4. cd to ~/repo-workareas/CM-Plan-Site/deploy
 5. execute `./enable-functionality.bsh`
 6. execute `vagrant destroy`
+   - It's a good idea to have the Oracle VM VirtualBox Manager up and running so you can monitor.
 7. remove (or rename) ~/repo-workareas/CM-Plan-Site
 8. Get local to ~/repo-workareas directory
 ![Automation-4](/images/steps-4-thru-8.png)
@@ -101,7 +102,7 @@ At this point you can execute the following command to, clone from GitHub and bu
   
 ### Managing Virtual Machine(s)
 
-Everytime you fully excerise "build - package - deploy", you will need to run the enable-functionality.bsh script.
+Everytime you fully exercise "build - package - deploy", you will need to run the enable-functionality.bsh script.
 
 This ensures your are testing any changes made to /app/bin/Vagrant files at least daily. This also assumes you are not making vagrant file updates in the /deploy directory. Refer to the /deploy/README.txt.
 
