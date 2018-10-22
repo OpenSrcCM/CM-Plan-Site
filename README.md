@@ -1,6 +1,6 @@
 ### Introduction
 
-The repo is maintained to support **Modern Development Process** environment approaches and ideas. Experimenting with available Open Source tools, the following concepts are explored and developed:
+The repo is maintained to support **Modern Development Process** (MDP) environment approaches and ideas. Experimenting with available Open Source tools, the following concepts are explored and developed:
 
 - Security
 - Virtual Machines
@@ -8,7 +8,7 @@ The repo is maintained to support **Modern Development Process** environment app
 - Repository Forking
 - Continuous Integration Continuous Deployment CI/CD
 
-Following the instructions in this file will result in a running Virtural Machine hosting the website developed and maintained in this repository.
+Following the instructions in this file will result in a running Virtural Machine, in your workstation memory, hosting the website developed and maintained in this repository.
  
 ### Purpose
 
@@ -31,9 +31,10 @@ This will be installed as a service website to your workstation. After addressin
 * Install the [Vagrant](https://www.vagrantup.com/) application on your system.
 
 :notebook: ***NOTES***:
-  
-1. All above Prerequisites can be installed on Windows or Mac workstations.
-2. The following commands assume these prerequisites have been installed on your workstation as prescribed.
+
+1. Having sufficient memory in your workstation is assumed.
+2. All above Prerequisites can be installed on Windows or Mac workstations.
+3. The following commands assume these prerequisites have been installed on your workstation as prescribed.
 
 * Using the git command-line window, prepare to your workstation with the following commands from your home directory:
 
@@ -53,7 +54,9 @@ This is a website running from your workstations memory. At this point you have 
 
 ### Automate From the Beginning
 
-To build automation from the initial GitHub clone:
+A goal of the MDP is to have automation from the beginning to the end of the development cycle.
+
+To build automation from the initial GitHub clone execution:
 1. Verify you have a ~/bin directory on your workstation. 
 2. Copy ~/repo-workareas/CM-Plan-Site/app/bin/NE-startup.bsh ~/bin
 3. vim ~/bin/NE-startup.bsh
