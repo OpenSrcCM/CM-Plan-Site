@@ -71,13 +71,20 @@ Using the git command-line window, build automation from the initial GitHub clon
 1. Verify you have a ~/bin directory on your workstation
    - If not, create it with mkdir command
 2. Copy ~/repo-workareas/CM-Plan-Site/app/bin/NE-startup.bsh ~/bin
+
+![Automation-1](/images/auto-steps-1-2.png)
+
 3. vim ~/bin/NE-startup.bsh
+
+![Automation-2](/images/vim-startup.png)
    - Edit **Script Confgiuration variables** section for your workstation environment and save
+![Automation-3](/images/edit-startup.png)
 4. cd to ~/repo-workareas/CM-Plan-Site/deploy
-5. execute ***./enable-functionality.bsh***
-6. execute ***vagrant destroy***
+5. execute `./enable-functionality.bsh`
+6. execute `vagrant destroy`
 7. remove (or rename) ~/repo-workareas/CM-Plan-Site
 8. Get local to ~/repo-workareas directory
+![Automation-4](/images/steps-4-thru-8.png)
 
 At this point you can execute the following command to, clone from GitHub and build the VM Website in your workstation memory.
 
@@ -90,10 +97,14 @@ At this point you can execute the following command to, clone from GitHub and bu
 :notebook: ***NOTES***:
 
  > 1. The enable-functionality.bsh script was drafted to support development integration cycles.
- > 2. This environment has vagrant VM creating running from CM-Plan-Site/deploy
+ > 2. This environment runs vagrant from CM-Plan-Site/deploy to create and manage VMs.
   
 ### Managing Virtual Machine(s)
 
-Everytime you fully excerise "build - package - deploy", you will need to run the enable-functionality.bsh script. The vagrant commands for the VM build with this system are usually run from the **deploy** directory. Be sure to checkout your Vagrant options:
+Everytime you fully excerise "build - package - deploy", you will need to run the enable-functionality.bsh script.
+
+This ensures your are testing any changes made to /app/bin/Vagrant files at least daily. This also assumes you are not making vagrant file updates in the /deploy directory. Refer to the /deploy/README.txt.
+
+Be sure to checkout your Vagrant options:
 
  > $ vagrant -h
