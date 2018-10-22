@@ -2,7 +2,7 @@
 ##################################################################################
 # package-deploy.bsh
 #
-# Written by Andy Wallace 2018/07/18; last updated 2018/07/18
+# Written by Andy Wallace 2018/07/18; last updated 2018/10/18
 #
 # This script automatically sets up a VM enhanced development environment 
 # for the targeted repository.
@@ -27,8 +27,8 @@
 ThisScript="NE-startup.bsh"      # Used in log and response messaging
 TargetDir="negit-repos"          # repo workarea directory
 sshConfigref="cmguy"             # defined in ~/.ssh/config
-TargetOrg="cmguy"                # Non-GHE organization 
-TargetRepo="CM-Plan-Site"        # organization repo
+TargetOrg="cmguy"                # GitHub userid/organization 
+TargetRepo="CM-Plan-Site"        # GitHub userid/organization repo
 
 ################################################################################
 # Process script arguments
