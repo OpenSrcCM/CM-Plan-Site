@@ -59,7 +59,7 @@ http://127.0.0.1:1234/
 :notebook: ***NOTES***:
 
 > 1. The arguments to ./cm-plan-service.bsh correspond to release values Major, minor, and patch respectively. refer to [semantic versioning](http://semver.org/) for details.
-> 2. It is recommended you use the latest Major minor patch values per the CM-Plan-Site [releases](https://github.com/cmguy/CM-Plan-Site/releases) page for initial `git clone` executions.
+> 2. It is recommended you use the latest Major minor patch values per the CM-Plan-Site [releases](https://github.com/cmguy/CM-Plan-Site/releases) page for initial `git clone` executions. If no patch value is indicated, enter "0" for the patch argument.
 
 This is a website running from your workstations memory. At this point you have a working example of a website running on your workstation in a Virtual Machine (VM). Everything used to create and deploy this website is available to you via the git repo CM-Plan-Site directory.
 
