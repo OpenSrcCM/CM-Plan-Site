@@ -59,14 +59,14 @@ A goal of the MDP is to have automation from the beginning to the end of the dev
 
 Using the git command-line window, build automation from the initial GitHub clone execution with the following steps:
 1. Verify you have a ~/bin directory on your workstation
- - If not, create it with mkdir command
+   - If not, create it with mkdir command
 2. Copy ~/repo-workareas/CM-Plan-Site/app/bin/NE-startup.bsh ~/bin
 3. vim ~/bin/NE-startup.bsh
- - Edit **Script Confgiuration variables** section for your workstation environment and save
+   - Edit **Script Confgiuration variables** section for your workstation environment and save
 4. cd to ~/repo-workareas/CM-Plan-Site/deploy
 5. execute ***./enable-functionality.bsh***
 6. execute ***vagrant destroy***
-7. remove (or rename) ~/repo-workarea/CM-Plan-Site
+7. remove (or rename) ~/repo-workareas/CM-Plan-Site
 8. Get local to ~/repo-workareas directory
 
 At this point you can execute the following command to, clone from GitHub and build the VM Website in your workstation memory.
