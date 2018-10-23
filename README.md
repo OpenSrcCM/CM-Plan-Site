@@ -1,22 +1,30 @@
 ### Introduction
 
-The repo is maintained to support **Modern Development Process** environment approaches and ideas. Experimenting with available Open Source tools, the following concepts are explored and developed:
+The repo is maintained to support **Modern Development Process** (MDP) environment approaches and ideas. Experimenting with available Open Source tools, the following concepts are explored and developed:
 
+- Configuration Management
 - Security
 - Virtual Machines
 - Branching and Merging
 - Repository Forking
 - Continuous Integration Continuous Deployment CI/CD
 
-Following the instructions in this file will result in a running Virtural Machine hosting the website developed and maintained in this repository.
+:notebook: ***NOTES***:
+
+  > 1. Since GitHub is the repository system for this repo, the [GitHub help](https://help.github.com/) page is a primary reference.
+  > 2. An in-depth understanding of Git via [SCM-Git](https://git-scm.com/) opens many opportunities as your MDP understanding develops. 
+
+Following the instructions in this file will result in a running Virtural Machine, in your workstation memory, hosting the website developed and maintained in this repository.
  
 ### Purpose
 
 Encourage a DevOps culture in a team with team trusted Subject Matter Experts (SMEs).
 
+Provide a working example of creating a development environment in workstation memory.
+
   :notebook: ***NOTE***:
   
-   - The production environment of this website could be installed to an internal company system.
+   > - The production environment of this website could be installed to an internal company system.
 
 The [Context Diagram](/app/site/teamTools/EMM-CM-ContextDiagram.pdf) provides end to end visibility to the steps, roles, and tools used by a DevOps team to create, test, and deliver change. ***(Insert NDP image here)***
 
@@ -31,9 +39,10 @@ This will be installed as a service website to your workstation. After addressin
 * Install the [Vagrant](https://www.vagrantup.com/) application on your system.
 
 :notebook: ***NOTES***:
-  
-1. All above Prerequisites can be installed on Windows or Mac workstations.
-2. The following commands assume these prerequisites have been installed on your workstation as prescribed.
+
+ > 1. Having sufficient memory in your workstation is assumed.
+ > 2. All above Prerequisites can be installed on Windows or Mac workstations.
+ > 3. The following commands assume these prerequisites have been installed on your workstation as prescribed.
 
 * Using the git command-line window, prepare to your workstation with the following commands from your home directory:
 
@@ -49,20 +58,36 @@ The above command will take a few minutes producing a log of tasks completed. Wh
 
 http://127.0.0.1:1234/
 
+:notebook: ***NOTES***:
+
+> 1. The arguments to ./cm-plan-service.bsh correspond to release values Major, minor, and patch respectively. refer to [semantic versioning](http://semver.org/) for details.
+> 2. It is recommended you use the latest Major minor patch values per the CM-Plan-Site [releases](https://github.com/cmguy/CM-Plan-Site/releases) page for initial `git clone` executions. If no patch value is indicated, enter "0" for the patch argument.
+
 This is a website running from your workstations memory. At this point you have a working example of a website running on your workstation in a Virtual Machine (VM). Everything used to create and deploy this website is available to you via the git repo CM-Plan-Site directory.
 
 ### Automate From the Beginning
 
-To build automation from the initial GitHub clone:
-1. Verify you have a ~/bin directory on your workstation. 
+A goal of the MDP is to have automation from the beginning to the end of the development cycle.
+
+Using the git command-line window, build automation from the initial GitHub clone execution with the following steps:
+1. Verify you have a ~/bin directory on your workstation
+   - If not, create it with mkdir command
 2. Copy ~/repo-workareas/CM-Plan-Site/app/bin/NE-startup.bsh ~/bin
+
+![Automation-1](/images/auto-steps-1-2.png)
+
 3. vim ~/bin/NE-startup.bsh
- - Edit **Script Confgiuration variables** section for your workstation environment and save
+
+![Automation-2](/images/vim-startup.png)
+   - Edit **Script Confgiuration variables** section for your workstation environment and save
+![Automation-3](/images/edit-startup.png)
 4. cd to ~/repo-workareas/CM-Plan-Site/deploy
-5. execute ***./enable-functionality.bsh***
-6. execute ***vagrant destroy***
-7. remove (or rename) ~/repo-workarea/CM-Plan-Site
+5. execute `./enable-functionality.bsh`
+6. execute `vagrant destroy`
+   - It's a good idea to have the Oracle VM VirtualBox Manager up and running so you can monitor.
+7. remove (or rename) ~/repo-workareas/CM-Plan-Site
 8. Get local to ~/repo-workareas directory
+![Automation-4](/images/steps-4-thru-8.png)
 
 At this point you can execute the following command to, clone from GitHub and build the VM Website in your workstation memory.
 
@@ -70,16 +95,19 @@ At this point you can execute the following command to, clone from GitHub and bu
 
 :point_right: ***Recommendation***:
 
-- Execute the entire cycle from previous execution of **NE-startup.bsh** to **vangrant destroy** on a daily basis.
+ > - Execute the entire cycle from previous execution of **NE-startup.bsh** to **vangrant destroy** on a daily basis.
 
-:notebook: ***NOTE***:
+:notebook: ***NOTES***:
 
-- The enable-functionality.bsh script was drafted to support development integration cycles.
+ > 1. The enable-functionality.bsh script was drafted to support development integration cycles.
+ > 2. This environment runs vagrant from CM-Plan-Site/deploy to create and manage VMs.
   
 ### Managing Virtual Machine(s)
 
-Everytime you fully excerise "build - package - deploy", you will need to run the enable-functionality.bsh script. The vagrant commands for the VM build with this system are usually run from the **deploy** directory. Be sure to checkout your Vagrant options:
+Everytime you fully exercise "build - package - deploy", you will need to run the enable-functionality.bsh script.
 
-userid@host MINGW64 ~/repo-workareas/CM-Plan-Site/deploy $
+This ensures your are testing any changes made to /app/bin/Vagrant files at least daily. This also assumes you are not making vagrant file updates in the /deploy directory. Refer to the /deploy/README.txt.
 
-$ vagrant -h
+Be sure to checkout your Vagrant options:
+
+ > $ vagrant -h

@@ -1,11 +1,12 @@
 #!/bin/bash
 ##################################################################################
-# package-deploy.bsh
+# NE-startup.bsh
 #
-# Written by Andy Wallace 2018/07/18; last updated 2018/10/18
+# Written by Andy Wallace 2018/07/18; last updated 2018/10/21
 #
 # This script automatically sets up a VM enhanced development environment 
-# for the targeted repository.
+# for the targeted repository. The name of the script indicates it is intended
+# for the Non-Enterprise edition of GitHub.
 #
 # Dependencies:
 #  - GitHub system with $TargetOrg

@@ -12,7 +12,7 @@
 #     A. The arguments for Major, Minor, Issue are up to the current user. The
 #        current values can be used to identify a tested or production release.
 # 
-#        Version 1.0.0 represents updates developed and tested and deployable
+#        Version 1.1.0 represents updates developed and tested and deployable
 #        from the master branch.
 #
 #        Version 1.1.0 is the beginning of using ADRs. The first one is
@@ -34,9 +34,9 @@
 #          c. app/site/basis
 #          e. app/site/sitemap
 #     C. Verify working versions of prerequisite applications each release:
-#          a. Git version 2.18.0.windows.1 
-#          b. Oracle VirtualBox-5.2.16-123759-Win.exe
-#          c. vagrant_2.1.1_x86_64.msi
+#          a. Git version 2.19.1.windows.1 
+#          b. Oracle VirtualBox-5.2.20r125813(Qt5.6.2)
+#          c. vagrant_2.2.0_x86_64.msi
 #               NOTES:
 #                  1. For vagrant ssh, .bash_profile setting:
 #                     $ VAGRANT_PREFER_SYSTEM_BIN=1 vagrant ssh
