@@ -20,13 +20,19 @@ Following the instructions in this file will result in a running Virtural Machin
 
 Encourage a DevOps culture in a team with team trusted Subject Matter Experts (SMEs).
 
-Provide a working example of creating a development environment in workstation memory.
+If a development team does not prioritize development 1st, they may be an OpsDev team, meaning "All hands on deck" when there is a production problem. The current environment puts the operation of production ahead of development. To put development 1st, the goal is DevOps.
+
+A good step toward this goal is building development environments automatically from the Operating System up. This can be built upon to automate deployments to shared environments like production. If the steps for building and deploying to shared environments are automated, development is free to focus more on development rather than operations of shared environments.
+
+Ops can become second to Dev when production deployments are automated.
+
+The first goal of this repo is to provide a working example of creating a development environment in workstation memory.
 
   :notebook: ***NOTE***:
   
    > - The production environment of this website could be installed to an internal company system.
 
-The [Context Diagram](/app/site/teamTools/EMM-CM-ContextDiagram.pdf) provides end to end visibility to the steps, roles, and tools used by a DevOps team to create, test, and deliver change. ***(Insert NDP image here)***
+The [Context Diagram](/app/site/teamTools/EMM-CM-ContextDiagram.pdf) provides end to end visibility to the steps, roles, and tools used by a DevOps team to create, test, and deliver change. ***(Insert MDP image here)***
 
 ### Installation
 
