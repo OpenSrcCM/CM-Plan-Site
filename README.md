@@ -107,7 +107,8 @@ At this point you can execute the following command to, clone from GitHub and bu
 :notebook: ***NOTES***:
 
  > 1. The enable-functionality.bsh script was drafted to support development integration cycles.
- > 2. This environment runs vagrant from CM-Plan-Site/deploy to create and manage VMs.
+ > 2. The arguments to ./NE-startup.bsh correspond to release values Major, minor, and patch respectively. refer to [semantic versioning](http://semver.org/) for details.
+ > 3. This environment runs vagrant from CM-Plan-Site/deploy to create and manage VMs.
   
 ### Managing Virtual Machine(s)
 
