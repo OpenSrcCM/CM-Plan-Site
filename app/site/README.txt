@@ -32,7 +32,8 @@ basis
 
    This directory contains the primary CM Plan Site components destined for
    the apache /var/www/html directory. The home page of the website is
-   maintained in this directory.
+   stored in this directory for packaging. It is updated and maintained in the
+   workarea directory.
    
    The workarea directory is used to create elements for the other directories
    that become sub-directories of the website. These are gathered and tar`d in
