@@ -21,7 +21,7 @@ Following the instructions in this file will result in a running Virtural Machin
 Encourage a DevOps culture in a team with team trusted Subject Matter Experts (SMEs).
 
 #### _Premise_
-_If a development team does not prioritize development first, they may be an OpsDev team, meaning "All hands on deck" when there is a production problem. This type of environment puts the operation of production ahead of development. To put development first, consider the goal of DevOps._
+_If a development team does not prioritize development first, they may be an OpsDev team, meaning "All hands on deck until corrected" when there is a production problem. This type of environment puts the operation of production ahead of development. To put development first, consider the goal of DevOps._
 
 A good step toward this goal is building development environments automatically from the Operating System up. This approach can be built upon to automate deployments to shared environments like production. If the steps for building and deploying to shared environments are automated, development is free to focus more on development tasks rather than supporting operations of shared environments.
 
