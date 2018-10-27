@@ -8,7 +8,7 @@ toc::[left]
 
 === Prerequisites
 
-* Comcast workstation/laptop with Windows 10 or Mac
+* Workstation/laptop with Windows 10 or Mac
 * Userid with admin access on workstation
 
 [NOTE]
@@ -22,8 +22,7 @@ toc::[left]
 
 === Installing Git
 
-.  go to link http://git-scm.com/[git-scm]. Depending on your workstation, you will see a section on this page that looks like one of the following image:
-
+.  go to link http://git-scm.com/[git-scm]. Depending on your workstation, you will see a section on this page with *Latest source Release* for your workstation.
 
 * For mac install:
 ** You may need to hold down the control key when clicking on the pkg script.
@@ -80,8 +79,8 @@ The following sections cover required and recommended configurations.
 .Enter your first and last name:
 * $ git config --global user.name "Andy Wallace"
 
-.Enter your Comcast email address:
-* $ git config --global user.email Andrew_Wallace@cable.comcast.com
+.Enter your email address:
+* $ git config --global user.email Andrew_Wallace@some-email
 
 .Setup your editor:
 * $ git config --global core.editor vim
@@ -169,7 +168,6 @@ It is recommended you enter nothing for the pass phrase.
 ====
 
 Your interaction with the GitHub managed repositories will be more secure using your ssh key.
-====
 
 .Setup your ssh Key on GitHub
 . Copy your public key into your paste buffer
