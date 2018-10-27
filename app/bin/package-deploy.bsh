@@ -72,14 +72,10 @@ vagrantDir="../../bin/vagrant"     # from $TargetTarDir
 DeployDir="../../../deploy"        # from $TargetTarDir
 TargetTarDirpath="../app/site/"    # from $DeployDir
 subDir[0]="plan"                   # in $TargetTarDir
-subDir[1]="teamTools"              # in $TargetTarDir
-subDir[2]="overview"               # in $TargetTarDir
-subDir[3]="about"                  # in $TargetTarDir
-subDir[4]="plan-template"          # in $TargetTarDir
-subDir[5]="learn"                  # in $TargetTarDir
-subDir[6]="newstuff"               # in $TargetTarDir
-#subDir[7]="sitemap"                # in $TargetTarDir
-#subDir[8]="announcements"          # in $TargetTarDir
+subDir[1]="git"                    # in $TargetTarDir
+subDir[2]="teamTools"              # in $TargetTarDir
+subDir[3]="overview"               # in $TargetTarDir
+subDir[4]="about"                  # in $TargetTarDir
 ThisScript="package-deploy.bsh"
 ThisRepo="CM-Plan-Site"
 
@@ -148,7 +144,7 @@ cp -R ../$basisDir/* .
 for dirname in "${subDir[@]}"
 do
   mkdir $dirname
-  if [ "$dirname" == "announcements" ] || [ "$dirname" == "newstuff" ]; then
+  if [ "$dirname" == "git" ] || [ "$dirname" == "teamTools" ]; then
      cp -R ../../$dirname/* ./$dirname/
   else
      cp ../../$dirname/index.html ./$dirname/index.html

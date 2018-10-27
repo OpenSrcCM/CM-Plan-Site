@@ -437,8 +437,13 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#trueidentify-yourself-in-git">Identify Yourself in Git</a></li>
 <li><a href="#trueidentify-the-home-variable-on-your-workstation">Identify the $HOME variable on Your Workstation</a></li>
 <li><a href="#truebuild-and-configure-ssh-key-usage">Build and Configure SSH key Usage</a></li>
+<li><a href="#trueadd-ssh-aliases">Add SSH Aliases</a></li>
 </ul>
 </li>
+<li><a href="#truegithub">GitHub</a></li>
+<li><a href="#truegit-introduction">Git Introduction</a></li>
+<li><a href="#truegithub-2">GitHub</a></li>
+<li><a href="#truegit-conflict-reporting">Git Conflict Reporting</a></li>
 </ul>
 </div>
 <div class="sect1">
@@ -449,7 +454,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div class="ulist">
 <ul>
 <li>
-<p>Comcast workstation/laptop with Windows 10 or Mac</p>
+<p>Workstation/laptop with Windows 10 or Mac</p>
 </li>
 <li>
 <p>Userid with admin access on workstation</p>
@@ -492,7 +497,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>go to link <a href="http://git-scm.com/">git-scm</a>. Depending on your workstation, you will see a section on this page that looks like one of the following image:</p>
+<p>go to link <a href="http://git-scm.com/">git-scm</a>. Depending on your workstation, you will see a section on this page with <strong>Latest source Release</strong> for your workstation.</p>
 <div class="ulist">
 <ul>
 <li>
@@ -654,10 +659,10 @@ Run '<strong>git help &lt;command&gt;</strong>' to display help for specific com
 </ul>
 </div>
 <div class="ulist">
-<div class="title">Enter your Comcast email address:</div>
+<div class="title">Enter your email address:</div>
 <ul>
 <li>
-<p>$ git config --global user.email <a href="mailto:Andrew_Wallace@cable.comcast.com">Andrew_Wallace@cable.comcast.com</a></p>
+<p>$ git config --global user.email Andrew_Wallace@some-email</p>
 </li>
 </ul>
 </div>
@@ -877,8 +882,6 @@ $</pre>
 <div class="paragraph">
 <p>Your interaction with the GitHub managed repositories will be more secure using your ssh key.</p>
 </div>
-<div class="exampleblock">
-<div class="content">
 <div class="olist arabic">
 <div class="title">Setup your ssh Key on GitHub</div>
 <ol class="arabic">
@@ -913,9 +916,9 @@ $ pwd
 $</code></pre>
 </div>
 </div>
-<div class="paragraph">
-<p>=== Add SSH Aliases</p>
 </div>
+<div class="sect2">
+<h3 id="trueadd-ssh-aliases"><a class="anchor" href="#trueadd-ssh-aliases"></a>Add SSH Aliases</h3>
 <div class="paragraph">
 <p>To reduce typing and minimize ssh key issues, the following is done to provide ssh aliases for the EMM Git System servers. Add a config file under the \~/.ssh on your workstation for your NTLogon as follows.</p>
 </div>
@@ -984,16 +987,26 @@ ajwal@HomeOfice ~/.ssh
 $</code></pre>
 </div>
 </div>
-</div>
-</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
 <div class="paragraph">
 <p>Be sure to read all comments whenever you enter git commands. They usually contain some indication of what you need to enter next.</p>
 </div>
-<div class="exampleblock">
-<div class="content">
-<div class="paragraph">
-<p>== GitHub</p>
+</td>
+</tr>
+</table>
 </div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="truegithub"><a class="anchor" href="#truegithub"></a>GitHub</h2>
+<div class="sectionbody">
 <div class="paragraph">
 <p>Once you have established an account with GitHub, mimic the following on your workstation in your new Git Bash Session:</p>
 </div>
@@ -1016,17 +1029,21 @@ $</code></pre>
 <div class="paragraph">
 <p>If you are unable to mimic the above Git bash sessions on your workstation, review the <strong><em>Add SSH Aliases</em></strong> section of this document.</p>
 </div>
-<div class="paragraph">
-<p>== Git Introduction</p>
 </div>
+</div>
+<div class="sect1">
+<h2 id="truegit-introduction"><a class="anchor" href="#truegit-introduction"></a>Git Introduction</h2>
+<div class="sectionbody">
 <div class="paragraph">
 <p>If you are new to Git, refer to the following links:<br>
 * <a href="https://git-scm.com/doc" class="bare">https://git-scm.com/doc</a><br>
 * <a href="https://www.youtube.com/user/github/videos" class="bare">https://www.youtube.com/user/github/videos</a></p>
 </div>
-<div class="paragraph">
-<p>==  GitHub</p>
 </div>
+</div>
+<div class="sect1">
+<h2 id="truegithub-2"><a class="anchor" href="#truegithub-2"></a>GitHub</h2>
+<div class="sectionbody">
 <div class="paragraph">
 <p>There are two protected main branches in the cmguy/CM-Plan-Site repo, <em><strong>develop</strong></em>, and <em><strong>master</strong></em>. Reference <a href="http://nvie.com/posts/a-successful-git-branching-model/">a successful-git-branching-model</a> for details.</p>
 </div>
@@ -1050,22 +1067,31 @@ $</code></pre>
 </li>
 </ol>
 </div>
-<div class="paragraph">
-<p>== Git Conflict Reporting</p>
 </div>
+</div>
+<div class="sect1">
+<h2 id="truegit-conflict-reporting"><a class="anchor" href="#truegit-conflict-reporting"></a>Git Conflict Reporting</h2>
+<div class="sectionbody">
 <div class="paragraph">
 <p>Reporting on git merge conflicts before actually doing a merge provides a view into additional deltas that need to be considered before doing a merge.</p>
 </div>
 <div class="paragraph">
 <p>A script tool, <strong>report-conflicts.bsh</strong> has been prepared for DevOps personnel to identify all conflicts to all main, and outstanding release branches for a given feature branch.</p>
 </div>
-</div>
-</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
 <div class="paragraph">
 <p>Reference the <strong>Branching and Merging Workflow</strong> section of the Git ./user-guide.pdf[User Guide].</p>
 </div>
-<div class="exampleblock">
-<div class="content">
+</td>
+</tr>
+</table>
+</div>
 <div class="paragraph">
 <p>The <strong>report-conflicts.bsh</strong> is designed to be run from any DevOps contributor&#8217;s workstation or laptop.</p>
 </div>
@@ -1119,8 +1145,13 @@ $</code></pre>
 </li>
 </ol>
 </div>
-</div>
-</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -1128,18 +1159,16 @@ $</code></pre>
 </li>
 </ol>
 </div>
-<div class="exampleblock">
-<div class="content">
-
-</div>
-</div>
+</td>
+</tr>
+</table>
 </div>
 </div>
 </div>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2018-10-22 22:48:46 MDT
+Last updated 2018-10-27 07:01:56 MDT
 </div>
 </div>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.9.1/styles/github.min.css">

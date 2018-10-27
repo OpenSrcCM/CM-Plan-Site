@@ -4,7 +4,17 @@
 
 = Overview
 
-The EM&M Configuration Management (CM) team provides and supports the functionality and workflow described in this user guide. All EM&M CM documentation is coordinated with the http://emmutl-ch2-1p.sys.comcast.net/[EM&M CM System Website]. The EM&M repositories (repos) are managed using the Comcast Enterprise https://github.comcast.com/[GitHub] system. It is based on the http://en.wikipedia.org/wiki/Git_(software)[Git] tool. Refer to http://git-scm.com/about[About Git] for more information on the Git tool.
+This guide presents git usage per the GitFork workflow.
+
+*Tips*
+[TIP]
+====
+* https://www.atlassian.com/git/tutorials/comparing-workflows/forking-workflow[Forking Workflow] - Substitute *GitHub* for *Bitbucket* when reading this. Good explaination of this workflow.
+* https://guides.github.com/activities/forking/[Forking Projects] a good introduction to GitHub forking.
+* https://reflectoring.io/github-fork-and-pull/[Fork and Pull Workflow for Git Beginners]
+====
+
+The EM&M repositories (repos) are managed using the Comcast Enterprise https://github.comcast.com/[GitHub] system. It is based on the http://en.wikipedia.org/wiki/Git_(software)[Git] tool. Refer to http://git-scm.com/about[About Git] for more information on the Git tool.
 
 GitHub has been configured for EM&M to use standard GitHub functionality to support collaboration. Specifically the https://help.github.com/articles/fork-a-repo/[GitHub fork] and https://help.github.com/articles/creating-a-pull-request/[pull request] functionality.
 
