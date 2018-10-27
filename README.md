@@ -33,7 +33,7 @@ The first goal of this repo is to provide a working example of creating a develo
   
    > - The production environment of this website could be installed to an internal company system.
 
-The [Context Diagram](/app/site/teamTools/EMM-CM-ContextDiagram.pdf) provides end to end visibility to the steps, roles, and tools used by a DevOps team to create, test, and deliver change. ***(Insert MDP image here)***
+The [Context Diagram](/app/site/teamTools/CM-ContextDiagram.pdf) provides end to end visibility to the steps, roles, and tools used by a DevOps team to create, test, and deliver change. ***(Insert MDP image here)***
 
 ### Installation
 
