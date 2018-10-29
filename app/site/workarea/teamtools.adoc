@@ -1,0 +1,25 @@
+=== Team Tools
+
+As a team member, there are many tools provided by [this company] and this organization to do your job. The tools used on a regular basis are provided below with link buttons.
+
+[TIP]
+====
+* Many of these buttons are example place holders that link to the http://github.com/cmguy/CM-Plan-Site[GitHub cmguy/CM-Plan-Site]. They have red letters when you hover over them.
+* Green letters on these buttons indicate an implemented link. This means the link is being used or considered for future work on this website.
+====
+
+
+=== Company Tools:
+
+
+
+=== Group Tools:
+
+[NOTE]
+====
+. Git User Guide button Goes over git command sequences for the GitFork workflow.
+. The footer of this site contains image links to tool websites used to build and maintain this site.
+====
+
+=== New Emerging Concepts & Tools:
+
