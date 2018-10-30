@@ -7,6 +7,7 @@ app/bin/server/html/*
 deploy/package-deploy.bsh
 deploy/vagrantfile
 deploy/bootstrap.sh
+deploy/VMLog.txt
 *.7z
 *.dmg
 *.gz
