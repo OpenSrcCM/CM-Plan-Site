@@ -76,7 +76,7 @@ This is a website running from your workstations memory. At this point you have 
 
 A goal of the MDP is to have automation from the beginning to the end of the development cycle.
 
-Using the git command-line window, build automation from the initial GitHub clone execution with the following steps:
+To build automation from the initial GitHub clone execution:
 1. Verify you have a ~/bin directory on your workstation
    - If not, create it with mkdir command
 2. Copy ~/repo-workareas/CM-Plan-Site/app/bin/NE-startup.bsh ~/bin
