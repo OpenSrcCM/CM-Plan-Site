@@ -1,0 +1,13 @@
+To do:
+- Git User Guide (needs cleanup)
+- clean up and remove newstuff dir
+- github/k88hudson/git-flight-rules into git user manual
+- updates to deploy/README.txt for overall change proc including teamTools new concepts/tools
+- Draft up ADR-000?. Reference site/plan-template and site/learn (Added html5)
+- Draft up ADR-0003 focused on adding VM.
+- incorporate ssh agent for better security
+- Update "Setup your ssh Key on GitHub for later GitHub releases.
+- good overview but waterfallish
+https://www.youtube.com/watch?v=XO0ziCtmeW8
+- Updates for MDP in plan, git-user-guide and main README.md docx in /app/bin. Note READEME.txt in site/git and site/teamTools.
+- Docker system on VM
