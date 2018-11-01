@@ -76,7 +76,7 @@ This is a website running from your workstations memory. At this point you have 
 
 A goal of the MDP is to have automation from the beginning to the end of the development cycle.
 
-Using the git command-line window, build automation from the initial GitHub clone execution with the following steps:
+To build automation from the initial GitHub clone execution:
 1. Verify you have a ~/bin directory on your workstation
    - If not, create it with mkdir command
 2. Copy ~/repo-workareas/CM-Plan-Site/app/bin/NE-startup.bsh ~/bin
@@ -108,7 +108,8 @@ At this point you can execute the following command to, clone from GitHub and bu
 
  > 1. The enable-functionality.bsh script was drafted to support development integration cycles.
  > 2. The arguments to ./NE-startup.bsh correspond to release values Major, minor, and patch respectively. refer to [semantic versioning](http://semver.org/) for details.
- > 3. This environment runs vagrant from CM-Plan-Site/deploy to create and manage VMs.
+ > 3. This environment runs vagrant from CM-Plan-Site/deploy to create and manage the VM.
+ > 4. The deploy/VMlog.txt is a full report of the "building" of your VM.
   
 ### Managing Virtual Machine(s)
 
