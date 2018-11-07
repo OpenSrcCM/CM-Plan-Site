@@ -3,7 +3,7 @@ The home.html file is maintained as follows:
    NOTES:
       a. The resulting index.html is used by the website.
       b. The resulting style.css is used by the website.
-      b. The resulting vendor-style.css is used by the website.
+      c. The resulting vendor-style.css is used by the website.
 
 1. Updated with the AsciidocFX tool in the workarea directory using home.adoc.
    When updates are completed, it is saved as a html5 complient page home.html

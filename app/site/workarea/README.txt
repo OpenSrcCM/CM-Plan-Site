@@ -5,8 +5,10 @@ first populated using the AsciidocFX tool "sample book" option.
 
 Currently, the following webpages have been created for this site using this
 directory:
-  about
+  home
   plan
+  about
+  teamTools
   overview
 
 Following are the high-level steps used to create website content one html
