@@ -15,7 +15,8 @@ The repo is maintained to support **Modern Development Process** (MDP) environme
   > 1. Since GitHub is the repository system for this repo, the [GitHub help](https://help.github.com/) page is a primary reference.
   > 2. An in-depth understanding of Git via [SCM-Git](https://git-scm.com/) opens many opportunities as your MDP understanding develops. 
   > 3. Currently working on Containierization using Docker CE. Reference [Docker Documentation](https://docs.docker.com)
-  >> a. Working thru Get Started, Part 1: Orientation and setup
+  >>   a. Working thru Get Started, Part 1: Orientation and setup
+  >>>       https://www.youtube.com/watch?v=wCTTHhehJbU
 
 Following the instructions in this file will result in a running Virtural Machine, in your workstation memory, hosting the website developed and maintained in this repository.
  
