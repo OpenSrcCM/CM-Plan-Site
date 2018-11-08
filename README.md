@@ -5,16 +5,16 @@ The repo is maintained to support **Modern Development Process** (MDP) environme
 - Configuration Management
 - Security
 - Virtual Machines
+- Containerization
 - Branching and Merging
 - Repository Forking
-- Containerization
 - Continuous Integration Continuous Deployment CI/CD
 
 :notebook: ***NOTES***:
 
   > 1. Since GitHub is the repository system for this repo, the [GitHub help](https://help.github.com/) page is a primary reference.
   > 2. An in-depth understanding of Git via [SCM-Git](https://git-scm.com/) opens many opportunities as your MDP understanding develops. 
-  > 3. Currently working on Containierization using Docker CE. Reference [Docker Documentation](https://docs.docker.com)
+  > 3. Currently working on Containerization using Docker CE. Reference [Docker Documentation](https://docs.docker.com)
   >>   a. Working thru Get Started, Part 1: Orientation and setup
   >>>       https://www.youtube.com/watch?v=wCTTHhehJbU
 

@@ -76,21 +76,19 @@ Vagrant.configure("2") do |config|
   # in the repo, then select and install:
   # yum list docker-ce --showduplicates | sort -r
   # 
-  # Focus on on following versions installed by this file:
-  #    (See yum install commands in shell below)
-  #  18.06.1.ce-3.el7                       docker-ce-stable
-  #  18.06.1.ce-3.el7                       docker-ce-test
-  #  18.06.1.ce-3.el7                       docker-ce-edge
-  #
-  #  NOTE:
-  #    1. yum install docker-ce will install the latest version of Docker CE.
-  #    2. yum install docker-ce-18.06.1.ce-3.el7 will install current
-  #       (10/10/2018) stable focus
+  #  NOTES:
+  #    1. Use "yum list docker-ce --showduplicates | sort -r" to identify
+  #       stable versions.
+  #    2. "yum install docker-ce" will install the latest version of Docker CE.
+  #    3. "yum install docker-ce-18.06.1.ce-3.el7" for current stable
+  #       as of 10/10/2018.
   #        
   #  A. Start docker and run hello-world to verify it's functioning
   #  B. Add vagrant user to docker group
-  #  C. Testing ....
-	#
+  #  C. execute all in Recap and cheat sheet section of Docker
+  #     get started at https://docs.docker.com/get-started/
+  #  D. Spiking/Testing .... Get Started, Part 2: Containers
+  #
   config.vm.box = "bento/centos-7.5"
   config.vm.box_version = "201806.08.0"
   config.vm.provision "shell", inline: <<-SHELL
@@ -114,9 +112,9 @@ Vagrant.configure("2") do |config|
      yum-config-manager \
          --add-repo \
          https://download.docker.com/linux/centos/docker-ce.repo
-     yum-config-manager --enable docker-ce-edge
      yum-config-manager --enable docker-ce-test
-     yum install docker-ce-18.06.1.ce-3.el7 -y
+     yum-config-manager --enable docker-ce-edge
+     yum install docker-ce -y
      systemctl start docker
      docker run hello-world
      usermod -aG docker vagrant

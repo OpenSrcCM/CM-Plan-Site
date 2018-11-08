@@ -11,7 +11,11 @@ cp -R /vagrant/html/* /var/www/html/
 # start apache2
 apachectl start
 rm -r /vagrant/html/
+# Install containers
+mkdir /containers
+cp -r /vagrant/containers/* /containers/
 # Remove Deployment tools
 rm -r /vagrant/package-deploy.bsh
 rm -r /vagrant/bootstrap.sh
 rm -r /vagrant/vagrantfile
+rm -r /vagrant/containers
