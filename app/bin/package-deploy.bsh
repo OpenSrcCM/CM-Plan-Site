@@ -150,7 +150,7 @@ mkdir $TargetTarDir
 mkdir $TargetTarDir/html
 cd $TargetTarDir
 cp $vagrantDir/bootstrap.sh .
-cp $vagrantDir/vagrantfile .
+cp $vagrantDir/Vagrantfile .
 cd html
 cp -R ../$basisDir/* .
 for dirname in "${subDir[@]}"
