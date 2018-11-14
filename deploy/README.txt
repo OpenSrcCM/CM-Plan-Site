@@ -35,7 +35,7 @@
 #          e. app/site/sitemap
 #     C. Verify working versions of prerequisite applications each release:
 #          a. Git version 2.19.1.windows.1 
-#          b. Oracle VirtualBox-5.2.20r125813(Qt5.6.2)
+#          b. Oracle VirtualBox-5.2.22r126460(Qt5.6.2)
 #          c. vagrant_2.2.0_x86_64.msi
 #               NOTES:
 #                  1. For vagrant ssh, .bash_profile setting:
