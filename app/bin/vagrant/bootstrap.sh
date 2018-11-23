@@ -14,6 +14,7 @@ rm -r /vagrant/html/
 # Install containers
 mkdir /containers
 cp -r /vagrant/containers/* /containers/
+mv /containers/daemon.json /etc/docker/
 # Remove Deployment tools
 rm -r /vagrant/package-deploy.bsh
 rm -r /vagrant/bootstrap.sh
