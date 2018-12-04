@@ -253,6 +253,7 @@ Once the audit has been performed, the Configuration Manager will compile his/he
 Upon completion of the project audit and findings, the CM will note all discrepancies and compile a report to be presented to the Project Manager, Sponsor, and VP of Technology.
 
 == References
+* https://blog.scottlowe.org/2015/01/27/using-fork-branch-git-workflow/[Using the Fork-and-Branch Git Workflow]
 * http://www.projectmanagementdocs.com/project-planning-templates/configuration-management-plan.html#axzz4ulQeuQy8[CM Plan Template]
 * https://help.github.com/articles/access-permissions-on-github/[Access permissions on GitHub]
 * https://sethrobertson.github.io/GitBestPractices/[Git Best Practices]
