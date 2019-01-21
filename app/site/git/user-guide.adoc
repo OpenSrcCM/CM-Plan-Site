@@ -14,16 +14,16 @@ This guide presents git usage per the GitFork workflow.
 * https://reflectoring.io/github-fork-and-pull/[Fork and Pull Workflow for Git Beginners]
 ====
 
-The EM&M repositories (repos) are managed using the Comcast Enterprise https://github.comcast.com/[GitHub] system. It is based on the http://en.wikipedia.org/wiki/Git_(software)[Git] tool. Refer to http://git-scm.com/about[About Git] for more information on the Git tool.
+Company repositories (repos) are usually managed using the Enterprise https://github.com/[GitHub] system. It is based on the http://en.wikipedia.org/wiki/Git_(software)[Git] tool. Refer to http://git-scm.com/about[About Git] for more information on the Git tool.
 
-GitHub has been configured for EM&M to use standard GitHub functionality to support collaboration. Specifically the https://help.github.com/articles/fork-a-repo/[GitHub fork] and https://help.github.com/articles/creating-a-pull-request/[pull request] functionality.
+GitHub should be configured for company usage to use standard GitHub functionality to support collaboration. Specifically the https://help.github.com/articles/fork-a-repo/[GitHub fork] and https://help.github.com/articles/creating-a-pull-request/[pull request] functionality.
 
 [NOTE]
 ====
-The above links point to general open-source GitHub documentation. Comcast GitHub Enterprise is Comcast's GitHub with separate access management. **Do not use Comcast generated SSH keys to access the general open-source GitHub system.**
+The above links point to general open-source GitHub documentation. Company GitHub Enterprise is accessed with company specific access management. **Do not use company generated SSH keys to access the general open-source GitHub system.**
 ====
 
-The primary deployment process reference is the Deployment https://wiki.sys.comcast.net/display/EMM/Workflow[WorkFlow] on the EM&M Configuration Management https://wiki.sys.comcast.net/pages/viewpage.action?pageId=48759751[(CM) Wiki]. Refer to ../plan[Configuration Management Plan] for related EM&M policies and guidelines.
+(Introduce MDP process/approach here)
 
 This section of this manual has been designed to get up and running with the EM&M GitHub organizations repos for release management.
 
@@ -40,11 +40,11 @@ This rest of this overview section covers the following:
 
 = Prerequisites
 
-Refer to the  https://wiki.sys.comcast.net/display/EMM/On-Boarding[On-Boarding] CM wiki page for details.
+Refer to company on-boarding documentation.
 
 == Notes
 
-. EM&M Git Modules are identified based on the EM&M https://wiki.sys.comcast.net/display/EMM/Module+Standards[Module Standards].
+. Identify Module/Repo naming standards
 . You will need Write permission to be able to `Git push` to the remote (EM&M GitHub repo) *master*, *hotfix*, *release*, or *develop* branches. If you incorporate GitHub fork functionality, you can use GitHub "pull request" functionality with your team. Check with your DevLead for more details on this.
 . Code reviews are required for all merges to develop and master branches. This is done with the *New pull request* button on the GHE repository home page.
 . You must be a *developer lead* to `Git push`  to the remote (EM&M GitHub repo) *develop* and *master* branches.
@@ -148,8 +148,8 @@ image::images/GitGUI.png[]
 
 image::images/CloneRepo.png[]
 
-* For *Source Location* enter a EMM Git System repo prepended with _emm-git:_.
-* For *Target Directory*, be sure you are identify a new non-existent directory. It's recommended you name the repo as it is named on the EMM Git System.
+* For *Source Location* enter a Git System repo prepended with _???:_.
+* For *Target Directory*, be sure you are identify a new non-existent directory. It's recommended you name the repo as it is named on the Git System.
 * Click on the *Clone* button
 
 image::images/CloneRepoArgs.png[]

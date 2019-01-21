@@ -34,9 +34,9 @@
 #          c. app/site/basis
 #          e. app/site/sitemap
 #     C. Verify working versions of prerequisite applications each release:
-#          a. Git version 2.19.1.windows.1 
-#          b. Oracle VirtualBox-5.2.22r126460(Qt5.6.2)
-#          c. vagrant_2.2.0_x86_64.msi
+#          a. Git version 2.20.1-64-bit.exe 
+#          b. Oracle VirtualBox-5.2.24-128163-Win.exe
+#          c. vagrant_2.2.3_x86_64.msi
 #               NOTES:
 #                  1. For vagrant ssh, .bash_profile setting:
 #                     $ VAGRANT_PREFER_SYSTEM_BIN=1 vagrant ssh
@@ -45,7 +45,7 @@
 #                     be run from git bash window:
 #                        alias python='winpty c:Python27/python.exe'
 #                  3. Maintain copy of .bash_profile in /app/bin for backup.
-#          d. AsciidoxFX 1.6.0
+#          d. AsciidoxFX 1.6.9
 #     D. For each deployment occurrence vagrant along with other deployment
 #        automation is disabled. So, for example, you will not be able to run 
 #        "vagrant destroy" after a deployment. To enable vagrant and other

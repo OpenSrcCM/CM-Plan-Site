@@ -53,8 +53,7 @@ After you have installed Git successfully, you have full Git functionality on yo
 
 Try the following commands in your Git Bash window:
 
-Run '**git help git**' to display the help index in a browser window.
-Run '**git help <command>**' to display help for specific commands in a browser window.
+Run '**git help -a**' for a list of common Git commands.
 
 .In order to interface with the https://github.com/[GitHub] system, the following needs to be performed:
 * Identify or Set $HOME variable on your Workstation.
