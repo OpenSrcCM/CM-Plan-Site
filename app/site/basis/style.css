@@ -52,7 +52,14 @@
    font-size: 0.9em;
    line-height: 1.6;
 }
-  
+.hfbutton-paragraph {
+   width: 370px;
+   text-align: center;
+   font-size: 0.8em;
+   line-height: 1.2;
+   color: #ffffff;
+   text-shadow: 2px 2px #000066;
+}
 p {
   font-size: 1.21875em;
   line-height: 1.6;

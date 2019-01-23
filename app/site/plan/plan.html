@@ -448,10 +448,10 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <h2 id="trueintroduction"><a class="anchor" href="#trueintroduction"></a>Introduction</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>The purpose of the Configuration Management Plan is to describe how configuration management (CM) will be conducted throughout the project lifecycle. This includes documenting how CM is managed, roles and responsibilities, how configuration item (CI) changes are made, and communicating all aspects of CM to project stakeholders. Without a documented configuration management plan it is likely that CIs may be missed, incomplete, or unnecessary work is done because of a lack or version and document control. While a configuration management plan is important for all projects, this is especially true for software and other information technology (IT) projects.</p>
+<p>The purpose of the Configuration Management Plan is to describe how Configuration Management (CM) will be conducted throughout the project lifecycle. This includes documenting how CM is managed, roles and responsibilities, how configuration item (CI) changes are made, and communicating all aspects of CM to project stakeholders. Without a documented configuration management plan it is likely that CIs may be missed, incomplete, or unnecessary work is done because of a lack or version and document control. While a configuration management plan is important for all projects, this is especially true for software and other information technology (IT) projects.</p>
 </div>
 <div class="paragraph">
-<p>For the this organization, all time related to change tracking is done in the [Change Tracking Tool] for resource reporting purposes. Consistency in time reporting promotes the ability to visualize all IT work and control Work in Progress (WIP). It also supports more accurate "Wait Time" calculations for management of this organizations resource commitments. It is an important metric for the <a href="http://www.agilevelocity.com/blog/7-principles-of-lean-software-development/">7 Principles of Lean Software Development</a>.</p>
+<p>For this organization, all time related to change tracking is done in the [Change Tracking Tool] for resource reporting purposes. Consistency in time reporting promotes the ability to visualize all IT work and control Work in Progress (WIP). It also supports more accurate "Wait Time" calculations for management of this organizations resource commitments. It is an important metric for the <a href="http://www.agilevelocity.com/blog/7-principles-of-lean-software-development/">7 Principles of Lean Software Development</a>.</p>
 </div>
 <div class="admonitionblock tip">
 <table>
@@ -472,11 +472,10 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <p>In order to visualize ALL IT work and Control WIP, this organization is looking at ways to better manage flow.  For a good overview of this concept, refer to <a href="https://leankit.com/learn/kanban/lean-flow-metrics/">7 Lean Metrics to Improve Flow</a>.</p>
 </div>
 <div class="paragraph">
-<p>When changes are made to any managed applications, Databases, and Infrastructure Systems including access and configuration changes, the <strong>Change Record</strong>, the work is associated with, is referenced in Git Repo branches and commit comments. This makes them referable to the and
-the company as changes are deployed to production and future audit tasks.</p>
+<p>When changes are made to any managed applications, Databases, and Infrastructure Systems including access and configuration changes, the <strong>Change Record</strong>, the work is associated with, is referenced in Git Repo branches and commit comments. This makes them referable to the organization as changes are deployed to production and future audit tasks.</p>
 </div>
 <div class="paragraph">
-<p>The following Best Practices section outlines a procedure for delivering EM&amp;M change or deltas. This outline was produced while reviewing EM&amp;M Organization Concepts and Goals.</p>
+<p>The following development Best Practices section outlines a procedure for delivering change or deltas.</p>
 </div>
 </div>
 </div>
@@ -518,6 +517,19 @@ This is required for release reporting metrics and future audit tasks.</p>
 <ol class="loweralpha" type="a">
 <li>
 <p><strong>Clone from GitHub maintained release/deploy repo to your workstation.</strong></p>
+<div class="olist lowerroman">
+<ol class="lowerroman" type="i">
+<li>
+<p>Fork the Github repo for full development control</p>
+</li>
+<li>
+<p>git clone from forked repo</p>
+</li>
+<li>
+<p>Create 2nd git remote to repo you "forked" from</p>
+</li>
+</ol>
+</div>
 </li>
 <li>
 <p><strong>Establish release-M.m from <span class="red">appropriate</span> branch you are working from (<span class="red">see step 5 for details</span>).</strong></p>
@@ -693,7 +705,7 @@ These steps separate development from the controlled release or deployment repo 
 <div class="title"><a href="http://itrevolution.com/the-three-ways-principles-underpinning-devops/">The Three Ways: The principles underpinning DevOps</a></div>
 <ul>
 <li>
-<p><span class="blue"><strong>First Way</strong></span> <strong>- Systems Thinking:</strong> All changes are made from Left to Right. From the Left, Planning, Develop, Test, User Acceptance, Production Deploym]#ent to Customer.</p>
+<p><span class="blue"><strong>First Way</strong></span> <strong>- Systems Thinking:</strong> All changes are made from Left to Right. From the Left, Planning, Develop, Test, User Acceptance, Production Deployment to Customer.</p>
 </li>
 <li>
 <p><span class="blue"><strong>Second Way</strong></span> <strong>- Amplify Feedback Loops:</strong> Anything going from Right to Left (i.e., defects, fixes, production issue, etc) is a challenge that is addressed as soon as possible.</p>
@@ -790,8 +802,10 @@ PM, Product, including business and technical, Owner Tracked</p>
 </div>
 <div class="sect3">
 <h4 id="true-a-href-https-en-wikipedia-org-wiki-continuous_integration-ci-a-a-href-https-en-wikipedia-org-wiki-continuous_delivery-cd-a"><a class="anchor" href="#true-a-href-https-en-wikipedia-org-wiki-continuous_integration-ci-a-a-href-https-en-wikipedia-org-wiki-continuous_delivery-cd-a"></a><a href="https://en.wikipedia.org/wiki/Continuous_integration">CI</a> / <a href="https://en.wikipedia.org/wiki/Continuous_delivery">CD</a></h4>
-<div class="sect4">
-<h5 id="true-a-href-https-www-thoughtworks-com-continuous-integration-continuous-integration-a"><a class="anchor" href="#true-a-href-https-www-thoughtworks-com-continuous-integration-continuous-integration-a"></a><a href="https://www.thoughtworks.com/continuous-integration">Continuous Integration</a></h5>
+
+</div>
+<div class="sect3">
+<h4 id="true-a-href-https-www-thoughtworks-com-continuous-integration-continuous-integration-a"><a class="anchor" href="#true-a-href-https-www-thoughtworks-com-continuous-integration-continuous-integration-a"></a><a href="https://www.thoughtworks.com/continuous-integration">Continuous Integration</a></h4>
 <div class="ulist">
 <div class="title">Outputs to Continuous Releases or Deployments.  Each developer has full control of all aspects of Forked repos in addition to feature branches.  The feature branches are modified on local repos.  They can be shared on regular repos and forked repos.</div>
 <ul>
@@ -836,7 +850,6 @@ PM, Product, including business and technical, Owner Tracked</p>
 </td>
 </tr>
 </table>
-</div>
 </div>
 </div>
 <div class="sect3">
@@ -1203,7 +1216,7 @@ The primary Goals and Concepts provide direction and improvements to the overall
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2018-12-04 10:30:27 MST
+Last updated 2019-01-22 13:07:56 MST
 </div>
 </div>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.9.1/styles/github.min.css">

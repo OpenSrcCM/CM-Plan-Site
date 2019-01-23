@@ -2,9 +2,9 @@
 = CM Plan
 
 == Introduction
-The purpose of the Configuration Management Plan is to describe how configuration management (CM) will be conducted throughout the project lifecycle. This includes documenting how CM is managed, roles and responsibilities, how configuration item (CI) changes are made, and communicating all aspects of CM to project stakeholders. Without a documented configuration management plan it is likely that CIs may be missed, incomplete, or unnecessary work is done because of a lack or version and document control. While a configuration management plan is important for all projects, this is especially true for software and other information technology (IT) projects.
+The purpose of the Configuration Management Plan is to describe how Configuration Management (CM) will be conducted throughout the project lifecycle. This includes documenting how CM is managed, roles and responsibilities, how configuration item (CI) changes are made, and communicating all aspects of CM to project stakeholders. Without a documented configuration management plan it is likely that CIs may be missed, incomplete, or unnecessary work is done because of a lack or version and document control. While a configuration management plan is important for all projects, this is especially true for software and other information technology (IT) projects.
 
-For the this organization, all time related to change tracking is done in the [Change Tracking Tool] for resource reporting purposes. Consistency in time reporting promotes the ability to visualize all IT work and control Work in Progress (WIP). It also supports more accurate "Wait Time" calculations for management of this organizations resource commitments. It is an important metric for the http://www.agilevelocity.com/blog/7-principles-of-lean-software-development/[7 Principles of Lean Software Development].
+For this organization, all time related to change tracking is done in the [Change Tracking Tool] for resource reporting purposes. Consistency in time reporting promotes the ability to visualize all IT work and control Work in Progress (WIP). It also supports more accurate "Wait Time" calculations for management of this organizations resource commitments. It is an important metric for the http://www.agilevelocity.com/blog/7-principles-of-lean-software-development/[7 Principles of Lean Software Development].
 
 .Tip
 [TIP]
@@ -14,10 +14,9 @@ For the this organization, all time related to change tracking is done in the [C
 
 In order to visualize ALL IT work and Control WIP, this organization is looking at ways to better manage flow.  For a good overview of this concept, refer to https://leankit.com/learn/kanban/lean-flow-metrics/[7 Lean Metrics to Improve Flow].
 
-When changes are made to any managed applications, Databases, and Infrastructure Systems including access and configuration changes, the *Change Record*, the work is associated with, is referenced in Git Repo branches and commit comments. This makes them referable to the and
-the company as changes are deployed to production and future audit tasks.
+When changes are made to any managed applications, Databases, and Infrastructure Systems including access and configuration changes, the *Change Record*, the work is associated with, is referenced in Git Repo branches and commit comments. This makes them referable to the organization as changes are deployed to production and future audit tasks.
 
-The following Best Practices section outlines a procedure for delivering EM&M change or deltas. This outline was produced while reviewing EM&M Organization Concepts and Goals.
+The following development Best Practices section outlines a procedure for delivering change or deltas. 
 
 == Best Practice for Change Delivery
 Always follow *ALL* following steps *in bold* even if they are automated with a script.  Note that GitHub functionality adds collaboration functionality and procedures on top of the Git tool.
@@ -37,6 +36,9 @@ This is required for release reporting metrics and future audit tasks.
 .Branching and Merging Steps
 . *Establish work Area and Feature branch.*
 .. *Clone from GitHub maintained release/deploy repo to your workstation.*
+... Fork the Github repo for full development control
+... git clone from forked repo
+... Create 2nd git remote to repo you "forked" from
 .. *Establish release-M.m from [red]#appropriate# branch you are working from ([red]#see step 5 for details#).*
 .. *Create feature branch from established release-M.m branch.*
 . *Develop/Test changes on feature branch.*
@@ -95,7 +97,7 @@ The GitHub workflow is based on the https://datasift.github.io/gitflow/Introduci
 * **S**haring
 
 .http://itrevolution.com/the-three-ways-principles-underpinning-devops/[The Three Ways: The principles underpinning DevOps]
-* [blue]#*First Way*# *- Systems Thinking:* All changes are made from Left to Right. From the Left, Planning, Develop, Test, User Acceptance, Production Deploym]#ent to Customer.
+* [blue]#*First Way*# *- Systems Thinking:* All changes are made from Left to Right. From the Left, Planning, Develop, Test, User Acceptance, Production Deployment to Customer.
 * [blue]#*Second Way*# *- Amplify Feedback Loops:* Anything going from Right to Left (i.e., defects, fixes, production issue, etc) is a challenge that is addressed as soon as possible.
 * [blue]#*Third Way*# *- Culture of Continual Experimentation And Learning:* Creating a culture that fosters the following:
 ** Continual Experimentation. Taking risks and learning from success and failures
@@ -125,7 +127,7 @@ PM, Product, including business and technical, Owner Tracked
 
 ==== https://en.wikipedia.org/wiki/Continuous_integration[CI] / https://en.wikipedia.org/wiki/Continuous_delivery[CD]
 
-===== https://www.thoughtworks.com/continuous-integration[Continuous Integration]
+==== https://www.thoughtworks.com/continuous-integration[Continuous Integration]
 .Outputs to Continuous Releases or Deployments.  Each developer has full control of all aspects of Forked repos in addition to feature branches.  The feature branches are modified on local repos.  They can be shared on regular repos and forked repos.
 * Smaller batch sizes and more intervals of work.
 * Add changes/deltas the same way every time.
