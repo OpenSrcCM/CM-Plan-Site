@@ -149,7 +149,7 @@ $ cd ~/.ssh  (c:\Users\[userid]\.ssh)
 Note the "~/" utilizes the workstation system *HOME* variable for your userid.
 ====
 
-.Generate ssh key pair using your NTLogon:
+.Generate ssh key pair using your GitHub userid:
 * $ ssh-keygen -t rsa -f [Your userid] (userid is all lower-case, no mixed case.)
 
 [IMPORTANT]
@@ -158,8 +158,8 @@ It is recommended you enter nothing for the pass phrase.
 ====
 
 .The following two files will be generated:
-* *[Your NTLogon]* -  Your *[red]#private#* key file
-* *[Your NTLogon].pub* -  Your *[green]#public#* key file
+* *[Your GitHub userid]* -  Your *[red]#private#* key file
+* *[Your GitHub userid].pub* -  Your *[green]#public#* key file
 
 [CAUTION]
 ====
@@ -189,7 +189,7 @@ $
 
 === Add SSH Aliases
 
-To reduce typing and minimize ssh key issues, the following is done to provide ssh aliases for the EMM Git System servers. Add a config file under the \~/.ssh on your workstation for your NTLogon as follows.
+To reduce typing and minimize ssh key issues, the following is done to provide ssh aliases for the Git System bare repository server(s). Add a config file under the \~/.ssh on your workstation for your GitHub userid as follows.
 
 Edit (or create) ~/.ssh/config and add the following lines adjusted for your [blue]#userid#:
 
@@ -226,7 +226,7 @@ $ vim ~/.ssh/config
           User git
           Hostname github.com
           Port 22
-          IdentityFile ~/.ssh/"Your NTLogon"
+          IdentityFile ~/.ssh/"Your GitHub Userid"
 #                                                            ###
 ################################################################
 

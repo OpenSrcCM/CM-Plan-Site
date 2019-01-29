@@ -4,7 +4,9 @@
 == Introduction
 The purpose of the Configuration Management Plan is to describe how Configuration Management (CM) will be conducted throughout the project lifecycle. This includes documenting how CM is managed, roles and responsibilities, how configuration item (CI) changes are made, and communicating all aspects of CM to project stakeholders. Without a documented configuration management plan it is likely that CIs may be missed, incomplete, or unnecessary work is done because of a lack or version and document control. While a configuration management plan is important for all projects, this is especially true for software and other information technology (IT) projects.
 
-For this organization, all time related to change tracking is done in the [Change Tracking Tool] for resource reporting purposes. Consistency in time reporting promotes the ability to visualize all IT work and control Work in Progress (WIP). It also supports more accurate "Wait Time" calculations for management of this organizations resource commitments. It is an important metric for the http://www.agilevelocity.com/blog/7-principles-of-lean-software-development/[7 Principles of Lean Software Development].
+This plan assumes GitHub as the git bare repository controller. It can be adopted to any other git bare repository controller such as GitLab.
+
+For this organization, all time related to change tracking is done in the *[Change Tracking Tool]* for resource reporting purposes. Consistency in time reporting promotes the ability to visualize all IT work and control Work in Progress (WIP). It also supports more accurate "Wait Time" calculations for management of this organizations resource commitments. It is an important metric for the http://www.agilevelocity.com/blog/7-principles-of-lean-software-development/[7 Principles of Lean Software Development].
 
 .Tip
 [TIP]
@@ -25,12 +27,11 @@ Always follow *ALL* following steps *in bold* even if they are automated with a 
 The Branching and Merging Steps are followed for every production delivery using [Change Records] assciated with individual repository deliveries.
 This is required for release reporting metrics and future audit tasks.
 
-.IMPORTANT
 [IMPORTANT]
 ====
-.Related References:
-*[WorkFlow] documentation for developing deliveries for release packages.
-*Current and future [Release Reports].
+.Important References:
+* https://www.atlassian.com/git/tutorials/comparing-workflows/forking-workflow[GitFork WorkFlow]
+* https://datasift.github.io/gitflow/IntroducingGitFlow.html[GitFlow WorkFlow]
 ==== 
 
 .Branching and Merging Steps
@@ -61,9 +62,9 @@ This is required for release reporting metrics and future audit tasks.
 . You can squash your commits before pushing into one commit, reference _"git commit -h"_
 These steps separate development from the controlled release or deployment repo updated only by the DevLeads.
 . If developers are working in a dedicated feature branch with small change sets, this should generally result in a fast-forward merge. This is a very easy merge to deal with.
-. The [User Guide], section _"The Branching and Merging Workflow"_ has specific examples of git branching and merging commands for the https://datasift.github.io/gitflow/IntroducingGitFlow.html[Gitflow Workflow] used by this organization.
+. The https://www.atlassian.com/git/tutorials/comparing-workflows/forking-workflow[GitFork Workflow] is used to isolate development efforts from CI/CD automation and operations. This provides development the ability to experiment with any type of change including unforseen change. It also provides a safe, separate, connected learning environment for the developer on the project or repo.
+. The https://datasift.github.io/gitflow/IntroducingGitFlow.html[Gitflow Workflow] is the branching model used by this organization.
 . A tool, report-conflicts.bsh, has been created to provide conflicts reports for all outstanding conflicts for a given feature branch. Reference the _"Git Conflict reporting"_ section  in the [Git Installation Procedure].
-. GitHub Forking is available for experimentation of future automation improvements.
 ====
 
 === GitHub Organizations
@@ -73,7 +74,7 @@ _Provide links for each Enterprise GitHub organization used_
 
 === GitHub Access
 . Each team member of this organization needs to secure an Enterprise GitHub account based on their company logon.  This is now a prerequisite for the On-Boarding procedure listed in the General Access section of the [User Guide].
-. EM&M Team member also needs to secure ssh keys in their individual GitHub profiles.  The instructions for this is covered in the [Git Installation Procedure].
+. Each team member also needs to secure ssh keys in their individual GitHub profiles.  The instructions for this is covered in the [Git Installation Procedure].
 . Users need to be added to the appropriate GitHub organizations for their responsibilities. This is done by the CM team.
 . Devleads assign users to the appropriate GitHub organization team(s).  These organization teams have been configured to GitHub Organization Repos by the CM team per the _"Git Access Management"_ section of the [User Guide].
 . Team members can add collaborators to any [GitHub forked repo] they have created under their GitHub account.  The collaborators must have established an Enterprise GitHub account.

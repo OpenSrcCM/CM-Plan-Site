@@ -67,6 +67,7 @@
 <!-- Add website nav defn -->
 <!-- ******************** -->
 
+
 <!-- *********************************************************** -->
 <!-- Replace <div id="toc" class="toc2"> with website aside defn -->
 <aside>
@@ -107,7 +108,7 @@
 <div id="header">
 <h2>Configuration Management Plan</h2>
 </div>
-<!-- Move <div id="header"> donw to here, add title -->
+<!-- Move <div id="header"> down to here, add title -->
 <!-- ********************************************** -->
 
 <div id="content">
@@ -118,7 +119,10 @@
 <p>The purpose of the Configuration Management Plan is to describe how Configuration Management (CM) will be conducted throughout the project lifecycle. This includes documenting how CM is managed, roles and responsibilities, how configuration item (CI) changes are made, and communicating all aspects of CM to project stakeholders. Without a documented configuration management plan it is likely that CIs may be missed, incomplete, or unnecessary work is done because of a lack or version and document control. While a configuration management plan is important for all projects, this is especially true for software and other information technology (IT) projects.</p>
 </div>
 <div class="paragraph">
-<p>For this organization, all time related to change tracking is done in the [Change Tracking Tool] for resource reporting purposes. Consistency in time reporting promotes the ability to visualize all IT work and control Work in Progress (WIP). It also supports more accurate "Wait Time" calculations for management of this organizations resource commitments. It is an important metric for the <a href="http://www.agilevelocity.com/blog/7-principles-of-lean-software-development/">7 Principles of Lean Software Development</a>.</p>
+<p>This plan assumes GitHub as the git bare repository controller. It can be adopted to any other git bare repository controller such as GitLab.</p>
+</div>
+<div class="paragraph">
+<p>For this organization, all time related to change tracking is done in the <strong>[Change Tracking Tool]</strong> for resource reporting purposes. Consistency in time reporting promotes the ability to visualize all IT work and control Work in Progress (WIP). It also supports more accurate "Wait Time" calculations for management of this organizations resource commitments. It is an important metric for the <a href="http://www.agilevelocity.com/blog/7-principles-of-lean-software-development/">7 Principles of Lean Software Development</a>.</p>
 </div>
 <div class="admonitionblock tip">
 <table>
@@ -165,11 +169,16 @@ This is required for release reporting metrics and future audit tasks.</p>
 <i class="fa icon-important" title="Important"></i>
 </td>
 <td class="content">
-<div class="title">IMPORTANT</div>
-<div class="paragraph">
-<div class="title">Related References:</div>
-<p>*[WorkFlow] documentation for developing deliveries for release packages.
-*Current and future [Release Reports].</p>
+<div class="ulist">
+<div class="title">Important References:</div>
+<ul>
+<li>
+<p><a href="https://www.atlassian.com/git/tutorials/comparing-workflows/forking-workflow">GitFork WorkFlow</a></p>
+</li>
+<li>
+<p><a href="https://datasift.github.io/gitflow/IntroducingGitFlow.html">GitFlow WorkFlow</a></p>
+</li>
+</ul>
 </div>
 </td>
 </tr>
@@ -274,13 +283,13 @@ These steps separate development from the controlled release or deployment repo 
 <p>If developers are working in a dedicated feature branch with small change sets, this should generally result in a fast-forward merge. This is a very easy merge to deal with.</p>
 </li>
 <li>
-<p>The [User Guide], section <em>"The Branching and Merging Workflow"</em> has specific examples of git branching and merging commands for the <a href="https://datasift.github.io/gitflow/IntroducingGitFlow.html">Gitflow Workflow</a> used by this organization.</p>
+<p>The <a href="https://www.atlassian.com/git/tutorials/comparing-workflows/forking-workflow">GitFork Workflow</a> is used to isolate development efforts from CI/CD automation and operations. This provides development the ability to experiment with any type of change including unforseen change. It also provides a safe, separate, connected learning environment for the developer on the project or repo.</p>
+</li>
+<li>
+<p>The <a href="https://datasift.github.io/gitflow/IntroducingGitFlow.html">Gitflow Workflow</a> is the branching model used by this organization.</p>
 </li>
 <li>
 <p>A tool, report-conflicts.bsh, has been created to provide conflicts reports for all outstanding conflicts for a given feature branch. Reference the <em>"Git Conflict reporting"</em> section  in the [Git Installation Procedure].</p>
-</li>
-<li>
-<p>GitHub Forking is available for experimentation of future automation improvements.</p>
 </li>
 </ol>
 </div>
@@ -304,7 +313,7 @@ These steps separate development from the controlled release or deployment repo 
 <p>Each team member of this organization needs to secure an Enterprise GitHub account based on their company logon.  This is now a prerequisite for the On-Boarding procedure listed in the General Access section of the [User Guide].</p>
 </li>
 <li>
-<p>EM&amp;M Team member also needs to secure ssh keys in their individual GitHub profiles.  The instructions for this is covered in the [Git Installation Procedure].</p>
+<p>Each team member also needs to secure ssh keys in their individual GitHub profiles.  The instructions for this is covered in the [Git Installation Procedure].</p>
 </li>
 <li>
 <p>Users need to be added to the appropriate GitHub organizations for their responsibilities. This is done by the CM team.</p>
@@ -883,7 +892,7 @@ The primary Goals and Concepts provide direction and improvements to the overall
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2019-01-22 13:07:56 MST
+Last updated 2019-01-26 13:53:03 MST
 </div>
 </div>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.9.1/styles/github.min.css">

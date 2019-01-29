@@ -832,7 +832,7 @@ $</pre>
 </table>
 </div>
 <div class="ulist">
-<div class="title">Generate ssh key pair using your NTLogon:</div>
+<div class="title">Generate ssh key pair using your GitHub userid:</div>
 <ul>
 <li>
 <p>$ ssh-keygen -t rsa -f [Your userid] (userid is all lower-case, no mixed case.)</p>
@@ -857,10 +857,10 @@ $</pre>
 <div class="title">The following two files will be generated:</div>
 <ul>
 <li>
-<p><strong>[Your NTLogon]</strong> -  Your <strong><span class="red">private</span></strong> key file</p>
+<p><strong>[Your GitHub userid]</strong> -  Your <strong><span class="red">private</span></strong> key file</p>
 </li>
 <li>
-<p><strong>[Your NTLogon].pub</strong> -  Your <strong><span class="green">public</span></strong> key file</p>
+<p><strong>[Your GitHub userid].pub</strong> -  Your <strong><span class="green">public</span></strong> key file</p>
 </li>
 </ul>
 </div>
@@ -919,7 +919,7 @@ $</code></pre>
 <div class="sect2">
 <h3 id="trueadd-ssh-aliases"><a class="anchor" href="#trueadd-ssh-aliases"></a>Add SSH Aliases</h3>
 <div class="paragraph">
-<p>To reduce typing and minimize ssh key issues, the following is done to provide ssh aliases for the EMM Git System servers. Add a config file under the \~/.ssh on your workstation for your NTLogon as follows.</p>
+<p>To reduce typing and minimize ssh key issues, the following is done to provide ssh aliases for the Git System bare repository server(s). Add a config file under the \~/.ssh on your workstation for your GitHub userid as follows.</p>
 </div>
 <div class="paragraph">
 <p>Edit (or create) ~/.ssh/config and add the following lines adjusted for your <span class="blue">userid</span>:</p>
@@ -957,7 +957,7 @@ $</code></pre>
           User git
           Hostname github.com
           Port 22
-          IdentityFile ~/.ssh/"Your NTLogon"
+          IdentityFile ~/.ssh/"Your GitHub Userid"
 #                                                            ###
 ################################################################</code></pre>
 </div>
@@ -1167,7 +1167,7 @@ $</code></pre>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2019-01-21 08:45:56 MST
+Last updated 2019-01-26 14:24:15 MST
 </div>
 </div>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.9.1/styles/github.min.css">

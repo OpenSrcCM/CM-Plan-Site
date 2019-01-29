@@ -420,9 +420,49 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </head>
 <body class="article">
 <div id="header">
-<h1>Git User Guide</h1>
 </div>
 <div id="content">
+<div id="toc" class="toc">
+<div id="toctitle" class="title">Table of Contents</div>
+<ul class="sectlevel1">
+<li><a href="#truegit-user-guide">Git User Guide</a></li>
+<li><a href="#trueoverview">Overview</a></li>
+<li><a href="#truenew-to-git">New to Git?</a></li>
+<li><a href="#trueprerequisites">Prerequisites</a>
+<ul class="sectlevel1">
+<li><a href="#truenotes">Notes</a></li>
+</ul>
+</li>
+<li><a href="#truegeneral-session">General Session</a></li>
+<li><a href="#truegithub-and-git-interfaces">GitHub and Git Interfaces</a>
+<ul class="sectlevel1">
+<li><a href="#truedelivery">Delivery</a></li>
+<li><a href="#trueusing-git-bash">Using Git Bash:</a></li>
+<li><a href="#trueusing-git-gui">Using Git GUI:</a></li>
+<li><a href="#trueem-m-modules-in-github">EM&amp;M Modules in GitHub</a></li>
+<li><a href="#trueem-m-git-functionality">EM&amp;M Git Functionality</a></li>
+<li><a href="#truerequest-new-repos-for-an-em-m-github-organization">Request new repos for an EM&amp;M GitHub Organization</a></li>
+<li><a href="#truechange-em-m-github-organization-access">Change EM&amp;M GitHub Organization Access</a></li>
+<li><a href="#truecopy-an-em-m-github-repo-to-your-workstation">Copy an EM&amp;M GitHub repo to your workstation</a></li>
+<li><a href="#trueupdate-local-repo-from-the-em-m-github-repo">Update local repo from the EM&amp;M GitHub repo</a></li>
+<li><a href="#trueupdate-the-em-m-github-repo-from-local-repo">Update the EM&amp;M GitHub repo from local repo</a></li>
+</ul>
+</li>
+<li><a href="#trueis-this-your-first-git-push">Is this your First Git push?</a></li>
+<li><a href="#truegit-workflow">Git Workflow</a>
+<ul class="sectlevel2">
+<li><a href="#truecheat-sheets">Cheat Sheets</a></li>
+<li><a href="#trueuseful-links">Useful Links</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="sect1">
+<h2 id="truegit-user-guide"><a class="anchor" href="#truegit-user-guide"></a>Git User Guide</h2>
+<div class="sectionbody">
+
+</div>
+</div>
 <h1 id="trueoverview" class="sect0"><a class="anchor" href="#trueoverview"></a>Overview</h1>
 <div class="paragraph">
 <p>This guide presents git usage per the GitFork workflow.</p>
@@ -1420,43 +1460,40 @@ Build this new repo in GitHub organization (Choose from above list).</pre>
 <div class="paragraph">
 <p>Did you review the <a href="http://emmutl-ch2-1p.sys.comcast.net/overview">Overview</a> page?</p>
 </div>
-<h1 id="trueem-m-git-system-workflow" class="sect0"><a class="anchor" href="#trueem-m-git-system-workflow"></a>EM&amp;M Git System Workflow</h1>
+<h1 id="truegit-workflow" class="sect0"><a class="anchor" href="#truegit-workflow"></a>Git Workflow</h1>
 <div class="paragraph">
-<p>The primary reference for EM&amp;M Git documentation is <a href="http://git-scm.com/documentation">git-scm Documentation</a>. It is recommended you cover <strong>Git Basics</strong> and <strong>Git Branching</strong> at minimum. It is highly recommended you review the <a href="http://gitref.org">Git Reference</a> before moving further in this document. This review provides a basis of Git understanding that is assumed for the remainder of this User Guide.</p>
+<p>In order to understand how branching and merging is arranged into a worflow review <a href="http://nvie.com/posts/a-successful-git-branching-model/">A Successful Git Branching Model by Vincent Driessen</a>. Example git commands related to branching are covered.</p>
 </div>
 <div class="paragraph">
-<p>In order to understand how branching and merging is utilized for the EM&amp;M Change and Release Workflow review <a href="http://nvie.com/posts/a-successful-git-branching-model/">A Successful Git Branching Model by Vincent Driessen</a> in it&#8217;s entirety. EM&amp;M specifics are covered in following sections of this document.</p>
+<p>Note the Main Branches <strong>develop</strong> and <strong>master</strong> provide for the ability to <a href="http://en.wikipedia.org/wiki/Vetting">vet</a> for conflicts after a <code>git commit</code>  occurs on any branch at any time.</p>
 </div>
 <div class="paragraph">
-<p>The following diagram illustrates various situations that can occur at the same time. While reviewing this diagram, keep in mind there is also an understanding of multiples repos being involved. Most commonly, the local repo on your workstation, and the <a href="http://www.saintsjd.com/2011/01/what-is-a-bare-git-repository/">bare repo</a> on the Comcast Enterprize GitHub system.</p>
-</div>
-<div class="paragraph">
-<p>Note the [Main Branches] <strong>develop</strong> and <strong>master</strong> provide for the ability to <a href="http://en.wikipedia.org/wiki/Vetting">vet</a> for conflicts after a <code>git commit</code>  occurs on any branch at any time.</p>
-</div>
-<div class="paragraph">
-<p>Since git is a Distributed Version Control System (DVCS) this <code>vetting</code> can occur on the developers git repo without affecting the corresponding bare git repo on the <em>Comcast Enterprise GitHub</em> system.  Each <code>git push</code> to the a GitHub repo branch must adhere to the following bullets to provide useful accurate vetting to developers:</p>
+<p>Since git is a Distributed Version Control System (DVCS) this <code>vetting</code> can occur on the developers git repo without affecting the corresponding bare git repo on the git bare repository system.  Each <code>git push</code> to the a GitHub repo branch must adhere to the following bullets to provide useful accurate vetting to developers:</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>All know conflicts at the time of the commit to be pushed have been addressed</p>
+<p>All know conflicts at the time of the commit to be pushed have been addressed.</p>
 </li>
 <li>
-<p>The commit to be pushed represents a buildable set of code for all environments including upcoming production releases</p>
+<p>The commit to be pushed represents a buildable set of code for all environments including upcoming production releases.</p>
 </li>
 <li>
-<p>The commit to be pushed represents the code is deployable to all <em>deployed to</em> environments including QA, Integration, Staging, and Production environments. Consider all environments copies of the cooresponding Production environment.</p>
+<p>All know tests for the given repo have been executed and modified for current changes in the developer repo on the developer workstation.</p>
+</li>
+<li>
+<p>The commit to be pushed represents code thant is deployable to all <em>deployed to</em> environments including QA, Integration, Staging, and Production environments.</p>
 </li>
 </ul>
 </div>
 <div class="paragraph">
-<p>In order to provide for this vetting, all development is done on feature branches and merged to Main Branches with the merge adhering to the commit rules defined previously. If this cannot be followed, then the repo <strong>develop</strong> branch must be locked to ensure the commit rules defined previously are adhered to for follow-on release processing.</p>
+<p>In order to provide for this vetting, all development is done on feature branches and merged to Main Branches with the merge adhering to the commit rules defined previously.</p>
 </div>
 <div class="paragraph">
 <p>The GitHub system promotes this with required GitHub forks and pull requests accompanied by DevOps team code reviews.</p>
 </div>
 <div class="paragraph">
-<p>The remainder of this document identifies the Distributed Workflow adopted and implemented for the EM&amp;M organization. For more details, refer to <a href="http://git-scm.com/book/en/v2/Distributed-Git-Distributed-Workflows">Distributed Git - Distributed Workflows</a>.</p>
+<p>Refer to <a href="http://git-scm.com/book/en/v2/Distributed-Git-Distributed-Workflows">Distributed Git Distributed Workflows</a> for more information.</p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -1471,7 +1508,7 @@ Build this new repo in GitHub organization (Choose from above list).</pre>
 <p>All merging occurs on client workstations, not the GitHub system other than controlled code reviews.</p>
 </li>
 <li>
-<p>EM&amp;M developers and developer leads are responsible for managing merge conflicts.</p>
+<p>Developers and developer leads are responsible for managing merge conflicts.</p>
 </li>
 <li>
 <p>For good tips on git commit comments, See <a href="https://github.com/git/git/blob/master/Documentation/SubmittingPatches">Notes on Contributing Code</a> for the github git project.</p>
@@ -1485,913 +1522,8 @@ Build this new repo in GitHub organization (Choose from above list).</pre>
 </tr>
 </table>
 </div>
-<div class="sect1">
-<h2 id="truethe-em-m-branching-and-merging-workflow"><a class="anchor" href="#truethe-em-m-branching-and-merging-workflow"></a>The EM&amp;M Branching and Merging Workflow</h2>
-<div class="sectionbody">
-<div class="imageblock">
-<div class="content">
-<img src="images/EMM-BranchingMerging-Workflow.png" alt="EMM BranchingMerging Workflow.png">
-</div>
-</div>
 <div class="sect2">
-<h3 id="truerepository-branches"><a class="anchor" href="#truerepository-branches"></a>Repository Branches</h3>
-<div class="paragraph">
-<p>The first task is to create a feature branch that is copied from the latest commit of a main branch that is targeted for change. Before any change is introduced back into the EM&amp;M GitHub organization controlled repo the user must merge their change into the appropriate Main Branches of their local git repo. This should be done after a <code>git fetch</code>  that brings down changes from the GitHub controlled repo. These changes would have been made since the last <code>git clone</code>  or <code>git fetch</code>  was performed on the local git repo. Module repo leads are assigned to aid users with these branching and merging tasks.</p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="truemain-branches"><a class="anchor" href="#truemain-branches"></a>Main Branches</h3>
-<div class="paragraph">
-<p>Main Branches are permanently maintained. Each <code>git push</code>  to a GitHub managed repo main branch is for code sets that build automatically. Development maintains the <strong>develop</strong> branch that is fully automated for builds and deployments to development environments. The Configuration Management and the Event Processing Assurance (EPA) teams maintain the <strong>master</strong> branch for production ready and production installed deployments.</p>
-</div>
-<div class="paragraph">
-<p>The master branch is used to initialize <strong>hotfix</strong> branches. These <strong>hotfix</strong> branches are used to promote production problem related changes to the <strong>master</strong> branch and introduce these changes to the <strong>develop</strong> branch.</p>
-</div>
-<div class="admonitionblock important">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-important" title="Important"></i>
-</td>
-<td class="content">
-<div class="paragraph">
-<p>In the event of a LegacyProd-M.m branch, LP-hotfix-M.M-HF# branches by default will not merge into the <strong>develop</strong> branch.</p>
-</div>
-</td>
-</tr>
-</table>
-</div>
-<div class="paragraph">
-<p>The develop branch is used to initialize <strong>release</strong> branches. These <strong>release</strong> branches are used to promote releases delivered by development for promotion to QA/System Test, Integration, Staging, and Production environments.</p>
-</div>
-<div class="paragraph">
-<p>"Merge Points" in EM&amp;M GitHub organization repos are kept to a minimum to keep collaboration consistent and simple. The two main merge points provided for EM&amp;M development by the EM&amp;M GitHub organization repos are "Latest development" and "Latest Production". The "Latest Development" is buildable and deployable to the development environment. The "Latest Production" is the default branch (master) for production ready code.</p>
-</div>
-<div class="paragraph">
-<p>The are two Main Branches in any given EM&amp;M GitHub organization repo, <strong>develop</strong> and <strong>master</strong>. These branches are intended for deliverables that build and deploy in a automated fashion. In the case of the <strong>develop</strong> branch, each "git commit" and "git push" should automatically build and deploy to the development environment(s). For the <strong>master</strong> branch, each "git commit" and "git push" should automatically build and provide for "on demand" deployment to production environments. In addition, the <strong>master</strong> branch is only updated with "Production deployed" deliverables as determined from development and testing and production verification activities.  Supporting branches are used to manage branching and merging tasks performed before and between these Main Branches.</p>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>In "Git Speak", <strong>origin</strong> is associated with the EM&amp;M GitHub organization repo.</p>
-</li>
-<li>
-<p>Each EM&amp;M GitHub organization repo supports a single production installation. If multiple production installations are required for support purposes, additional master branches are maintained with the naming convention <strong>LegacyProd-M.m</strong>. These branches are maintained by the CM team with updates from development via HotFix supporting branches with the naming convention <strong>LP-HotFix-M.m</strong>.</p>
-</li>
-</ol>
-</div>
-</td>
-</tr>
-</table>
-</div>
-<div class="paragraph">
-<p>The <strong>develop</strong> branch is the primary integration branch where automatic builds occur. The source code in the <strong>develop</strong> branch head is a stable point ready to be released. The <strong>release</strong> branches are established from the <strong>develop</strong> branch head. The <strong>release</strong> branch is used to prepare for the next production release. The <strong>release</strong> branch identifies code that development has deemed "Production Ready". The <strong>master</strong> branch is kept in sync with the latest production deployed release.</p>
-</div>
-<div class="paragraph">
-<p>For more details, reference the [Branching and Merging] standards section of this manual.</p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="truefeature-branches"><a class="anchor" href="#truefeature-branches"></a>Feature Branches</h3>
-<div class="listingblock">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-asciidoc" data-lang="asciidoc">Should branch off from: develop
-Must merge back into: develop
-Branch naming convention: Change Record or User Story number with developer deployment tags, (see below), or temporary name. Never master, develop, release*, or hotfix\*</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>Feature branches (or sometimes called topic branches) are used to develop new features for the upcoming or a distant future release. When starting development of a feature, the target release in which this feature will be incorporated may well be unknown at that point. The essence of a feature branch is that it exists as long as the feature is in development, but will eventually be merged back into develop (to definitely add the new feature to the upcoming release) or discarded (in case of a disappointing experiment).</p>
-</div>
-<div class="paragraph">
-<p>Feature branches typically exist in developer repos only, not in the EM&amp;M GitHub organization repos unless being shared with the DevOps team. When merging a feature branch into the development branch, it must be coordinated with the assigned development lead.</p>
-</div>
-<div class="sect3">
-<h4 id="truecreating-a-feature-branch"><a class="anchor" href="#truecreating-a-feature-branch"></a>Creating a feature branch</h4>
-<div class="paragraph">
-<p>When starting work on a new feature, you can branch off from the develop branch as follows:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-asciidoc" data-lang="asciidoc">$ git checkout -b USfeature1 develop
-Switched to a new branch 'USfeature1'
-$</code></pre>
-</div>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-<div class="paragraph">
-<p>If you are working on a JIRA ticket, the "USfeature1" branch is named with the format [UserStory]/[ModuleName]_N_N_N_N. The UserStory, ModuleName, and N values are found in the JIRA ticket summary field. Reference [Development Deployment Branches] for details.</p>
-</div>
-</td>
-</tr>
-</table>
-</div>
-</div>
-<div class="sect3">
-<h4 id="truemerging-a-feature-branch"><a class="anchor" href="#truemerging-a-feature-branch"></a>Merging a feature branch</h4>
-<div class="paragraph">
-<p>Finished feature branches must be merged into the develop branch in order to add them to the upcoming release. This is done by Development Leads.</p>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-<div class="paragraph">
-<p>Developers can promote completed feature branches to Development lead repos or by promoting their feature branch to EM&amp;M GitHub organization controlled repos. Reference <code>git remote</code>  and <code>git push</code>  for details.</p>
-</div>
-</td>
-</tr>
-</table>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-asciidoc" data-lang="asciidoc">$ git checkout develop
-Switched to branch 'develop'
-$ git merge --no-ff USFeature1
-Merge made by the 'recursive' strategy.
- License    | 3 +++
- readme.txt | 2 ++
- test.rb    | 2 ++
- 3 files changed, 7 insertions(+)
-$ git branch -d USFeature1
-Deleted branch USFeature1 (was 6786061).
-$ git push origin develop
-(summary of change)
-$</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>The --no-ff flag causes the merge to always create a new commit object, even if the merge could be performed with a fast-forward. This avoids losing information about the historical existence of a feature branch. It groups together all commits that together added the feature.</p>
-</div>
-<div class="paragraph">
-<p>Always delete feature branches once that have been successfully merged into a main branch.</p>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-<div class="paragraph">
-<p>The following command can be to change the comment on the latest commit. Since the commment is part of the commit, a new commit is created with only the comment being changed.</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-asciidoc" data-lang="asciidoc">$ git commit --amend</code></pre>
-</div>
-</div>
-</td>
-</tr>
-</table>
-</div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="truedevelopment-deployment-branches"><a class="anchor" href="#truedevelopment-deployment-branches"></a>Development Deployment Branches</h3>
-<div class="paragraph">
-<p>In this organization, development work requirements are done with Rally User Stories. These User Stories are associated with JIRA tickets that are maintained in the JIRA CEMPCM project workflow. The title of JIRA tickets is maintained in the summary field of the JIRA ticket with the Rally User Story number and the module release identifier. The Development Deployment Branch is a feature branch named with the UserStory and module release identifier, basically the JIRA summary field. The Module name is the repo name or one of many repos related to a given Module. It format is:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>[ModuleName]_N_N_N_N</p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>The ModuleName format is as follows (Refer to the <a href="https://wiki.sys.comcast.net/display/CEMP/Module+Standards">EMM Module Standards</a> for details):</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>LOB - Line of Business (CFX, DATA, VIDEO, VOICE).</p>
-</li>
-<li>
-<p>Project - Examples include AUPM, EST, UID, CDV. (Project Level)</p>
-</li>
-<li>
-<p>Apptype - Examples include MED, CON, COLL, CABS. (Application Group level)</p>
-</li>
-<li>
-<p>Application - Examples include Pub. (Application level)</p>
-</li>
-</ul>
-</div>
-<div class="admonitionblock important">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-important" title="Important"></i>
-</td>
-<td class="content">
-<div class="paragraph">
-<p><strong>CVS to Git NOTES:</strong></p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>In the ModuleName the "_" is changed to the "-".</p>
-</li>
-<li>
-<p>The Product Line (Business Residential, one or the other or both) is being dropped.</p>
-</li>
-<li>
-<p>Modules are defined to a level where each module is a baseline deployment.</p>
-</li>
-</ul>
-</div>
-</td>
-</tr>
-</table>
-</div>
-<div class="paragraph">
-<p>The <a href="http://en.wikipedia.org/wiki/System_of_record">source of record</a> for requirements is Rally. The <strong>source of record</strong> for deployments is the JIRA CEMPCM tickets. The <strong>source of record</strong> for code and related documents are the EM&amp;M GitHub organization repositories.</p>
-</div>
-<div class="paragraph">
-<p>When developers work on and deliver EM&amp;M deployments for release outside of development to the QA, Integration, Staging, and Production environments, they do it with release-M.m branches.</p>
-</div>
-<div class="paragraph">
-<p>When the release-M.n branch is buildable and deployable to the development environment, it is merged with the EM&amp;M git system <strong>Develop</strong> branch. <strong>This is a requirement for future build and deployment automation. It is also important to a DevOps culture.</strong></p>
-</div>
-<div class="admonitionblock important">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-important" title="Important"></i>
-</td>
-<td class="content">
-<div class="paragraph">
-<p><strong>NOTE:</strong> Use <code>git log</code>  to verify the merged branch is identified. If not (didn&#8217;t use arguments --no-ff on fast-forward merge) use the following command:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-asciidoc" data-lang="asciidoc">git commit --amend</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>This needs to be done right after the <code>git merge</code>  to include the name of the Development Deployment Branch found in the JIRA summary field.</p>
-</div>
-</td>
-</tr>
-</table>
-</div>
-<div class="paragraph">
-<p>The format of the developer deployment branch name is <strong>[UserStory]/[ModuleName]_N_N_N_N</strong> where each "N" is a nummeric increment for Major, Minor, Dev, Test. EM&amp;M Intake system record numbers and Deployment branches are used to manage EM&amp;M deployments from development, to QA, Test, and Production environments. The <a href="https://wiki.sys.comcast.net/display/CEMP/JIRA+EM&amp;M+Workflow">EM&amp;M Workflow</a> describes how this is managed.</p>
-</div>
-<div class="paragraph">
-<p>The EM&amp;M Module Release Tag identifies a specific Deployment set that is developed, tested, and released to EM&amp;M QA, Test, and Production environments. Each number in the Module Release Tag has a specific meaning to identify specific set of elements in support of the EM&amp;M Workflow for design, development, test, deploy, and production deployment.</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><strong>Major</strong> - A numeric integer used when tagging a module. A major module identifier typically indicates no backward compatibility with previous decremented major values. MAJOR version numbers are designed to be incremented for every full release of the module.</p>
-</li>
-<li>
-<p><strong>Minor</strong> - A numeric integer that indicates a partial release to most recent MAJOR_MINOR release set. For example, release “2_22” would represent a delta that is added to release “2_21”. Dependency to the previous MINOR number with a common MAJOR version number is assumed. Any other dependencies are documented in the install or design documents by the developer.</p>
-</li>
-<li>
-<p><strong>DEV</strong> - Numeric increment for each version of the MAJOR_MINOR release delivered by EM&amp;M Development, initially set to “0” on first delivery of a Major_Minor identified module. If requirement change or development needs to deliver another version, this number is incremented, and the Test number is set to "0". Separate instructions from the install doc can be included with the build request for the QA environment. This would account for deltas that have changed since the QA install has already been done in the previous version.</p>
-</li>
-<li>
-<p><strong>Test</strong> - Numeric increment for each version of the MAJOR_MINOR_DEV release delivered by EM&amp;M Development, initially set to “0”.
-If EM&amp;M QA/Test drafts a defect for a MAJOR_MINOR_DEV_Test delivered and installed, the “Test” value is incremented by development for the next delivery addressing the defect. Separate instructions from the install doc can be included with the build request for the QA environment. This would account for deltas that have changed since the QA install has already been done in the previous version.</p>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect2">
-<h3 id="truerelease-branches"><a class="anchor" href="#truerelease-branches"></a>Release Branches</h3>
-<div class="listingblock">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-asciidoc" data-lang="asciidoc">Should branch off from: develop
-Must merge back into: develop and master
-Branch naming convention: release-[Major].[Minor]</code></pre>
-</div>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-<div class="paragraph">
-<p>Major and Minor as defined in the "Development Deployment Tags" section.</p>
-</div>
-</td>
-</tr>
-</table>
-</div>
-<div class="paragraph">
-<p>Release branches support preparation of a new production release. They allow for last-minute dotting of i’s and crossing t’s. Furthermore, they allow for minor bug fixes and preparing meta-data for a release (version number, build dates, etc.). By doing all of this work on a release branch, the develop branch is cleared to receive features for the next big release.</p>
-</div>
-<div class="paragraph">
-<p>Release branches are what QA defects are written against. This is why developer feature branches for release branches are named with the JIRA ticket [UserStory]/[Module Name]_N_N_N_N format.</p>
-</div>
-<div class="paragraph">
-<p>The key moment to branch off a new release branch from develop is when develop (almost) reflects the desired state of the new release. At least all features that are targeted for the release-to-be-built must be merged in to develop at this point in time. All features targeted at future releases may not---they must wait until after the release branch is branched off.</p>
-</div>
-<div class="paragraph">
-<p>At the start of a release branch that the upcoming release gets assigned a version number based on the Major Minor values of the Development Deployment Tag acquired from the EM&amp;M JIRA ticket. After the release branch is established the develop branch can now be updated with the next release.</p>
-</div>
-<div class="paragraph">
-<p>When merging a release branch into the development branch, it must be coordinated with the assigned development lead. When merging a release branch into the master branch, it is performed by the Configuration Management team, coordinated with the affected development leads, and coordinated with the EM&amp;M release team and Comcast National Change Management (NCM) via an NCM CM and a EM&amp;M "Go No Go" meeting.</p>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-<div class="ulist">
-<ul>
-<li>
-<p>The EM&amp;M Tower DevLead establishes these branches on the EM&amp;M GitHub organization repos making them available for developers to branch from.</p>
-</li>
-<li>
-<p>When developers branch from these release branches, their feature branch should be named according to the JIRA ticket [UserStory]/[module name]_N_N_N_N format.</p>
-</li>
-<li>
-<p>Developers merge the <strong>develop</strong> and <strong>master</strong> (and any other current release and/or hotfix) branches to their release feature branch before pushing these branches to the appropriate EM&amp;M GitHub organization repo.</p>
-</li>
-<li>
-<p>The EM&amp;M Tower DevLead merges developer prepared release feature branches to existing release branches.</p>
-</li>
-<li>
-<p>The EM&amp;M CM Team merges the release branches to the <strong>master</strong> as releases are deployed and verified to production.</p>
-</li>
-<li>
-<p>The EM&amp;M CM Team creates module repo tags (vM.m) after the deployment is verified in production.</p>
-</li>
-<li>
-<p>The development teams coordinates merging the release branch with the <strong>develop</strong> branch using comments in the associated JIRA ticket.</p>
-</li>
-</ul>
-</div>
-</td>
-</tr>
-</table>
-</div>
-<div class="sect3">
-<h4 id="truecreating-a-release-branch"><a class="anchor" href="#truecreating-a-release-branch"></a>Creating a release branch</h4>
-<div class="paragraph">
-<p>Release branches are created from the develop branch by the EM&amp;M Tower DevLeads. For example, say version 1.1.HF5 is the current production release and we have a big release coming up. The state of develop is ready for release-1.2 as indicated by the M.m increments in the JIRA summary field.</p>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-<div class="paragraph">
-<p>Optionally at the discretion of Project Management and Development, this could have ben release-2.0.</p>
-</div>
-</td>
-</tr>
-</table>
-</div>
-<div class="paragraph">
-<p>So the DevLead branches off the development branch and gives the release branch a name reflecting the new version number as indicated in the JIRA ticket:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-asciidoc" data-lang="asciidoc">$ git checkout -b release-1.2 develop
-Switched to a new branch "release-1.2"
-$ ./bump-version.sh 1.2
-Files modified successfully, version bumped to 1.2.
-$ git commit -a -m "Bumped version number to 1.2"
-[release-1.2 74d9424] Bumped version number to 1.2
-1 files changed, 1 insertions(+), 1 deletions(-)
-$</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>After creating a new branch and switching to it, we bump the branch flag in the CHANGELOG. Here, bump-version.sh is a fictional shell script that changes some files in the working copy to reflect the new version. (This can of course be a manual change---the point being that some files change.) In this organization, this is done in the CHANGELOG file. Version numbers are established prior to development efforts and coordinated with the JIRA ticket. The bumped branch flag in the CHANGELOG is committed.</p>
-</div>
-<div class="paragraph">
-<p>This new branch may exist there for a while, until the release is rolled out in the Production Environment. During that time, bug fixes may be committed to feature branches that are merged into in this release branch (as well as the develop branch).</p>
-</div>
-<div class="admonitionblock important">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-important" title="Important"></i>
-</td>
-<td class="content">
-<div class="paragraph">
-<p>Adding large new features here is strictly prohibited. They must be merged into the develop branch, and therefore, wait for the next scheduled release.</p>
-</div>
-</td>
-</tr>
-</table>
-</div>
-</div>
-<div class="sect3">
-<h4 id="truemerging-a-release-branch"><a class="anchor" href="#truemerging-a-release-branch"></a>Merging a release branch</h4>
-<div class="ulist">
-<div class="title">When the state of the release branch is ready to become a real release and has been installed and verified in production, the following actions are carried out.</div>
-<ul>
-<li>
-<p>First, the release branch is tagged with the appropriate vM.m tag merged into master, since every commit on master is a new release by definition. This is done by the EM&amp;M CM team when closing a National Change Management release.</p>
-</li>
-<li>
-<p>Then the changes made on the release branch need to be merged back into the develop branch so that future releases will also contain any applied bug fixes. This is managed by the EM&amp;M Tower DevLeads.</p>
-</li>
-<li>
-<p>This verification is recorded for future reference purposes in the appropriate JIRA delivery and Release tickets. When the Release is complete, the JIRA release ticket is referenced on the #emm-devops slack channel with a release completion announcement.</p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p><strong>The first two steps:</strong></p>
-</div>
-<div class="paragraph">
-<p><strong>Tag</strong></p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-asciidoc" data-lang="asciidoc">$ git checkout release-1.2
-git tag -a v1.2 -m 'Released to Production, verfied 26/Mar/17 9:09 AM. CEMPCM-1234'
-git push origin v1.2</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p><strong>Merge to master</strong></p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-asciidoc" data-lang="asciidoc">$ git checkout master
-Switched to branch 'master'
-$ git merge --no-ff release-1.2
-Merge made by the 'recursive' strategy.
- License    | 3 +++
- readme.txt | 2 ++
- test.rb    | 2 ++
- 3 files changed, 7 insertions(+)
-$</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p><strong>Push to GitHub</strong></p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-asciidoc" data-lang="asciidoc">git push
-git push origin v1.2</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>The above commands are executed by the CM team after verifying the associated JIRA tag as been updated for the production deployment by the EM&amp;M Tower DevOps team and verified in production by the developer. The tag comment is constructed with the JIRA ticket for future reference. This reference in turn provides all Change Record and Release Management references into JIRA and Rally.</p>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-<div class="paragraph">
-<p>If you need to remove a tag for any reason in the EM&amp;M Git System here are the commands:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-java" data-lang="java">git tag -d 12345
-git push origin :refs/tags/12345</code></pre>
-</div>
-</div>
-</td>
-</tr>
-</table>
-</div>
-<div class="paragraph">
-<p>The release is now done, and tagged for future reference.
-Edit: You might as well want to use the -s or -u &lt;key&gt; flags to sign your tag cryptographically.</p>
-</div>
-<div class="paragraph">
-<p>To keep the changes made in the release branch, we need to merge those back into the develop branch:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-asciidoc" data-lang="asciidoc">$ git checkout develop
-Switched to branch 'develop'
-$ git merge --no-ff release-1.2
-Merge made by recursive.
-(Summary of changes)
-$</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>This step may well lead to a merge conflict. If so, the Tower DevLead coordinates with development to fix and commit any merge conflicts found. This coordination between DevLeads and the development team is documented with comments in the associated JIRA ticket.</p>
-</div>
-<div class="paragraph">
-<p>The release is now done and the release branch may be removed:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-asciidoc" data-lang="asciidoc">$ git branch -d release-1.2
-Deleted branch release-1.2 (was 41a3f00).
-$</code></pre>
-</div>
-</div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="truehotfix-branches"><a class="anchor" href="#truehotfix-branches"></a>Hotfix Branches</h3>
-<div class="listingblock">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-asciidoc" data-lang="asciidoc">Should branch off from: master
-Must merge back into: develop and master
-Branch naming convention: hotfix-\[Major\].\[Minor\].\[HF#\]</code></pre>
-</div>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>If there is an active, in-progress release branch, merging should be considered depending on current state of major branches.</p>
-</li>
-<li>
-<p>HF# - HotFix number. The "#" increments for each hotfix of a given Major.Minor release.</p>
-</li>
-</ol>
-</div>
-</td>
-</tr>
-</table>
-</div>
-<div class="paragraph">
-<p>Hotfix branches are very much like release branches in that they are also meant to prepare for a new production release, albeit unplanned. They arise from the necessity to act immediately upon an undesired state of a live production version. When a critical bug in a production version must be resolved immediately, a hotfix branch may be branched off from the corresponding tag on the master branch that marks the production version.</p>
-</div>
-<div class="admonitionblock important">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-important" title="Important"></i>
-</td>
-<td class="content">
-<div class="paragraph">
-<p>In the event of a LegacyProd-M.m master branch, the format of the Hotfix branch name is LP-hotfix-M.m.HF#.</p>
-</div>
-</td>
-</tr>
-</table>
-</div>
-<div class="paragraph">
-<p>The essence is that work of team members (on the develop branch) can continue, while another person is preparing a quick production fix.</p>
-</div>
-<div class="paragraph">
-<p>Hotfix branches can have QA defects written against them. This is why developer feature branches for hotfix branches are named with the JIRA ticket [UserStory]/[Module Name]_N_N_N_N format.</p>
-</div>
-<div class="paragraph">
-<p>When merging a hotfix branch into the development branch, it must be coordinated with the assigned development lead. When merging a hotfix branch into the master branch, it is performed by the Configuration Management team, coordinated with the affected development leads, and coordinated with the EM&amp;M release team and Comcast National Change Management (NCM) via a NCM CM and a EM&amp;M "Go No Go" meeting.  If there is a release branch in progress at the time the hotfix is merged into the master branch, the hotfix may also need to be merged into the release branch depending on the current release in progress circumstances.</p>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>The EM&amp;M Tower DevLead establishes these branches on the EM&amp;M GitHub organization repo making them available for developers to branch from.</p>
-</li>
-<li>
-<p>When developers branch from these hotfix branches, their feature branch should be named according to the JIRA ticket [UserStory]\[module name]_N_N_N_N format.</p>
-</li>
-<li>
-<p>Developers merge the <strong>develop</strong> and <strong>master</strong> (and any other current release and/or hotfix) branches to their hotfix feature branch before pushing these branches to the EM&amp;M GitHub organization repo.</p>
-</li>
-<li>
-<p>The EM&amp;M Tower DevLeads merge developer prepared hotfix feature branches to existing hotfix branches.</p>
-</li>
-<li>
-<p>The EM&amp;M CM Team merges the hotfix branches to the <strong>master</strong> after releases are deployed to production.</p>
-</li>
-<li>
-<p>The EM&amp;M CM Team creates module repo tags (vM.m) after the deployment is verified in production.</p>
-</li>
-<li>
-<p>The EM&amp;M development DevOps teams coordinate merging the hotfix branch with the <strong>develop</strong> branch using comments in the associated JIRA ticket.</p>
-</li>
-</ol>
-</div>
-</td>
-</tr>
-</table>
-</div>
-<div class="sect3">
-<h4 id="truecreating-the-hotfix-branch"><a class="anchor" href="#truecreating-the-hotfix-branch"></a>Creating the hotfix branch</h4>
-<div class="paragraph">
-<p>Hotfix branches are created from the master branch. For example, say version 1.2 is the current production release running live and causing troubles due to a severe bug. The changes on the develop branch are currently unstable or too far ahead of the current production release 1.2. We may then branch off a hotfix branch from the master branch and start fixing the problem:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-asciidoc" data-lang="asciidoc">$ git checkout -b hotfix-1.2-hf1 master
-Switched to a new branch "hotfix-1.2-HF1"
-$ ./bump-version.sh 1.2-HF1
-Files modified successfully, version bumped to 1.2-HF1.
-$ git commit -a -m "Bumped version number to 1.2-hf1"
-[hotfix-1.2-hf1 41e61bb] Bumped version number to 1.2-hf1
-1 files changed, 1 insertions(+), 1 deletions(-)
-$</code></pre>
-</div>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-<div class="paragraph">
-<p>LegacyProd-M.m hotfix branches naming convention is:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>LP-hotfix-M.m-HF1</p>
-</li>
-</ul>
-</div>
-</td>
-</tr>
-</table>
-</div>
-<div class="paragraph">
-<p>Don’t forget to bump the version number after branching off!</p>
-</div>
-<div class="paragraph">
-<p>Then, fix the bug and commit the fix in one or more separate commits.</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-asciidoc" data-lang="asciidoc">$ git commit -m "Fixed severe production problem(hotfix-1.2-HF1)"
-[hotfix-1.2-HF1 cd3ebfe] Fixed severe production problem(hotfix-1.2-HF1)
- 1 file changed, 1 insertion(+)
-$</code></pre>
-</div>
-</div>
-</div>
-<div class="sect3">
-<h4 id="truemerging-the-hotfix-branch"><a class="anchor" href="#truemerging-the-hotfix-branch"></a>Merging the hotfix branch</h4>
-<div class="paragraph">
-<p>When finished, the bugfix needs to be merged back into the <strong>master</strong> branch, but also needs to be merged back into the develop branch. This ensures the bugfix is included in the next release. This is completely similar to how release branches are finished.</p>
-</div>
-<div class="admonitionblock important">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-important" title="Important"></i>
-</td>
-<td class="content">
-<div class="paragraph">
-<p>The procedure followed for merging LP-hotfix-M.m branches are nearly the same. LegacyProd hotfix updates will most likely not be merged into the develop branch unless deemed necessary.</p>
-</div>
-</td>
-</tr>
-</table>
-</div>
-<div class="paragraph">
-<p>First, tag the release and update master branch.</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-asciidoc" data-lang="asciidoc">$ get checkout hotfix-1.2-HF1
-$ git tag -a v1.2.HF1 -m "Released to Production, verfied 25/Mar/15 9:09 PM. CEMPCM-1234"
-$ git checkout master
-Switched to branch 'master'
-$ git merge --no-ff hotfix-1.2-HF1
-Merge made by the 'recursive' strategy.
- License | 1 +
- 1 file changed, 1 insertion(+)
-$ git push
-$ git push origin v1.2.HF1
-$</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>Edit: You might as well want to use the \-s or \-u &lt;key&gt; flags to sign your tag cryptographically.</p>
-</div>
-<div class="paragraph">
-<p>Next, include the bugfix in develop, too:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-asciidoc" data-lang="asciidoc">$ git checkout develop
-Switched to branch 'develop'
-$ git merge --no-ff hotfix-1.2-HF1
-Merge made by the 'recursive' strategy.
- License | 1 +
- 1 file changed, 1 insertion(+)
-$</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>The one exception to the rule here is that, when a release branch currently exists, the hotfix changes need to be merged into that release branch, instead of the develop branch. Back-merging the bugfix into the release branch will eventually result in the bugfix being merged into develop too, when the release branch is finished. (If work in the develop branch requires this bugfix and cannot wait for the release branch to be finished, you can merge the bugfix into the develop branch immediately.)</p>
-</div>
-<div class="paragraph">
-<p>Finally, remove the temporary branch:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-asciidoc" data-lang="asciidoc">$ git branch -d hotfix-1.2-HF1
-Deleted branch hotfix-1.2.1 (was cd3ebfe).
-$</code></pre>
-</div>
-</div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="truechange-tracking"><a class="anchor" href="#truechange-tracking"></a>Change Tracking</h3>
-<div class="paragraph">
-<p>In order to track and management change for the EM&amp;M Organization, the following elements are used <em>end to end</em> in the EMM Change Management process.</p>
-</div>
-<div class="sect3">
-<h4 id="truerelease-tag"><a class="anchor" href="#truerelease-tag"></a>Release Tag</h4>
-<div class="paragraph">
-<p>Release and HotFix branches are tagged at the time they are deployed to production and merged with the master branch for future historical reference purposes. These tags are used to identify Repo Releases made to Production Environments managed with the EMM Git System.</p>
-</div>
-<div class="paragraph">
-<p>The components of the Release Tags are as follows:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-asciidoc" data-lang="asciidoc">vM.m - version, Major, Minor</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>Since the <strong>ModuleName</strong> and the repo name are synonymous and this tag is stored at the repo level, the release tag starts with a "v" indicating version of the repo.</p>
-</div>
-<div class="paragraph">
-<p><strong>Major</strong> - A numeric integer used when tagging a release. A major release identifier typically indicates no backward compatibility with previous decremented major values. MAJOR version numbers are designed to be incremented for identified full release.</p>
-</div>
-<div class="paragraph">
-<p><strong>Minor</strong> - A numeric integer used when tagging a minor release. A minor release identifier typically indicates backward compatibility with previous decremented minor values. MINOR version numbers are designed to be incremented for identified minor releases.</p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="truehotfix-release-tag"><a class="anchor" href="#truehotfix-release-tag"></a>HotFix Release Tag</h4>
-<div class="paragraph">
-<p>The format is the same as the Release Tag with a "-HF#" Added to indicate a HotFix has been applied. The # is incremented for each HotFix applied to a given Release Tag.</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-asciidoc" data-lang="asciidoc">vM.m-HF#</code></pre>
-</div>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-<div class="paragraph">
-<p>A release tag composed of Major.Minor with no HotFix number indicates no HotFix has been applied.</p>
-</div>
-</td>
-</tr>
-</table>
-</div>
-</div>
-<div class="sect3">
-<h4 id="truemodule-release-id"><a class="anchor" href="#truemodule-release-id"></a>Module Release ID</h4>
-<div class="listingblock">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-asciidoc" data-lang="asciidoc">LOB-Project-AppType-Application_M_m_DevCount_QACount</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>This identifies a specific development delivery as it is managed through the <a href="https://wiki.sys.comcast.net/display/CEMP/JIRA+EM&amp;M+Workflow#WorkFlow+Phases+by+Status+and+Process">EM&amp;M Deployment Workflow</a>.</p>
-</div>
-<div class="paragraph">
-<p>The Rally User Story and Module Release ID for a given development/deployment effort are listed in the JIRA CEMPCM project ticket (issue) summary field.</p>
-</div>
-<div class="paragraph">
-<p>The DevCount is incremented for each development delivery for QA deployment for the following development initiated changes. Examples include:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>Requirement Changes</p>
-</li>
-<li>
-<p>Changes made by development not related to any QA defects</p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>The QACount is incremented for each development delivery for QA deployments that addresses any changes for installation, environment deployment issues, or functional issues encountered by CM, operations, or QA on previous development deliveries that have not been deployed to production environments.</p>
-</div>
-<div class="paragraph">
-<p>Once a build/deployment in the QA environment is Certified by QA, the <em>Module Release ID</em> is normally associated with the greatest Build Number (reference Build ID).</p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="truebuild-id"><a class="anchor" href="#truebuild-id"></a>Build ID</h4>
-<div class="paragraph">
-<p>The Build ID is used to identify a specific set of deployable elements in the Artifactory system. It is composed of:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>The Module (or repo) name,</p>
-</li>
-<li>
-<p>following by the Major and Minor release numbers,</p>
-</li>
-<li>
-<p>Ending with the Build number as constructed by the EM&amp;M Build System.  (Shown as # below)</p>
-</li>
-</ul>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre>ModuleName_M.m.#</pre>
-</div>
-</div>
-<div class="paragraph">
-<p>The highest value <em>Build Number</em> is associated with the latest or most recent available build/deployment for a give ModuleName_M.m release. This is what the Release Tag is associated to.</p>
-</div>
-<div class="paragraph">
-<p>Refer to the following document sections for more details on Change Tracking:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><a href="https://wiki.sys.comcast.net/display/CEMP/Version+Management+Implementation#VersionManagementImplementation-ModuleDeploymentPolicy">Module Deployment Policy</a></p>
-</li>
-<li>
-<p><a href="https://wiki.sys.comcast.net/display/CEMP/Version+Management+Implementation#VersionManagementImplementation-CHANGELOG">CHANGELOG</a></p>
-</li>
-<li>
-<p><a href="https://wiki.sys.comcast.net/pages/viewpage.action?pageId=227392710#EM%26MGitUsersGuide-DevelopmentDeploymentBranches">Development Deployment Branches</a></p>
-</li>
-</ul>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="truequick-references"><a class="anchor" href="#truequick-references"></a>Quick References</h2>
-<div class="sectionbody">
-<div class="sect2">
-<h3 id="trueuseful-command-syntax"><a class="anchor" href="#trueuseful-command-syntax"></a>Useful Command Syntax</h3>
-<div class="paragraph">
-<p>After "git fetch origin", shows difference between master branch and branch on emm-git repository (origin).</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-asciidoc" data-lang="asciidoc">git diff master origin/master</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>Report representation of current repo. (May need to send to tmp file to see full report - &gt;&gt; tmp.txt)</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-asciidoc" data-lang="asciidoc">git log --pretty=oneline --graph --decorate</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>Visual representation of current repo.</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-asciidoc" data-lang="asciidoc">gitk</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>h3. Cheat Sheets</p>
-</div>
+<h3 id="truecheat-sheets"><a class="anchor" href="#truecheat-sheets"></a>Cheat Sheets</h3>
 <div class="paragraph">
 <p>Following are "Cheat Sheets" of tools you will use often in this environment:</p>
 </div>
@@ -2449,11 +1581,9 @@ $</code></pre>
 </div>
 </div>
 </div>
-</div>
-</div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2019-01-21 09:05:18 MST
+Last updated 2019-01-26 15:05:15 MST
 </div>
 </div>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.9.1/styles/github.min.css">
