@@ -201,3 +201,4 @@ image::images/Development-WorkArea.png[]
 * https://reflectoring.io/github-fork-and-pull/[Fork & Pull Workflow] For git beginners
 * https://guides.github.com/activities/forking/[Forking Projects] – example using the https://github.com/octocat/Spoon-Knife[spoon-knife project]
 * https://www.youtube.com/playlist?list=PL0lo9MOBetEHhfG9vJzVCTiDYcbhAiEqL[GitHub and Git Foundations (YouTube)]
+* https://usersnap.com/blog/gitlab-github/[GitHub vrs GitLab]
