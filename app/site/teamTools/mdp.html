@@ -439,7 +439,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#truedevops-developer">DevOps Developer</a></li>
 <li><a href="#truecontinuous-integration-automated-process">Continuous Integration Automated Process</a></li>
 <li><a href="#truecontinuous-delivery-automated-process">Continuous Delivery Automated Process</a></li>
-<li><a href="#truefork-related-steps">Fork Related Steps</a></li>
+<li><a href="#truegitfork-related-steps">GitFork Related Steps</a></li>
 <li><a href="#truereferences">References</a></li>
 </ul>
 </div>
@@ -449,7 +449,54 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <h2 id="trueoverview"><a class="anchor" href="#trueoverview"></a>Overview</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>A <a href="https://en.wikipedia.org/wiki/Software_development_process">Software Development Process</a> captured from historical industry practices and evolving modern approaches.  It&#8217;s maintained as change is encountered and experienced in the IT industry.</p>
+<p>The Modern Development Process (MDP) is a <a href="https://en.wikipedia.org/wiki/Software_development_process">Software Development Process</a> captured from historical industry practices and evolving modern approaches.  It&#8217;s maintained as change is encountered and experienced in the IT industry.</p>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="ulist">
+<div class="title">Good "set the stage" references:</div>
+<ul>
+<li>
+<p><a href="https://www.infoworld.com/article/3230905/application-development/what-a-modern-development-organization-looks-like.html">What a modern development organization looks like</a></p>
+</li>
+<li>
+<p><a href="https://www.rainerhahnekamp.com/en/modern-software-development/">On Modern Software Development</a></p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="olist arabic">
+<div class="title">Notes:</div>
+<ol class="arabic">
+<li>
+<p>The first reference covers the <strong><em>current state of many organizations concepts and tool sets</em></strong>. (5 minute read)</p>
+</li>
+<li>
+<p>The second reference reviews <strong>past and current approaches</strong> of <strong><em>A Software Developers Job Description</em></strong>. (5 minute read)</p>
+</li>
+<li>
+<p>These references set the stage for this MDP document.</p>
+</li>
+</ol>
+</div>
+</td>
+</tr>
+</table>
 </div>
 <div class="ulist">
 <div class="title">The purpose of the MDP is to encourage and support developers by:</div>
@@ -460,6 +507,9 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li>
 <p>Identifying Automation separately from Development and Operations</p>
 </li>
+<li>
+<p>Encourage an MDP approach; more passive programming, less active programming</p>
+</li>
 </ul>
 </div>
 <div class="ulist">
@@ -469,13 +519,13 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <p>Get more value to the market quicker</p>
 </li>
 <li>
-<p>Reduce risk</p>
+<p>Reduce risk by addressing security from the start</p>
 </li>
 <li>
-<p>Empower developers with ability to present all possibilities</p>
+<p>Empower developers with ability to consider and present all possibilities</p>
 </li>
 <li>
-<p>Promote an environment where developers can support any dx group</p>
+<p>Promote an environment where developers can support any group within or outside the organization</p>
 </li>
 <li>
 <p>Identify, develop, and maintain “Best Practices”</p>
@@ -483,10 +533,42 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </ul>
 </div>
 <div class="paragraph">
-<p>This process utilizes the <a href="https://www.atlassian.com/git/tutorials/comparing-workflows/forking-workflow">GitFork Workflow</a> which is built on the <a href="https://datasift.github.io/gitflow/IntroducingGitFlow.html">GitFlow Workflow</a>.</p>
+<p>The primary workflow utilized by the MDP is the <a href="https://datasift.github.io/gitflow/IntroducingGitFlow.html">GitFlow Workflow</a>.</p>
 </div>
-<div class="paragraph">
-<p>This approach has been defined and proven in the open source development world.</p>
+<div class="olist arabic">
+<div class="title">The <a href="https://www.atlassian.com/git/tutorials/comparing-workflows/forking-workflow">GitFork Workflow</a>, which is built on the GitFlow workflow, is an additional development tool to:</div>
+<ol class="arabic">
+<li>
+<p>Promote developer contributions to outside open source projects or internal "other organization" projects</p>
+</li>
+<li>
+<p>Provide a backup capability to the contributor workstations</p>
+</li>
+<li>
+<p>Provides a safe environment for new-contributors to experiment with before acquiring "solution/code review" access</p>
+</li>
+<li>
+<p>Promoted by default configurations for GitHub and GitLab, primary examples of git bare repository management tools.</p>
+</li>
+</ol>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>This approach has been defined and exercised in the open source development world.</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
 </div>
 </div>
 </div>
@@ -559,7 +641,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <p>Project or repositories that are used by automated <strong><em>Continuous Integration</em></strong> are configured to promote code reviews and clean development baseline starting points. These are the repositories developers fork from.</p>
 </li>
 <li>
-<p>Developer forked repos can utilize CI and CD together to promote to a developer controlled environment. These type of pipelines are limited to a maximum set of versions in the <strong><em>Trusted Repository</em></strong> as they support development. Otherwise non-development pipelines end at the <strong><em>Trusted Repository</em></strong>.</p>
+<p>Developer local (workstation) repos can utilize CI and CD together to promote to a developer controlled environment. These type of pipelines are limited to a maximum set of versions in the <strong><em>Trusted Repository</em></strong> as they support development. Otherwise non-development pipelines end at the <strong><em>Trusted Repository</em></strong>.</p>
 </li>
 </ul>
 </div>
@@ -570,7 +652,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div class="sect2">
 <h3 id="truecontinuous-itegration"><a class="anchor" href="#truecontinuous-itegration"></a>Continuous Itegration</h3>
 <div class="paragraph">
-<p>An automated process that should be initiated at the completion of a <strong><em>git push</em></strong> to the primary (non-forked) GHE repository <strong><em>develop</em></strong> branch.</p>
+<p>An automated process that is initiated at the completion of a <strong><em>git push</em></strong> to the primary (non-forked) GHE repository <strong><em>develop</em></strong> branch.</p>
 </div>
 <div class="paragraph">
 <p>The build of this process enforces and verifys the <strong><em>Coding &amp; Usage Policies</em></strong>.</p>
@@ -579,13 +661,14 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div class="title">Provides tested deployment sets to the <strong><em>Trusted Repository</em></strong>:</div>
 <ul>
 <li>
-<p>All know tests, like code, are executed for every build prior to adding to Trusted Repo.</p>
-</li>
-<li>
-<p>This allows deployment environments, promoted to by <strong><em>Continuous Deliver</em></strong> to be focused on validation of new changes.</p>
+<p>All assembly, code building, and know tests, are executed for every build prior to adding to Trusted Repo.
+*</p>
 </li>
 <li>
 <p>Successful build identified with <a href="https://semver.org/">semantic versioning</a>.</p>
+</li>
+<li>
+<p>Unsuccessful build is reported back to the submitter</p>
 </li>
 </ul>
 </div>
@@ -596,13 +679,22 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-<div class="ulist">
-<div class="title">NOTE:</div>
-<ul>
+<div class="olist arabic">
+<div class="title">NOTES:</div>
+<ol class="arabic">
 <li>
-<p>Changes to this process are developed and tested in the <strong><em>Develop Changes</em></strong> process, subject to code reviews.</p>
+<p>Input changes to this process are developed and tested in the <strong><em>Develop Changes</em></strong> process, subject to code reviews.</p>
 </li>
-</ul>
+<li>
+<p>For the GitFork workflow a pull request initiates this</p>
+</li>
+<li>
+<p>For the GitFlow workflow, a feature branch push initiates this</p>
+</li>
+<li>
+<p>This allows deployment environments, promoted to by <strong><em>Continuous Deliver</em></strong> to be focused on validation of new changes.</p>
+</li>
+</ol>
 </div>
 </td>
 </tr>
@@ -637,7 +729,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div class="title">NOTE:</div>
 <ul>
 <li>
-<p><strong><em>Coding &amp; Usage Policies</em></strong> can report on and remove elements as required outside of the EMM DevOps Process.</p>
+<p><strong><em>Coding &amp; Usage Policies</em></strong> can report on and remove elements as required outside of the MDP DevOps Process.</p>
 </li>
 </ul>
 </div>
@@ -670,25 +762,34 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </div>
 </li>
 <li>
-<p>Fork from existing projects or repositories for full development freedom:</p>
+<p>For GitFlow workflow:
+**</p>
+</li>
+<li>
+<p>For GitFork workflow:</p>
 <div class="ulist">
 <ul>
+<li>
+<p>Fork from existing projects or repositories for development access to outside or "other group" repositories: (See reference section for related links)</p>
+</li>
 <li>
 <p>Forking Projects – (example using the spoon-knife project),</p>
 </li>
 <li>
 <p>Fork &amp; Pull Workflow (For git beginners)</p>
 </li>
-</ul>
-</div>
-</li>
 <li>
 <p>Clone from forked repo</p>
 </li>
 <li>
 <p>Create additional remote to non-forked repo</p>
-<div class="ulist">
-<ul>
+</li>
+<li>
+<p>All contributions are done with "Pull requests" rather than feature branches</p>
+</li>
+<li>
+<p>Automation starts when devlead complete code review and pushes to non-forked repo development branch.</p>
+</li>
 <li>
 <p>NOTE: Rebuild local repo often, daily to start</p>
 </li>
@@ -747,7 +848,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div class="title">The Continuous Integration process is:</div>
 <ul>
 <li>
-<p>Initiated by Developer with a repository push</p>
+<p>Initiated by Developer with a repository branch push</p>
 </li>
 <li>
 <p>Automatically verified with existing “Coding &amp; Usage Policies”</p>
@@ -835,35 +936,41 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </div>
 </div>
 <div class="sect1">
-<h2 id="truefork-related-steps"><a class="anchor" href="#truefork-related-steps"></a>Fork Related Steps</h2>
+<h2 id="truegitfork-related-steps"><a class="anchor" href="#truegitfork-related-steps"></a>GitFork Related Steps</h2>
 <div class="sectionbody">
+<div class="paragraph">
+<p>The GitFork workflow is an additional tool available to development when needed for the reasons mentioned in the Overview section.</p>
+</div>
+<div class="paragraph">
+<p>The following image identifies the steps specific to the GitFork workflow.</p>
+</div>
 <div class="imageblock">
 <div class="content">
 <img src="images/Development-WorkArea.png" alt="Development WorkArea.png">
 </div>
 </div>
-<div class="admonitionblock note">
+<div class="admonitionblock important">
 <table>
 <tr>
 <td class="icon">
-<i class="fa icon-note" title="Note"></i>
+<i class="fa icon-important" title="Important"></i>
 </td>
 <td class="content">
 <div class="ulist">
-<div class="title">NOTES:</div>
+<div class="title">Important:</div>
 <ul>
 <li>
-<p>Developers may have multiple instances of the above development environment depending on the projects/repos they support.</p>
+<p>Just like the GitFlow workflow, the ORG/repo is the starting point of automated Continuous Integration. For the GitFlow workflow, the feature branch is the delivery element.</p>
 </li>
 <li>
-<p>Code reviews initiated by contributing developers and managed by DevLeads are the gateway to controlled GHE repository updates and non-development CI initiation.</p>
+<p>Code reviews are initiated by contributing developers when they initiate "pull requests". These are managed by DevLeads. These are the gateway to controlled GitHub repository updates and non-development CI initiation.</p>
 </li>
 <li>
 <p>The use of forked repos only requires ready-only permission for contributing developers.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Executing the <a href="http://emmutl-ch2-1p.sys.comcast.net/git/EMM-GitInstallationProcedure.adoc.html">Install git</a> procedure is required for this.</p>
+<p>Executing the <a href="https://github.com/cmguy/CM-Plan-Site/blob/develop/app/site/git/GitInstallationProcedure.adoc">Install git</a> procedure is required for this.</p>
 </li>
 </ul>
 </div>
@@ -920,7 +1027,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2019-02-04 11:51:36 MST
+Last updated 2019-02-05 12:41:11 MST
 </div>
 </div>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.9.1/styles/github.min.css">

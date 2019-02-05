@@ -1,22 +1,47 @@
 :toc2:
 == Overview
 
-A https://en.wikipedia.org/wiki/Software_development_process[Software Development Process] captured from historical industry practices and evolving modern approaches.  It's maintained as change is encountered and experienced in the IT industry.
+The Modern Development Process (MDP) is a https://en.wikipedia.org/wiki/Software_development_process[Software Development Process] captured from historical industry practices and evolving modern approaches.  It's maintained as change is encountered and experienced in the IT industry.
+
+[IMPORTANT]
+====
+.Good "set the stage" references:
+* https://www.infoworld.com/article/3230905/application-development/what-a-modern-development-organization-looks-like.html[What a modern development organization looks like]
+* https://www.rainerhahnekamp.com/en/modern-software-development/[On Modern Software Development]
+====
+
+[NOTE]
+====
+.Notes:
+. The first reference covers the *__current state of many organizations concepts and tool sets__*. (5 minute read)
+. The second reference reviews *past and current approaches* of **__A Software Developers Job Description__**. (5 minute read)
+. These references set the stage for this MDP document.
+====
 
 .The purpose of the MDP is to encourage and support developers by:
 * Separating Development from Operations
 * Identifying Automation separately from Development and Operations
+* Encourage an MDP approach; more passive programming, less active programming
 
 .The goals of this process include:
 * Get more value to the market quicker
-* Reduce risk
-* Empower developers with ability to present all possibilities
-* Promote an environment where developers can support any dx group
+* Reduce risk by addressing security from the start
+* Empower developers with ability to consider and present all possibilities
+* Promote an environment where developers can support any group within or outside the organization
 * Identify, develop, and maintain “Best Practices”
 
-This process utilizes the https://www.atlassian.com/git/tutorials/comparing-workflows/forking-workflow[GitFork Workflow] which is built on the https://datasift.github.io/gitflow/IntroducingGitFlow.html[GitFlow Workflow].
+The primary workflow utilized by the MDP is the https://datasift.github.io/gitflow/IntroducingGitFlow.html[GitFlow Workflow].
 
-This approach has been defined and proven in the open source development world.
+.The https://www.atlassian.com/git/tutorials/comparing-workflows/forking-workflow[GitFork Workflow], which is built on the GitFlow workflow, is an additional development tool to:
+. Promote developer contributions to outside open source projects or internal "other organization" projects
+. Provide a backup capability to the contributor workstations
+. Provides a safe environment for new-contributors to experiment with before acquiring "solution/code review" access
+. Promoted by default configurations for GitHub and GitLab, primary examples of git bare repository management tools. 
+
+[NOTE]
+====
+* This approach has been defined and exercised in the open source development world.
+====
 
 == Context Diagram
 image::images/context-diagram.png[]
@@ -45,24 +70,28 @@ image::images/devops-process.png[]
 ** Up to date
 ** More secure
 * Project or repositories that are used by automated *_Continuous Integration_* are configured to promote code reviews and clean development baseline starting points. These are the repositories developers fork from.
-* Developer forked repos can utilize CI and CD together to promote to a developer controlled environment. These type of pipelines are limited to a maximum set of versions in the *__Trusted Repository__* as they support development. Otherwise non-development pipelines end at the *__Trusted Repository__*.
+* Developer local (workstation) repos can utilize CI and CD together to promote to a developer controlled environment. These type of pipelines are limited to a maximum set of versions in the *__Trusted Repository__* as they support development. Otherwise non-development pipelines end at the *__Trusted Repository__*.
 ====
 
 === Continuous Itegration
 
-An automated process that should be initiated at the completion of a *_git push_* to the primary (non-forked) GHE repository *_develop_* branch.
+An automated process that is initiated at the completion of a *_git push_* to the primary (non-forked) GHE repository *_develop_* branch.
 
 The build of this process enforces and verifys the *_Coding & Usage Policies_*.
 
 .Provides tested deployment sets to the *_Trusted Repository_*:
-* All know tests, like code, are executed for every build prior to adding to Trusted Repo.
-* This allows deployment environments, promoted to by *_Continuous Deliver_* to be focused on validation of new changes.
+* All assembly, code building, and know tests, are executed for every build prior to adding to Trusted Repo.
+* 
 * Successful build identified with https://semver.org/[semantic versioning].
+* Unsuccessful build is reported back to the submitter
 
 [NOTE]
 ====
-.NOTE:
-* Changes to this process are developed and tested in the *_Develop Changes_* process, subject to code reviews.
+.NOTES:
+. Input changes to this process are developed and tested in the *_Develop Changes_* process, subject to code reviews.
+. For the GitFork workflow a pull request initiates this
+. For the GitFlow workflow, a feature branch push initiates this
+. This allows deployment environments, promoted to by *_Continuous Deliver_* to be focused on validation of new changes.
 ====
 
 === Trusted Repository
@@ -80,7 +109,7 @@ Provides deployments from the *_Trusted Repository_* for argument selected envir
 [NOTE]
 ====
 .NOTE:
-* *_Coding & Usage Policies_* can report on and remove elements as required outside of the EMM DevOps Process.
+* *_Coding & Usage Policies_* can report on and remove elements as required outside of the MDP DevOps Process.
 ====
 
 == DevOps Developer
@@ -89,11 +118,17 @@ image::images/devops-developer.png[]
 .For given “asks”, developer looks for and/or develops working solutions
 * Identify/Establish repository or repo:
 ** From Public Repository or Team Repository or create new (Team repos available to CI process)
-* Fork from existing projects or repositories for full development freedom:
+* For GitFlow workflow:
+** 
+* For GitFork workflow:
+** Fork from existing projects or repositories for development access to outside or "other group" repositories: (See reference section for related links)
 ** Forking Projects – (example using the spoon-knife project),
 ** Fork & Pull Workflow (For git beginners) 
-* Clone from forked repo
-* Create additional remote to non-forked repo
+** Clone from forked repo
+** Create additional remote to non-forked repo
+** All contributions are done with "Pull requests" rather than feature branches
+** Automation starts when devlead complete code review and pushes to non-forked repo development branch.
+
 ** NOTE: Rebuild local repo often, daily to start
 * Verify Coding & Usage Policies:
 ** Report variance to customers
@@ -108,7 +143,7 @@ image::images/devops-developer.png[]
 image::images/ci-automated-process.png[]
 
 .The Continuous Integration process is:
-* Initiated by Developer with a repository push
+* Initiated by Developer with a repository branch push
 * Automatically verified with existing “Coding & Usage Policies”
 * Automatic Build
 * Automatic Testing
@@ -139,17 +174,21 @@ image::images/CD-automated-process.png[]
 *_Coding & Usage Policies_* verification reporting is run against all "deployed to" environments on a regular basis.
 ====
 
-== Fork Related Steps
+== GitFork Related Steps
+
+The GitFork workflow is an additional tool available to development when needed for the reasons mentioned in the Overview section.
+
+The following image identifies the steps specific to the GitFork workflow.
 
 image::images/Development-WorkArea.png[]
 
-[NOTE]
+[IMPORTANT]
 ====
-.NOTES:
-* Developers may have multiple instances of the above development environment depending on the projects/repos they support.
-* Code reviews initiated by contributing developers and managed by DevLeads are the gateway to controlled GHE repository updates and non-development CI initiation. 
+.Important:
+* Just like the GitFlow workflow, the ORG/repo is the starting point of automated Continuous Integration. For the GitFlow workflow, the feature branch is the delivery element.
+* Code reviews are initiated by contributing developers when they initiate "pull requests". These are managed by DevLeads. These are the gateway to controlled GitHub repository updates and non-development CI initiation. 
 * The use of forked repos only requires ready-only permission for contributing developers.
-** Executing the http://emmutl-ch2-1p.sys.comcast.net/git/EMM-GitInstallationProcedure.adoc.html[Install git] procedure is required for this.
+** Executing the https://github.com/cmguy/CM-Plan-Site/blob/develop/app/site/git/GitInstallationProcedure.adoc[Install git] procedure is required for this.
 * The Develop Changes process is separate from:
 ** Automation:
 *** CI
