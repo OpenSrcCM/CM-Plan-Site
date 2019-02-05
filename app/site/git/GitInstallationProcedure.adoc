@@ -43,7 +43,7 @@ toc::[left]
 
 == Upgrade Git
 
-follow the same steps for installating Git. It is designed to install over an existing installation. Note the expected version release change after you are done.
+Follow the same steps for installating Git. It is designed to install over an existing installation. Note the expected version release change after you are done.
 
 === Initial git Configurations
 
