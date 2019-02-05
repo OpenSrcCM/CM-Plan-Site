@@ -41,28 +41,26 @@ This rest of this overview section covers the following:
 
 = Prerequisites
 
-Refer to company on-boarding documentation.
+You will need to install git to your workstation. Reference https://git-scm.com/[git-scm] for details.
 
 == Notes
 
-. Identify Module/Repo naming standards
-. You will need Write permission to be able to `Git push` to the remote (GitHub repo) *master*, *hotfix*, *release*, or *develop* branches. If you incorporate GitHub fork functionality, you can use GitHub "pull request" functionality with your team. Check with your development lead for more details on this.
-. Code reviews are required for all merges to develop and master branches. This is done with the *New pull request* button on the GitHub repository home page.
-. You must be a *developer lead* to `Git push`  to the remote GitHub repo *develop* and *master* branches.
-. Note that a git tag that starts with *v[0-9]* is reserved for EM&M Production Releases. Reference the Release Branches section of this guide for details.
+. Identify Module/Repo naming standards for your team
+. For the GitFlow workflow, you will need Write permission to be able to `Git push` to the remote (GitHub repo) *master*, *hotfix*, *release*, or *develop* branches. If you incorporate GitHub fork functionality, you can use GitHub "pull request" functionality with your team.
+. Code reviews are required for all merges to develop and master branches. This can be done with the *New pull request* button on the GitHub repository home page.
 . For any git command, you can enter git [_command_] -h for command specific documentation.
-. EM&M GitHub organization repo branch and tag access rules are configured and maintained at the GitHub organization level. Check with your EM&M Tower for details.
+
 . Can't _git checkout_ to a new or different branch? Reference http://git-scm.com/book/en/v2/Git-Tools-Stashing-and-Cleaning[Stashing and Cleaning].
 . Use *gitk* on your window git bash session for a good GUI of your current _**local**_ repo branching and merging picture.
 
 = General Session
 
-As development and unit testing occurs, most interaction with git will be through your local git repo on an isolated branch. The only times you will interact with the GitHub organizations will be when you:
+As development and unit testing occurs, most interaction with git will be through your local git repo on an isolated branch. You will interact with the GitHub when:
 
-. Request a new repo for addition to the Enterprise GitHub organization.
-. GitHub fork a repo from the GitHub organization to your github profile. Then "git clone" that repo to your workstation.
-.. Add an additional "git remote" to your cloned repo for the organization repo you forked from.
-.. Write permissions on the organization repo is limited to support code reviews and CI/CD automation. 
+. Setting up a new repo in GitHub.
+. Forking a repo on the GitHub interface prior to using "git clone" to copy to your workstation.
+.. Be sure to add an additional "git remote" to your cloned repo for the repo you forked from.
+. Write permissions on the repo your forked from will be limited.
 . Using the git pull and push commands to your GitHub forked repos and repos you forked from.
 
 Before you do any `git commit` on your local git repo, you need to:
@@ -83,7 +81,7 @@ Before using git locally on your system, you'll need to logon to your GitHub pro
 
 image::images/github-profile.png[]
 
-Fork the selected repo into your local github profile:
+You can Fork the selected repo into your github account:
 
 image::images/github-fork.png[]
 
@@ -91,13 +89,11 @@ image::images/github-fork.png[]
 
 Now you have a profile repo forked to your local profile. You will deliver your updates to this repo after you worked and tested them on the workstation repo you cloned from this repo. If you have Write permissions on the organization repo, you can clone directly from the organization repo and deliver there.
 
-image::images/github-profile-repo.png[]
+== Using Git Bash:
 
 It is helpful to understand several Git _**command line**_ options before using the Git GUI. Following are examples of initial Git functionality using both the Git Bash and Git GUI tools. Enter "git help" on the git bash command line for and introduction to git commands you will be using. Following are a few examples to get you started.
 
 Establish a Local Git cloned Repo, add remote for the GitHub Enterprise (ghe) profile repo you established previously:
-
-== Using Git Bash:
 
 image::images/GitBash.png[]
 
@@ -219,25 +215,9 @@ Now that you have confirmed your new changes do not conflict with any [main bran
 This document refers to Git "Porcelain" commands that are build on the Git "Plumbing" commands. Reference http://git-scm.com/book/en/Git-Internals-Plumbing-and-Porcelain[Git Internals - Plumbing and Porcelain] for details.
 ====
 
-== EM&M Modules in GitHub
+== GitHub Access Functionality
 
-In this organization, a Git repository *Module Name* consists of the following elements:
-
-* *LOB* - Line of Business, one of CFX, DATA, VOICE, and VIDEO
-* *Project* - Examples include AccountManagement, ADOPTOUT, AMDOCSOUT, ASTRO, AuditService, AUPM, AutoGen, BEACON, BlockingService, BPM, CANOE, CDV, CEMP, CIMCO, CLK, CloudUI, CMS, COLUMBUS, ContractAutomation, CPORTAL, CSG, CustMove, CycleChange, DDS, EEG, EEP, EEPBill, EMARS, EM&M, EST, FRAUD, HSD, HSI, IMS, ITV, JANUS, LCR, LDC, LEGAL, MANILA, NASR, NGT, ODS, OSM, PREPAID, RAZOR, SAP, SAVILLE, SDV, TVE, UES, UID, VAPI, VCME, VGD, VODGift, WaterMark, WHOLESALE, WIFI, WLS, XTM
-* *AppType* - The type or class of application. Examples include SYS, MED, DIST, COLL, etc.
-* *Application* - The name of the application. Examples include Git, OraBPM, Jenkins, Artifactory, etc.
-
-[IMPORTANT]
-====
-* The *LOB* and *Project* values are required. 
-* The *AppType* and *Application* provide further clarity and relationship indications such as dependencies.
-====
-
-
-== EM&M Git Functionality
-
-EM&M uses the https://github.comcast.com/[Comcast Enterprise GitHub] system. GitHub is a http://www.saintsjd.com/2011/01/what-is-a-bare-git-repository/[bare git repository] implementation. The protocols established to transfer data between EM&M workstation git repos and the GitHub organizations repos established for EM&M Towers are:
+The https://github.com/[GitHub] system is a http://www.saintsjd.com/2011/01/what-is-a-bare-git-repository/[bare git repository] management system. The protocols established to transfer data between your workstation git repos and the GitHub are:
 
 * Dumb HTTP for read-only access via the GitHub website,
 * Secure Shell (SSH) for read-write access.
@@ -246,137 +226,25 @@ Refer to https://git-scm.com/book/en/v2/Git-on-the-Server-The-Protocols[The Prot
 
 [NOTE]
 ====
-The Git protocol is not used due to it's lack of authentication.
+It is recommended you configure and use ssh for better security.
 ====
 
-In order to execute the procedures in this section, you need have addressed all requirements in the _Prerequisites_ section in Chapter 1, the *Users Guide* of this manual.
+In order to execute the procedures in this section, you need have addressed all requirements in the _Prerequisites_ section.
 
-== Request new repos for an EM&M GitHub Organization
-
-The format of the Git module/repo name is as follows. Refer to the _EM&M Module Name_ section of the https://wiki.sys.comcast.net/display/EMM/Module+Standards[Module Standards] for details.
-
-* *LOB-Project-AppType-Application*
-
-.The EM&M organizations are been split into Towers. GitHub organizations have been configured based on EM&M. You'll also need to identify the GitHub tower to build this new repo in.  Your choices are as followings:
-* EMM  _(Cross functional across all EMM towers)_
-* EMM-Data
-* EMM-ClickStream
-* EMM-Prepaid
-* EMM-Video
-* EMM-Voice
-
-Following the repo naming convention, Create a CM Team request ticket as follows:
-
-This request is handled with an EM&M CM Team Support ticket as follows: (Address fields indicated below **ONLY**.)
-
-. https://tpx.sys.comcast.net/secure/CreateIssue!default.jspa[dx Triple Play Tooling (TPT)]
-.. Issue Type: Support
-.. Click on Next button
-.. Summary enter "Create New Repository" 
-.. Add Watchers Robert Sell and Andrew Wallace 
-.. EPIC Link: Operational request & support 2018
-.. Description: Enter following modified for your request:
-[source,asciidoc]
-----
-Create the following new Git repo/module(s).  The DevLead is FirstName LastName, userid NTLogon, unless otherwise indicated below with repo name:
-
-LOB-Project-AppType-Application  (repeat this line as needed)
-
-Build this new repo in GitHub organization (Choose from above list).
-----
-To open Ticket, Select *Create* button at bottom.
-
-[NOTE]
-====
-These tickets are processed per CM Team priorities in order received.
-====
-
-== Change EM&M GitHub Organization Access
-
-This can be done by your Tower leadership, specifically your devlead.
-
-[TIP]
-====
-You can use Windows Explorer local to your ~/.ssh to attach your public key to the email.
-====
-
-[NOTE]
-====
-Sharing of repo branches in established EM&M GitHub profile repos is probably the easiest way for developers to share code.
-====
-
-== Copy an EM&M GitHub repo to your workstation
-
-Copy an EM&M GitHub head of the default *master* branch to your local workstation.
-
-Reference https://git-scm.com/docs/git-clone[git clone] or `git clone -h` for details.
-[source,asciidoc]
-----
- $ git clone cghi:[EMM org/][repo name]
-----
-Copy an EM&M GitHub repo to your workstation with workfiles set to the head of a given branch.
-[source,asciidoc]
----- 
-$ git clone -b [branch name] cghi:[EMM org/][repo name]
----- 
-
-== Update local repo from the EM&M GitHub repo
-
-Review http://gitref.org/remotes/[Sharing and Updating projects].
- 
-Reference `git fetch -h` or https://git-scm.com/docs/git-fetch[git fetch] for details.
-[source,asciidoc]
-----
-$ git fetch
-----
-
-Reference `Git pull -h` or https://git-scm.com/docs/git-pull[git pull] for details. 
-[WARNING]
-====
-this is a `git fetch` followed by a `git merge`.
-====
-[source,asciidoc]
-----
-$ git pull
-
-----
-
-== Update the GitHub repo from local repo
-
-Push the branch head (latest `git commit`) of a new Git branch in the local Git repo on your workstation to the appropriate EM&M GitHub organization repo. The argument "--set-upstream" is required to initiate a new branch on the EM&M GitHub organization repo. 
-[WARNING]
-====
-You must be a devlead to execute this command on the develop branch
-====
-[source,asciidoc]
-----
-$ git push --set-upstream origin [branch name]
-----
-Push the current branch head (latest `git commit`) in the local Git repo on your workstation to the EM&M GitHub organization repo.
-[NOTE]
-====
-Requires local repo to have been setup with an origin remote that has *write* authority on the EM&M GitHub organization repo.
-====
-[source,asciidoc]
-----
-$ git push 
-----
 
 = Is this your First Git push?
 
-Before executing a `git push` for a given EM&M GitHub organization repo, the following questions should help if you are having problems:
+Before executing a `git push` for a given GitHub repo, the following questions should help if you are having problems:
 
 . Did you Review http://git-scm.com/book/en/Getting-Started-Git-Basics#The-Three-States[The Three States]?
 . Are you familiar with the http://gitref.org/[Git Reference] site?
-. Are you familiar with the http://emm-git1.sys.comcast.net/manual/manual.pdf#page=7&zoom=auto,56.692,500.997[EMM General Git Approach] section of this document?
 . What `git branch`  are you attempting to update for the repo in question?
 . What `git remote`  are you using for your `git push` ?
-. Did you configure your [CHANGELOG] for the Development (*develop* branch)? (Branch entry in Build ID:)
-. Did you develop on a [feature branch] and merge your changes to your development team’s [supporting branches] on the EM&M GitHub repo?
-. Did you test and verify your `git merges`  on your local repo with the EM&M git repo master and develop branches before using `git push` to your development team’s EM&M GitHub repo [supporting branches]?
-. Did you remove your [feature branch] once it was successfully merged to a development team [supporting branch]?
-. Are you allowed to `git push` to the remote branch on the EM&M GitHub organization repo? 
-. Note that the *develop* and *master* [main branches]on the EM&M GitHub organization repos have restrictions.
+. Did you develop on a [feature branch] and merge your changes to your master and develop branches in your local repo?
+. Did you test and verify your `git merges`  on your local repo with the git repo master and develop branches before using `git push` to github? 
+. Did you remove your [feature branch] once it was successfully merged to the develop branch?
+. Are you allowed to `git push` to the remote branch on the GitHub repo? 
+. Note that the *develop* and *master* [main branches] on the GitHub repos have restrictions.
 
 .The following utilities are available to you when considering the above questions. Be local to your repo on your workstation for the following “git” commands: 
 
@@ -401,20 +269,18 @@ For your git repo origin remote, shows the git fetch and push URLs, tracked remo
 $ git remote --v show origin
 ----
 
-Did you review the http://emmutl-ch2-1p.sys.comcast.net/overview[Overview] page?
-
 = Git Workflow
 
 In order to understand how branching and merging is arranged into a worflow review http://nvie.com/posts/a-successful-git-branching-model/[A Successful Git Branching Model by Vincent Driessen]. Example git commands related to branching are covered.
 
 Note the Main Branches *develop* and *master* provide for the ability to http://en.wikipedia.org/wiki/Vetting[vet] for conflicts after a `git commit`  occurs on any branch at any time.
 
-Since git is a Distributed Version Control System (DVCS) this `vetting` can occur on the developers git repo without affecting the corresponding bare git repo on the git bare repository system.  Each `git push` to the a GitHub repo branch must adhere to the following bullets to provide useful accurate vetting to developers:
+Since git is a Distributed Version Control System (DVCS) this `vetting` can occur on the developers git repo without affecting the corresponding bare git repo on the git bare repository system.  Each `git push` to the GitHub repo branch must adhere to the following bullets to provide useful accurate vetting to developers:
 
 * All know conflicts at the time of the commit to be pushed have been addressed.
 * The commit to be pushed represents a buildable set of code for all environments including upcoming production releases.
 * All know tests for the given repo have been executed and modified for current changes in the developer repo on the developer workstation.
-* The commit to be pushed represents code thant is deployable to all _deployed to_ environments including QA, Integration, Staging, and Production environments.
+* The commit to be pushed represents code thant is deployable to all _deployed to_ environments.
 
 In order to provide for this vetting, all development is done on feature branches and merged to Main Branches with the merge adhering to the commit rules defined previously.
 
@@ -424,13 +290,11 @@ Refer to http://git-scm.com/book/en/v2/Distributed-Git-Distributed-Workflows[Dis
 
 [NOTE]
 ====
-. All merging occurs on client workstations, not the GitHub system other than controlled code reviews.
+. All merging occurs first on client workstations, not the GitHub system other than controlled code reviews.
 . Developers and developer leads are responsible for managing merge conflicts.
 . For good tips on git commit comments, See https://github.com/git/git/blob/master/Documentation/SubmittingPatches[Notes on Contributing Code] for the github git project.
 . Review http://git-scm.com/book/en/v2/Distributed-Git-Contributing-to-a-Project#Commit-Guidelines[Commit Guidelines] to enhance team collaboration.
 ====
-
-
 
 === Cheat Sheets
 

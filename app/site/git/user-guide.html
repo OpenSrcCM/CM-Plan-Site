@@ -5,7 +5,7 @@
 <!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]-->
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="generator" content="Asciidoctor 1.5.5.dev">
-<title>Git User Guide</title>
+<title>Overview</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400,700">
 <style>
 /* Asciidoctor default stylesheet | MIT License | http://asciidoctor.org */
@@ -425,7 +425,6 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div id="toc" class="toc">
 <div id="toctitle" class="title">Table of Contents</div>
 <ul class="sectlevel1">
-<li><a href="#truegit-user-guide">Git User Guide</a></li>
 <li><a href="#trueoverview">Overview</a></li>
 <li><a href="#truenew-to-git">New to Git?</a></li>
 <li><a href="#trueprerequisites">Prerequisites</a>
@@ -439,13 +438,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#truedelivery">Delivery</a></li>
 <li><a href="#trueusing-git-bash">Using Git Bash:</a></li>
 <li><a href="#trueusing-git-gui">Using Git GUI:</a></li>
-<li><a href="#trueem-m-modules-in-github">EM&amp;M Modules in GitHub</a></li>
-<li><a href="#trueem-m-git-functionality">EM&amp;M Git Functionality</a></li>
-<li><a href="#truerequest-new-repos-for-an-em-m-github-organization">Request new repos for an EM&amp;M GitHub Organization</a></li>
-<li><a href="#truechange-em-m-github-organization-access">Change EM&amp;M GitHub Organization Access</a></li>
-<li><a href="#truecopy-an-em-m-github-repo-to-your-workstation">Copy an EM&amp;M GitHub repo to your workstation</a></li>
-<li><a href="#trueupdate-local-repo-from-the-em-m-github-repo">Update local repo from the EM&amp;M GitHub repo</a></li>
-<li><a href="#trueupdate-the-em-m-github-repo-from-local-repo">Update the EM&amp;M GitHub repo from local repo</a></li>
+<li><a href="#truegithub-access-functionality">GitHub Access Functionality</a></li>
 </ul>
 </li>
 <li><a href="#trueis-this-your-first-git-push">Is this your First Git push?</a></li>
@@ -458,12 +451,8 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </ul>
 </div>
 <div class="sect1">
-<h2 id="truegit-user-guide"><a class="anchor" href="#truegit-user-guide"></a>Git User Guide</h2>
+<h2 id="trueoverview"><a class="anchor" href="#trueoverview"></a>Overview</h2>
 <div class="sectionbody">
-
-</div>
-</div>
-<h1 id="trueoverview" class="sect0"><a class="anchor" href="#trueoverview"></a>Overview</h1>
 <div class="paragraph">
 <p>This guide presents git usage per the GitFork workflow.</p>
 </div>
@@ -498,7 +487,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <p>Company repositories (repos) are usually managed using the Enterprise <a href="https://github.com/">GitHub</a> system. It is based on the <a href="http://en.wikipedia.org/wiki/Git_(software)">Git</a> tool. Refer to <a href="http://git-scm.com/about">About Git</a> for more information on the Git tool.</p>
 </div>
 <div class="paragraph">
-<p>GitHub should be configured for company usage to use standard GitHub functionality to support collaboration. Specifically the <a href="https://help.github.com/articles/fork-a-repo/">GitHub fork</a> and <a href="https://help.github.com/articles/creating-a-pull-request/">pull request</a> functionality.</p>
+<p>GitHub should be configured for company usage to use standard GitHub functionality to support collaboration. Specifically the GitHub access for organizations and repos, <a href="https://help.github.com/articles/fork-a-repo/">GitHub fork</a> and <a href="https://help.github.com/articles/creating-a-pull-request/">pull request</a> functionality.</p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -515,17 +504,16 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </table>
 </div>
 <div class="paragraph">
-<p>(Introduce MDP process/approach here)</p>
+<p><strong>(Introduce MDP process/approach here)</strong></p>
 </div>
-<div class="paragraph">
-<p>This section of this manual has been designed to get up and running with the EM&amp;M GitHub organizations repos for release management.</p>
+</div>
 </div>
 <h1 id="truenew-to-git" class="sect0"><a class="anchor" href="#truenew-to-git"></a>New to Git?</h1>
 <div class="paragraph">
 <p>If you are new to Git, watch the videos at <a href="https://www.git-scm.com/doc">Git Documentation</a>. The time required is less than 30 minutes. It&#8217;s a great investment of your time.</p>
 </div>
 <div class="paragraph">
-<p>The EM&amp;M GitHub repos and access have been configured to use Github fork and Pull functionality. GitHub pull requests are required for the main branches.</p>
+<p>The GitHub repos and access are configured to use Github fork and Pull functionality. GitHub pull requests are required for the main branches.</p>
 </div>
 <div class="paragraph">
 <p>This rest of this overview section covers the following:</p>
@@ -545,7 +533,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </div>
 <h1 id="trueprerequisites" class="sect0"><a class="anchor" href="#trueprerequisites"></a>Prerequisites</h1>
 <div class="paragraph">
-<p>Refer to company on-boarding documentation.</p>
+<p>You will need to install git to your workstation. Reference <a href="https://git-scm.com/">git-scm</a> for details.</p>
 </div>
 <div class="sect1">
 <h2 id="truenotes"><a class="anchor" href="#truenotes"></a>Notes</h2>
@@ -553,25 +541,16 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Identify Module/Repo naming standards</p>
+<p>Identify Module/Repo naming standards for your team</p>
 </li>
 <li>
-<p>You will need Write permission to be able to <code>Git push</code> to the remote (EM&amp;M GitHub repo) <strong>master</strong>, <strong>hotfix</strong>, <strong>release</strong>, or <strong>develop</strong> branches. If you incorporate GitHub fork functionality, you can use GitHub "pull request" functionality with your team. Check with your DevLead for more details on this.</p>
+<p>For the GitFlow workflow, you will need Write permission to be able to <code>Git push</code> to the remote (GitHub repo) <strong>master</strong>, <strong>hotfix</strong>, <strong>release</strong>, or <strong>develop</strong> branches. If you incorporate GitHub fork functionality, you can use GitHub "pull request" functionality with your team.</p>
 </li>
 <li>
-<p>Code reviews are required for all merges to develop and master branches. This is done with the <strong>New pull request</strong> button on the GHE repository home page.</p>
-</li>
-<li>
-<p>You must be a <strong>developer lead</strong> to <code>Git push</code>  to the remote (EM&amp;M GitHub repo) <strong>develop</strong> and <strong>master</strong> branches.</p>
-</li>
-<li>
-<p>Note that a git tag that starts with <strong>v[0-9]</strong> is reserved for EM&amp;M Production Releases. Reference the Release Branches section of this guide for details.</p>
+<p>Code reviews are required for all merges to develop and master branches. This can be done with the <strong>New pull request</strong> button on the GitHub repository home page.</p>
 </li>
 <li>
 <p>For any git command, you can enter git [<em>command</em>] -h for command specific documentation.</p>
-</li>
-<li>
-<p>EM&amp;M GitHub organization repo branch and tag access rules are configured and maintained at the GitHub organization level. Check with your EM&amp;M Tower for details.</p>
 </li>
 <li>
 <p>Can&#8217;t <em>git checkout</em> to a new or different branch? Reference <a href="http://git-scm.com/book/en/v2/Git-Tools-Stashing-and-Cleaning">Stashing and Cleaning</a>.</p>
@@ -585,31 +564,28 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </div>
 <h1 id="truegeneral-session" class="sect0"><a class="anchor" href="#truegeneral-session"></a>General Session</h1>
 <div class="paragraph">
-<p>As development and unit testing occurs, most interaction with git will be through your local git repo on an isolated branch. The only times you will interact with the EM&amp;M GitHub organizations will be when you:</p>
+<p>As development and unit testing occurs, most interaction with git will be through your local git repo on an isolated branch. You will interact with the GitHub when:</p>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Request a new repo for the appropriate EM&amp;M Comcast Enterprise GitHub organization.</p>
+<p>Setting up a new repo in GitHub.</p>
 </li>
 <li>
-<p>GitHub fork a repo from the EM&amp;M GitHub organization to your github profile. Then "git clone" that repo to your workstation.</p>
+<p>Forking a repo on the GitHub interface prior to using "git clone" to copy to your workstation.</p>
 <div class="olist loweralpha">
 <ol class="loweralpha" type="a">
 <li>
-<p>Add an additional "git remote" to your cloned repo for the organization repo you forked from.</p>
-</li>
-<li>
-<p>If you have repo write permissions on the organization repo, you can clone directly from there by passing the GitHub fork functionality.</p>
+<p>Be sure to add an additional "git remote" to your cloned repo for the repo you forked from.</p>
 </li>
 </ol>
 </div>
 </li>
 <li>
-<p>Update your local repo from the EM&amp;M GitHub organization repo.</p>
+<p>Write permissions on the repo your forked from will be limited.</p>
 </li>
 <li>
-<p>Update the EM&amp;M GitHub repo from your local repo via your forked repo and your devlead.</p>
+<p>Using the git pull and push commands to your GitHub forked repos and repos you forked from.</p>
 </li>
 </ol>
 </div>
@@ -619,10 +595,13 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Establish a workstation local repo (<code>git clone</code> from your forked repo or clone directly from the organization repo if you have write permissions)</p>
+<p>Fork the repo to be worked on to your GitHub account</p>
 </li>
 <li>
-<p>Establish an additional git remote in your workstation local repo for the EM&amp;M Comcast Enterprise GitHub organization repo.</p>
+<p>Establish a workstation local repo (<code>git clone</code> from your GitHub forked repo)</p>
+</li>
+<li>
+<p>Establish an additional git remote in your workstation local repo for the repo you forked from.</p>
 </li>
 <li>
 <p>Identify available branches on local repo (<code>git branch</code>  -a)</p>
@@ -634,10 +613,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <p>Create new branch to code on (<code>git checkout</code>  -b [<em>new branch</em>])</p>
 </li>
 <li>
-<p>Update and/or establish <strong>CHANGELOG</strong> file. Reference <em>section 2.3.5 CHANGELOG</em> of this manual.</p>
-</li>
-<li>
-<p>Update and/or establish .gitignore file. It Specifies intentionally untracked files to ignore. Reference <a href="http://git-scm.com/docs/gitignore">gitignore</a> and the <a href="https://wiki.sys.comcast.net/display/CEMP/Maven+Project+Configuration#MavenProjectConfiguration-GitPractices">Git Practices</a> section of the <a href="https://wiki.sys.comcast.net/display/CEMP/Maven+Project+Configuration">Maven Project Configuration</a> document for details.</p>
+<p>Update and/or establish .gitignore file. It Specifies intentionally untracked files to ignore.</p>
 </li>
 </ol>
 </div>
@@ -654,7 +630,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </div>
 </div>
 <div class="paragraph">
-<p>Fork the selected repo into your local github profile:</p>
+<p>You can Fork the selected repo into your github account:</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -667,22 +643,17 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div class="paragraph">
 <p>Now you have a profile repo forked to your local profile. You will deliver your updates to this repo after you worked and tested them on the workstation repo you cloned from this repo. If you have Write permissions on the organization repo, you can clone directly from the organization repo and deliver there.</p>
 </div>
-<div class="imageblock">
-<div class="content">
-<img src="images/github-profile-repo.png" alt="github profile repo.png">
-</div>
-</div>
-<div class="paragraph">
-<p>It is helpful to understand several Git <em><strong>command line</strong></em> options before using the Git GUI. Following are examples of initial Git functionality using both the Git Bash and Git GUI tools.</p>
-</div>
-<div class="paragraph">
-<p>Establish a Local Git cloned Repo, add remote for the GitHub Enterprise (ghe) profile repo you established previously:</p>
-</div>
 </div>
 </div>
 <div class="sect1">
 <h2 id="trueusing-git-bash"><a class="anchor" href="#trueusing-git-bash"></a>Using Git Bash:</h2>
 <div class="sectionbody">
+<div class="paragraph">
+<p>It is helpful to understand several Git <em><strong>command line</strong></em> options before using the Git GUI. Following are examples of initial Git functionality using both the Git Bash and Git GUI tools. Enter "git help" on the git bash command line for and introduction to git commands you will be using. Following are a few examples to get you started.</p>
+</div>
+<div class="paragraph">
+<p>Establish a Local Git cloned Repo, add remote for the GitHub Enterprise (ghe) profile repo you established previously:</p>
+</div>
 <div class="imageblock">
 <div class="content">
 <img src="images/GitBash.png" alt="GitBash.png">
@@ -963,7 +934,7 @@ following for each of these branches. Ordering should be master, hotfix, release
 </div>
 </li>
 <li>
-<p>Note successful merge type and address any identified conflicts.</p>
+<p>Note successful merged changes in the diff reports and address any identified conflicts.</p>
 </li>
 </ol>
 </div>
@@ -980,7 +951,7 @@ following for each of these branches. Ordering should be master, hotfix, release
 <p><strong>Never code on main branches.</strong></p>
 </li>
 <li>
-<p>See the Git <em>Conflict Reporting section</em> of the [EM&amp;M Git Installation Procedure] for a tool that will identify all current conflicts in your local repo.</p>
+<p>See the Git <em>Conflict Reporting section</em> of the [Git Installation Procedure] for a tool that will identify all current conflicts in your local repo.</p>
 </li>
 </ol>
 </div>
@@ -989,14 +960,7 @@ following for each of these branches. Ordering should be master, hotfix, release
 </table>
 </div>
 <div class="paragraph">
-<p>Now that you have confirmed your new changes do not conflict with any [main branch] heads or outstanding release branches, you are ready to push your changes up to the <strong>EM&amp;M GitHub repo</strong> fork in your GitHub profile. While on your feature branch, execute the following:</p>
-</div>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p><code>git push ghe-profile</code></p>
-</li>
-</ol>
+<p>Now that you have confirmed your new changes do not conflict with any [main branch] heads or outstanding release branches, you are ready to push your changes up to the <strong>GitHub repo</strong> fork in your GitHub profile.</p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -1008,7 +972,10 @@ following for each of these branches. Ordering should be master, hotfix, release
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>If you clone directly from your GitHub profile copy of the repo, the remote will be the default name of "origin". In this case <em>git push</em> will be sufficient since it defaults to the "origin" remote.</p>
+<p>The first clone used to establish your workstation repo will name the remote "origin". In this case <em>git push</em> will be sufficient since it defaults to the "origin" remote.</p>
+</li>
+<li>
+<p>If you wish to "git push" to an alternate remote, you must specify that remote in the "git push" command.</p>
 </li>
 <li>
 <p>If your feature branch does not yet exist on the EM&amp;M GitHub repo, the git push will respond with a command to establish your branch there. Cut and paste to use it.</p>
@@ -1021,22 +988,6 @@ following for each of these branches. Ordering should be master, hotfix, release
 </td>
 </tr>
 </table>
-</div>
-<div class="paragraph">
-<p>For more details on working with EM&amp;M GitHub Organizations, refer to the following:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>[EM&amp;M General Git Approach] section of this document.</p>
-</li>
-<li>
-<p>[First Git push] section of this document.</p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>For a comparison of EM&amp;M CVS usage and EM&amp;M Git usage, review the [Git Compared to CVS] section of this document.</p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -1055,55 +1006,10 @@ following for each of these branches. Ordering should be master, hotfix, release
 </div>
 </div>
 <div class="sect1">
-<h2 id="trueem-m-modules-in-github"><a class="anchor" href="#trueem-m-modules-in-github"></a>EM&amp;M Modules in GitHub</h2>
+<h2 id="truegithub-access-functionality"><a class="anchor" href="#truegithub-access-functionality"></a>GitHub Access Functionality</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>In this organization, a Git repository <strong>Module Name</strong> consists of the following elements:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><strong>LOB</strong> - Line of Business, one of CFX, DATA, VOICE, and VIDEO</p>
-</li>
-<li>
-<p><strong>Project</strong> - Examples include AccountManagement, ADOPTOUT, AMDOCSOUT, ASTRO, AuditService, AUPM, AutoGen, BEACON, BlockingService, BPM, CANOE, CDV, CEMP, CIMCO, CLK, CloudUI, CMS, COLUMBUS, ContractAutomation, CPORTAL, CSG, CustMove, CycleChange, DDS, EEG, EEP, EEPBill, EMARS, EM&amp;M, EST, FRAUD, HSD, HSI, IMS, ITV, JANUS, LCR, LDC, LEGAL, MANILA, NASR, NGT, ODS, OSM, PREPAID, RAZOR, SAP, SAVILLE, SDV, TVE, UES, UID, VAPI, VCME, VGD, VODGift, WaterMark, WHOLESALE, WIFI, WLS, XTM</p>
-</li>
-<li>
-<p><strong>AppType</strong> - The type or class of application. Examples include SYS, MED, DIST, COLL, etc.</p>
-</li>
-<li>
-<p><strong>Application</strong> - The name of the application. Examples include Git, OraBPM, Jenkins, Artifactory, etc.</p>
-</li>
-</ul>
-</div>
-<div class="admonitionblock important">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-important" title="Important"></i>
-</td>
-<td class="content">
-<div class="ulist">
-<ul>
-<li>
-<p>The <strong>LOB</strong> and <strong>Project</strong> values are required.</p>
-</li>
-<li>
-<p>The <strong>AppType</strong> and <strong>Application</strong> provide further clarity and relationship indications such as dependencies.</p>
-</li>
-</ul>
-</div>
-</td>
-</tr>
-</table>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="trueem-m-git-functionality"><a class="anchor" href="#trueem-m-git-functionality"></a>EM&amp;M Git Functionality</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>EM&amp;M uses the <a href="https://github.comcast.com/">Comcast Enterprise GitHub</a> system. GitHub is a <a href="http://www.saintsjd.com/2011/01/what-is-a-bare-git-repository/">bare git repository</a> implementation. The protocols established to transfer data between EM&amp;M workstation git repos and the GitHub organizations repos established for EM&amp;M Towers are:</p>
+<p>The <a href="https://github.com/">GitHub</a> system is a <a href="http://www.saintsjd.com/2011/01/what-is-a-bare-git-repository/">bare git repository</a> management system. The protocols established to transfer data between your workstation git repos and the GitHub are:</p>
 </div>
 <div class="ulist">
 <ul>
@@ -1126,266 +1032,20 @@ following for each of these branches. Ordering should be master, hotfix, release
 </td>
 <td class="content">
 <div class="paragraph">
-<p>The Git protocol is not used due to it&#8217;s lack of authentication.</p>
+<p>It is recommended you configure and use ssh for better security.</p>
 </div>
 </td>
 </tr>
 </table>
 </div>
 <div class="paragraph">
-<p>In order to execute the procedures in this section, you need have addressed all requirements in the <em>Prerequisites</em> section in Chapter 1, the <strong>Users Guide</strong> of this manual.</p>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="truerequest-new-repos-for-an-em-m-github-organization"><a class="anchor" href="#truerequest-new-repos-for-an-em-m-github-organization"></a>Request new repos for an EM&amp;M GitHub Organization</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>The format of the Git module/repo name is as follows. Refer to the <em>EM&amp;M Module Name</em> section of the <a href="https://wiki.sys.comcast.net/display/EMM/Module+Standards">Module Standards</a> for details.</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><strong>LOB-Project-AppType-Application</strong></p>
-</li>
-</ul>
-</div>
-<div class="ulist">
-<div class="title">The EM&amp;M organizations are been split into Towers. GitHub organizations have been configured based on EM&amp;M. You&#8217;ll also need to identify the GitHub tower to build this new repo in.  Your choices are as followings:</div>
-<ul>
-<li>
-<p>EMM  <em>(Cross functional across all EMM towers)</em></p>
-</li>
-<li>
-<p>EMM-Data</p>
-</li>
-<li>
-<p>EMM-ClickStream</p>
-</li>
-<li>
-<p>EMM-Prepaid</p>
-</li>
-<li>
-<p>EMM-Video</p>
-</li>
-<li>
-<p>EMM-Voice</p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>Following the repo naming convention, Create a CM Team request ticket as follows:</p>
-</div>
-<div class="paragraph">
-<p>This request is handled with an EM&amp;M CM Team Support ticket as follows: (Address fields indicated below <strong>ONLY</strong>.)</p>
-</div>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p><a href="https://tpx.sys.comcast.net/secure/CreateIssue!default.jspa">dx Triple Play Tooling (TPT)</a></p>
-<div class="olist loweralpha">
-<ol class="loweralpha" type="a">
-<li>
-<p>Issue Type: Support</p>
-</li>
-<li>
-<p>Click on Next button</p>
-</li>
-<li>
-<p>Summary enter "Create New Repository"</p>
-</li>
-<li>
-<p>Add Watchers Robert Sell and Andrew Wallace</p>
-</li>
-<li>
-<p>EPIC Link: Operational request &amp; support 2018</p>
-</li>
-<li>
-<p>Description: Enter following modified for your request:</p>
-</li>
-</ol>
-</div>
-</li>
-</ol>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre>Create the following new Git repo/module(s).  The DevLead is FirstName LastName, userid NTLogon, unless otherwise indicated below with repo name:
-
-LOB-Project-AppType-Application  (repeat this line as needed)
-
-Build this new repo in GitHub organization (Choose from above list).</pre>
-</div>
-</div>
-<div class="paragraph">
-<p>To open Ticket, Select <strong>Create</strong> button at bottom.</p>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-<div class="paragraph">
-<p>These tickets are processed per CM Team priorities in order received.</p>
-</div>
-</td>
-</tr>
-</table>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="truechange-em-m-github-organization-access"><a class="anchor" href="#truechange-em-m-github-organization-access"></a>Change EM&amp;M GitHub Organization Access</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>This can be done by your Tower leadership, specifically your devlead.</p>
-</div>
-<div class="admonitionblock tip">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-tip" title="Tip"></i>
-</td>
-<td class="content">
-<div class="paragraph">
-<p>You can use Windows Explorer local to your ~/.ssh to attach your public key to the email.</p>
-</div>
-</td>
-</tr>
-</table>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-<div class="paragraph">
-<p>Sharing of repo branches in established EM&amp;M GitHub profile repos is probably the easiest way for developers to share code.</p>
-</div>
-</td>
-</tr>
-</table>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="truecopy-an-em-m-github-repo-to-your-workstation"><a class="anchor" href="#truecopy-an-em-m-github-repo-to-your-workstation"></a>Copy an EM&amp;M GitHub repo to your workstation</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>Copy an EM&amp;M GitHub head of the default <strong>master</strong> branch to your local workstation.</p>
-</div>
-<div class="paragraph">
-<p>Reference <a href="https://git-scm.com/docs/git-clone">git clone</a> or <code>git clone -h</code> for details.</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-asciidoc" data-lang="asciidoc"> $ git clone cghi:[EMM org/][repo name]</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>Copy an EM&amp;M GitHub repo to your workstation with workfiles set to the head of a given branch.</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-asciidoc" data-lang="asciidoc">$ git clone -b [branch name] cghi:[EMM org/][repo name]</code></pre>
-</div>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="trueupdate-local-repo-from-the-em-m-github-repo"><a class="anchor" href="#trueupdate-local-repo-from-the-em-m-github-repo"></a>Update local repo from the EM&amp;M GitHub repo</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>Review <a href="http://gitref.org/remotes/">Sharing and Updating projects</a>.</p>
-</div>
-<div class="paragraph">
-<p>Reference <code>git fetch -h</code> or <a href="https://git-scm.com/docs/git-fetch">git fetch</a> for details.</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-asciidoc" data-lang="asciidoc">$ git fetch</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>Reference <code>Git pull -h</code> or <a href="https://git-scm.com/docs/git-pull">git pull</a> for details.</p>
-</div>
-<div class="admonitionblock warning">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-warning" title="Warning"></i>
-</td>
-<td class="content">
-<div class="paragraph">
-<p>this is a <code>git fetch</code> followed by a <code>git merge</code>.</p>
-</div>
-</td>
-</tr>
-</table>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-asciidoc" data-lang="asciidoc">$ git pull</code></pre>
-</div>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="trueupdate-the-em-m-github-repo-from-local-repo"><a class="anchor" href="#trueupdate-the-em-m-github-repo-from-local-repo"></a>Update the EM&amp;M GitHub repo from local repo</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>Push the branch head (latest <code>git commit</code>) of a new Git branch in the local Git repo on your workstation to the appropriate EM&amp;M GitHub organization repo. The argument "--set-upstream" is required to initiate a new branch on the EM&amp;M GitHub organization repo.</p>
-</div>
-<div class="admonitionblock warning">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-warning" title="Warning"></i>
-</td>
-<td class="content">
-<div class="paragraph">
-<p>You must be a devlead to execute this command on the develop branch</p>
-</div>
-</td>
-</tr>
-</table>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-asciidoc" data-lang="asciidoc">$ git push --set-upstream origin [branch name]</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>Push the current branch head (latest <code>git commit</code>) in the local Git repo on your workstation to the EM&amp;M GitHub organization repo.</p>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-<div class="paragraph">
-<p>Requires local repo to have been setup with an origin remote that has <strong>write</strong> authority on the EM&amp;M GitHub organization repo.</p>
-</div>
-</td>
-</tr>
-</table>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-asciidoc" data-lang="asciidoc">$ git push</code></pre>
-</div>
+<p>In order to execute the procedures in this section, you need have addressed all requirements in the <em>Prerequisites</em> section.</p>
 </div>
 </div>
 </div>
 <h1 id="trueis-this-your-first-git-push" class="sect0"><a class="anchor" href="#trueis-this-your-first-git-push"></a>Is this your First Git push?</h1>
 <div class="paragraph">
-<p>Before executing a <code>git push</code> for a given EM&amp;M GitHub organization repo, the following questions should help if you are having problems:</p>
+<p>Before executing a <code>git push</code> for a given GitHub repo, the following questions should help if you are having problems:</p>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
@@ -1396,31 +1056,25 @@ Build this new repo in GitHub organization (Choose from above list).</pre>
 <p>Are you familiar with the <a href="http://gitref.org/">Git Reference</a> site?</p>
 </li>
 <li>
-<p>Are you familiar with the <a href="http://emm-git1.sys.comcast.net/manual/manual.pdf#page=7&amp;zoom=auto,56.692,500.997">EMM General Git Approach</a> section of this document?</p>
-</li>
-<li>
 <p>What <code>git branch</code>  are you attempting to update for the repo in question?</p>
 </li>
 <li>
 <p>What <code>git remote</code>  are you using for your <code>git push</code> ?</p>
 </li>
 <li>
-<p>Did you configure your [CHANGELOG] for the Development (<strong>develop</strong> branch)? (Branch entry in Build ID:)</p>
+<p>Did you develop on a [feature branch] and merge your changes to your master and develop branches in your local repo?</p>
 </li>
 <li>
-<p>Did you develop on a [feature branch] and merge your changes to your development team’s [supporting branches] on the EM&amp;M GitHub repo?</p>
+<p>Did you test and verify your <code>git merges</code>  on your local repo with the git repo master and develop branches before using <code>git push</code> to github?</p>
 </li>
 <li>
-<p>Did you test and verify your <code>git merges</code>  on your local repo with the EM&amp;M git repo master and develop branches before using <code>git push</code> to your development team’s EM&amp;M GitHub repo [supporting branches]?</p>
+<p>Did you remove your [feature branch] once it was successfully merged to the develop branch?</p>
 </li>
 <li>
-<p>Did you remove your [feature branch] once it was successfully merged to a development team [supporting branch]?</p>
+<p>Are you allowed to <code>git push</code> to the remote branch on the GitHub repo?</p>
 </li>
 <li>
-<p>Are you allowed to <code>git push</code> to the remote branch on the EM&amp;M GitHub organization repo?</p>
-</li>
-<li>
-<p>Note that the <strong>develop</strong> and <strong>master</strong> [main branches]on the EM&amp;M GitHub organization repos have restrictions.</p>
+<p>Note that the <strong>develop</strong> and <strong>master</strong> [main branches] on the GitHub repos have restrictions.</p>
 </li>
 </ol>
 </div>
@@ -1457,9 +1111,6 @@ Build this new repo in GitHub organization (Choose from above list).</pre>
 <pre class="highlightjs highlight"><code class="language-asciidoc" data-lang="asciidoc">$ git remote --v show origin</code></pre>
 </div>
 </div>
-<div class="paragraph">
-<p>Did you review the <a href="http://emmutl-ch2-1p.sys.comcast.net/overview">Overview</a> page?</p>
-</div>
 <h1 id="truegit-workflow" class="sect0"><a class="anchor" href="#truegit-workflow"></a>Git Workflow</h1>
 <div class="paragraph">
 <p>In order to understand how branching and merging is arranged into a worflow review <a href="http://nvie.com/posts/a-successful-git-branching-model/">A Successful Git Branching Model by Vincent Driessen</a>. Example git commands related to branching are covered.</p>
@@ -1468,7 +1119,7 @@ Build this new repo in GitHub organization (Choose from above list).</pre>
 <p>Note the Main Branches <strong>develop</strong> and <strong>master</strong> provide for the ability to <a href="http://en.wikipedia.org/wiki/Vetting">vet</a> for conflicts after a <code>git commit</code>  occurs on any branch at any time.</p>
 </div>
 <div class="paragraph">
-<p>Since git is a Distributed Version Control System (DVCS) this <code>vetting</code> can occur on the developers git repo without affecting the corresponding bare git repo on the git bare repository system.  Each <code>git push</code> to the a GitHub repo branch must adhere to the following bullets to provide useful accurate vetting to developers:</p>
+<p>Since git is a Distributed Version Control System (DVCS) this <code>vetting</code> can occur on the developers git repo without affecting the corresponding bare git repo on the git bare repository system.  Each <code>git push</code> to the GitHub repo branch must adhere to the following bullets to provide useful accurate vetting to developers:</p>
 </div>
 <div class="ulist">
 <ul>
@@ -1482,7 +1133,7 @@ Build this new repo in GitHub organization (Choose from above list).</pre>
 <p>All know tests for the given repo have been executed and modified for current changes in the developer repo on the developer workstation.</p>
 </li>
 <li>
-<p>The commit to be pushed represents code thant is deployable to all <em>deployed to</em> environments including QA, Integration, Staging, and Production environments.</p>
+<p>The commit to be pushed represents code thant is deployable to all <em>deployed to</em> environments.</p>
 </li>
 </ul>
 </div>
@@ -1505,7 +1156,7 @@ Build this new repo in GitHub organization (Choose from above list).</pre>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>All merging occurs on client workstations, not the GitHub system other than controlled code reviews.</p>
+<p>All merging occurs first on client workstations, not the GitHub system other than controlled code reviews.</p>
 </li>
 <li>
 <p>Developers and developer leads are responsible for managing merge conflicts.</p>
@@ -1583,7 +1234,7 @@ Build this new repo in GitHub organization (Choose from above list).</pre>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2019-01-26 15:05:15 MST
+Last updated 2019-02-05 15:22:20 MST
 </div>
 </div>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.9.1/styles/github.min.css">

@@ -318,5 +318,5 @@ The *report-conflicts.bsh* is designed to be run from any DevOps contributor's w
 
 [NOTE]
 ====
-. Reference the *"Identify the $HOME variable on Your Workstation"* to get you to the "Environments Variables" window to update your User Variable *Path*.
+. Reference the *"Identify the $HOME variable on Your Workstation"* section above to get you to the "Environments Variables" window to update your User Variable *Path*.
 ====
