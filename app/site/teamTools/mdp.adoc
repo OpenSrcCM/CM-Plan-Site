@@ -1,4 +1,6 @@
 :toc2:
+
+= Modern Development Process
 == Overview
 
 The Modern Development Process (MDP) is a https://en.wikipedia.org/wiki/Software_development_process[Software Development Process] captured from historical industry practices and evolving modern approaches.  It's maintained as change is encountered and experienced in the IT industry.
@@ -140,7 +142,7 @@ image::images/devops-developer.png[]
 ** Push Changes to Non-Forked repository or project
 
 == Continuous Integration Automated Process
-image::images/ci-automated-process.png[]
+image::images/CI-automated-process.png[]
 
 .The Continuous Integration process is:
 * Initiated by Developer with a repository branch push
