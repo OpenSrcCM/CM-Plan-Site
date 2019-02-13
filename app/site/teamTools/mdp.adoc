@@ -6,6 +6,10 @@
 
 The Modern Development Process (MDP) is a https://en.wikipedia.org/wiki/Software_development_process[Software Development Process] captured from historical industry practices and evolving modern approaches.  It's maintained as change is encountered and experienced in the IT industry.
 
+https://www.webopedia.com/TERM/D/devops_development_operations.html[DevOps] is a modern approach that drives this MDP. The guiding principles of DevOps include culture, measurement, automation and sharing.
+
+DevOps is considered to be a new approach to the more traditional Application Lifecycle Management (ALM) process.
+
 [IMPORTANT]
 ====
 .Good "set the stage" references:
@@ -24,7 +28,8 @@ The Modern Development Process (MDP) is a https://en.wikipedia.org/wiki/Software
 .The purpose of the MDP is to encourage and support developers by:
 * Separating Development from Operations
 * Identifying Automation separately from Development and Operations
-* Encourage an MDP approach; more passive programming, less active programming
+* Improving collaboration between development and IT operations
+* Encourage an MDP approach; more passive programming, less active programming, more stability in https://www.webopedia.com/TERM/I/IT.html[IT] operations
 
 .The goals of this process include:
 * Get more value to the market quicker
