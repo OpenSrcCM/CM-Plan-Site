@@ -6,7 +6,7 @@
 
 The Modern Development Process (MDP) is a https://en.wikipedia.org/wiki/Software_development_process[Software Development Process] captured from historical industry practices and evolving modern approaches.  It's maintained as change is encountered and experienced in the IT industry.
 
-https://www.webopedia.com/TERM/D/devops_development_operations.html[DevOps] is a modern approach that drives this MDP. The guiding principles of DevOps include culture, measurement, automation and sharing.
+https://aws.amazon.com/devops/what-is-devops/[DevOps] is a modern approach that drives this MDP. The guiding principles of DevOps include culture, measurement, automation and sharing.
 
 DevOps is considered to be a new approach to the more traditional Application Lifecycle Management (ALM) process.
 
@@ -15,6 +15,11 @@ DevOps is considered to be a new approach to the more traditional Application Li
 .Good "set the stage" references:
 * https://www.infoworld.com/article/3230905/application-development/what-a-modern-development-organization-looks-like.html[What a modern development organization looks like]
 * https://www.rainerhahnekamp.com/en/modern-software-development/[On Modern Software Development]
+
+.Good "DevOps" references:
+* https://www.webopedia.com/TERM/D/devops_development_operations.html[Webopedia DevOps]
+* https://en.wikipedia.org/wiki/DevOps[Wikipedia DevOps]
+* https://aws.amazon.com/devops/what-is-devops/[AWS DevOps]
 ====
 
 [NOTE]
