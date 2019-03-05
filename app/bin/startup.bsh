@@ -1,35 +1,40 @@
 #!/bin/bash
 ##################################################################################
-# NE-startup.bsh
+# startup.bsh
 #
-# Written by Andy Wallace 2018/07/18; last updated 2018/10/21
+# Written by Andy Wallace 2018/07/18; last updated 2019/03/05
 #
 # This script automatically sets up a VM enhanced development environment 
-# for the targeted repository. The name of the script indicates it is intended
-# for the Non-Enterprise edition of GitHub.
+# for the targeted repository.
 #
 # Dependencies:
 #  - GitHub system with $TargetOrg
-#  - $TargetRepo/deploy directory
-#  - $TargetRepo/deploy/cm-system-service.bsh script
-#  - $TargetRepo/develop branch
+#  - $TargetDIR directory exists
+#  - $TargetRepo workarea directory exists in $TargetDIR
+#  - $BackupWA workarea directory exists in $TargetDIR
+#  - $TargetRepo/deploy/cm-plan-service.bsh script exists after git clone
+#  - $TargetRepo/develop branch exists
 #
 # Note:
 #  1. This script should not be run if there is an active VM Enhanced workarea.
 #     Be sure to run 'vagrant destroy' and remove the associated workarea
 #     before running this script again.
-#  2. Need to add a check to automatially verify repo not in TargetDir.
-#  3. Consider adding argument set to fully shutdown the VM Enhanced workarea.
+#  2. This script assumes 'vagrant destroy' has been run.
+#  3. This script assumes a $BackupWA exists and removes it.
+#  4. This script moves the $TargetRepo directory to the $BackupWA directory.
 ##################################################################################
 
 ################################################################################
 # Script configuration variables
 ################################################################################
-ThisScript="NE-startup.bsh"      # Used in log and response messaging
-TargetDir="negit-repos"          # repo workarea directory
-sshConfigref="cmguy"             # defined in ~/.ssh/config
-TargetOrg="cmguy"                # GitHub userid/organization 
-TargetRepo="CM-Plan-Site"        # GitHub userid/organization repo
+ThisScript="startup.bsh"              # Used in log and response messaging
+TargetDir="negit-repos"               # repo workarea directory
+BackupWA="cps-hold"                   # Backup workarea directory from previous
+                                      # session
+sshConfigref="cmguy"                  # defined in ~/.ssh/config
+TargetOrg="cmguy"                     # GHE organization 
+TargetRepo="CM-Plan-Site"             # GHE organization repo
+TargetService="cm-plan-service.bsh"   # Primary deployment script
 
 ################################################################################
 # Process script arguments
@@ -97,11 +102,15 @@ done
 ################################################################################
 # Create VM enhanced development environment
 ################################################################################
-cd ~/$TargetDir
+echo "`date +%c` $Targetrepo - prepare $TargetDir directory ..." 2>&1
+cd ~/$TargetDir 2>&1
+rm -fr $BackupWA 2>&1
+mv $TargetRepo $BackupWA
+echo "`date +%c` $TargetDir directory ready for git clone." 2>&1
 git clone $sshConfigref:$TargetOrg/$TargetRepo
 cd $TargetRepo/deploy
 git checkout develop
-./cm-plan-service.bsh $Major $minor $Issue
+./$TargetService $Major $minor $Issue
 
-echo "`date +%c` VM Enhanced workarea created."
+echo "`date +%c` VM Enhanced workarea created." 2>&1
 echo "execute 'vagrant destroy' and remove workarea before running this script again."
