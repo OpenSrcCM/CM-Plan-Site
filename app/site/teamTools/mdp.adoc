@@ -6,9 +6,14 @@
 
 The Modern Development Process (MDP) is a https://en.wikipedia.org/wiki/Software_development_process[Software Development Process] captured from historical industry practices and evolving modern approaches.  It's maintained as change is encountered and experienced in the IT industry.
 
-https://aws.amazon.com/devops/what-is-devops/[DevOps] is a modern approach that drives this MDP. The guiding principles of DevOps include culture, measurement, automation and sharing.
+https://aws.amazon.com/devops/what-is-devops/[DevOps] is a modern approach that drives this MDP. The guiding principles of DevOps include culture, measurement, automation and sharing. DevOps is considered to be a new approach to the more traditional Application Lifecycle Management (ALM) process.
 
-DevOps is considered to be a new approach to the more traditional Application Lifecycle Management (ALM) process.
+Application Program Interfaces (APIs) are a major driver as Legacy decomposition and rebuilding efforts are applied and managed. A good introduction to APIs is the https://www.programmableweb.com/api-university/what-are-apis-and-how-do-they-work[API 101] course by https://www.programmableweb.com/[ProgrammableWeb].
+
+.The two major sections to this document are DevOps and APIs. They are presented at a high level to:
+* Identify consistent major points of understanding
+* Enable and encourage more efficient collaboration on the topics
+
 
 [IMPORTANT]
 ====
@@ -16,10 +21,7 @@ DevOps is considered to be a new approach to the more traditional Application Li
 * https://www.infoworld.com/article/3230905/application-development/what-a-modern-development-organization-looks-like.html[What a modern development organization looks like]
 * https://www.rainerhahnekamp.com/en/modern-software-development/[On Modern Software Development]
 
-.Good "DevOps" references:
-* https://www.webopedia.com/TERM/D/devops_development_operations.html[Webopedia DevOps]
-* https://en.wikipedia.org/wiki/DevOps[Wikipedia DevOps]
-* https://aws.amazon.com/devops/what-is-devops/[AWS DevOps]
+
 ====
 
 [NOTE]
@@ -56,10 +58,14 @@ The primary workflow utilized by the MDP is the https://datasift.github.io/gitfl
 * This approach has been defined and exercised in the open source development world.
 ====
 
-== Context Diagram
+== DevOps
+
+In this section a high level view DevOps topics is presented. The intent is to support consistency in collaboration concerning DevOps.
+
+=== Context Diagram
 image::images/context-diagram.png[]
 
-=== Develop Changes
+==== Develop Changes
 
 Developers are focused on development separately from Operations and https://en.wikipedia.org/wiki/Continuous_integration[CI] / https://en.wikipedia.org/wiki/Continuous_delivery[CD] automation. They work directly with *public repositories* and local code identifying best options for development requirements or “asks”.
 
@@ -71,7 +77,7 @@ Developers are free and encouraged to expand and improve CI/CD automation. This 
 
 *_Code Reviews_* occur with Development Leads prior to initiating the Automated CI/CD.
 
-== DevOps Process
+=== DevOps Process
 image::images/devops-process.png[]
 
 [NOTE]
@@ -86,7 +92,7 @@ image::images/devops-process.png[]
 * Developer local (workstation) repos can utilize CI and CD together to promote to a developer controlled environment. These type of pipelines are limited to a maximum set of versions in the *__Trusted Repository__* as they support development. Otherwise non-development pipelines end at the *__Trusted Repository__*.
 ====
 
-=== Continuous Itegration
+==== Continuous Itegration
 
 An automated process that is initiated at the completion of a *_git push_* to the primary (non-forked) GHE repository *_develop_* branch.
 
@@ -107,13 +113,13 @@ The build of this process enforces and verifys the *_Coding & Usage Policies_*.
 . This allows deployment environments, promoted to by *_Continuous Deliver_* to be focused on validation of new changes.
 ====
 
-=== Trusted Repository
+==== Trusted Repository
 
 This is the end point of the *_Continuous Integration_* process and the starting point of the *_Continuous Delivery_* process.
 
 In addition to updates made by the *_Continuous Integration_* process, *_Coding & Usage Policies_* can report on and remove elements as required.
 
-=== Continuous Delivery
+==== Continuous Delivery
 
 Provides deployments from the *_Trusted Repository_* for argument selected environments.
 
@@ -125,7 +131,7 @@ Provides deployments from the *_Trusted Repository_* for argument selected envir
 * *_Coding & Usage Policies_* can report on and remove elements as required outside of the MDP DevOps Process.
 ====
 
-== DevOps Developer
+=== DevOps Developer
 image::images/devops-developer.png[]
 
 .For given “asks”, developer looks for and/or develops working solutions
@@ -152,7 +158,7 @@ image::images/devops-developer.png[]
 * Initiate automated CI
 ** Push Changes to Non-Forked repository or project
 
-== Continuous Integration Automated Process
+=== Continuous Integration Automated Process
 image::images/CI-automated-process.png[]
 
 .The Continuous Integration process is:
@@ -170,7 +176,7 @@ image::images/CI-automated-process.png[]
 *_Coding & Usage Policies_* verification reporting is run against all elements in Trusted Repository on a regular basis.
 ====
 
-== Continuous Delivery Automated Process
+=== Continuous Delivery Automated Process
 image::images/CD-automated-process.png[]
 
 .The Continuous Delivery process:
@@ -187,9 +193,9 @@ image::images/CD-automated-process.png[]
 *_Coding & Usage Policies_* verification reporting is run against all "deployed to" environments on a regular basis.
 ====
 
-== GitFork Related Steps
+=== GitFork Related Steps
 
-The GitFork workflow is an additional tool available to development when needed for the reasons mentioned in the Overview section.
+The GitFork workflow is an additional tool available to development when needed for the reasons mentioned in the Overview section. This tool can be engaged from the system used to manage http://www.saintsjd.com/2011/01/what-is-a-bare-git-repository/[git bare repos].
 
 The following image identifies the steps specific to the GitFork workflow.
 
@@ -209,9 +215,18 @@ image::images/Development-WorkArea.png[]
 ** Operations
 ====
 
+== APIs
+
+**_This section under construction._**
+
 == References
 
 * https://reflectoring.io/github-fork-and-pull/[Fork & Pull Workflow] For git beginners
 * https://guides.github.com/activities/forking/[Forking Projects] – example using the https://github.com/octocat/Spoon-Knife[spoon-knife project]
 * https://www.youtube.com/playlist?list=PL0lo9MOBetEHhfG9vJzVCTiDYcbhAiEqL[GitHub and Git Foundations (YouTube)]
 * https://usersnap.com/blog/gitlab-github/[GitHub vrs GitLab]
+
+.Good "DevOps" references:
+* https://www.webopedia.com/TERM/D/devops_development_operations.html[Webopedia DevOps]
+* https://en.wikipedia.org/wiki/DevOps[Wikipedia DevOps]
+* https://aws.amazon.com/devops/what-is-devops/[AWS DevOps]

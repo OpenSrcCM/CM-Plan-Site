@@ -425,22 +425,17 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div id="toctitle">Table of Contents</div>
 <ul class="sectlevel1">
 <li><a href="#trueoverview">Overview</a></li>
-<li><a href="#truecontext-diagram">Context Diagram</a>
+<li><a href="#truedevops">DevOps</a>
 <ul class="sectlevel2">
-<li><a href="#truedevelop-changes">Develop Changes</a></li>
-</ul>
-</li>
-<li><a href="#truedevops-process">DevOps Process</a>
-<ul class="sectlevel2">
-<li><a href="#truecontinuous-itegration">Continuous Itegration</a></li>
-<li><a href="#truetrusted-repository">Trusted Repository</a></li>
-<li><a href="#truecontinuous-delivery">Continuous Delivery</a></li>
-</ul>
-</li>
+<li><a href="#truecontext-diagram">Context Diagram</a></li>
+<li><a href="#truedevops-process">DevOps Process</a></li>
 <li><a href="#truedevops-developer">DevOps Developer</a></li>
 <li><a href="#truecontinuous-integration-automated-process">Continuous Integration Automated Process</a></li>
 <li><a href="#truecontinuous-delivery-automated-process">Continuous Delivery Automated Process</a></li>
 <li><a href="#truegitfork-related-steps">GitFork Related Steps</a></li>
+</ul>
+</li>
+<li><a href="#trueapis">APIs</a></li>
 <li><a href="#truereferences">References</a></li>
 </ul>
 </div>
@@ -453,10 +448,21 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <p>The Modern Development Process (MDP) is a <a href="https://en.wikipedia.org/wiki/Software_development_process">Software Development Process</a> captured from historical industry practices and evolving modern approaches.  It&#8217;s maintained as change is encountered and experienced in the IT industry.</p>
 </div>
 <div class="paragraph">
-<p><a href="https://aws.amazon.com/devops/what-is-devops/">DevOps</a> is a modern approach that drives this MDP. The guiding principles of DevOps include culture, measurement, automation and sharing.</p>
+<p><a href="https://aws.amazon.com/devops/what-is-devops/">DevOps</a> is a modern approach that drives this MDP. The guiding principles of DevOps include culture, measurement, automation and sharing. DevOps is considered to be a new approach to the more traditional Application Lifecycle Management (ALM) process.</p>
 </div>
 <div class="paragraph">
-<p>DevOps is considered to be a new approach to the more traditional Application Lifecycle Management (ALM) process.</p>
+<p>Application Program Interfaces (APIs) are a major driver as Legacy decomposition and rebuilding efforts are applied and managed. A good introduction to APIs is the <a href="https://www.programmableweb.com/api-university/what-are-apis-and-how-do-they-work">API 101</a> course by <a href="https://www.programmableweb.com/">ProgrammableWeb</a>.</p>
+</div>
+<div class="ulist">
+<div class="title">The two major sections to this document are DevOps and APIs. They are presented at a high level to:</div>
+<ul>
+<li>
+<p>Identify consistent major points of understanding</p>
+</li>
+<li>
+<p>Enable and encourage more efficient collaboration on the topics</p>
+</li>
+</ul>
 </div>
 <div class="admonitionblock important">
 <table>
@@ -473,20 +479,6 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </li>
 <li>
 <p><a href="https://www.rainerhahnekamp.com/en/modern-software-development/">On Modern Software Development</a></p>
-</li>
-</ul>
-</div>
-<div class="ulist">
-<div class="title">Good "DevOps" references:</div>
-<ul>
-<li>
-<p><a href="https://www.webopedia.com/TERM/D/devops_development_operations.html">Webopedia DevOps</a></p>
-</li>
-<li>
-<p><a href="https://en.wikipedia.org/wiki/DevOps">Wikipedia DevOps</a></p>
-</li>
-<li>
-<p><a href="https://aws.amazon.com/devops/what-is-devops/">AWS DevOps</a></p>
 </li>
 </ul>
 </div>
@@ -597,15 +589,20 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </div>
 </div>
 <div class="sect1">
-<h2 id="truecontext-diagram"><a class="anchor" href="#truecontext-diagram"></a>Context Diagram</h2>
+<h2 id="truedevops"><a class="anchor" href="#truedevops"></a>DevOps</h2>
 <div class="sectionbody">
+<div class="paragraph">
+<p>In this section a high level view DevOps topics is presented. The intent is to support consistency in collaboration concerning DevOps.</p>
+</div>
+<div class="sect2">
+<h3 id="truecontext-diagram"><a class="anchor" href="#truecontext-diagram"></a>Context Diagram</h3>
 <div class="imageblock">
 <div class="content">
 <img src="images/context-diagram.png" alt="context diagram.png">
 </div>
 </div>
-<div class="sect2">
-<h3 id="truedevelop-changes"><a class="anchor" href="#truedevelop-changes"></a>Develop Changes</h3>
+<div class="sect3">
+<h4 id="truedevelop-changes"><a class="anchor" href="#truedevelop-changes"></a>Develop Changes</h4>
 <div class="paragraph">
 <p>Developers are focused on development separately from Operations and <a href="https://en.wikipedia.org/wiki/Continuous_integration">CI</a> / <a href="https://en.wikipedia.org/wiki/Continuous_delivery">CD</a> automation. They work directly with <strong>public repositories</strong> and local code identifying best options for development requirements or “asks”.</p>
 </div>
@@ -623,10 +620,8 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </div>
 </div>
 </div>
-</div>
-<div class="sect1">
-<h2 id="truedevops-process"><a class="anchor" href="#truedevops-process"></a>DevOps Process</h2>
-<div class="sectionbody">
+<div class="sect2">
+<h3 id="truedevops-process"><a class="anchor" href="#truedevops-process"></a>DevOps Process</h3>
 <div class="imageblock">
 <div class="content">
 <img src="images/devops-process.png" alt="devops process.png">
@@ -673,8 +668,8 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </tr>
 </table>
 </div>
-<div class="sect2">
-<h3 id="truecontinuous-itegration"><a class="anchor" href="#truecontinuous-itegration"></a>Continuous Itegration</h3>
+<div class="sect3">
+<h4 id="truecontinuous-itegration"><a class="anchor" href="#truecontinuous-itegration"></a>Continuous Itegration</h4>
 <div class="paragraph">
 <p>An automated process that is initiated at the completion of a <strong><em>git push</em></strong> to the primary (non-forked) GHE repository <strong><em>develop</em></strong> branch.</p>
 </div>
@@ -725,8 +720,8 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </table>
 </div>
 </div>
-<div class="sect2">
-<h3 id="truetrusted-repository"><a class="anchor" href="#truetrusted-repository"></a>Trusted Repository</h3>
+<div class="sect3">
+<h4 id="truetrusted-repository"><a class="anchor" href="#truetrusted-repository"></a>Trusted Repository</h4>
 <div class="paragraph">
 <p>This is the end point of the <strong><em>Continuous Integration</em></strong> process and the starting point of the <strong><em>Continuous Delivery</em></strong> process.</p>
 </div>
@@ -734,8 +729,8 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <p>In addition to updates made by the <strong><em>Continuous Integration</em></strong> process, <strong><em>Coding &amp; Usage Policies</em></strong> can report on and remove elements as required.</p>
 </div>
 </div>
-<div class="sect2">
-<h3 id="truecontinuous-delivery"><a class="anchor" href="#truecontinuous-delivery"></a>Continuous Delivery</h3>
+<div class="sect3">
+<h4 id="truecontinuous-delivery"><a class="anchor" href="#truecontinuous-delivery"></a>Continuous Delivery</h4>
 <div class="paragraph">
 <p>Provides deployments from the <strong><em>Trusted Repository</em></strong> for argument selected environments.</p>
 </div>
@@ -763,10 +758,8 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </div>
 </div>
 </div>
-</div>
-<div class="sect1">
-<h2 id="truedevops-developer"><a class="anchor" href="#truedevops-developer"></a>DevOps Developer</h2>
-<div class="sectionbody">
+<div class="sect2">
+<h3 id="truedevops-developer"><a class="anchor" href="#truedevops-developer"></a>DevOps Developer</h3>
 <div class="imageblock">
 <div class="content">
 <img src="images/devops-developer.png" alt="devops developer.png">
@@ -859,10 +852,8 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </ul>
 </div>
 </div>
-</div>
-<div class="sect1">
-<h2 id="truecontinuous-integration-automated-process"><a class="anchor" href="#truecontinuous-integration-automated-process"></a>Continuous Integration Automated Process</h2>
-<div class="sectionbody">
+<div class="sect2">
+<h3 id="truecontinuous-integration-automated-process"><a class="anchor" href="#truecontinuous-integration-automated-process"></a>Continuous Integration Automated Process</h3>
 <div class="imageblock">
 <div class="content">
 <img src="images/CI-automated-process.png" alt="CI automated process.png">
@@ -910,10 +901,8 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </table>
 </div>
 </div>
-</div>
-<div class="sect1">
-<h2 id="truecontinuous-delivery-automated-process"><a class="anchor" href="#truecontinuous-delivery-automated-process"></a>Continuous Delivery Automated Process</h2>
-<div class="sectionbody">
+<div class="sect2">
+<h3 id="truecontinuous-delivery-automated-process"><a class="anchor" href="#truecontinuous-delivery-automated-process"></a>Continuous Delivery Automated Process</h3>
 <div class="imageblock">
 <div class="content">
 <img src="images/CD-automated-process.png" alt="CD automated process.png">
@@ -958,12 +947,10 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </table>
 </div>
 </div>
-</div>
-<div class="sect1">
-<h2 id="truegitfork-related-steps"><a class="anchor" href="#truegitfork-related-steps"></a>GitFork Related Steps</h2>
-<div class="sectionbody">
+<div class="sect2">
+<h3 id="truegitfork-related-steps"><a class="anchor" href="#truegitfork-related-steps"></a>GitFork Related Steps</h3>
 <div class="paragraph">
-<p>The GitFork workflow is an additional tool available to development when needed for the reasons mentioned in the Overview section.</p>
+<p>The GitFork workflow is an additional tool available to development when needed for the reasons mentioned in the Overview section. This tool can be engaged from the system used to manage <a href="http://www.saintsjd.com/2011/01/what-is-a-bare-git-repository/">git bare repos</a>.</p>
 </div>
 <div class="paragraph">
 <p>The following image identifies the steps specific to the GitFork workflow.</p>
@@ -1030,6 +1017,15 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </div>
 </div>
 </div>
+</div>
+<div class="sect1">
+<h2 id="trueapis"><a class="anchor" href="#trueapis"></a>APIs</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p><strong><em>This section under construction.</em></strong></p>
+</div>
+</div>
+</div>
 <div class="sect1">
 <h2 id="truereferences"><a class="anchor" href="#truereferences"></a>References</h2>
 <div class="sectionbody">
@@ -1049,12 +1045,26 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </li>
 </ul>
 </div>
+<div class="ulist">
+<div class="title">Good "DevOps" references:</div>
+<ul>
+<li>
+<p><a href="https://www.webopedia.com/TERM/D/devops_development_operations.html">Webopedia DevOps</a></p>
+</li>
+<li>
+<p><a href="https://en.wikipedia.org/wiki/DevOps">Wikipedia DevOps</a></p>
+</li>
+<li>
+<p><a href="https://aws.amazon.com/devops/what-is-devops/">AWS DevOps</a></p>
+</li>
+</ul>
+</div>
 </div>
 </div>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2019-02-14 08:48:39 MST
+Last updated 2019-04-01 10:18:18 MDT
 </div>
 </div>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.9.1/styles/github.min.css">
