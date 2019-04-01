@@ -8,7 +8,7 @@ The Modern Development Process (MDP) is a https://en.wikipedia.org/wiki/Software
 
 https://aws.amazon.com/devops/what-is-devops/[DevOps] is a modern approach that drives this MDP. The guiding principles of DevOps include culture, measurement, automation and sharing. DevOps is considered to be a new approach to the more traditional Application Lifecycle Management (ALM) process.
 
-Application Program Interfaces (APIs) are a major driver as Legacy decomposition and rebuilding efforts are applied and managed. A good introduction to APIs is the https://www.programmableweb.com/api-university/what-are-apis-and-how-do-they-work[API 101] course by https://www.programmableweb.com/[ProgrammableWeb].
+Application Program Interfaces (APIs) are a major driver as Legacy decomposition and rebuilding efforts are applied and managed. A good introduction to APIs is the https://www.youtube.com/watch?v=cpRcK4GS068&list=PLcgRuP1JhcBP8Kh0MC53GH_pxqfOhTVLa[API 101] course by https://www.programmableweb.com/[ProgrammableWeb]. The https://api-university.com/[API-University] is a good primary reference.
 
 .The two major sections to this document are DevOps and APIs. They are presented at a high level to:
 * Identify consistent major points of understanding
