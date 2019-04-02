@@ -219,6 +219,68 @@ image::images/Development-WorkArea.png[]
 
 **_This section under construction._**
 
+Reference: https://blog.apisyouwonthate.com/understanding-rpc-rest-and-graphql-2f959aadebe7[Understanding RPC, Rest, and GraphQL]
+
+=== Styles
+* Restful
+** Uses HTTP requests to GET, PUT, POST and DELETE data.
+** Basic Structure of Restful APIs:
+*** Endpoint: https://api.stripe.com
+*** Endpoint with version: https://api.stripe.com/v1
+*** Resources:
+**** https//api.stripe.com/v1/balance
+**** https//api.stripe.com/v1/balance/history
+**** https//api.stripe.com/v1/charges
+**** https//api.stripe.com/v1/charges/{CHARGE_ID}
+**** https//api.stripe.com/v1/customers
+* Streaming
+** Streaming API enables streaming of events using push technology and provides a subscription mechanism for receiving events in near real time. The Streaming API subscription mechanism supports multiple types of events, including PushTopic events, generic events, platform events, and Change Data Capture events.
+* Browser
+** https://frontendmasters.com/books/front-end-handbook/2018/learning/web-api.html[Learn Web Browser APIs]
+* RPC
+* Native
+* Indirect
+* GraphQL
+
+=== Types
+* Internet
+* Browser
+* Product
+* Standard Spec
+* System Embedded
+
+==== What is Purpose / Service?
+
+==== API Main Components
+* Act as the messenger
+* Collect and process data
+* Return the response of the request
+
+Phases of the API Management Lifecycle (in no particular order).
+
+* Planning and Analysis
+* Design
+* Development
+* Operation
+* Governance
+* Measurement and Testing
+* Engagement
+* Versioning and Retirement
+
+Stakeholder Roles:
+
+* API Owner
+* IT Architect
+* API Developer
+* Chief Security Officer
+* Service Owner
+* Service Operator
+* API Evangelist
+* API Consumer
+* NOTE: These are roles, not necessarily job descriptions
+
+
+
 == References
 
 * https://reflectoring.io/github-fork-and-pull/[Fork & Pull Workflow] For git beginners
