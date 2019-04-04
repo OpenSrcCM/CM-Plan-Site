@@ -6,11 +6,11 @@
 
 The Modern Development Process (MDP) is a https://en.wikipedia.org/wiki/Software_development_process[Software Development Process] captured from historical industry practices and evolving modern approaches.  It's maintained as change is encountered and experienced in the IT industry.
 
-https://aws.amazon.com/devops/what-is-devops/[DevOps] is a modern approach that drives this MDP. The guiding principles of DevOps include culture, measurement, automation and sharing. DevOps is considered to be a new approach to the more traditional Application Lifecycle Management (ALM) process.
+https://aws.amazon.com/devops/what-is-devops/[DevOps] is a concept that drives this MDP. The guiding principles of DevOps include culture, measurement, automation and sharing. DevOps is considered to be a new approach to the more traditional Application Lifecycle Management (ALM) process.
 
-Application Program Interfaces (APIs) are a major driver as Legacy decomposition and rebuilding efforts are applied and managed. A good introduction to APIs is the https://www.youtube.com/watch?v=cpRcK4GS068&list=PLcgRuP1JhcBP8Kh0MC53GH_pxqfOhTVLa[API 101] course by https://www.programmableweb.com/[ProgrammableWeb]. The https://api-university.com/[API-University] is a good primary reference.
+The concept of Application Program Interfaces (APIs) is a major driver as Legacy decomposition and rebuilding efforts are applied and managed. A good introduction to APIs is the https://www.youtube.com/watch?v=cpRcK4GS068&list=PLcgRuP1JhcBP8Kh0MC53GH_pxqfOhTVLa[API 101] course by https://www.programmableweb.com/[ProgrammableWeb]. The https://api-university.com/[API-University] is a good primary reference.
 
-.The two major sections to this document are DevOps and APIs. They are presented at a high level to:
+.The two major sections to this document are DevOps and API Concepts. They are presented at a high level to:
 * Identify consistent major points of understanding
 * Enable and encourage more efficient collaboration on the topics
 
@@ -58,7 +58,7 @@ The primary workflow utilized by the MDP is the https://datasift.github.io/gitfl
 * This approach has been defined and exercised in the open source development world.
 ====
 
-== DevOps
+== DevOps Concept
 
 In this section a high level view DevOps topics is presented. The intent is to support consistency in collaboration concerning DevOps.
 
@@ -215,7 +215,7 @@ image::images/Development-WorkArea.png[]
 ** Operations
 ====
 
-== APIs
+== API Concept
 
 **_This section under construction._**
 
