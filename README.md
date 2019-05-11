@@ -43,7 +43,7 @@ This will be installed as a service website to your workstation. After addressin
 #### Prerequisites
 
 * Install Git on your system per the [Install Git](/app/site/newstuff/GitInstallationProcedure.adoc) procedure.
-* Install the [VirtualBox](https://www.virtualbox.org/) application on your workstation.
+* Install the [VirtualBox](https://www.virtualbox.org/wiki/Downloads) application on your workstation.
 * Install the [Vagrant](https://www.vagrantup.com/) application on your system.
 
 :notebook: ***NOTES***:
