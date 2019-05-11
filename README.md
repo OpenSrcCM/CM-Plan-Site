@@ -59,8 +59,6 @@ This will be installed as a service website to your workstation. After addressin
 
 ![Prepare Workstation](/images/prepare-ws.png)
 
-### Initial VM Website
-
 At this point, your system is ready to establish the CM Plan Website on your workstation. Execute the following command in the git command-line window:
 
 ![Build WS Website](/images/build-ws-website-vm.png)
