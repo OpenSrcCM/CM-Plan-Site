@@ -53,7 +53,9 @@ This will be installed as a service website to your workstation. After addressin
  > 3. The following commands assume these prerequisites have been installed on your workstation as prescribed.
  >> a. Address all sections of the Install Git procedure before moving on.
 
-* Using the git command-line window, prepare to your workstation with the following commands from your home directory:
+#### Create Deployment Package
+
+* Using the git command-line window, prepare the CM-Plan-Site deployment package on your workstation. Execute the following commands from your home directory:
 
 ![Prepare Workstation](/images/prepare-ws.png)
 
