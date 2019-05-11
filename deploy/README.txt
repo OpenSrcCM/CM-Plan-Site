@@ -1,7 +1,7 @@
 ##################################################################################
 # This deploy directory is where and how the deployment is managed. 
 #
-# 1. To setup the EM&M CM Plan Website development environment:
+# 1. To setup the CM Plan Website development environment:
 #    ./enable-functionality.bsh
 #    ./cm-plan-site.bsh Major Minor Issue
 #      The ~/bin/NE-startup.bsh installed script can also be used to include 
@@ -12,7 +12,7 @@
 #     A. The arguments for Major, Minor, Issue are up to the current user. The
 #        current values can be used to identify a tested or production release.
 # 
-#        Version 1.1.0 represents updates developed and tested and deployable
+#        Version 1.2.0 represents updates developed and tested and deployable
 #        from the master branch.
 #
 #        Version 1.1.0 is the beginning of using ADRs. The first one is
@@ -30,13 +30,13 @@
 #        website. Refer to local README.txt files for further details of each:
 #          a. app/bin
 #          b. app/bin/vagrant
-#                The vagrantfile is now using centos-7.5. 
+#                The vagrantfile is now using centos-7.
 #          c. app/site/basis
 #          e. app/site/sitemap
 #     C. Verify working versions of prerequisite applications each release:
-#          a. Git version 2.20.1-64-bit.exe 
-#          b. Oracle VirtualBox-5.2.24-128163-Win.exe
-#          c. vagrant_2.2.3_x86_64.msi
+#          a. Git version 2.21.0-64-bit.exe 
+#          b. Oracle VirtualBox-6.0.6-130049-Win.exe
+#          c. vagrant_2.2.4_x86_64.msi
 #               NOTES:
 #                  1. For vagrant ssh, .bash_profile setting:
 #                     $ VAGRANT_PREFER_SYSTEM_BIN=1 vagrant ssh
