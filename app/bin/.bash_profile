@@ -6,8 +6,8 @@ alias python37='c:Users/awalla5075k/AppData/Local/Programs/Python/Python37/'
 # #! c:\python27\python.exe
 # for python scripts to run 3.7:
 # #! c:\python37\python.exe
-#alias python='winpty c:Python27/python.exe'
-alias python='winpty c:Users/awalla5075k/AppData/Local/Programs/Python/Python37/python.exe'
+alias python='winpty c:Python27/python.exe'
+# alias python='winpty c:Users/<userid>/AppData/Local/Programs/Python/Python37/python.exe'
 export VAGRANT_PREFER_SYSTEM_BIN=1
 
 # Workarea
