@@ -11,10 +11,10 @@ alias python='winpty c:Python27/python.exe'
 export VAGRANT_PREFER_SYSTEM_BIN=1
 
 # Workarea
-alias mwa='cd ~/repo-workareas'
-alias mdd='cd ~/repo-workareas/CM-Plan-Site/deploy'
-alias mab='cd ~/repo-workareas/CM-Plan-Site/app/bin'
-alias mas='cd ~/repo-workareas/CM-Plan-Site/app/site'
+#alias mwa='cd ~/repo-workareas'
+#alias mdd='cd ~/repo-workareas/CM-Plan-Site/deploy'
+#alias mab='cd ~/repo-workareas/CM-Plan-Site/app/bin'
+#alias mas='cd ~/repo-workareas/CM-Plan-Site/app/site'
 
 # Website working aliases
 ## Comcast Deploy Directory
@@ -24,6 +24,8 @@ alias cab='cd ~/git-repos/CM-System-Site/app/bin'
 ## Comcast site Directory
 alias cas='cd ~/git-repos/CM-System-Site/app/site'
 ## My Deploy Directory
+# NOTE: NE refers to None-Enterprise in terms of GitHub.
+alias mwa='cd ~/nerepo-repos'
 alias mdd='cd ~/negit-repos/CM-Plan-Site/deploy'
 ## My bin Directory
 alias mab='cd ~/negit-repos/CM-Plan-Site/app/bin'
