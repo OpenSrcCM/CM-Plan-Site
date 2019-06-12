@@ -11,3 +11,22 @@ To do:
 https://www.youtube.com/watch?v=XO0ziCtmeW8
 - Updates for MDP in plan, git-user-guide and main README.md docx in /app/bin. Note READEME.txt in site/git and site/teamTools.
 - Docker system on VM
+
+Setting up Python Environment:
+Installed Python versions on workstation:
+C:\Python27\
+C:\Users\<UserID>\AppData\Local\Programs\Python\Python37\
+The PyScripter-x64 PyScripter shortcut can be adjusted to one of the following targets values:
+ - "C:\Program Files\PyScripter\PyScripter.exe" --PYTHON37
+ - "C:\Program Files\PyScripter\PyScripter.exe" --PYTHON27
+Prior to running PyScripter, adjust the following file with one of above Target settings
+with a right-click to Properties on the following file: (Must have Admin privs)
+C:\ProgramData\Microsoft\Windows\Start Menu\Programs\PyScripter-64\PyScripter
+   NOTES: 
+     1. You can only run one of the Python versions via PyScripter at a time on Windows 10.
+     2. Not an issue for command line on linux or macs. (Windows OS only for PyScripter)
+     3. Need the flexibility to code in 2 and 3 versions of Python as support for 2 ends in 2020.
+
+Working with PyScripter IDE to aid in learning python. 
+    NOTE: - Backwards compatibility becomes less of an issue as MDP becomes more focused on CI/CD
+            automation. Examples include centOS 6 to 7 and python 2 to 3.
