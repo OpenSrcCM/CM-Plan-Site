@@ -79,6 +79,7 @@ Vagrant.configure("2") do |config|
      yum install -y git
      yum install -y httpd
      yum -y update
+     yum install -y gcc openssl-devel bzip2-devel
   SHELL
   config.vm.provision :shell, path: "bootstrap.sh"
   config.vm.network :forwarded_port, guest: 80, host: 1234 
