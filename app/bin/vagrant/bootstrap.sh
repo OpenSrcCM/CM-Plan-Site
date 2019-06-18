@@ -25,11 +25,11 @@ python --version
 python37 --version
 ########################################################
 # Install website
-cp -R /home/vagrant/html/* /var/www/html/
+cp -R /vagrant/html/* /var/www/html/
 # start apache2
 apachectl start
-rm -r /home/vagrant/html/
+rm -r /vagrant/html/
 # Remove Deployment tools
-rm -r /home/vagrant/package-deploy.bsh
-rm -r /home/vagrant/bootstrap.sh
-rm -r /home/vagrant/vagrantfile
+rm -r /vagrant/package-deploy.bsh
+rm -r /vagrant/bootstrap.sh
+rm -r /vagrant/vagrantfile
