@@ -8,20 +8,32 @@
 # for the targeted repository.
 #
 # Dependencies:
-#  - GitHub system with $TargetOrg
-#  - $TargetDIR directory exists
-#  - $TargetRepo workarea directory exists in $TargetDIR
-#  - $BackupWA workarea directory exists in $TargetDIR
-#  - $TargetRepo/deploy/cm-plan-service.bsh script exists after git clone
-#  - $TargetRepo/develop branch exists
+#  - ssh alias configured in ~/.ssh/config for $sshConfigref
+#  - GitHub system with $TargetOrg.
+#  - $TargetDIR directory exists.
+#  - $TargetRepo workarea directory exists in $TargetDIR.
+#  - $BackupWA workarea directory exists in $TargetDIR.
+#  - $TargetRepo/deploy/cm-plan-service.bsh script exists after git clone.
+#  - $TargetRepo/develop branch exists.
+#  - The existence of a ~/.bash_profile set for your workstation with
+#      recommendations. Reference app/bin/.bash_profile for details.
+#  - A copy of this script in ~/bin/ with execute permissions and configured
+#      for your environment. See Script configuration variables section.
 #
-# Note:
+# Notes:
 #  1. This script should not be run if there is an active VM Enhanced workarea.
 #     Be sure to run 'vagrant destroy' and remove the associated workarea
 #     before running this script again.
 #  2. This script assumes 'vagrant destroy' has been run.
-#  3. This script assumes a $BackupWA exists and removes it.
-#  4. This script moves the $TargetRepo directory to the $BackupWA directory.
+#  3. Active website sessions using the same port will cause an execution error.
+#  4. This script assumes a $BackupWA exists and removes it.
+#  5. This script moves the $TargetRepo directory to the $BackupWA directory.
+#  6. Arguments are Major, Minor, and patch to support Semantic Versioning.
+#     https://semver.org/
+#    6.a These arguments are only used to name the deployment package
+#    6.b As a development organization technique I often use them for
+#        date, i.e., Major=YYYY, Minor=MM, and patch=DD.
+#
 ##################################################################################
 
 ################################################################################
