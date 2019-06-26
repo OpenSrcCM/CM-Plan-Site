@@ -2,7 +2,7 @@
 ##################################################################################
 # startup.bsh
 #
-# Written by Andy Wallace 2018/07/18; last updated 2019/03/05
+# Written by Andy Wallace 2018/07/18; last updated 2019/06/26
 #
 # This script automatically sets up a VM enhanced development environment 
 # for the targeted repository.

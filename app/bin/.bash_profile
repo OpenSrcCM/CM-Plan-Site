@@ -1,4 +1,9 @@
 ###############################################################################
+#  OSX's default path is generated from /etc/paths
+#  Following is recommended for this file for OSX (macs)
+source /etc/profile
+export PATH=$PATH:$HOME/bin
+###############################################################################
 # App Definitions
 alias python27='c:Python27/'
 alias python37='c:Users/awalla5075k/AppData/Local/Programs/Python/Python37/'
