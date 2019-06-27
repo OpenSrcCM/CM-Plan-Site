@@ -1,6 +1,6 @@
 ###############################################################################
 #  OSX's default path is generated from /etc/paths
-#  Following is recommended for this file for OSX (macs)
+#  Following 2 lines recommended/tested in this file for OSX (macs) and Win10
 source /etc/profile
 export PATH=$PATH:$HOME/bin
 ###############################################################################
