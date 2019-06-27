@@ -19,6 +19,7 @@
 #      1. Follow git permission commands used: 
 #         a. $ git ls-files --stage
 #         b. $ git update-index --chmod=+x *.sh 
+#         c. $ git config core.filemode true (check .git/config core file mode)
 # Notes:
 #  1. This script should not be run if there is an active VM Enhanced workarea.
 #     Be sure to run 'vagrant destroy' and remove the associated workarea
