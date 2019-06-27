@@ -21,16 +21,10 @@ export VAGRANT_PREFER_SYSTEM_BIN=1
 #alias mab='cd ~/repo-workareas/CM-Plan-Site/app/bin'
 #alias mas='cd ~/repo-workareas/CM-Plan-Site/app/site'
 
-# Website working aliases
-## Comcast Deploy Directory
-alias cdd='cd ~/git-repos/CM-System-Site/deploy'
-## Comcast bin Directory
-alias cab='cd ~/git-repos/CM-System-Site/app/bin'
-## Comcast site Directory
-alias cas='cd ~/git-repos/CM-System-Site/app/site'
-## My Deploy Directory
+# repo working aliases
 # NOTE: NE refers to None-Enterprise in terms of GitHub.
 alias mwa='cd ~/nerepo-repos'
+## My Deploy Directory
 alias mdd='cd ~/negit-repos/CM-Plan-Site/deploy'
 ## My bin Directory
 alias mab='cd ~/negit-repos/CM-Plan-Site/app/bin'

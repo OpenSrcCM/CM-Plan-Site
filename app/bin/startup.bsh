@@ -2,18 +2,23 @@
 ##################################################################################
 # startup.bsh
 #
-# Written by Andy Wallace 2018/07/18; last updated 2019/06/26
+# Written by Andy Wallace 2018/07/18; last updated 2019/06/27
 #
 # This script automatically sets up a VM enhanced development environment 
 # for the targeted repository.
 #
 # Dependencies:
-#  - GitHub system with $TargetOrg
-#  - $TargetDIR directory exists
-#  - $TargetRepo workarea directory exists in $TargetDIR
-#  - $BackupWA workarea directory exists in $TargetDIR
-#  - $TargetRepo/deploy/cm-plan-service.bsh script exists after git clone
-#  - $TargetRepo/develop branch exists
+#  1.  GitHub system with $TargetOrg
+#  2.  $TargetDIR directory exists
+#  3.  $TargetRepo workarea directory exists in $TargetDIR
+#  4.  $BackupWA workarea directory exists in $TargetDIR
+#  5.  $TargetRepo/deploy/cm-plan-service.bsh script exists after git clone
+#  6.  $TargetRepo/develop branch exists
+#  7.  Execute file permissions on *.bsh and *.sh files in /deploy and
+#        /app/bin directories including sub-directories
+#      1. Follow git permission commands used: 
+#         a. $ git ls-files --stage
+#         b. $ git update-index --chmod=+x *.sh 
 #
 # Note:
 #  1. This script should not be run if there is an active VM Enhanced workarea.
