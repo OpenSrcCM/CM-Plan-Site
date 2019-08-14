@@ -8,6 +8,7 @@ deploy/package-deploy.bsh
 deploy/vagrantfile
 deploy/bootstrap.sh
 deploy/VMLog.txt
+*.log
 *.7z
 *.dmg
 *.gz

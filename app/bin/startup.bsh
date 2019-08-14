@@ -1,52 +1,128 @@
 #!/bin/bash
 ##################################################################################
-# startup.bsh
+# nestartup.bsh
 #
-# Written by Andy Wallace 2018/07/18; last updated 2019/06/27
+#  (This script maintained at repo CM-Plan-Site/app/bin/startup.bsh)
+#
+# Written by Andy Wallace 2018/07/18; last updated 2019/08/14
 #
 # This script automatically sets up a VM enhanced development environment 
 # for the targeted repository.
 #
+# GitFork workflow is assumed as defined in the DevOps Process document.
+#    *** Needs work from cmguy on this - copy DevOps Process doc and generizise
+#    *** script currently executes since cmguy is both userid and org
+#    ***   as far as GitHub is concerned.
+#
+# Only production enviroment is on developer workstation.
+#
 # Dependencies:
-#  1.  GitHub system with $TargetOrg
-#  2.  $TargetDIR directory exists
-#  3.  $TargetRepo workarea directory exists in $TargetDIR
-#  4.  $BackupWA workarea directory exists in $TargetDIR
-#  5.  $TargetRepo/deploy/cm-plan-service.bsh script exists after git clone
-#  6.  $TargetRepo/develop branch exists
-#  7.  Execute file permissions on *.bsh and *.sh files in /deploy and
-#        /app/bin directories including sub-directories
-#      1. Follow git permission commands used: 
-#         a. $ git ls-files --stage
-#         b. $ git update-index --chmod=+x *.sh 
-#         c. $ git config core.filemode true (check .git/config core file mode)
+#    A. Workstation related assumptions:
+#       1.  cmguy ssh alias defined in ~/.ssh
+#       2.  Following defined in ~/.bash_profile
+#             $ source /etc/profile
+#             $ export PATH=$PATH:$HOME/bin
+#             Reference github:cmguy/CM-Plan-Site/app/bin/.bash_profile
+#                **** Needs to be genarized for cmguy
+#       3.  A copy of this script in ~/bin/ with execute permissions
+#             $ chmod 755 ~/bin/nestartup.bsh
+#       4.  Configure following script variables for your environment:
+#             $TargetDir      # workstation repo workarea directory
+#             $GitHubUserID   # Forked repo userid
+#       5.  $TargetDIR directory exists
+#       6.  $TargetRepo workarea directory maintained in ~/$TargetDir
+#       7.  $BackupWA workarea directory maintained in ~/$TargetDir
+#       8.  $TargetDir/$TargetRepo/deploy directory exists on
+#           $Basis branch
+#    B. GitHub related assumptions:
+#       1.  GitHub system with $TargetOrg/$TargetRepo
+#       2.  $TargetRepo is cloned based on $GitHubUserID Fork of
+#             $TargetOrg/$TargetRepo
+#       3.  Targeted forked repo is recent:
+#            - delete old fork via GitHub forked repo settings-Danger Zone
+#            - Fork new repo via GitHub repo User Interface
+#       4.  All scripts in $TargetRepo have execute permissions set in
+#           GitHub repo.
+#            a. To set execute permissions
+#                 $ git add --chmod=+x path/to/file
+#            b. To view git permission settings for give repo directory:
+#                 $ git ls-files --stage
+#            c. To enable git bare repo update
+#                 $ git config core.filemode true
+#                (Also check .git/config core file mode setting)
+#       5.  $TargetRepo/deploy/cm-system-service.bsh script exists
+#           after git clone
+#       6. $TargetRepo/develop and $TargetRepo/master branches exists
+#       7. The existence of a ~/.bash_profile set for your workstation with
+#           recommendations. reference app/bin/.bash_profile for details.
+#       8. A copy of this script on workstation in ~/bin/ with execute
+#          permissions and configured for your environment. See Script
+#          configuration variables section.
+#
 # Notes:
-#  1. This script should not be run if there is an active VM Enhanced workarea.
+#  1. For each execution of this script:
+#     a. Assumes a $BackupWA exists in ~/$TargetDir and removes it.
+#     b. Assumes the $TargetRepo directory exists in ~/$TargetDir and
+#        moves it to the $BackupWA directory.
+#     c. Created a temporary ~/$TargetDir/log directory
+#     d. Creates a .ForkedWA.log file in the $Basis branch top directory
+#        or deploy directory if it exists.
+#         ~/$TargetDir/$TargetRepo/deploy directory.
+#     e. Establishes a feature branch for development effort based on:
+#         - $Basis, $GitHubUserID, $Major, $Minor, $Issue
+#           NOTE: $Issue is equivalent to patch from a semantic versioning
+#                 point of view. Your JIRA issue can be substituted.
+#               Reference following for details:
+#         http://emmutl-ch2-1p.sys.comcast.net/teamTools/emm-devops-process.html
+#            **** Needs updating for cmguy
+#  2. Do not run this script when local to the $TargetDir or any sub directories
+#     of $TargetDir.
+#  3. This script should not be run if there is an active VM Enhanced
+#     workarea.
 #     Be sure to run 'vagrant destroy' and remove the associated workarea
-#     before running this script again.
-#  2. This script assumes 'vagrant destroy' has been run.
-#  3. Active website sessions using the same port will cause an execution error.
-#  4. This script assumes a $BackupWA exists and removes it.
-#  5. This script moves the $TargetRepo directory to the $BackupWA directory.
-#  6. Arguments are Major, Minor, and patch to support Semantic Versioning.
-#     https://semver.org/
-#    6.a These arguments are only used to name the deployment package
-#    6.b As a development organization technique I often use them for
-#        date, i.e., Major=YYYY, Minor=MM, and patch=DD.
+#     before running this script again. This script assumes this has been done.
+#  4. Active website sessions using the same port will cause an
+#     execution error.
+#  5. Arguments for Major, Minor, and issue support Semantic Versioning.
+#      Reference https://semver.org/
+#     a. These values are utilized in naming the initial feature branch
+#        for the development effort at hand.
+#     b. As a development environment organization technique by date, you can
+#         use them for date, i.e., Major=YYYY, Minor=MM, and issue=DD.
 #
 ##################################################################################
 
 ################################################################################
 # Script configuration variables
+#
+#  These have be setup and tested Win 10 and Mac workstations.
+#
+#  You'll need to verify and/or adjust them for your environment and
+#  $Github Repo.
+#
+#  It is recommended that you copy this script to your ~/bin directory
+#  on your workstation and run it from there.
+#
+#  There is reliance on your ~/.bash_profile settings by this script.
+#  Reference EMM/CM-System-Site/app/bin/.bash_profile for a template
+#  reference.
 ################################################################################
-ThisScript="startup.bsh"              # Used in log and response messaging
-TargetDir="negit-repos"               # repo workarea directory
-BackupWA="cps-hold"                   # Backup workarea directory from previous
-                                      # session
-sshConfigref="cmguy"                  # defined in ~/.ssh/config
-TargetOrg="cmguy"                     # GHE organization 
-TargetRepo="CM-Plan-Site"             # GHE organization repo
-TargetService="cm-plan-service.bsh"   # Primary deployment script
+ThisScript="nestartup.bsh"         # Used in log and response messaging
+TargetDir="negit-repos"            # repo workarea directory
+GitHubUserID="cmguy"               # Forked repo userid
+MainRepo="main"                    # Name of workarea remote to repo forked
+                                     # and cloned from.
+sshConfigref="cmguy"               # defined in ~/.ssh/config
+###########################
+# Following commented out.
+# Currently processed as
+# arguments.
+###########################
+#TargetOrg="cmguy"                 # GitHub organization or userid
+#TargetRepo="CM-Plan-Site"         # Github organization/userid repo
+#BackupWA="cps-hold"               # See code for $BackupWA
+###########################
+TargetService="cm-plan-service.bsh" # Primary deployment script
 
 ################################################################################
 # Process script arguments
@@ -58,37 +134,52 @@ if [ "$#" -eq "0" ]; then echo ""
       exit 1
 fi
 
+if [ "$1" == "-h" ]; then
+ echo ""
+   echo "$ThisScript -h|[ GitHub-Org Repo Major Minor Issue ]"
+   echo ""
+   echo "   -h          -> Prints this help text."
+   echo ""
+   echo "   GitHub-Org -> GitHub Organization where Repository resides."
+   echo ""
+   echo "   GitHub-Repo -> Repository name contained under GitHub-Org."
+   echo ""
+   echo "   Basis -> This will be the shared branch your coding effort"
+   echo "            starts with. The expected values include develop,"
+   echo "            master, or any team shared release branch."
+   echo ""
+   echo "            Reference the available branches for this repo"
+   echo "            via the GitHub User Interface."
+   echo ""
+   echo "   Major -> Release Major number for this GitHub Repo changes."
+   echo ""
+   echo "   Minor -> Release Minor number for this GitHub Repo changes."
+   echo ""
+   echo "   Issue -> GitHub, or CR, issue number for GitHub Repo changes."
+   echo ""
+   echo "Note that '.' is not a valid argument character."
+   echo ""
+   echo "Use spaces to separate all argument values."
+   echo ""
+   exit 1
+fi
+
 if [ "$#" -ge "1" ]; then
    echo "`date +%c` Validate $ThisScript arguments ..."
-   elif [ "$#" -gt "3" ]; then
+   if [ "$#" -gt "6" ]; then
       echo ""
       echo "Invalid argument set. For help execute " $ThisScript " -h"
       echo ""
       echo "ERROR - Too many arguments supplied."
       exit 1
-   elif [ "$#" -lt "3" ]; then
+   fi
+   if [ "$#" -lt "6" ]; then
       echo ""
       echo "Invalid argument set. For help execute " $ThisScript " -h"
       echo ""
       echo "ERROR - Invalid number of arguments supplied."
       exit 1
-fi
-
-if [ "$1" == "-h" ]; then
-   echo ""
-   echo "$ThisScript -h|[ Major minor Issue ]"
-   echo ""
-   echo "   -h          -> Prints this help text."
-   echo ""
-   echo "   Major -> Release Major number for this $ThisRepo repo deployment."
-   echo ""
-   echo "   Minor -> Release Minor number for this $ThisRepo repo deployment."
-   echo ""
-   echo "   Issue -> GitHub, or CR, issue number for this $ThisRepo repo deployment."
-   echo ""
-   echo "Note that '.' is not a valid argument character."
-   echo "Use spaces to separate Major, Minor, and Issue values."
-   exit 1
+   fi
 fi
 
 for i in "$@"; do
@@ -101,28 +192,126 @@ for i in "$@"; do
       echo "'.' is not a valid argument character."
       exit 1
    else
-      Major="$1"
-      minor="$2"
-      Issue="$3"
+      # Set variables based on arguments
+      TargetOrg=$1
+      TargetRepo=$2
+      Basis=$3
+      BackupWA="Backup-"
+      BackupWA+=$TargetRepo
+      Major="$4"
+      Minor="$5"
+      Issue="$6"
    fi
 done
 # Test -echo arguments
+#echo "GitHub-Org is " $TargetOrg
+#echo "TargetRepo is " $TargetRepo
+#echo "Basis is " $Basis
 #echo "Major is " $Major
 #echo "Minor is " $Minor
 #echo "Issue # is " $Issue
 
 ################################################################################
-# Create VM enhanced development environment
+# Create development repo workarea
 ################################################################################
-echo "`date +%c` $Targetrepo - prepare $TargetDir directory ..." 2>&1
-cd ~/$TargetDir 2>&1
-rm -fr $BackupWA 2>&1
-mv $TargetRepo $BackupWA
-echo "`date +%c` $TargetDir directory ready for git clone." 2>&1
-git clone $sshConfigref:$TargetOrg/$TargetRepo
-cd $TargetRepo/deploy
-git checkout develop
-./$TargetService $Major $minor $Issue
+mkdir ~/$TargetDir/log
+echo "`date +%c` $TargetRepo - prepare $TargetDir directory ..." 2>&1 > ~/$TargetDir/log/.ForkedWA.log
 
-echo "`date +%c` VM Enhanced workarea created." 2>&1
-echo "execute 'vagrant destroy' and remove workarea before running this script again."
+echo "Change directory to $TargetDir ..." 2>&1 >> ~/$TargetDir/log/.ForkedWA.log
+cd ~/$TargetDir 2>&1
+echo "Remove $BackupWA directory ..." 2>&1 >> ~/$TargetDir/log/.ForkedWA.log
+rm -fr $BackupWA 2>&1
+echo "Move $TargetRepo to $BackupWA directory ..." 2>&1 >> ~/$TargetDir/log/.ForkedWA.log
+mv $TargetRepo $BackupWA
+echo "$TargetDir directory ready for git clone." 2>&1 >> ~/$TargetDir/log/.ForkedWA.log
+git clone $sshConfigref:$GitHubUserID/$TargetRepo
+echo "Change directory to $TargetRepo ..." 2>&1 >> ~/$TargetDir/log/.ForkedWA.log
+cd $TargetRepo
+######################################################
+#  -  check out to the origin remote $Basis branch
+#  -  establish feature branch.
+#####################
+# Then:
+#  - Change directory to deploy
+#  - move .ForkedWA.log
+#  - remove ~/$TargetDir/log directory
+######################################################
+echo "Change branch to $Basis for basis ..." 2>&1 >> ~/$TargetDir/log/.ForkedWA.log
+#git checkout --track $MainRepo/$Basis
+git checkout $Basis
+echo "Create feature branch on $Basis branch named:" >> ~/$TargetDir/log/.ForkedWA.log
+echo " $Basis-$GitHubUserID-$Major.$Minor.$Issue" >> ~/$TargetDir/log/.ForkedWA.log
+fbranchname=$Basis
+fbranchname+="-$GitHubUserID"
+fbranchname+="-$Major"
+fbranchname+="_$Minor"
+fbranchname+="_$Issue"
+git checkout -b $fbranchname
+cd deploy
+echo "Change directory to deploy ..." 2>&1 >> ~/$TargetDir/log/.ForkedWA.log
+mv ~/$TargetDir/log/.ForkedWA.log .
+########################################
+# Note previous mv will put the
+# .ForkedWA.log in current branch
+# if deploy does not exist.
+########################################
+rm -fr ~/$TargetDir/log
+
+echo "Create main git remote pointed to the repo forked from ..." 2>&1 >> .ForkedWA.log
+git remote add $MainRepo $sshConfigref:$TargetOrg/$TargetRepo
+
+#############################################
+# Identify $MainRepo remote branches
+# and establish local repo branches
+# based on $MainRepo remote branches
+#############################################
+ShareBranches=()
+ShareBranches=($(git ls-remote --heads $MainRepo))
+for sb in "${ShareBranches[@]}"
+do
+   if [ ${sb:0:4} == "refs" ]; then
+           sb=${sb:11}
+           BranchesFound+=("$sb")
+           echo "git fetch $MainRepo $sb ..." 2>&1 >> .ForkedWA.log
+           git fetch $MainRepo $sb
+	   ################################
+	   # remove local origin branch
+	   # and replace with $MainRepo
+	   # branch.
+	   ################################
+	   git branch -d $sb 2>&1 >> .ForkedWA.log
+           git checkout -b $sb $MainRepo/$sb 2>&1 >> .ForkedWA.log
+   fi
+done
+#echo "Branches found on $MainRepo remote - " 2>&1 >> .ForkedWA.log
+#echo "${BranchesFound[@]}" 2>&1 >> .ForkedWA.log
+
+##############################################
+# Checkout to feature branch established from
+# $Basis branch
+##############################################
+git checkout $fbranchname
+
+################################################################################
+# Report on Workarea established
+################################################################################
+echo "Report: Workarea git remotes ..." 2>&1 >> .ForkedWA.log
+git remote -v >> .ForkedWA.log
+echo "Report: all workarea branches ..." 2>&1 >> .ForkedWA.log
+git branch -a >> .ForkedWA.log
+echo "*** WARNING *** - If $MainRepo branches vary from origin branches ***" 2>&1 >> .ForkedWA.log
+echo "*** WARNING ***   review with team and REFORK your repo SOON ***" 2>&1 >> .ForkedWA.log
+echo "Report: Local workarea shared branches with last commit message ..." 2>&1 >> .ForkedWA.log
+git branch -v >> .ForkedWA.log
+echo "Report: ~/$TargetDir content listing ..." 2>&1 >> .ForkedWA.log
+ls -l ~/$TargetDir >> .ForkedWA.log
+echo "`date +%c` Forked local repo workarea created."
+echo "`date +%c` Forked local repo workarea created." 2>&1 >> .ForkedWA.log
+
+################################################################################
+# Enhance Workarea with Virtual Machine (VM)
+################################################################################
+echo "`date +%c` Now calling ./cm-system-service.bsh ..." 2>&1 >> .ForkedWA.log
+./$TargetService $Major $Minor $Issue
+echo "`date +%c` VM Enhanced workarea created." 2>&1 >> .ForkedWA.log
+echo "execute 'vagrant destroy' and remove workarea before running this script again." >> .ForkedWA.log
