@@ -4,13 +4,13 @@
 #
 #  (This script maintained at repo CM-Plan-Site/app/bin/startup.bsh)
 #
-# Written by Andy Wallace 2018/07/18; last updated 2019/08/14
+# Written by Andy Wallace 2018/07/18; last updated 2019/08/28
 #
 # This script automatically sets up a VM enhanced development environment 
 # for the targeted repository.
 #
 # GitFork workflow is assumed as defined in the DevOps Process document.
-#    *** Needs work from cmguy on this - copy DevOps Process doc and generizise
+#    *** Needs work from cmguy on this - copy DevOps Process doc and generalize 
 #    *** script currently executes since cmguy is both userid and org
 #    ***   as far as GitHub is concerned.
 #
@@ -23,7 +23,7 @@
 #             $ source /etc/profile
 #             $ export PATH=$PATH:$HOME/bin
 #             Reference github:cmguy/CM-Plan-Site/app/bin/.bash_profile
-#                **** Needs to be genarized for cmguy
+#                **** Needs to be generalized for cmguy
 #       3.  A copy of this script in ~/bin/ with execute permissions
 #             $ chmod 755 ~/bin/nestartup.bsh
 #       4.  Configure following script variables for your environment:
@@ -112,7 +112,7 @@ TargetDir="negit-repos"            # repo workarea directory
 GitHubUserID="cmguy"               # Forked repo userid
 MainRepo="main"                    # Name of workarea remote to repo forked
                                      # and cloned from.
-sshConfigref="cmguy"               # defined in ~/.ssh/config
+sshConfigref="github"              # defined in ~/.ssh/config
 ###########################
 # Following commented out.
 # Currently processed as
