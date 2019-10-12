@@ -1,0 +1,28 @@
+###############################################################################
+###############################################################################
+### GitHub SSH Client Config file                                           ###
+###                                                                         ###
+### This code block required for general GitHub access.                     ### 
+###                                                                         ###
+### Place this code block in file ~/.ssh/config on your workstation.        ###
+###                                                                         ###
+### DISCLAIMER:                                                             ###
+###     This code block not designed to work with wildcard definition       ###
+###     for Host (Host *) in the ~/.ssh/config file.                        ###
+###                                                                         ###
+###  Syntax format                                                          ###
+###                                                                         ###
+###   Host [ssh alias names]                                                ###
+###          User [host user name]                                          ###
+###          Hostnmae [host dns]                                            ###
+###          Port 22                                                        ###
+###          IdentifyFile ~/.ssh/[Your userid]                              ###
+###############################################################################
+#                                                                           ###
+Host github
+     User git
+     Hostname github.com
+     Port 22
+     IdentityFile ~/.ssh/cmguy
+#                                                                           ###
+###############################################################################

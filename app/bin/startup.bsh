@@ -4,7 +4,7 @@
 #
 #  (This script maintained at repo CM-Plan-Site/app/bin/startup.bsh)
 #
-# Written by Andy Wallace 2018/07/18; last updated 2019/08/28
+# Written by Andy Wallace 2018/07/18; last updated 2019/10/12
 #
 # This script automatically sets up a VM enhanced development environment 
 # for the targeted repository.
@@ -28,6 +28,7 @@
 #             $ chmod 755 ~/bin/nestartup.bsh
 #       4.  Configure following script variables for your environment:
 #             $TargetDir      # workstation repo workarea directory
+#                 CURRENTLY SET AS ARGUMENT
 #             $GitHubUserID   # Forked repo userid
 #       5.  $TargetDIR directory exists
 #       6.  $TargetRepo workarea directory maintained in ~/$TargetDir
@@ -107,8 +108,8 @@
 #  Reference EMM/CM-System-Site/app/bin/.bash_profile for a template
 #  reference.
 ################################################################################
-ThisScript="nestartup.bsh"         # Used in log and response messaging
-TargetDir="negit-repos"            # repo workarea directory
+ThisScript="startup.bsh"           # Used in log and response messaging
+TargetDir="git-repos"              # repo workarea directory
 GitHubUserID="cmguy"               # Forked repo userid
 MainRepo="main"                    # Name of workarea remote to repo forked
                                      # and cloned from.

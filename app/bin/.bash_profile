@@ -23,12 +23,12 @@ export VAGRANT_PREFER_SYSTEM_BIN=1
 
 # repo working aliases
 # NOTE: NE refers to None-Enterprise in terms of GitHub.
-alias mwa='cd ~/nerepo-repos'
+alias mwa='cd ~/git-repos'
 ## My Deploy Directory
-alias mdd='cd ~/negit-repos/CM-Plan-Site/deploy'
+alias mdd='cd ~/git-repos/CM-Plan-Site/deploy'
 ## My bin Directory
-alias mab='cd ~/negit-repos/CM-Plan-Site/app/bin'
+alias mab='cd ~/git-repos/CM-Plan-Site/app/bin'
 ## My site Directory
-alias mas='cd ~/negit-repos/CM-Plan-Site/app/site'
+alias mas='cd ~/git-repos/CM-Plan-Site/app/site'
 
 ###############################################################################
